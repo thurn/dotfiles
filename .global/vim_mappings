@@ -1,0 +1,64 @@
+" /* vim: set filetype=vim : */
+
+" Swap semicolon and colon
+noremap ; :
+noremap : ;
+
+" Map two semicolons to save
+noremap ;; :w<CR>
+
+" Make Y consistent with C and D
+noremap Y y$
+
+" ` jumps to line and column, ' just jumps to line.
+nnoremap ' `
+nnoremap ` '
+
+" Scroll a bit faster than one line at a time
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" H for start of line, L for end of line
+noremap H ^
+noremap L $
+
+" Map gh to clear hilighting
+noremap gh :noh<CR>
+
+" Map gl to invoke shell commands
+noremap gl :!
+
+" Map j and k to work with screen lines, not logical lines
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" Switch macro playback and macro record 
+noremap q @
+noremap @ q
+
+" Map Control-K to Escape
+noremap!  
+
+" Map gs to invoke a perl substitute regular expression
+noremap gs :%!perl -p -i -e 's/
+
+" Map gd to run current file
+noremap gd :!./%<CR>
+
+" F2 to toggle paste mode
+set pastetoggle=<F2>
+
+" John Zila's * and # Keybindings
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+nnoremap * :set hls<CR>:let @/="<C-r><C-w>"<CR>

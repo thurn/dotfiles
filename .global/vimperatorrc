@@ -1,0 +1,3 @@
+noremap ; :
+noremap : ;
+set! ui.key.contentAccess=3

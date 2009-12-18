@@ -1,0 +1,5 @@
+"
+" Starter vimperatorrc for a new system
+"
+
+source ~/.global/vimperatorrc

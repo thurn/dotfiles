@@ -1,0 +1,73 @@
+# Set default file creation to rwxr-x---
+umask 022
+
+# Add my local bin to the path
+if [ -d "$HOME/bin" ]; then
+	export PATH="$HOME/bin:${PATH}"
+fi
+
+# Add current directory and junit to the classpath
+if [ -n "$CLASSPATH" ]; then
+	export CLASSPATH=".:${CLASSPATH}"
+	if [ -f "/usr/share/java/junit.jar" ]; then
+		export CLASSPATH="${CLASSPATH}:/usr/share/java/junit.jar"
+	fi
+fi
+
+# Add my local manual pages to the path
+if [ -d ~/man ]; then
+    MANPATH=~/man${MANPATH:-:}
+    export MANPATH
+fi
+
+# Stop exectuting here if the shell is non-interactive
+[ -z "$PS1" ] && return
+
+
+shopt -s checkwinsize      # check the window size after each command
+shopt -s cdspell           # This will correct minor spelling errors in a cd command.
+shopt -s histappend        # Append to history rather than overwrite
+#shopt -s dotglob           # files beginning with . to be areturned in the results of path-name expansion.
+
+# prevent overwriting files with cat:
+set -o noclobber
+# stops ctrl+d from logging me out:
+set -o ignoreeof           
+# vi keybindings in bash:
+# set -o vi                  
+
+# default bash_history is 500
+export HISTSIZE=5000
+export HISTFILESIZE=5000
+export HISTCONTROL=ignoredups
+
+# Set up less to read other file formats
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# Set xterm title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
+
+# Load alias definitions
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Bash Prompt
+YELLOW='\[\e[1;93m\]'
+RED='\[\e[1;31m\]'
+GREEN='\[\e[1;92m\]'
+NC='\[\e[0m\]'  
+PS1="${GREEN}\u${RED}@${YELLOW}\w${RED}\$${NC} "
+
+# /* vim: set filetype=sh : */

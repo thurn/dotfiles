@@ -1,0 +1,1 @@
+utl_3_0a.vba: call delete('/home/dthurn/.vim/doc/utl_usr.txt')|call delete('/home/dthurn/.vim/autoload/utl_lib.vim')|call delete('/home/dthurn/.vim/plugin/utl.vim')|call delete('/home/dthurn/.vim/plugin/utl_rc.vim')|call delete('/home/dthurn/.vim/plugin/utl_scm.vim')|call delete('/home/dthurn/.vim/plugin/utl_uri.vim')

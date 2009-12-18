@@ -1,0 +1,38 @@
+# Summaries only for du
+alias du='du -s -h'
+
+# Human readable free space
+alias df='df -h'
+
+# Colorize Grep
+alias grep='grep --color=auto'
+
+# Allow mkdir to make parents
+alias mkdir='mkdir -p -v'
+
+# Prompt before cp overwrite
+alias cp='cp -i'
+
+# Prompt before mv overwrite
+alias mv='mv -i'
+
+# Ping should eventually time out
+alias ping='ping -c 5'
+
+# I can never remember which is which
+alias more='less'
+
+# Show process names in pgrep
+alias pgrep="pgrep -l"
+
+# Show history in less
+alias history="history | less"
+
+# Set up "pie" as sed-like perl
+alias pie='perl -p -i -e'
+
+# Set up "see" as no-modifications vim
+alias see='vim -M'
+
+# Set up view to read from stdin
+alias view='vim -M -'

@@ -1,0 +1,13 @@
+# /* vim: set filetype=sh : */
+
+if which dig > /dev/null;
+then
+  if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
+  then
+    rsync -rtz thurn.ca::dthurndotfiles .
+  else
+    date >> .no_internet
+  fi  
+else
+  rsync -rtz thurn.ca::dthurndotfiles .
+fi
