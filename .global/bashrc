@@ -37,8 +37,10 @@ set -o ignoreeof
 # set -o vi                  
 
 # default bash_history is 500
-export HISTSIZE=5000
-export HISTFILESIZE=5000
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+
+# ignore duplicate commands in history
 export HISTCONTROL=ignoredups
 
 # Set up less to read other file formats
