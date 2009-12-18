@@ -2,7 +2,6 @@
 # Starter bashrc for a new system
 #
 
-source ~/.global/dotfile_import
 source ~/.global/bashrc
 source ~/.global/bash_aliases
 
