@@ -1,6 +1,7 @@
 #
 # Starter bashrc for a new system
 #
+git pull origin master -q &> /dev/null
 
 source ~/.global/bashrc
 source ~/.global/bash_aliases
