@@ -96,5 +96,6 @@ if &t_Co > 2
     set hlsearch
     set incsearch 
     "For fast terminals can highlight search string as you type
+    colorscheme desert256
 endif
 

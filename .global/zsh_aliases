@@ -36,3 +36,15 @@ alias see='vim -M'
 
 # Set up view to read from stdin
 alias view='vim -M -'
+
+platform='unknown'
+uNameString=$(uname)
+if [[ "$uNameString" == 'Darwin' ]]; then
+  alias la='ls -A -G -F'
+  alias ll='ls -A -l -G -F -h'
+  alias ls='ls -G -F'
+elif [[ "$uNameString" == 'Linux' ]]; then
+  alias la='ls -A -G -F -p --color=always'
+  alias ll='ls -A -l -G -F -p -h --color=always'
+  alias ls='ls -C -G -F --color=always'
+fi

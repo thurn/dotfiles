@@ -2,7 +2,8 @@
 # Starter zshrc for a new system
 #
 
-source ~/.global/dotfile_import
+git pull origin master -q &> /dev/null
+
 source ~/.global/zshrc
 source ~/.global/zsh_aliases
 
@@ -13,5 +14,7 @@ fi
 
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
+
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Interactive-Only Logic
