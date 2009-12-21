@@ -23,12 +23,6 @@ fi
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
 
-
-shopt -s checkwinsize      # check the window size after each command
-shopt -s cdspell           # This will correct minor spelling errors in a cd command.
-shopt -s histappend        # Append to history rather than overwrite
-#shopt -s dotglob          # files beginning with . to be areturned in the results of path-name expansion.
-
 # prevent overwriting files with cat:
 set -o noclobber
 # stops ctrl+d from logging me out:
@@ -68,4 +62,4 @@ YELLOW='\[\e[1;93m\]'
 RED='\[\e[1;31m\]'
 GREEN='\[\e[1;92m\]'
 NC='\[\e[0m\]'  
-PS1="${GREEN}\u${RED}@${YELLOW}\w${RED}\$${NC} "
+#PS1="${GREEN}\u${RED}@${YELLOW}\w${RED}\$${NC} "
