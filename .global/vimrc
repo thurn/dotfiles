@@ -25,7 +25,7 @@ set softtabstop=2
 " Swap case is an operator
 set tildeop          
 " Help vim guess my background color
-set background=dark  
+set background=light
 " Lots of history!
 set history=10000    
 " I have lots of RAM
@@ -88,14 +88,14 @@ set viminfo='20,<50,s10,h,%
 " Disable bell
 set noerrorbells
 
-
 autocmd BufEnter ?akefile* set noet ts=8 sts=8 sw=8
 
 if &t_Co > 2 
     syntax on
     set hlsearch
     set incsearch 
-    "For fast terminals can highlight search string as you type
-    colorscheme desert256
 endif
 
+" This is sort of a hack, but t_Co never seems to get set correctly
+set t_Co=256
+colorscheme sienna
