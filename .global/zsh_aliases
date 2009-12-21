@@ -37,7 +37,6 @@ alias see='vim -M'
 # Set up view to read from stdin
 alias view='vim -M -'
 
-platform='unknown'
 uNameString=$(uname)
 if [[ "$uNameString" == 'Darwin' ]]; then
   alias la='ls -A -G -F'
