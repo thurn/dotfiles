@@ -1,5 +1,5 @@
 #
-# Starter zsh_profile for a new system
+# Thor's zsh_profile
 #
 
 if [ -f ~/.zshrc ]; then

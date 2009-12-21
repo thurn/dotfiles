@@ -1,5 +1,5 @@
 #
-# Starter zshrc for a new system
+# Thor's zshrc
 #
 
 git pull origin master -q &> /dev/null
@@ -7,14 +7,13 @@ git pull origin master -q &> /dev/null
 source ~/.global/zshrc
 source ~/.global/zsh_aliases
 
-# Load local aliases, if any exist
-if [ -f ~/.zsh_aliases ]; then
-   source ~/.zsh_aliases
+# Load local shell config, if any
+if [ -f ~/.shell_config ]; then
+   source ~/.shell_config
 fi
 
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
 # Interactive-Only Logic
+export TERM="xterm-color"

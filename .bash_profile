@@ -1,5 +1,5 @@
 #
-# Starter bash_profile for a new system
+# Thor's bash_profile
 #
 
 if [ -f ~/.bashrc ]; then
