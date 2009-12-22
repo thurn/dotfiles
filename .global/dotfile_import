@@ -4,7 +4,7 @@
 
 if type git &> /dev/null;
 then
-  git pull -q origin master > /dev/null
+  git pull -q origin master
 else
 echo "No git! Falling back to rsync"
   ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
