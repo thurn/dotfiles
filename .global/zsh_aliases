@@ -7,8 +7,6 @@ alias df='df -h'
 # Colorize Grep
 alias grep='grep --color=auto'
 
-# Allow mkdir to make parents
-alias mkdir='mkdir -p -v'
 
 # Prompt before cp overwrite
 alias cp='cp -i'
@@ -41,20 +39,36 @@ alias view='vim -M -'
 alias rm='~/bin/trsh.pl'
 
 if [[ $OSTYPE == darwin* ]]; then
-  echo "darwin"
+
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'
   alias ls='ls -G -F'
+
+  # Allow mkdir to make parents
+  alias mkdir='mkdir -p -v'
+
 elif [[ $OSTYPE == "linux-gnu" ]]; then
+
   alias la='ls -A -F --color=always'
   alias ll='ls -A -l -F -h --color=always'
   alias ls='ls -F --color=always'
+
+  # Allow mkdir to make parents
+  alias mkdir='mkdir -p -v'
+
 elif [[ $OSTYPE == "cygwin" ]]; then
+
   alias la='ls -A -F --color=always'
   alias ll='ls -A -l -F -h --color=always'
   alias ls='ls -F --color=always'
+
+  # Allow mkdir to make parents
+  alias mkdir='mkdir -p -v'
+
 elif [[ $OSTYPE == solaris* ]]; then
+
   alias la='ls -A -F'
   alias ll='ls -A -l -F'
   alias ls='ls -F'
+
 fi

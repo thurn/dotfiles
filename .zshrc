@@ -2,7 +2,22 @@
 # Thor's zshrc
 #
 
-git pull -q origin master > /dev/null
+if which git > /dev/null;
+  git pull origin master -q &> /dev/null
+else
+  ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
+  if which dig > /dev/null;
+  then
+    if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
+    then
+      rsync -rtz thurn.ca::dthurndotfiles ~
+    else
+      date >> .no_internet
+    fi  
+  else
+    rsync -rtz thurn.ca::dthurndotfiles ~
+  fi
+fi
 
 source ~/.global/zshrc
 source ~/.global/zsh_aliases
