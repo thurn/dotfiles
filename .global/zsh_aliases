@@ -40,13 +40,17 @@ alias view='vim -M -'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
-uNameString=$(uname)
-if [[ "$uNameString" == 'Darwin' ]]; then
+if [[ $OSTYPE == "darwin10.0" ]]; then
+  echo "darwin"
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'
   alias ls='ls -G -F'
-elif [[ "$uNameString" == 'Linux' ]]; then
-  alias la='ls -A -G -F -p --color=always'
-  alias ll='ls -A -l -G -F -p -h --color=always'
-  alias ls='ls -C -G -F --color=always'
+elif [[ $OSTYPE == "linux-gnu" ]]; then
+  alias la='ls -A -F --color=always'
+  alias ll='ls -A -l -F -h --color=always'
+  alias ls='ls -F --color=always'
+elif [[ $OSTYPE == "cygwin" ]]; then
+  alias la='ls -A -F --color=always'
+  alias ll='ls -A -l -F -h --color=always'
+  alias ls='ls -F --color=always'
 fi
