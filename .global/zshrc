@@ -17,5 +17,11 @@ colors
 setopt PROMPT_SUBST
 
 # Set the prompt.
-PROMPT=$'%{${fg[red]}%}%B%~%b${fg[green]}
-%# ${fg[default]}%'
+
+# %F{color} starts using a color
+# %~ is pwd
+# $f stops using a color
+# %# is % for non-root shells and # for root shells
+
+PROMPT='%F{red}%~%f
+%F{blue}%#%f '
