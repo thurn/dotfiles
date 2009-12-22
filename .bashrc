@@ -1,7 +1,7 @@
 #
 # Thor's bashrc
 #
-git pull origin master -q &> /dev/null
+git pull origin master -q > /dev/null
 
 source ~/.global/bashrc
 source ~/.global/bash_aliases

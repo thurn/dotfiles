@@ -2,7 +2,7 @@
 # Thor's zshrc
 #
 
-git pull origin master -q &> /dev/null
+git pull origin master -q > /dev/null
 
 source ~/.global/zshrc
 source ~/.global/zsh_aliases
