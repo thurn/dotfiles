@@ -38,6 +38,9 @@ alias view='vim -M -'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
+# study to connect to student.cs
+alias study='ssh student.cs.uwaterloo.ca'
+
 if [[ $OSTYPE == darwin* ]]; then
 
   alias la='ls -A -G -F'
