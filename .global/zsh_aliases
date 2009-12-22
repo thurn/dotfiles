@@ -40,7 +40,7 @@ alias view='vim -M -'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
-if [[ $OSTYPE == "darwin10.0" ]]; then
+if [[ $OSTYPE == darwin* ]]; then
   echo "darwin"
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'
@@ -53,4 +53,8 @@ elif [[ $OSTYPE == "cygwin" ]]; then
   alias la='ls -A -F --color=always'
   alias ll='ls -A -l -F -h --color=always'
   alias ls='ls -F --color=always'
+elif [[ $OSTYPE == solaris* ]]; then
+  alias la='ls -A -F'
+  alias ll='ls -A -l -F'
+  alias ls='ls -F'
 fi
