@@ -1,0 +1,44 @@
+###
+# Common configuration for both BASH and ZSH
+###
+
+# Set default file creation to rwxr-x---
+umask 022
+
+# Add my local bin to the path
+if [ -d "$HOME/bin" ]; then
+	export PATH="$HOME/bin:${PATH}"
+fi
+
+# Add my local manual pages to the path
+if [ -d ~/man ]; then
+    MANPATH=~/man${MANPATH:-:}
+    export MANPATH
+fi
+
+# Stop executing here if the shell is non-interactive
+[ -z "$PS1" ] && return
+
+# prevent overwriting files with cat:
+set -o noclobber
+# stops ctrl+d from logging me out:
+set -o ignoreeof           
+# vi keybindings in bash:
+# set -o vi                  
+
+# set history size
+export HISTSIZE=5000
+export HISTFILESIZE=5000
+export HISTCONTROL=ignoredups
+
+# Set up less to read other file formats
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# Set xterm title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
