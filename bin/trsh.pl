@@ -19,14 +19,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.  *
 #*************************************************************************
 
+# Removed some includes that were not present on the Solaris systems
 use strict;
-use warnings;
+#use warnings;
 use Getopt::Long;
 use File::Find;
-use Term::ANSIColor;
+#use Term::ANSIColor;
 use Cwd;
 use POSIX 'floor';
-$Term::ANSIColor::AUTORESET = 1;
+#$Term::ANSIColor::AUTORESET = 1;
 
 
 my $usage_string = "
