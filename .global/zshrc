@@ -9,6 +9,116 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
+#enable completion
+zmodload zsh/complist
+autoload compinit && compinit
+
+#Add colors for filename completion
+eval `gdircolors`
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#More bash-like completion
+setopt BASH_AUTO_LIST
+setopt NO_AUTO_MENU
+setopt NO_ALWAYS_LAST_PROMPT
+
+#Rakefile completion
+_rake_does_task_list_need_generating () {
+  if [ ! -f .rake_tasks ]; then return 0;
+  else
+    accurate=$(stat -f%m .rake_tasks)
+    changed=$(stat -f%m Rakefile)
+    return $(expr $accurate '>=' $changed)
+  fi
+}
+
+_rake () {
+  if [ -f Rakefile ]; then
+    if _rake_does_task_list_need_generating; then
+      echo "\nGenerating .rake_tasks..." > /dev/stderr
+      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+    fi
+    compadd `cat .rake_tasks`
+  fi
+}
+
+compdef _rake rake
+
+
+# Use ... for ../.. etc
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+        LBUFFER+=/..
+  else
+        LBUFFER+=.
+          fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
+
+# Up arrow to search history
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
+# dv cld and pd commands
+
+# Make cd push the old directory onto the directory stack.
+set -o AUTO_PUSHD
+
+# don't push duplicate directories
+set -o PUSHD_IGNORE_DUPS
+
+alias dv="dirs -v"
+
+# clear dirs from dirstack
+# usage:
+#    cld               - delete all entries in dirstack
+#    cld entry         - delete nth entry in dirstack
+#    cld entry1 entry2 - delete range of entries in dirstack
+cld () {
+
+   # if no args given, wipe out dirstack
+   if [ "$#" -eq "0" ]; then
+      dirs "."
+      popd
+      return
+   fi
+
+   # remove ranges of directory from dirstack
+   if [ "$#" -eq "1" ]; then
+      # if one arg given, wipe out that single dirstack entry
+      num1=$1
+      num2=$1
+   else
+      # delete ranges of directories from dirstack
+      num1=$1
+      num2=$2
+   fi
+
+   range=$(( $num2 - $num1 +1 ))
+
+   dirstackindex=0
+   while [[ $dirstackindex -lt $range ]]; do
+      popd +$num1 > /dev/null
+      dirstackindex=$(( $dirstackindex + 1 ))
+   done
+   dirs -v
+}
+
+# cd into a directory on the dirstack
+# usage:
+#    pd       - "pop" first directory off dirstack, cd into second dir
+#    pd entry - cd into nth entry in dirstack
+pd() {
+   if [ $# -gt 0 ]; then
+      cd ~+$1
+      dv
+   else
+      cld 0
+   fi
+}
+
 # Initialize colors.
 autoload -U colors
 colors
