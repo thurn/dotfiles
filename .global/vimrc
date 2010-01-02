@@ -57,6 +57,8 @@ set lazyredraw
 set linebreak
 " Allow current buffer to be in the background without a disk write
 set hidden
+" Enable non-stupid backspace key behavior
+set backspace=indent,eol,start
 
 " Enable the ruler with the format:
 " {buffer number}{modified/readonly flag}: {file type}

@@ -48,7 +48,8 @@ noremap gs :%!perl -p -i -e 's/
 noremap gd :!./%<CR>
 
 " Enable Nerd Tree
-noremap gn :NERDTree
+noremap gn :NERDTree 
+noremap gnt :NERDTree<CR>
 
 " Disable Nerd Tree
 noremap gq :NERDTreeClose<CR>
