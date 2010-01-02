@@ -47,8 +47,17 @@ noremap gs :%!perl -p -i -e 's/
 " Map gd to run current file
 noremap gd :!./%<CR>
 
-" F2 to toggle paste mode
-set pastetoggle=<F2>
+" Enable Nerd Tree
+noremap gn :NERDTree
+
+" Disable Nerd Tree
+noremap gq :NERDTreeClose<CR>
+
+" Omni-completion
+noremap! <C-j> <C-x><C-o>
+
+" toggle paste mode
+set pastetoggle=gt
 
 " John Zila's * and # Keybindings
 vnoremap <silent> * :<C-U>

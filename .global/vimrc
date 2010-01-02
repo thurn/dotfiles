@@ -9,7 +9,6 @@ endif
 
 let g:did_myvimrc = 1
 
-
 " No vi compatibility!:
 set nocompatible     
 " Line Numbers
@@ -88,7 +87,14 @@ set viminfo='20,<50,s10,h,%
 " Disable bell
 set noerrorbells
 
-autocmd BufEnter ?akefile* set noet ts=8 sts=8 sw=8
+" Colorize NERDTree
+let NERDChristmasTree = 1
+
+" Ruby autocomplete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 if &t_Co > 2 
     syntax on

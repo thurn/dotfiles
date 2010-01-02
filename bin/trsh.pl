@@ -332,11 +332,12 @@ sub print_colored{
 	my $color = shift;
 	my $size_rec = shift;
 	print "($uncolored_text) " if($no_count == 0);
+  $color = "NULL";
 
 	if($color eq "NULL"){
 		print "$colored_text";
 	} else {
-		print color($color), "$colored_text";
+		print "$colored_text";
 	}
 	if($size == 1){
 		my $sz = $size_rec;
