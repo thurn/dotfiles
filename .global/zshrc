@@ -14,7 +14,7 @@ zmodload zsh/complist
 autoload compinit && compinit
 
 #Add colors for filename completion
-eval `gdircolors`
+#eval `gdircolors`
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -133,5 +133,5 @@ setopt PROMPT_SUBST
 # $f stops using a color
 # %# is % for non-root shells and # for root shells
 
-PROMPT='%F{red}%~%f
+PROMPT='%U%F{red}%~%f%u
 %F{blue}%#%f '
