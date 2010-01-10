@@ -46,6 +46,8 @@ if [[ $OSTYPE == darwin* ]]; then
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'
   alias ls='ls -G -F'
+  
+  alias ldd='otool -L'
 
   # Allow mkdir to make parents
   alias mkdir='mkdir -p -v'
