@@ -54,6 +54,9 @@ noremap gnt :NERDTree<CR>
 " Disable Nerd Tree
 noremap gq :NERDTreeClose<CR>
 
+" A faster gg to get to top of file
+noremap gg :0<CR>
+
 " Omni-completion
 noremap! <C-j> <C-x><C-o>
 
