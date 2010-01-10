@@ -130,7 +130,7 @@ setopt PROMPT_SUBST
 
 # %F{color} starts using a color
 # %~ is pwd
-# $f stops using a color
+# %f stops using a color
 # %# is % for non-root shells and # for root shells
 
 PROMPT='%F{red}%~%f
