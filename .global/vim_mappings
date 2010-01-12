@@ -60,6 +60,10 @@ noremap gg :0<CR>
 " Omni-completion
 noremap! <C-j> <C-x><C-o>
 
+" Vimperator-style tab navigation
+noremap <C-n> :tabn<CR>
+noremap <C-p> :tabp<CR>
+
 " toggle paste mode
 set pastetoggle=gt
 
