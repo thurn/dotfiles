@@ -2,8 +2,8 @@
 # Common configuration for both BASH and ZSH
 ###
 
-# Set default file creation to rwxr-x---
-umask 022
+# Set default file creation to rw-rw-r--
+umask 002
 
 # Add my local bin to the path
 if [ -d "$HOME/bin" ]; then

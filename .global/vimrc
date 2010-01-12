@@ -49,8 +49,6 @@ set wildchar=<TAB>
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 " Support for non-native file formats
 set fileformats=unix,dos,mac 
-" Change the command line height to 2
-set cmdheight=2 
 " Do not redraw while running macros (much faster).
 set lazyredraw 
 " Wrap long lines at 'breakat' char instead of last character
