@@ -1,22 +1,35 @@
+# /* vim: set filetype=zsh : */
 #
 # My dotfile importing script
 #
 
-if type git &> /dev/null;
+#Only run this script if whoami returns a string containing my last name
+
+if type whoami &> /dev/null;
 then
-  git pull origin master
+  my_name=$(whoami)
 else
-echo "No git! Falling back to rsync"
-  ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
-  if type dig &> /dev/null;
+  my_name="thurn"
+fi
+
+if [[ $my_name == *thurn* ]]
+then
+  if type git &> /dev/null;
   then
-    if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
-    then
-      rsync -rtz thurn.ca::dthurndotfiles ~
+    git pull origin master
+  else # Without git, ssh into thurn.ca, run a git pull, then rsync
+  echo "No git! Falling back to rsync"
+    ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
+    if type dig &> /dev/null;
+    then # Do we have internet access?
+      if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
+      then
+        rsync -rtz thurn.ca::dthurndotfiles ~
+      else
+        date >> .no_internet
+      fi  
     else
-      date >> .no_internet
-    fi  
-  else
-    rsync -rtz thurn.ca::dthurndotfiles ~
+      rsync -rtz thurn.ca::dthurndotfiles ~
+    fi
   fi
 fi
