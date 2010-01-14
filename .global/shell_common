@@ -45,3 +45,6 @@ esac
 
 # Address to push to for dotfiles updates
 export dotfiles="git@github.com:thurn/dotfiles.git"
+
+# Set editor for svn
+export SVN_EDITOR=vim
