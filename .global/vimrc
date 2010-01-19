@@ -11,8 +11,8 @@ let g:did_myvimrc = 1
 
 " No vi compatibility!:
 set nocompatible     
-" Line Numbers
-set number           
+" Line Numbers (Disabled to save space)
+" set number
 " Spaces instead of tab characters
 set expandtab        
 " Indentation width for autoindent
@@ -57,6 +57,8 @@ set linebreak
 set hidden
 " Enable non-stupid backspace key behavior
 set backspace=indent,eol,start
+" Enable the mouse in supporting terminals
+set mouse=a
 
 " Enable the ruler with the format:
 " {buffer number}{modified/readonly flag}: {file type}

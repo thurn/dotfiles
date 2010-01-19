@@ -3,7 +3,7 @@
 # My dotfile importing script
 #
 
-#Only run this script if whoami returns a string containing my last name
+# Only run this script if whoami contains a string with my last name
 
 if type whoami &> /dev/null;
 then
@@ -12,24 +12,31 @@ else
   my_name="thurn"
 fi
 
-if [[ $my_name == *thurn* ]]
+# Only run from the home directory
+wd=$(pwd)
+home=~
+
+if [[ $wd == $home ]]
 then
-  if type git &> /dev/null;
+  if [[ $my_name == *thurn* ]]
   then
-    git pull origin master
-  else # Without git, ssh into thurn.ca, run a git pull, then rsync
-  echo "No git! Falling back to rsync"
-    ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
-    if type dig &> /dev/null;
-    then # Do we have internet access?
-      if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
-      then
-        rsync -rtz thurn.ca::dthurndotfiles ~
+    if type git &> /dev/null;
+    then
+      git pull origin master
+    else # Without git, ssh into thurn.ca, run a git pull, then rsync
+    echo "No git! Falling back to rsync"
+      ssh thurn.ca "cd /home/dthurn/public_html/thurn.ca/dotfiles && git pull" 
+      if type dig &> /dev/null;
+      then # Do we have internet access?
+        if dig +time=1 +tries=1 +norecurse www.thurn.ca > /dev/null;
+        then
+          rsync -rtz thurn.ca::dthurndotfiles ~
+        else
+          date >> .no_internet
+        fi  
       else
-        date >> .no_internet
-      fi  
-    else
-      rsync -rtz thurn.ca::dthurndotfiles ~
+        rsync -rtz thurn.ca::dthurndotfiles ~
+      fi
     fi
   fi
 fi
