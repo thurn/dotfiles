@@ -3,22 +3,16 @@
 # My dotfile importing script
 #
 
-# Only run this script if whoami contains a string with my last name
-
-if type whoami &> /dev/null;
-then
-  my_name=$(whoami)
-else
-  my_name="thurn"
-fi
-
-# Only run from the home directory
 wd=$(pwd)
 home=~
 
-if [[ $wd == $home ]]
+WHO=`who am i | sed -e 's/ .*//'`
+ID_WHO=`id -u $WHO`
+ID=`id -u`
+
+if [[ $wd == $home ]] # Only run from home directory
 then
-  if [[ $my_name == *thurn* ]]
+  if [[ "$ID" = "$ID_WHO" ]] # Do not run if SUed
   then
     if type git &> /dev/null;
     then
