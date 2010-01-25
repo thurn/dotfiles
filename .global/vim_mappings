@@ -65,7 +65,7 @@ noremap <C-n> :tabn<CR>
 noremap <C-p> :tabp<CR>
 
 " toggle paste mode
-set pastetoggle=gt
+set pastetoggle=<C-e>
 
 " John Zila's * and # Keybindings
 vnoremap <silent> * :<C-U>
