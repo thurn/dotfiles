@@ -92,11 +92,14 @@ set noerrorbells
 " Colorize NERDTree
 let NERDChristmasTree = 1
 
-" Ruby autocomplete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" Ruby autocomplete -- TOO SLOW
+"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+" Build help documentation on vim start
+helptags ~/.vim/doc
 
 if &t_Co > 2 
     syntax on
