@@ -4,8 +4,8 @@ use strict;
 use File::Find;
 
 sub wanted {
-  if (m{($ARGV[0])}) {
-    print "$File::Find::name\n"
+  if (m{($ARGV[0])}i) {
+    print "$File::Find::name\n";
   }
 }
 
@@ -17,4 +17,3 @@ if ($#ARGV == 0) {
   print "Usage: search REGEX [directory]\n";
   print "Example: search .js ~\n";
 }
-
