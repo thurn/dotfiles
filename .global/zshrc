@@ -23,6 +23,34 @@ setopt BASH_AUTO_LIST
 setopt NO_AUTO_MENU
 setopt NO_ALWAYS_LAST_PROMPT
 
+#History File Size
+HISTSIZE=10000
+SAVEHIST=10000
+#History File Location
+HISTFILE=~/.global/zsh_history
+# Append to history intead of overwriting
+setopt append_history
+# Append to history after commands, instead of at shell exit
+setopt inc_append_history
+# Save timestamps for commands
+setopt extended_history
+# Don't display duplicates while searching
+setopt hist_find_no_dups
+# Remove older commands if they duplicate newer comamnds
+setopt hist_ignore_all_dups
+# Remove blanks from commands as they are added
+setopt hist_reduce_blanks
+# Remove commands with leading whitespace
+setopt hist_ignore_space
+# Remove the history command from the history list
+setopt hist_no_store
+# Remove function definitions from history
+setopt hist_no_functions
+# Omit older duplicates when writing history
+setopt hist_save_no_dups
+#Removed duplicate items from history first
+setopt hist_expire_dups_first
+
 #Rakefile completion
 _rake_does_task_list_need_generating () {
   if [ ! -f .rake_tasks ]; then return 0;
