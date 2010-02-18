@@ -13,14 +13,6 @@ let g:did_myvimrc = 1
 set nocompatible     
 " Line Numbers (Disabled to save space)
 " set number
-" Spaces instead of tab characters
-set expandtab        
-" Indentation width for autoindent
-set shiftwidth=2     
-" Width to display tab characters at
-set tabstop=2        
-" Spaces feel like real tabs
-set softtabstop=2
 " Swap case is an operator
 set tildeop          
 " Help vim guess my background color
@@ -59,44 +51,34 @@ set hidden
 set backspace=indent,eol,start
 " Enable the mouse in supporting terminals
 set mouse=a
-
 " Enable the ruler with the format:
 " {buffer number}{modified/readonly flag}: {file type}
 " [current line, current column] {position percentage in file}
 set ruler
 set rulerformat=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)
-
 " Configure Status Line
 set statusline = "%f\\ %h%m%r%=%l,%v\\ \\ \\ \\ %P" 
 set laststatus=2 
-
-" Enable C indenting
-set cindent
-" C Indent Keystring
-set cinkeys=0{,0},0),:,!^F,o,0,e " default is 0{,0},0),:,0#,!^F,o,0,e
-
 " Start scrolling 3 lines before the cursor reaches the bottom
 set scrolloff=3
-
 " save backups centrally
 set backupdir=~/.vim
 set directory=~/.vim
-
 " remember some stuff after quiting vim:
 " marks, registers, searches, buffer list
 set viminfo='20,<50,s10,h,%
-
 " Disable bell
 set noerrorbells
+" Whitespace insensitive diff
+set diffopt+=iwhite
+
+" Enable the filetype plugin
+" Not sure if both of these are needed?
+filetype plugin indent on
+filetype plugin on
 
 " Colorize NERDTree
 let NERDChristmasTree = 1
-
-" Ruby autocomplete -- TOO SLOW
-"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Build help documentation on vim start
 helptags ~/.vim/doc
