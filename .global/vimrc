@@ -77,6 +77,15 @@ set diffopt+=iwhite
 filetype plugin indent on
 filetype plugin on
 
+" Default indentation
+" ftplugins to override
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set textwidth=80
+set smarttab
+set expandtab
+
 " Colorize NERDTree
 let NERDChristmasTree = 1
 
