@@ -1,5 +1,3 @@
-"
-" Thor's vimperatorrc
-"
+" /* vim: set filetype=vim : */
 
 source ~/.global/vimperatorrc

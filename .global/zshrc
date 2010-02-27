@@ -1,7 +1,4 @@
-###
-# My zshrc
-###
-
+# /* vim: set filetype=zsh : */
 source ~/.global/shell_common
 
 # Load alias definitions

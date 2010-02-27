@@ -1,6 +1,4 @@
-###
-# My bashrc
-###
+# /* vim: set filetype=bash : */
 
 source ~/.global/shell_common
 

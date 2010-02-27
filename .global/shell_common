@@ -1,6 +1,4 @@
-###
-# Common configuration for both BASH and ZSH
-###
+# /* vim: set filetype=bash : */
 
 # Set default file creation to rw-rw-r--
 umask 002
