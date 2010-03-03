@@ -36,7 +36,12 @@
 "			   preprocessor directives but assume them to be
 "			   operators
 " 
-" 
+
+let hs_highlight_delimiters = 1
+let hs_highlight_boolean = 1
+let hs_highlight_types = 1
+let hs_highlight_debug = 1
+
 
 if version < 600
   syn clear
