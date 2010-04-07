@@ -4,8 +4,9 @@
 noremap ; :
 noremap : ;
 
-" Map two semicolons to save
-noremap ;; :w<CR>
+" Map s to save and Ctrl-s to s
+noremap <C-s> s
+noremap s :w<CR>
 
 " Make Y consistent with C and D
 noremap Y y$
