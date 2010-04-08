@@ -14,10 +14,6 @@ noremap Y y$
 nnoremap ' `
 nnoremap ` '
 
-" Scroll a bit faster than one line at a time
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
 " H for start of line, L for end of line
 noremap H ^
 noremap L $
@@ -48,22 +44,18 @@ noremap gs :%!perl -p -i -e 's/
 noremap gd :!./%<CR>
 
 " Map o and O to exit insert mode
-
 noremap o o<ESC>
 noremap O O<ESC>
 
 " Enable Nerd Tree
 noremap gn :NERDTree 
-noremap gnt :NERDTree<CR>
+noremap gnt :NERDTree .<CR>
 
 " Disable Nerd Tree
 noremap gq :NERDTreeClose<CR>
 
-" A faster gg to get to top of file
-noremap gg :0<CR>
-
-" Omni-completion
-noremap! <C-j> <C-x><C-o>
+" Completion
+noremap! <C-j> <C-x><C-u>
 
 " Vimperator-style tab navigation
 noremap <C-n> :tabn<CR>
