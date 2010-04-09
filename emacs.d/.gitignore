@@ -1,0 +1,7 @@
+auto-save-list/*
+emacs-visited-files
+emacs-visited-files~
+tramp
+.ido.last
+.ido.last~
+*.elc
