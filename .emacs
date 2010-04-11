@@ -3,8 +3,8 @@
 
 (defvar emacs-root (if (or (eq system-type 'ms-dos)
 			   (eq system-type 'windows-nt))
-		           "C:/emacs/"
-		           "~/emacs.d/")
+		           "C:/emacs/" ;; Windows root
+		           "~/emacs.d/" ;; UNIX root )
   "A guess at where the emacs root is located.")
 
 (defvar init-file "init.el" 
