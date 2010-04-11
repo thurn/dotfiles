@@ -1,5 +1,5 @@
 ;; Set load path
-(add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "~/emacs.d/site-lisp")
 
 (setq pop-up-frames nil)
 
@@ -178,4 +178,3 @@ and set the focus back to Emacs frame"
 (setq ido-use-filename-at-point 'guess)
 (setq ido-create-new-buffer 'always)
 (setq confirm-nonexistent-file-or-buffer nil)
-
