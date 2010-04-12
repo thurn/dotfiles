@@ -30,6 +30,24 @@
 (dthurn-normal-map "H" 'viper-bol-and-skip-white)
 (dthurn-normal-map "L" 'viper-goto-eol)
 
+;; Scrolling keeps the point in the same place.
+(setq scroll-preserve-screen-position t)
+
+;; Fix for Vimpulse Ctrl-u scrolling
+(dthurn-all-map "C-u" 'viper-scroll-down)
+
+;; Ctrl-b to switch buffers
+(dthurn-all-map "C-b" 'ido-switch-buffer)
+
+;; Execute find-file using Ctrl-f
+(dthurn-all-map "C-f" 'ido-find-file)
+
+;; C-w for backward-kill-word
+(dthurn-all-map "C-w" 'backward-kill-word)
+
+;; Execute M-x using C-m
+(dthurn-all-map "C-m" 'execute-extended-command)
+
 ;; gs to open a perl substitute command
 (vimpulse-map (kbd "gs")
               (lambda ()
