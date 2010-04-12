@@ -1,10 +1,17 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The entry point into the magical world that is my emacs configurations.    ;;
+;; This file defines some helper functions for loading other elisp files and  ;;
+;; then loads all of the configuration directories.                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Load global functions
+(load-file (concat emacs-root "global.el"))
+
 ;; Set load path
-(add-to-list 'load-path "~/emacs.d/site-lisp")
+(add-to-list 'load-path (concat emacs-root "site-lisp"))
 
-(setq pop-up-frames nil)
-
-;; Load vimpulse
-(require 'vimpulse)
+;; Load configurations
+(dthurn-load-directory (concat emacs-root "configurations"))
 
 ;; js2-mode
 (autoload 'js2-mode "js2" nil t)
@@ -15,67 +22,11 @@
 (setq save-visited-files-auto-restore t)
 (save-visited-files-mode t)
 
-;;1
-(vimpulse-map (kbd "C-k") 'viper-intercept-ESC-key)
-(vimpulse-vmap (kbd "C-k") 'viper-intercept-ESC-key)
-(vimpulse-imap (kbd "C-k") 'viper-intercept-ESC-key)
-
-;;2
-(vimpulse-vmap (kbd ";") 'viper-ex)
-(vimpulse-map (kbd ";") 'viper-ex)
-
-(vimpulse-vmap (kbd ":") 'viper-repeat-find)
-(vimpulse-map (kbd ":") 'viper-repeat-find)
-;;3
-(vimpulse-vmap (kbd "s") 'save-buffer)
-(vimpulse-map (kbd "s") 'save-buffer)
-(vimpulse-vmap (kbd "C-s") 'viper-substitute)
-(vimpulse-map (kbd "C-s") 'viper-substitute)
-
-
-;;4
-(vimpulse-map (kbd "H") 'viper-bol-and-skip-white)
-(vimpulse-vmap (kbd "H") 'viper-bol-and-skip-white)
-(vimpulse-map (kbd "L") 'viper-goto-eol)
-(vimpulse-vmap (kbd "L") 'viper-goto-eol)
-
-;;5
-(vimpulse-map (kbd "gs")
-              (lambda ()
-                (interactive)
-                (shell-command-on-region (point-min)
-                                         (point-max)
-                                         (concat "perl -p -i -e 's/"
-                                                 (read-string ":%!perl -p -i -e 's/"))
-                                         nil
-                                         t)))
-
-;; Block cursor
-(setq-default cursor-type 'box)
-
 ;; Fixed C-u and C-d
 (setq scroll-preserve-screen-position t)
 (vimpulse-map (kbd "C-u") 'viper-scroll-down)
 (vimpulse-vmap (kbd "C-u") 'viper-scroll-down)
 (vimpulse-imap (kbd "C-u") 'viper-scroll-down) 
-
-					;(defun nflath-viper-scroll-down (&optional arg)
-					;(interactive)
-					;(dotimes (i 20)
-					;(scroll-down 1)
-					;(previous-line)))
-					;(vimpulse-map (kbd "C-u") 'nflath-viper-scroll-down)
-					;(vimpulse-vmap (kbd "C-u") 'nflath-viper-scroll-down)
-					;(vimpulse-imap (kbd "C-u") 'nflath-viper-scroll-down) 
-
-					;(defun nflath-viper-scroll-up (&optional arg)
-					;(interactive)
-					;(dotimes (i 20)
-					;(scroll-up 1)
-					;(next-line)))
-					;(vimpulse-map (kbd "C-d") 'nflath-viper-scroll-up)
-					;(vimpulse-vmap (kbd "C-d") 'nflath-viper-scroll-up)
-					;(vimpulse-imap (kbd "C-d") 'nflath-viper-scroll-up) 
 
 ;; Execute M-x using C-m
 (vimpulse-map (kbd "\C-m") 'execute-extended-command)
