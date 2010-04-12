@@ -4,15 +4,18 @@
 ;; then loads all of the configuration directories.                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Set load path
-(add-to-list 'load-path (concat emacs-root "site-lisp"))
+(defun load-directory-dthurn (dir)
+  "Loads every .el file in a directory in sorted order"
+  (mapcar 'load-file (directory-files dir t "\\.el\\'")))
 
-(load-file (concat emacs-root "global.el"))
-(load-file (concat emacs-root "emacs.el"))
-(load-file (concat emacs-root "vimpulse.el"))
-(load-file (concat emacs-root "js2.el"))
-(load-file (concat emacs-root "term.el"))
-(load-file (concat emacs-root "tramp.el"))
-(load-file (concat emacs-root "visited.el"))
-(load-file (concat emacs-root "aquamacs.el"))
+;; Set load path to the site-lisp directory with my libraries
+(add-to-list 'load-path (concat emacs-root-dthurn "site-lisp"))
 
+;; Load customizations. NOTE: Sometimes, the order of customization loading is 
+;; important. To enable an ordering, the customizations are always loaded by 
+;; dthurn-load-directory above in alphabetical order as specified by lessp. 
+;; When customizations need to be ordered, prefix the file containing them
+;; with aa to put them at the start of the load sequence or zz to put them
+;; at the end of the sequence, then differentiate among them using a digits.
+;; For example, to make visited.el load last, name it zz1_visited.el
+(load-directory-dthurn (concat emacs-root-dthurn "lisp"))

@@ -8,9 +8,6 @@
 ;; Cause Emacs to use the box cursor
 (setq-default cursor-type 'box)
 
-;; Override location for configuration file, make it defualt to .emacs
-(setq custom-file nil)
-
 ;; Always show line numbers
 (global-linum-mode 1)
 
