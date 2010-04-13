@@ -5,3 +5,4 @@ tramp
 *.elc
 *~
 .DS_Store
+*.rnc

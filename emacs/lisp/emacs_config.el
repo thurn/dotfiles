@@ -9,7 +9,7 @@
 (setq-default cursor-type 'box)
 
 ;; Always show line numbers
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 
 ;; Auto-hide compile window
 (defun notify-compilation-result(buffer msg)

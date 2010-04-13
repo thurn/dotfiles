@@ -4,3 +4,9 @@
 
 (load (concat emacs-root-dthurn "site-lisp/nxhtml-2.05/autostart.el"))
 
+;; Less incredibly painful choices for syntax highlighting for multiple modes
+(custom-set-faces
+ '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background light)) nil)))
+ '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background light)) nil)))
+)
+
