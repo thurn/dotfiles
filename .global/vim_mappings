@@ -36,7 +36,7 @@ noremap q @
 noremap @ q
 
 " Map Control-K to Escape
-" noremap!  
+noremap!  
 
 " Map gs to invoke a perl substitute regular expression
 noremap gs :%!perl -p -i -e 's/

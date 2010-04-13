@@ -17,7 +17,7 @@
   (normal-map-dthurn str fun))
 
 ;; Change the key for escape
-(all-map-dthurn "C-;" 'viper-intercept-ESC-key)
+(all-map-dthurn "C-l" 'viper-intercept-ESC-key)
 
 ;; Swap ; and :
 (normal-map-dthurn ";" 'viper-ex)
