@@ -4,3 +4,4 @@ tramp
 .ido.last
 *.elc
 *~
+.DS_Store
