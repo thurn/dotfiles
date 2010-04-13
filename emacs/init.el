@@ -8,8 +8,15 @@
   "Loads every .el file in a directory in sorted order"
   (mapcar 'load-file (directory-files dir t "\\.el\\'")))
 
-;; Set load path to the site-lisp directory with my libraries
-(add-to-list 'load-path (concat emacs-root-dthurn "site-lisp"))
+(defun recursive-add-to-load-path-dthurn (dir)
+  "Adds the supplied directory to the load-path, as well as an of its subdirectories"
+   (let ((default-directory dir))
+     (add-to-list 'load-path dir)
+     (normal-top-level-add-subdirs-to-load-path)))
+
+;; Set load path to be the site-lisp directory and all of its subdirectories. This 
+;; directory holds all of my emacs libraries.
+(recursive-add-to-load-path-dthurn (concat emacs-root-dthurn "site-lisp"))
 
 ;; Load customizations. NOTE: Sometimes, the order of customization loading is 
 ;; important. To enable an ordering, the customizations are always loaded by 
