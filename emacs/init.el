@@ -10,9 +10,9 @@
 
 (defun recursive-add-to-load-path-dthurn (dir)
   "Adds the supplied directory to the load-path, as well as an of its subdirectories"
-   (let ((default-directory dir))
-     (add-to-list 'load-path dir)
-     (normal-top-level-add-subdirs-to-load-path)))
+  (let ((default-directory dir))
+    (add-to-list 'load-path dir)
+    (normal-top-level-add-subdirs-to-load-path)))
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories. This 
 ;; directory holds all of my emacs libraries.

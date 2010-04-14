@@ -47,11 +47,14 @@
 ;; Map C-x f to open files... I keep hitting this by mistake!
 (all-map-dthurn "C-x f" 'ido-find-file)
 
+;; Indent the entire buffer
+(all-map-dthurn "C-x t" 'indent-whole-buffer-dthurn)
+
 ;; Mapping for backward-kill-word
 (all-map-dthurn "C-w" 'backward-kill-word)
 
 ;; Execute M-x commands
-(all-map-dthurn "C-u" 'execute-extended-command)
+(all-map-dthurn "C-y" 'execute-extended-command)
 
 ;; Perl regular expression find/replace
 (vimpulse-map (kbd "gs")

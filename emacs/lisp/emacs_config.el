@@ -28,3 +28,7 @@ and set the focus back to Emacs frame"
 (add-to-list 'compilation-finish-functions
 	     'notify-compilation-result)
 
+(defun indent-whole-buffer-dthurn ()
+  "Indents the entire buffer"
+  (interactive)
+  (indent-region (point-min) (point-max) nil))
