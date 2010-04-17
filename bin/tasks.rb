@@ -8,8 +8,8 @@ include FileUtils
 $task_duration = 25 * 60 # in seconds
 $break_duration = 25 * 5 # in seconds
 $default_preference = 5
-$upvote = +5
-$downvote = -5
+$upvote = +3
+$downvote = -3
 $storage = "tasks.yaml"
 
 if not File.exists?($storage)
@@ -77,6 +77,7 @@ def start_task()
     $tasks[task] += $upvote
   else
     puts "Ok, let's try again."
+    $tasks[task] += $downvote
     start_task()
   end
 end
