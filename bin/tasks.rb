@@ -10,7 +10,7 @@ $break_duration = 25 * 5 # in seconds
 $default_preference = 5
 $upvote = +3
 $downvote = -3
-$storage = "tasks.yaml"
+$storage = "~/Dropbox/tasks/tasks.yaml"
 
 if not File.exists?($storage)
   touch $storage
