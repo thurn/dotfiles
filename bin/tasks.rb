@@ -2,15 +2,16 @@
 
 require 'yaml'
 require 'fileutils'
+require 'etc'
 include FileUtils
 
 # CONFIGURATION
 $task_duration = 25 * 60 # in seconds
 $break_duration = 25 * 5 # in seconds
-$default_preference = 5
-$upvote = +3
-$downvote = -3
-$storage = "~/Dropbox/tasks/tasks.yaml"
+$default_preference = 25
+$upvote = 2
+$downvote = -5
+$storage = "#{Etc.getpwuid.dir}/Dropbox/tasks/tasks.yaml"
 
 if not File.exists?($storage)
   touch $storage
@@ -73,11 +74,16 @@ def start_task()
   puts "Would you like to do this task? (y/n)"
   answer = STDIN.gets.chomp
   if answer.start_with?('y')
-    puts "Ok. Start doing it!"
-    $tasks[task] += $upvote
+    puts "Ok. Start doing it! Work on the task for 25 minutes, take a 5 minute break, work another 25, then take another 5 minute break, then run tasks start again."
+    $tasks.each_key do |k|
+      unless k == task
+        $tasks[k] += $upvote
+      end
+    end
   else
     puts "Ok, let's try again."
-    $tasks[task] += $downvote
+    newVal = $tasks[task] + $downvote
+    $tasks[task] = [newVal, 1].max
     start_task()
   end
 end
