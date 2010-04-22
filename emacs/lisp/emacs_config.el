@@ -32,3 +32,13 @@ and set the focus back to Emacs frame"
   "Indents the entire buffer"
   (interactive)
   (indent-region (point-min) (point-max) nil))
+
+(global-auto-revert-mode t)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+(defun uwb-dthurn ()
+ "Untabifies the whole buffer"
+ (interactive)
+ (untabify (point-min) (point-max)))
