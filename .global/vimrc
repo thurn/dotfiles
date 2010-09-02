@@ -97,4 +97,4 @@ endif
 
 " This is sort of a hack, but t_Co never seems to get set correctly
 set t_Co=256
-colorscheme simple256
+colorscheme desert256

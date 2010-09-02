@@ -159,5 +159,5 @@ setopt PROMPT_SUBST
 # %f stops using a color
 # %# is % for non-root shells and # for root shells
 
-PROMPT='%U%F{red}%~%f%u
-%F{blue}%#%f '
+PROMPT='%U%{$fg[red]%}%~%f%u
+%{$fg[cyan]%}%#%f %{$reset_color%}'
