@@ -35,7 +35,7 @@ nnoremap gj j
 noremap q @
 noremap @ q
 
-" Map Control-K to Escape
+" Map Control-L to Escape
 noremap!  
 
 " Map gs to invoke a perl substitute regular expression

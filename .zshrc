@@ -15,8 +15,4 @@ source ~/.global/zsh_aliases
 [ -z "$PS1" ] && return
 
 # Interactive-Only Logic
-if [[ $EMACS == "t" ]]; then
-  echo "Emacs *shell*"!
-else
-  export TERM="xterm-color"
-fi
+export TERM="xterm-color"
