@@ -7,4 +7,5 @@ tramp
 .DS_Store
 *.rnc
 *.fasl
+#*#
 backups/*
