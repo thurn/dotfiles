@@ -17,5 +17,7 @@
 (global-set-key (kbd "C-x C-k") 'kill-region)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
+(global-set-key (kbd "C-x w") 'ido-switch-buffer-other-window)
+
 ;; Use command for meta on mac
 (setq mac-command-modifier 'meta)
