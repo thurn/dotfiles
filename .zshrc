@@ -15,4 +15,4 @@ source ~/.global/zsh_aliases
 [ -z "$PS1" ] && return
 
 # A huge hack which fixes some programs (e.g. emacs)
-export TERM=xterm-color
+export TERM=xterm-256color
