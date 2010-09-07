@@ -44,3 +44,18 @@ and set the focus back to Emacs frame"
 ;; Define the emacs font
 ;; (set-face-attribute 'default nil :font "Anonymous Pro")
 
+;; Make C-a cycle between hard and soft BOL
+
+(defun dthurn-cycle-bol (&optional arg)
+  "If at the first non-whitespace character of a line, go to the
+beginning of the current line.  Otherwise, goto the first non-whitespace
+character of the current line."
+  (interactive)
+  (cond
+   ((bolp) (back-to-indentation))
+   ((save-excursion
+      (let ((pt (point)))
+        (back-to-indentation)
+        (eq pt (point)))) (beginning-of-line))
+   (t (back-to-indentation))))
+(global-set-key (kbd "C-a") 'dthurn-cycle-bol)
