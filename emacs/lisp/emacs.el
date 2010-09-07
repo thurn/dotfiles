@@ -54,5 +54,5 @@ and set the focus back to Emacs frame"
 (setq backup-directory-alist `(("." . "~/emacs/backups/")))
 
 ;; Define the emacs font
-(set-face-attribute 'default nil :font "Anonymous Pro")
+;; (set-face-attribute 'default nil :font "Anonymous Pro")
 
