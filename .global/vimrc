@@ -97,4 +97,6 @@ endif
 
 " This is sort of a hack, but t_Co never seems to get set correctly
 set t_Co=256
+
+" Default vim colorscheme
 colorscheme desert256

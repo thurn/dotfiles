@@ -16,5 +16,6 @@ source ~/.global/bash_aliases
 [ -z "$PS1" ] && return
 
 # Interactive-Only Logic
-# Crazy hack
+
+# Crazy hack!
 export TERM="xterm-color"

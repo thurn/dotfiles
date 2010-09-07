@@ -1,0 +1,10 @@
+auto-save-list/*
+.emacs-visited-files
+tramp
+.ido.last
+*.elc
+*~
+.DS_Store
+*.rnc
+*.fasl
+backups/*

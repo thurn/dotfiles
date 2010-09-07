@@ -14,5 +14,5 @@ source ~/.global/zsh_aliases
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
 
-# Interactive-Only Logic
-export TERM="xterm-color"
+# A huge hack which fixes some programs (e.g. emacs)
+export TERM=xterm-color

@@ -3,6 +3,9 @@ noremap ; :
 noremap : ;
 set! ui.key.contentAccess=3
 
+noremap <C-e> gT
+noremap <C-r> gt
+
 set go+=mT
 
 map j x

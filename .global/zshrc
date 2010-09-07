@@ -144,6 +144,19 @@ pd() {
    fi
 }
 
+# Tell emacs what directory I am in
+if (set -u; : $EMACS) 2> /dev/null
+then
+  function precmd {
+    echo -e "\033AnSiTu" "$LOGNAME"
+    echo -e "\033AnSiTc" "$(pwd)"
+    echo -e "\033AnSiTh" "$(hostname)" 
+  }
+else
+  function precmd {
+  }
+fi
+
 # Initialize colors.
 autoload -U colors
 colors
@@ -154,7 +167,7 @@ setopt PROMPT_SUBST
 # Set the prompt.
 
 # %U starts underline, %u stops it
-# %F{color} starts using a color
+# %{$fg[color]%} starts using a color
 # %~ is pwd
 # %f stops using a color
 # %# is % for non-root shells and # for root shells
