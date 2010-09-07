@@ -87,7 +87,7 @@ set expandtab
 let NERDChristmasTree = 1
 
 " Build help documentation on vim start
-helptags ~/.vim/doc
+" helptags ~/.vim/doc
 
 if &t_Co > 2 
     syntax on
