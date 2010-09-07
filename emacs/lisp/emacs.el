@@ -25,24 +25,12 @@ and set the focus back to Emacs frame"
 (add-to-list 'compilation-finish-functions
          'notify-compilation-result)
 
-;; Function to indent the whole buffer
-(defun iwb-dthurn ()
-  "Indents the entire buffer"
-  (interactive)
-  (indent-region (point-min) (point-max) nil))
-
 ;; Automatically pull changes to open buffers
 (global-auto-revert-mode t)
 
 ;; Use spaces, not tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-
-;; Function to remove tabs in the whole buffer
-(defun uwb-dthurn ()
- "Untabifies the whole buffer"
- (interactive)
- (untabify (point-min) (point-max)))
 
 ;; Don't use the Emacs GUI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
