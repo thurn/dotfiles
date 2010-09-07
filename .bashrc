@@ -1,5 +1,5 @@
 #
-# Thor's bashrc
+# dthurn's bashrc
 #
 
 # Load local shell config, if any

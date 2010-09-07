@@ -153,8 +153,7 @@ then
     echo -e "\033AnSiTh" "$(hostname)" 
   }
 else
-  function precmd {
-  }
+  function precmd {}
 fi
 
 # Initialize colors.

@@ -1,5 +1,5 @@
 #
-# Thor's zshrc
+# dthurn's zshrc
 #
 
 # Load local shell config, if any

@@ -1,5 +1,5 @@
 "
-" Thor's vimrc
+" dthurn's vimrc
 "
 
 source ~/.global/vimrc

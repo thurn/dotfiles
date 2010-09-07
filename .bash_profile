@@ -1,7 +1,5 @@
-#
-# Thor's bash_profile
-#
+# dthurn's bash_profile
+
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
-

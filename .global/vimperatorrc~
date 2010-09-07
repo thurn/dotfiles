@@ -1,9 +1,0 @@
-" /* vim: set filetype=vim : */
-noremap ; :
-noremap : ;
-set! ui.key.contentAccess=3
-
-set go+=mT
-
-map j x
-map k c

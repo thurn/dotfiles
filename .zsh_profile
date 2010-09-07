@@ -1,5 +1,5 @@
 #
-# Thor's zsh_profile
+# dthurn's zsh_profile
 #
 
 if [ -f ~/.zshrc ]; then
