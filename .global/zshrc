@@ -147,12 +147,20 @@ pd() {
 # Tell emacs what directory I am in
 if (set -u; : $EMACS) 2> /dev/null
 then
-  function precmd {
-    echo -e "\033AnSiTu" "$LOGNAME"
-    echo -e "\033AnSiTc" "$(pwd)"
-    echo -e "\033AnSiTh" "$(hostname)" 
-  }
+  if [[ $EMACS == "t" ]]
+  then
+    # *shell*, do nothing.
+    function precmd {}
+  else
+    # Emacs *term*
+    function precmd {
+      echo -e "\033AnSiTu" "$LOGNAME"
+      echo -e "\033AnSiTc" "$(pwd)"
+      echo -e "\033AnSiTh" "$(hostname)" 
+    }
+  fi
 else
+  # No emacs, do nothing
   function precmd {}
 fi
 
