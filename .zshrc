@@ -13,6 +13,3 @@ source ~/.global/zsh_aliases
 
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
-
-# A huge hack which fixes some programs (e.g. emacs)
-export TERM=xterm-256color

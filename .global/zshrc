@@ -164,6 +164,14 @@ else
   function precmd {}
 fi
 
+# A huge hack which sets $TERM to fix some programs 
+if [[ $EMACS == "t" ]]
+then
+  export TERM=dumb
+else
+  export TERM=xterm-256color
+fi
+
 # Initialize colors.
 autoload -U colors
 colors
