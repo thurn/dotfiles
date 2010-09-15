@@ -68,4 +68,3 @@ elif [[ $OSTYPE == solaris* ]]; then
   alias ll='ls -A -l -F'
   alias ls='ls -F'
 fi
-

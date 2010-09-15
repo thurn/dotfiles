@@ -70,6 +70,7 @@ set noerrorbells
 " Whitespace insensitive diff
 set diffopt+=iwhite
 
+
 " Enable the filetype plugin
 " Not sure if both of these are needed?
 filetype plugin indent on

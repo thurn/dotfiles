@@ -24,5 +24,3 @@ RED='\[\e[1;31m\]'
 GREEN='\[\e[1;92m\]'
 NC='\[\e[0m\]'  
 PS1="${GREEN}\u${RED}@${BLUE}\w${RED}\$${NC} "
-
-# /* vim: set filetype=sh : */
