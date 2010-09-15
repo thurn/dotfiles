@@ -18,7 +18,7 @@
 ;;;###autoload
 (defun turn-on-sober-mode ()
  "Turns on sober mode if the buffer is appropriate."
- (thor-mode t))
+ (sober-mode t))
 
 (define-global-minor-mode sober-global-mode sober-mode turn-on-sober-mode)
 
