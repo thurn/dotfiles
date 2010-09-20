@@ -71,10 +71,11 @@ set noerrorbells
 set diffopt+=iwhite
 
 
+
 " Enable the filetype plugin
 " Not sure if both of these are needed?
-filetype plugin indent on
-filetype plugin on
+"filetype plugin indent on
+"filetype plugin on
 
 " Default indentation
 " ftplugins to override
@@ -95,6 +96,9 @@ if &t_Co > 2
     set hlsearch
     set incsearch 
 endif
+
+au BufRead,BufNewFile *.sablecc set syntax=sablecc
+au BufRead,BufNewFile *.st set syntax=stringtemplate
 
 " This is sort of a hack, but t_Co never seems to get set correctly
 set t_Co=256
