@@ -11,6 +11,7 @@ if exists("st_no_folding") && st_no_folding == 1
 else
 	let b:st_use_folding = 1
 endif
+let b:st_use_folding = 0
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
