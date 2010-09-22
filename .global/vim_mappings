@@ -35,8 +35,8 @@ nnoremap gj j
 noremap q @
 noremap @ q
 
-" Map Control-L to Escape
-noremap!  
+" Map Control-G to Escape
+noremap!  
 
 " Map gs to invoke a perl substitute regular expression
 noremap gs :%!perl -p -i -e 's/
@@ -59,8 +59,8 @@ noremap gq :NERDTreeClose<CR>
 noremap! <C-j> <C-x><C-u>
 
 " Vimperator-style tab navigation
-noremap <C-n> :tabn<CR>
-noremap <C-p> :tabp<CR>
+" noremap <C-n> OB
+" noremap <C-p> OA
 
 " toggle paste mode
 set pastetoggle=<C-e>

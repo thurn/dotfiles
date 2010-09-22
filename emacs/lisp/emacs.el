@@ -59,3 +59,5 @@ character of the current line."
         (eq pt (point)))) (beginning-of-line))
    (t (back-to-indentation))))
 (global-set-key (kbd "C-a") 'dthurn-cycle-bol)
+
+(server-start)
