@@ -7,6 +7,3 @@ noremap <C-e> gT
 noremap <C-r> gt
 
 set go+=mT
-
-map j x
-map k c
