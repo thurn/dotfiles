@@ -7,6 +7,7 @@
 (global-set-key (kbd "C-x f") 'ido-find-file)
 (global-set-key (kbd "C-x m") 'execute-extended-command)
 (global-set-key (kbd "C-x b") 'ido-switch-buffer)
+(global-set-key (kbd "C-x w") 'ido-switch-buffer-other-window)
 
 ;; Use C-w as backward-kill-word and use C-x C-k as kill-region
 (global-set-key (kbd "C-w") 'backward-kill-word)
