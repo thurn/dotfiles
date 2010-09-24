@@ -20,12 +20,6 @@ setopt BASH_AUTO_LIST
 setopt NO_AUTO_MENU
 setopt NO_ALWAYS_LAST_PROMPT
 
-#Keys
-bindkey '^j' forward-word
-bindkey '^l' backward-word
-bindkey '^u' backward-kill-word
-bindkey '^z' kill-word
-
 #History File Size
 HISTSIZE=10000
 SAVEHIST=10000
