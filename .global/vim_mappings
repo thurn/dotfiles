@@ -1,5 +1,4 @@
-" /* vim: set filetype=vim : */
-
+" /* vim: set filetype=vim : */"
 " Swap semicolon and colon
 noremap ; :
 noremap : ;
@@ -36,7 +35,7 @@ noremap q @
 noremap @ q
 
 " Map Control-L to Escape
-noremap! <C-l> 
+" noremap! <C-l> 
 
 " Map gs to invoke a perl substitute regular expression
 noremap gs :%!perl -p -i -e 's/
@@ -56,14 +55,36 @@ noremap gnt :NERDTree .<CR>
 noremap gq :NERDTreeClose<CR>
 
 " Completion
-noremap! <C-j> <C-x><C-u>
+" noremap! <C-j> <C-x><C-u>
 
 " Vimperator-style tab navigation
 " noremap <C-n> OB
 " noremap <C-p> OA
 
+" Sober Keybinding System
+inoremap <C-a> <C-o>^
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>w
+inoremap <C-d> <C-o>l
+inoremap <C-s> <ESC>/
+inoremap <C-f> <C-o>k
+inoremap <C-l> <C-o>b
+inoremap z <C-o>h
+inoremap <C-e> <C-o>x
+inoremap <C-r> <C-o>db
+inoremap <C-u> <C-o>p
+inoremap p <C-o><C-d>
+inoremap <C-n> <C-o>d$
+inoremap x <C-o>$
+inoremap  <C-o>u
+inoremap d <C-o>dw
+inoremap f <C-o><C-u>
+inoremap g <C-o>G
+inoremap u <C-o>gg
+inoremap k <C-o>mm
+
 " toggle paste mode
-set pastetoggle=<C-e>
+set pastetoggle=<C-g>
 
 " John Zila's * and # Keybindings
 vnoremap <silent> * :<C-U>

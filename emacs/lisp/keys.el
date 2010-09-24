@@ -10,7 +10,7 @@
 (global-set-key (kbd "C-x w") 'ido-switch-buffer-other-window)
 
 ;; Use C-w as backward-kill-word and use C-x C-k as kill-region
-(global-set-key (kbd "C-w") 'backward-kill-word)
+;(global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
