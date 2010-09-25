@@ -63,7 +63,7 @@ noremap gq :NERDTreeClose<CR>
 
 " Sober Keybinding System
 inoremap <C-a> <C-o>^
-inoremap <C-j> <C-o>j
+inoremap c <C-o>j
 inoremap <C-k> <C-o>w
 inoremap <C-d> <C-o>l
 inoremap <C-s> <ESC>/

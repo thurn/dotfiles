@@ -3,13 +3,13 @@
 (defvar sober-mode-map (make-keymap)
  "Keymap for sober-mode.")
 
-(define-key sober-mode-map (kbd "C-j") 'next-line)
+(define-key sober-mode-map (kbd "M-c") 'next-line) ;; C-j
 (define-key sober-mode-map (kbd "C-f") 'previous-line)
 (define-key sober-mode-map (kbd "C-k") 'forward-word)
 (define-key sober-mode-map (kbd "C-d") 'forward-char)
 (define-key sober-mode-map (kbd "C-l") 'backward-word)
 (define-key sober-mode-map (kbd "M-z") 'backward-char) ;; C-;
-(define-key sober-mode-map (kbd "C-a") 'beginning-of-line)
+(define-key sober-mode-map (kbd "C-a") 'dthurn-cycle-bol)
 (define-key sober-mode-map (kbd "C-r") 'backward-kill-word)
 (define-key sober-mode-map (kbd "C-u") 'yank)
 (define-key sober-mode-map (kbd "C-v") 'save-buffer)
@@ -18,7 +18,7 @@
 (define-key sober-mode-map (kbd "C-e") 'delete-char)
 (define-key sober-mode-map (kbd "C-t") 'other-window)
 (define-key sober-mode-map (kbd "M-x") 'end-of-line) ;; C-m
-(define-key sober-mode-map (kbd "C-o") 'ido-find-file)
+(define-key sober-mode-map (kbd "C-o") 'ido-find-file-other-window)
 (define-key sober-mode-map (kbd "C-w") 'forward-sexp)
 (define-key sober-mode-map (kbd "M-q") 'execute-extended-command) ;; C-,
 (define-key sober-mode-map (kbd "C-p") 'ido-switch-buffer-other-window)
