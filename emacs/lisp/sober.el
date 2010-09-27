@@ -1,14 +1,52 @@
-;; Provides sober-mode, giving you Sober keybindings as a minor mode
+;; Provides Sober-Mode, Giving You Sober Keybindings As A Minor Mode
+
+;; Function to cycle between hard and soft bol
+(defun dthurn-cycle-bol (&optional arg)
+  "If at the first non-whitespace character of a line, go to the
+beginning of the current line.  otherwise, goto the first non-whitespace
+character of the current line."
+  (interactive)
+  (cond
+   ((bolp) (back-to-indentation))
+   ((save-excursion
+      (let ((pt (point)))
+        (back-to-indentation)
+        (eq pt (point)))) (beginning-of-line))
+   (t (back-to-indentation))))
+(global-set-key (kbd "C-a") 'dthurn-cycle-bol)
+
+;; Functions that search history instead of using up/down in shell mode
+(defun dthurn-up (&rest args)
+  (interactive)
+  (if (eq major-mode 'shell-mode)
+      (call-interactively 'comint-previous-input)
+      (call-interactively 'previous-line)))
+
+(defun dthurn-down (&rest args)
+  (interactive)
+  (if (eq major-mode 'shell-mode)
+      (call-interactively 'comint-next-input)
+      (call-interactively 'next-line)))
+
+(defun dthurn-open (&rest args)
+  (interactive)
+  (if (eq major-mode 'shell-mode)
+      (call-interactively 'ido-find-file-other-window)
+      (call-interactively 'ido-find-file)))
+
+;; Function that opens files in other window if in shell mode
 
 (defvar sober-mode-map (make-keymap)
  "Keymap for sober-mode.")
 
-(define-key sober-mode-map (kbd "M-c") 'next-line) ;; C-j
-(define-key sober-mode-map (kbd "C-f") 'previous-line)
+(define-key sober-mode-map (kbd "M-c") 'dthurn-down)
+(define-key sober-mode-map (kbd "C-j") 'dthurn-down) ;; C-j
+(define-key sober-mode-map (kbd "C-f") 'dthurn-up)
 (define-key sober-mode-map (kbd "C-k") 'forward-word)
 (define-key sober-mode-map (kbd "C-d") 'forward-char)
 (define-key sober-mode-map (kbd "C-l") 'backward-word)
 (define-key sober-mode-map (kbd "M-z") 'backward-char) ;; C-;
+(define-key sober-mode-map (kbd "C-;") 'backward-char) ;; C-;
 (define-key sober-mode-map (kbd "C-a") 'dthurn-cycle-bol)
 (define-key sober-mode-map (kbd "C-r") 'backward-kill-word)
 (define-key sober-mode-map (kbd "C-u") 'yank)
@@ -18,9 +56,10 @@
 (define-key sober-mode-map (kbd "C-e") 'delete-char)
 (define-key sober-mode-map (kbd "C-t") 'other-window)
 (define-key sober-mode-map (kbd "M-x") 'end-of-line) ;; C-m
-(define-key sober-mode-map (kbd "C-o") 'ido-find-file-other-window)
+(define-key sober-mode-map (kbd "C-o") 'dthurn-open)
 (define-key sober-mode-map (kbd "C-w") 'forward-sexp)
 (define-key sober-mode-map (kbd "M-q") 'execute-extended-command) ;; C-,
+(define-key sober-mode-map (kbd "C-,") 'execute-extended-command) ;; C-,
 (define-key sober-mode-map (kbd "C-p") 'ido-switch-buffer-other-window)
 
 (define-key sober-mode-map (kbd "M-j") 'ido-kill-buffer)
@@ -44,7 +83,7 @@
 (define-key sober-mode-map (kbd "C-S-d") 'kill-word)
 (define-key sober-mode-map (kbd "C-S-l") 'isearch-backward)
 (define-key sober-mode-map (kbd "C-S-s") 'copy-region-as-kill)
-(define-key sober-mode-map (kbd "C-S-;") 'ido-switch-buffer)
+(define-key sober-mode-map (kbd "C-:") 'ido-switch-buffer)
 (define-key sober-mode-map (kbd "C-S-a") 'kill-region)
 (define-key sober-mode-map (kbd "C-S-r") 'forward-paragraph)
 (define-key sober-mode-map (kbd "C-S-u") 'beginning-of-buffer)
@@ -68,3 +107,5 @@
 (define-global-minor-mode sober-global-mode sober-mode turn-on-sober-mode)
 
 (sober-global-mode t)
+(switch-to-buffer "*GNU Emacs*")
+(sober-mode)
