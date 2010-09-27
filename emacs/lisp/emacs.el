@@ -44,5 +44,5 @@ and set the focus back to Emacs frame"
 ;; Define the emacs font
 ;; (set-face-attribute 'default nil :font "Anonymous Pro")
 
-;; Start the emacs server for emacsclient to connect to
-(server-start)
+;; Don't show startup screen
+(defun display-startup-screen (&optional concise))

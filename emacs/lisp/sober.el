@@ -107,5 +107,3 @@ character of the current line."
 (define-global-minor-mode sober-global-mode sober-mode turn-on-sober-mode)
 
 (sober-global-mode t)
-(switch-to-buffer "*GNU Emacs*")
-(sober-mode)
