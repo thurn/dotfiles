@@ -3,7 +3,7 @@ noremap ; :
 noremap : ;
 set! ui.key.contentAccess=3
 
-noremap <C-e> gT
-noremap <C-r> gt
+noremap <C-a> gT
+noremap <C-e> gt
 
 set go+=mT

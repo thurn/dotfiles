@@ -37,31 +37,25 @@ alias view='vim -M -'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
-# study to connect to student.cs
-alias study='ssh student.cs.uwaterloo.ca'
+alias emacs='~/bin/emacs_wrapper.rb'
+alias emacs_server='emacs --daemon'
+alias kill_emacs='emacsclient -e "(kill-emacs)"'
 
 if [[ $OSTYPE == darwin* ]]; then
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'
   alias ls='ls -G -F'
-  
   alias ldd='otool -L'
-
-  # Allow mkdir to make parents
   alias mkdir='mkdir -p -v'
 elif [[ $OSTYPE == "linux-gnu" ]]; then
   alias la='ls -A -F --color=always'
   alias ll='ls -A -l -F -h --color=always'
   alias ls='ls -F --color=always'
-
-  # Allow mkdir to make parents
   alias mkdir='mkdir -p -v'
 elif [[ $OSTYPE == "cygwin" ]]; then
   alias la='ls -A -F --color=always'
   alias ll='ls -A -l -F -h --color=always'
   alias ls='ls -F --color=always'
-
-  # Allow mkdir to make parents
   alias mkdir='mkdir -p -v'
 elif [[ $OSTYPE == solaris* ]]; then
   alias la='ls -A -F'

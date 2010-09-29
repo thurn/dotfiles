@@ -22,7 +22,7 @@ set -o noclobber
 # stops ctrl+d from logging me out:
 set -o ignoreeof           
 # vi keybindings in bash:
-# set -o vi                  
+# set -o vi                 
 
 # set history size
 export HISTSIZE=5000
@@ -44,5 +44,5 @@ esac
 # Address to push to for dotfiles updates
 export dotfiles="git@github.com:thurn/dotfiles.git"
 
-# Set editor for svn
 export SVN_EDITOR=vim
+export EDITOR=vim
