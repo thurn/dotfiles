@@ -37,8 +37,8 @@ alias view='vim -M -'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
+alias emacs_server='/usr/bin/env emacs --daemon'
 alias emacs='~/bin/emacs_wrapper.rb'
-alias emacs_server='emacs --daemon'
 alias kill_emacs='emacsclient -e "(kill-emacs)"'
 
 if [[ $OSTYPE == darwin* ]]; then
