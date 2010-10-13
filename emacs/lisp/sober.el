@@ -41,8 +41,10 @@ character of the current line."
 
 (define-key sober-mode-map (kbd "M-c") 'dthurn-down)
 (define-key sober-mode-map (kbd "C-j") 'dthurn-down) ;; C-j
-(define-key sober-mode-map (kbd "C-f") 'dthurn-up)
-(define-key sober-mode-map (kbd "C-k") 'forward-word)
+(define-key sober-mode-map (kbd "<down>") 'dthurn-down) ;; C-j
+(define-key sober-mode-map (kbd "C-f") 'forward-word)
+(define-key sober-mode-map (kbd "C-k") 'dthurn-up)
+(define-key sober-mode-map (kbd "<up>") 'dthurn-up)
 (define-key sober-mode-map (kbd "C-d") 'forward-char)
 (define-key sober-mode-map (kbd "C-l") 'backward-word)
 (define-key sober-mode-map (kbd "M-z") 'backward-char) ;; C-;
