@@ -13,4 +13,4 @@
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
 ;; Use command for meta on mac
-;; (setq mac-command-modifier 'meta)
+(setq mac-command-modifier 'meta)

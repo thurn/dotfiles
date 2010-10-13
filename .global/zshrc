@@ -24,7 +24,7 @@ stty -ixon
 if ! $emacs_shell ; then
   bindkey '^j' history-beginning-search-forward
   bindkey '\ec' history-beginning-search-backward
-  bindkey '^k' forward-word
+  bindkey '^f' forward-word
   bindkey '^d' forward-char
   bindkey '^l' backward-word
   bindkey '\ez' backward-char
@@ -37,7 +37,8 @@ if ! $emacs_shell ; then
   bindkey '\ed' kill-word
   bindkey '^p' clear-screen
   bindkey '^e' clear-screen
-  bindkey '^b' clearn-screen
+  bindkey '^b' clear-screen
+  bindkey '^a' beginning-of-line
 fi
 
 #enable completion
