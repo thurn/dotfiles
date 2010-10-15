@@ -1,8 +1,4 @@
 " /* vim: set filetype=vim : */"
-" Swap semicolon and colon
-noremap ; :
-noremap : ;
-
 " Map s to save and Ctrl-s to s
 noremap <C-s> s
 noremap s :w<CR>
@@ -23,12 +19,6 @@ noremap gh :noh<CR>
 
 " Map gl to invoke shell commands
 noremap gl :!
-
-" Map j and k to work with screen lines, not logical lines
-nnoremap k gk
-nnoremap j gj
-nnoremap gk k
-nnoremap gj j
 
 " Switch macro playback and macro record 
 noremap q @
@@ -63,25 +53,25 @@ noremap gq :NERDTreeClose<CR>
 
 " Sober Keybinding System
 inoremap <C-a> <C-o>^
-inoremap c <C-o>j
 inoremap <C-f> <C-o>w
-inoremap <C-d> <C-o>l
 inoremap <C-s> <ESC>/
-inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>b
-inoremap z <C-o>h
 inoremap <C-e> <C-o>x
 inoremap <C-r> <C-o>db
 inoremap <C-u> <C-o>p
 inoremap p <C-o><C-d>
-inoremap <C-n> <C-o>d$
 inoremap x <C-o>$
 inoremap  <C-o>u
-inoremap d <C-o>dw
-inoremap f <C-o><C-u>
-inoremap g <C-o>G
-inoremap u <C-o>gg
-inoremap k <C-o>mm
+
+" Map j and k to work with screen lines, not logical lines
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" Swap ; and :
+noremap ; :
+noremap : ;
 
 " toggle paste mode
 set pastetoggle=<C-g>

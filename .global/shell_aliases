@@ -16,14 +16,17 @@ alias mv='mv -i'
 # Ping should eventually time out
 alias ping='ping -c 5'
 
-# I can never remember which is which
-alias more='less'
-
 # Show process names in pgrep
 alias pgrep="pgrep -l"
 
+# Script which uses vimpager or vim -M intelligently
+alias view='vim_wrapper.rb'
+
+# Use the $PAGER variable instead of less
+alias less=$PAGER
+
 # Show history in less
-alias history="history | less"
+alias history="history 0 | view"
 
 # Set up "pie" as sed-like perl
 alias pie='perl -p -i -e'
@@ -31,14 +34,12 @@ alias pie='perl -p -i -e'
 # Set up "see" as no-modifications vim
 alias see='vim -M'
 
-# Set up view to read from stdin
-alias view='vim -M -'
-
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
+# Use emacs in daemon mode by default
 alias emacs_server='/usr/bin/env emacs --daemon'
-alias emacs='~/bin/emacs_wrapper.rb'
+alias emacs='emacs_wrapper.rb'
 alias kill_emacs='emacsclient -e "(kill-emacs)"'
 
 if [[ $OSTYPE == darwin* ]]; then

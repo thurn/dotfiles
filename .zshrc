@@ -9,7 +9,7 @@ fi
 
 source ~/.global/dotfile_import
 source ~/.global/zshrc
-source ~/.global/zsh_aliases
+source ~/.global/shell_aliases
 
 # Stop exectuting here if the shell is non-interactive
 [ -z "$PS1" ] && return
