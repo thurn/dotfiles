@@ -22,8 +22,8 @@ fi
 set -o noclobber
 # stops ctrl+d from logging me out:
 set -o ignoreeof           
-# vi keybindings in bash:
-# set -o vi                 
+# Emacs keybindings
+set -o emacs
 
 # set history size
 export HISTSIZE=50000
