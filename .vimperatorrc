@@ -2,4 +2,4 @@
 " dthurn's vimperatorrc
 "
 
-source ~/.global/vimperatorrc
+source ~/.global/vimperatorrc.vim

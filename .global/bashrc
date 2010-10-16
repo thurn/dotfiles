@@ -1,4 +1,5 @@
-# /* vim: set filetype=bash : */
+#!/usr/bin/env bash
+# -*- mode: sh; -*-
 
 source ~/.global/shell_common
 

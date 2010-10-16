@@ -1,4 +1,3 @@
-" /* vim: set filetype=vim : */"
 " Map s to save and Ctrl-s to s
 noremap <C-s> s
 noremap s :w<CR>

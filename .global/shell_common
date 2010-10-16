@@ -1,4 +1,5 @@
-# /* vim: set filetype=bash : */
+#!/usr/bin/env zsh
+# -*- mode: sh; -*-
 
 # Set default file creation to rw-rw-r--
 umask 002
@@ -25,8 +26,8 @@ set -o ignoreeof
 # set -o vi                 
 
 # set history size
-export HISTSIZE=5000
-export HISTFILESIZE=5000
+export HISTSIZE=50000
+export HISTFILESIZE=50000
 export HISTCONTROL=ignoredups
 
 # Set up less to read other file formats

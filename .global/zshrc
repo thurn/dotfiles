@@ -1,4 +1,6 @@
-# /* vim: set filetype=zsh : */
+#!/usr/bin/env zsh
+# -*- mode: zsh; -*-
+
 source ~/.global/shell_common
 
 # Load alias definitions

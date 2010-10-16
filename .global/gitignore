@@ -1,0 +1,6 @@
+*.class
+*.pyc
+*.o
+*.cache.html
+*.cache.png
+\#*#

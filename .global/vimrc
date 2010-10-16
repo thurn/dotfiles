@@ -1,5 +1,3 @@
-" /* vim: set filetype=vim : */
-
 " Only run the script once
 if exists("g:did_myvimrc")
   finish

@@ -18,4 +18,3 @@ set hlsearch
 set wildoptions=auto
 set newtab='all'
 set complete=lS
-set fs
