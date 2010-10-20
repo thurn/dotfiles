@@ -48,3 +48,9 @@ export dotfiles="git@github.com:thurn/dotfiles.git"
 export SVN_EDITOR=vim
 export EDITOR=vim
 export PAGER=~/bin/vimpager
+
+# Helps emacsclient work properly
+export DISPLAY=''
+
+# Tells clojure where to find clojure.jar
+export CLOJURE_EXT=~/.clojure

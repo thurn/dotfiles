@@ -260,7 +260,8 @@ EXCEPT is a list of symbol names which should be ignored."
 
 (defun with-symbol (name package)
   "Generate a form suitable for testing with #+."
-  (if (find-symbol (string name) (string package))
+  (if (and (find-package package)
+           (find-symbol (string name) package))
       '(:and)
       '(:or)))
 
@@ -433,7 +434,7 @@ If POLICY is supplied, and non-NIL, it may be used by certain
 implementations to compile with optimization qualities of its
 value.
 
-Should return T on successfull compilation, NIL otherwise.
+Should return T on successful compilation, NIL otherwise.
 ")
 
 (definterface swank-compile-file (input-file output-file load-p 
@@ -602,6 +603,15 @@ The result is either a symbol, a list, or NIL if no function name is available."
   (declare (ignore function))
   nil)
 
+(definterface valid-function-name-p (form)
+  "Is FORM syntactically valid to name a function?
+   If true, FBOUNDP should not signal a type-error for FORM."
+  (flet ((length=2 (list)
+           (and (not (null (cdr list))) (null (cddr list)))))
+    (or (symbolp form)
+        (and (consp form) (length=2 form)
+             (eq (first form) 'setf) (symbolp (second form))))))
+
 (definterface macroexpand-all (form)
    "Recursively expand all macros in FORM.
 Return the resulting form.")
@@ -612,7 +622,9 @@ If FORM is a function call for which a compiler-macro has been
 defined, invoke the expander function using *macroexpand-hook* and
 return the results and T.  Otherwise, return the original form and
 NIL."
-  (let ((fun (and (consp form) (compiler-macro-function (car form)))))
+  (let ((fun (and (consp form) 
+                  (valid-function-name-p (car form))
+                  (compiler-macro-function (car form)))))
     (if fun
 	(let ((result (funcall *macroexpand-hook* fun form env)))
           (values result (not (eq result form))))
@@ -1041,17 +1053,45 @@ output of CL:DESCRIBE."
 
 ;;; Utilities for inspector methods.
 ;;; 
-
-(defun label-value-line (label value &key (newline t))
-  "Create a control list which prints \"LABEL: VALUE\" in the inspector.
-If NEWLINE is non-NIL a `(:newline)' is added to the result."
-  
-  (list* (princ-to-string label) ": " `(:value ,value)
-         (if newline '((:newline)) nil)))
+(defun label-value-line (label value &key padding-length display-nil-value hide-when-nil
+                               splice-as-ispec value-text (newline t))
+  "Create a control list which prints \"LABEL: VALUE\" in the inspector."
+  (if (or value (not hide-when-nil))
+      `((:label ,(princ-to-string label) ":")
+        ,@(when (or value display-nil-value)
+                (list " "))
+        ,@(when (and (or value display-nil-value)
+                     padding-length)
+                (list (make-array padding-length
+                                  :element-type 'character
+                                  :initial-element #\Space)))
+        ,@(when (or value display-nil-value)
+                (if splice-as-ispec
+                    (if (listp value) value (list value))
+                    `((:value ,value ,@(when value-text (list value-text))))))
+        ,@(if newline '((:newline)) nil))
+      (values)))
 
 (defmacro label-value-line* (&rest label-values)
-  ` (append ,@(loop for (label value) in label-values
-                    collect `(label-value-line ,label ,value))))
+  (let ((longest-label-length (loop
+                                 :for (label value) :in label-values
+                                 :maximize (if (stringp label)
+                                               (length label)
+                                               0))))
+  `(append ,@(loop
+                :for entry :in label-values
+                :if (and (consp entry)
+                         (not (consp (first entry)))
+                         (string= (first entry) '@))
+                  :appending (rest entry)
+                :else
+                  :collect (destructuring-bind
+                                 (label value &rest args &key &allow-other-keys) entry
+                             `(label-value-line ,label ,value
+                                                :padding-length ,(when (stringp label)
+                                                                       (- longest-label-length
+                                                                          (length label)))
+                                                ,@args))))))
 
 (definterface describe-primitive-type (object)
   "Return a string describing the primitive type of object."
@@ -1300,5 +1340,17 @@ SPEC can be:
   "Save a heap image to the file FILENAME.
 RESTART-FUNCTION, if non-nil, should be called when the image is loaded.")
 
+(definterface background-save-image (filename &key restart-function
+                                              completion-function)
+  "Request saving a heap image to the file FILENAME.
+RESTART-FUNCTION, if non-nil, should be called when the image is loaded.
+COMPLETION-FUNCTION, if non-nil, should be called after saving the image.")
 
-  
+;;; Codepoint length
+
+(definterface codepoint-length (string)
+  "Return the number of codepoints in STRING.
+With some Lisps, like cmucl, LENGTH returns the number of UTF-16 code
+units, but other Lisps return the number of codepoints. The slime
+protocol wants string lengths in terms of codepoints."
+  (length string))

@@ -23,7 +23,7 @@
                                   (symbol-value symbol) :newline nil)
                 ;; unbinding constants might be not a good idea, but
                 ;; implementations usually provide a restart.
-                `(" " (:action "[unbind it]"
+                `(" " (:action "[unbind]"
                                ,(lambda () (makunbound symbol))))
                 '((:newline))))
 	      (t '("It is unbound." (:newline))))
@@ -40,21 +40,20 @@
 			  (:value ,(macro-function symbol)))
 			`("It is a function: " 
 			  (:value ,(symbol-function symbol))))
-		    `(" " (:action "[unbind it]"
+		    `(" " (:action "[unbind]"
 				   ,(lambda () (fmakunbound symbol))))
 		    `((:newline)))
 	    `("It has no function value." (:newline)))
-	(docstring-ispec "Function Documentation" symbol 'function)
+	(docstring-ispec "Function documentation" symbol 'function)
 	(when (compiler-macro-function symbol)
-          
 	    (append
              (label-value-line "It also names the compiler macro"
                                (compiler-macro-function symbol) :newline nil)
-             `(" " (:action "[remove it]"
+             `(" " (:action "[remove]"
                             ,(lambda ()
                                      (setf (compiler-macro-function symbol) nil)))
                    (:newline))))
-	(docstring-ispec "Compiler Macro Documentation" 
+	(docstring-ispec "Compiler macro documentation" 
 			 symbol 'compiler-macro)
 	;;
 	;; Package
@@ -64,10 +63,10 @@
                        (:value ,package ,(package-name package))
                        ,@(if (eq :internal status) 
                              `(" "
-                               (:action "[export it]"
+                               (:action "[export]"
                                         ,(lambda () (export symbol package)))))
                        " "
-                       (:action "[unintern it]"
+                       (:action "[unintern]"
                                 ,(lambda () (unintern symbol package)))
                        (:newline))
             '("It is a non-interned symbol." (:newline)))
@@ -97,7 +96,7 @@
 	      75)
 	   (list label ": " docstring '(:newline)))
 	  (t 
-	   (list label ": " '(:newline) "  " docstring '(:newline))))))
+	   (list label ":" '(:newline) "  " docstring '(:newline))))))
 
 (unless (find-method #'emacs-inspect '() (list (find-class 'function)) nil)
   (defmethod emacs-inspect ((f function))
@@ -450,7 +449,9 @@ See `methods-by-applicability'.")
                    (lambda (slot)
                      `(:value ,slot ,(inspector-princ
                                       (swank-mop:slot-definition-name slot)))))
-                  '("#<N/A (class not finalized)>"))
+                  `("#<N/A (class not finalized)> "
+                    (:action "[finalize]"
+                             ,(lambda () (swank-mop:finalize-inheritance class)))))
             (:newline)
             ,@(let ((doc (documentation class t)))
                 (when doc
@@ -527,29 +528,25 @@ See `methods-by-applicability'.")
   "Returns an object renderable by Emacs' inspector side that
 alphabetically lists all the symbols in SYMBOLS together with a
 concise string representation of what each symbol
-represents (cf. CLASSIFY-SYMBOL & Fuzzy Completion.)"
+represents (see SYMBOL-CLASSIFICATION-STRING)"
   (let ((max-length (loop for s in symbols maximizing (length (symbol-name s))))
         (distance 10)) ; empty distance between name and classification
     (flet ((string-representations (symbol)
              (let* ((name (symbol-name symbol))
                     (length (length name))
-                    (padding (- max-length length))                    
-                    (classification (classify-symbol symbol)))
+                    (padding (- max-length length)))
                (values
                 (concatenate 'string
                              name
                              (make-string (+ padding distance) :initial-element #\Space))
-                (symbol-classification->string classification)))))
+                (symbol-classification-string symbol)))))
       `(""                           ; 8 is (length "Symbols:")
         "Symbols:" ,(make-string (+ -8 max-length distance) :initial-element #\Space) "Flags:"
         (:newline)
         ,(concatenate 'string        ; underlining dashes
                       (make-string (+ max-length distance -1) :initial-element #\-)
                       " "
-                      (let* ((dummy (classify-symbol :foo))
-                             (dummy (symbol-classification->string dummy))
-                             (classification-length (length dummy)))
-                        (make-string classification-length :initial-element #\-)))
+                      (symbol-classification-string '#:foo))
         (:newline)          
         ,@(loop for symbol in symbols appending
                (multiple-value-bind (symbol-string classification-string)
@@ -823,42 +820,36 @@ SPECIAL-OPERATOR groups."
                 (label-value-line "Digits" (float-digits f))
                 (label-value-line "Precision" (float-precision f)))))))
 
-(defun make-visit-file-thunk (stream)
-  (let ((pathname (pathname stream))
-        (position (file-position stream)))
-    (lambda ()
-      (ed-in-emacs `(,pathname :charpos ,position)))))
+(defun make-pathname-ispec (pathname position)
+  `("Pathname: "
+    (:value ,pathname)
+    (:newline) "  "
+    ,@(when position
+        `((:action "[visit file and show current position]"
+                   ,(lambda () (ed-in-emacs `(,pathname :charpos ,position)))
+                   :refreshp nil)
+          (:newline)))))
+
+(defun make-file-stream-ispec (stream)
+  ;; SBCL's socket stream are file-stream but are not associated to
+  ;; any pathname.
+  (let ((pathname (ignore-errors (pathname stream))))
+    (when pathname
+      (make-pathname-ispec pathname (and (open-stream-p stream)
+                                         (file-position stream))))))
 
 (defmethod emacs-inspect ((stream file-stream))
   (multiple-value-bind (content)
       (call-next-method)
-            (append
-             `("Pathname: "
-               (:value ,(pathname stream))
-               (:newline) "  "
-               ,@(when (open-stream-p stream)
-                   `((:action "[visit file and show current position]"
-                              ,(make-visit-file-thunk stream)
-                              :refreshp nil)
-                     (:newline))))
-             content)))
+    (append (make-file-stream-ispec stream) content)))
 
 (defmethod emacs-inspect ((condition stream-error))
   (multiple-value-bind (content)
       (call-next-method)
     (let ((stream (stream-error-stream condition)))
-      (if (typep stream 'file-stream)
-                  (append
-                   `("Pathname: "
-                     (:value ,(pathname stream))
-                     (:newline) "  "
-                     ,@(when (open-stream-p stream)
-                         `((:action "[visit file and show current position]"
-                                    ,(make-visit-file-thunk stream)
-                                    :refreshp nil)
-                           (:newline))))
-                   content)
-          content))))
+      (append (when (typep stream 'file-stream)
+                (make-file-stream-ispec stream))
+              content))))
 
 (defun common-seperated-spec (list &optional (callback (lambda (v) 
 							 `(:value ,v))))

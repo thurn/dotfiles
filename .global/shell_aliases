@@ -45,6 +45,9 @@ alias emacs_server='/usr/bin/env emacs --daemon'
 alias emacs='emacs_wrapper.rb'
 alias kill_emacs='emacsclient -e "(kill-emacs)"'
 
+# Shortname for clojure
+alias clj=clj-env-dir
+
 if [[ $OSTYPE == darwin* ]]; then
   alias la='ls -A -G -F'
   alias ll='ls -A -l -G -F -h'

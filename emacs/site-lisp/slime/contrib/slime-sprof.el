@@ -1,14 +1,18 @@
-;;; slime-sprof.el --- Integration with SBCL's sb-sprof
-;;;
-;;; Authors: Juho Snellman
-;;;
-;;; License: MIT
-;;;
-;;; Installation
-;;
-;; Add this to your .emacs: 
-;;
-;;   (slime-setup '(... slime-sprof))
+
+(define-slime-contrib slime-sprof
+  "Integration with SBCL's sb-sprof."
+  (:authors "Juho Snellman"
+            "Stas Boukarev")
+  (:license "MIT")
+  (:swank-dependencies swank-sprof)
+  (:on-load
+   (let ((C '(and (slime-connected-p)
+              (equal (slime-lisp-implementation-type) "SBCL"))))
+     (setf (cdr (last (assoc "Profiling" slime-easy-menu)))
+           `("--"
+             [ "Start sb-sprof"  slime-sprof-start ,C ]
+             [ "Stop sb-sprof"   slime-sprof-stop ,C ]
+             [ "Report sb-sprof" slime-sprof-browser ,C ])))))
 
 (defvar slime-sprof-exclude-swank nil
   "*Display swank functions in the report.")
@@ -33,9 +37,17 @@
 
 ;; Start / stop profiling
 
-(defun slime-sprof-start ()
+(defun* slime-sprof-start (&optional (mode :cpu))
   (interactive)
-  (slime-eval `(swank:swank-sprof-start)))
+  (slime-eval `(swank:swank-sprof-start :mode ,mode)))
+
+(defun slime-sprof-start-alloc ()
+  (interactive)
+  (slime-sprof-start :alloc))
+
+(defun slime-sprof-start-time ()
+  (interactive)
+  (slime-sprof-start :time))
 
 (defun slime-sprof-stop ()
   (interactive)
@@ -44,7 +56,7 @@
 ;; Reporting
 
 (defun slime-sprof-format (graph)
-  (with-current-buffer "*slime-sprof-browser*"
+  (with-current-buffer (slime-buffer-name :sprof)
     (let ((inhibit-read-only t))
       (erase-buffer)
       (insert (format "%4s %-54s %6s %6s %6s\n"
@@ -64,9 +76,10 @@
 
 (defun slime-sprof-browser ()
   (interactive)
-  (slime-with-popup-buffer ("*slime-sprof-browser*"
+  (slime-with-popup-buffer ((slime-buffer-name :sprof)
                             :connection t
-                            :modes '(slime-sprof-browser-mode))
+                            :select t
+                            :mode 'slime-sprof-browser-mode)
     (slime-sprof-update)))
 
 (defun slime-sprof-toggle-swank-exclusion ()
@@ -203,17 +216,5 @@
             (ding))
            (t
             (slime-show-source-location source-location))))))))
-
-;;; Menu
-
-(defun slime-sprof-init ()
-  (slime-require :swank-sprof)
-  (let ((C '(and (slime-connected-p)
-             (equal (slime-lisp-implementation-type) "SBCL"))))
-    (setf (cdr (last (assoc "Profiling" slime-easy-menu)))
-          `("--"
-            [ "Start sb-sprof"  slime-sprof-start ,C ]
-            [ "Stop sb-sprof"   slime-sprof-stop ,C ]
-            [ "Report sb-sprof" slime-sprof-browser ,C ]))))
 
 (provide 'slime-sprof)
