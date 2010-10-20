@@ -34,9 +34,6 @@ alias history="history 0 | view"
 # Set up "pie" as sed-like perl
 alias pie='perl -p -i -e'
 
-# Set up "see" as no-modifications vim
-alias see='vim -M'
-
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
