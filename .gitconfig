@@ -1,6 +1,6 @@
 [user]
 	name = Derek Thurn
-	email = dt@facebook.com
+	email = derek@thurn.ca
   editor = vim
 [diff]
     external = git_diff_wrapper.sh
