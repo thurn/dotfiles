@@ -58,8 +58,6 @@ inoremap <C-l> <C-o>b
 inoremap <C-e> <C-o>x
 inoremap <C-r> <C-o>db
 inoremap <C-u> <C-o>p
-inoremap p <C-o><C-d>
-inoremap x <C-o>$
 inoremap  <C-o>u
 
 " Map j and k to work with screen lines, not logical lines
