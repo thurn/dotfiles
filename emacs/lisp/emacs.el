@@ -6,7 +6,7 @@
 (setq pop-up-frames nil)
 
 ;; Cause Emacs to use the box cursor
-(setq-default cursor-type 'box)
+(setq-default cursor-type 'bar)
 
 ;; Auto-hide compile window
 (defun notify-compilation-result(buffer msg)

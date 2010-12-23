@@ -54,3 +54,8 @@ export DISPLAY=''
 
 # Tells clojure where to find clojure.jar
 export CLOJURE_EXT=~/.clojure
+
+export LS_COLORS="di=36"
+export LSCOLORS='Bxgxfxfxcxdxdxhbadbxbx'
+export PATH=`echo $PATH | perl -aF: -ple'$_=join":",grep{!$o{$_}++}@F'`
+export PYTHONPATH=`echo $PYTHONPATH | perl -aF: -ple'$_=join":",grep{!$o{$_}++}@F'`
