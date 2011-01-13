@@ -67,6 +67,8 @@ set viminfo='20,<50,s10,h,%
 set noerrorbells
 " Whitespace insensitive diff
 set diffopt+=iwhite
+" Disable scroll bars in gvim
+set guioptions-=r
 
 
 

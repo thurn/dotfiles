@@ -13,31 +13,55 @@ character of the current line."
         (back-to-indentation)
         (eq pt (point)))) (beginning-of-line))
    (t (back-to-indentation))))
-(global-set-key (kbd "C-a") 'dthurn-cycle-bol)
 
-;; Functions that search history instead of using up/down in shell mode
+;; Functions that search history instead of using up/down in shell/slime mode
 (defun dthurn-up (&rest args)
   (interactive)
-  (if (eq major-mode 'shell-mode)
-      (call-interactively 'comint-previous-input)
-      (call-interactively 'previous-line)))
+  (cond ((eq major-mode 'shell-mode)
+         (call-interactively 'comint-previous-input))
+        ((eq major-mode 'slime-repl-mode)
+         (call-interactively 'slime-repl-backward-input))
+        (t
+         (call-interactively 'previous-line))))
 
 (defun dthurn-down (&rest args)
   (interactive)
-  (if (eq major-mode 'shell-mode)
-      (call-interactively 'comint-next-input)
-      (call-interactively 'next-line)))
+  (cond ((eq major-mode 'shell-mode)
+         (call-interactively 'comint-next-input))
+        ((eq major-mode 'slime-repl-mode)
+         (call-interactively 'slime-repl-forward-input))
+        (t
+         (call-interactively 'next-line))))
 
 (defun dthurn-open (&rest args)
   (interactive)
   (if (eq major-mode 'shell-mode)
       (call-interactively 'ido-find-file-other-window)
-      (call-interactively 'ido-find-file)))
+    (call-interactively 'ido-find-file)))
+
+(defun dthurn-bol (&rest args)
+  (interactive)
+  (call-interactively 'dthurn-cycle-bol)
+  (if (eq major-mode 'slime-repl-mode) 
+      (call-interactively 'forward-word)))
+
+(defun dthurn-compile (&rest args)
+  (interactive)
+  (call-interactively 'iwb-dthurn)
+  (call-interactively 'save-buffer)
+  (call-interactively 'slime-compile-and-load-file)
+  (slime-repl-set-package (slime-pretty-package-name (slime-current-package)))
+  (call-interactively 'slime-switch-to-output-buffer))
+
+(defun dthurn-goto-symbol (&rest args)
+  (interactive)
+  (call-interactively 'ido-goto-symbol)
+  (call-interactively 'recenter))
 
 ;; Function that opens files in other window if in shell mode
 
 (defvar sober-mode-map (make-keymap)
- "Keymap for sober-mode.")
+  "Keymap for sober-mode.")
 
 (define-key sober-mode-map (kbd "M-c") 'dthurn-down)
 (define-key sober-mode-map (kbd "C-j") 'dthurn-down) ;; C-j
@@ -49,7 +73,7 @@ character of the current line."
 (define-key sober-mode-map (kbd "C-l") 'backward-word)
 (define-key sober-mode-map (kbd "M-z") 'backward-char) ;; C-;
 (define-key sober-mode-map (kbd "C-;") 'backward-char) ;; C-;
-(define-key sober-mode-map (kbd "C-a") 'dthurn-cycle-bol)
+(define-key sober-mode-map (kbd "C-a") 'dthurn-bol)
 (define-key sober-mode-map (kbd "C-r") 'backward-kill-word)
 (define-key sober-mode-map (kbd "C-u") 'yank)
 (define-key sober-mode-map (kbd "C-v") 'save-buffer)
@@ -94,18 +118,21 @@ character of the current line."
 (define-key sober-mode-map (kbd "C-S-v") 'delete-other-windows)
 (define-key sober-mode-map (kbd "C-S-n") 'backward-paragraph)
 
+(define-key sober-mode-map (kbd "M-i") 'dthurn-compile)
+(define-key sober-mode-map (kbd "M-o") 'slime-documentation)
+(define-key sober-mode-map (kbd "M-p") 'dthurn-goto-symbol)
+(define-key clojure-mode-map (kbd "TAB") 'slime-complete-symbol)
 
 ;;;###autoload
 (define-minor-mode sober-mode
- "Minor mode to enable the sober keybinding system."
- :init-value nil
- :group 'sober)
+  "Minor mode to enable the sober keybinding system."
+  :init-value nil
+  :group 'sober)
 
 ;;;###autoload
 (defun turn-on-sober-mode ()
- "Turns on sober mode if the buffer is appropriate."
- (sober-mode t)
- )
+  "Turns on sober mode if the buffer is appropriate."
+  (sober-mode t))
 
 (define-global-minor-mode sober-global-mode sober-mode turn-on-sober-mode)
 

@@ -14,3 +14,5 @@
 
 ;; Use command for meta on mac
 (setq mac-command-modifier 'meta)
+;; Fix osx clipboard
+ (setq x-select-enable-clipboard t)
