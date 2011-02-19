@@ -37,6 +37,9 @@ alias pie='perl -p -i -e'
 # Use trsh.pl instead of rm
 alias rm='~/bin/trsh.pl'
 
+# Github's cert is wrong, and I've never cared.
+alias wget='wget --no-check-certificate'
+
 # Use emacs in daemon mode by default
 alias emacs_server='/usr/bin/env emacs --daemon'
 alias emacs='emacs_wrapper.rb'

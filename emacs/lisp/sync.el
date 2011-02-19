@@ -1,6 +1,6 @@
-(defvar sync-remote-host "devrs100.snc1.facebook.com")
-(defvar sync-remote-dir "/home/dthurn/etl-git/fdn_analytics")
-(defvar sync-local-dir "/Users/dthurn/Documents/fdn_analytics")
+(defvar sync-remote-host "uvm")
+(defvar sync-remote-dir "/home/dthurn/Documents")
+(defvar sync-local-dir "/Users/dthurn/Documents/uvm")
 
 (defun starts-with? (string substr)
   "Check if string starts with substr"
@@ -16,6 +16,5 @@
         (shell-command
          (concat "scp " buffer-file-name " " sync-remote-host ":"
                  sync-remote-dir (substring
-                                  buffer-file-name (length sync-local-dir))
-                 " & > /dev/null")))))
+                                  buffer-file-name (length sync-local-dir)))))))
 

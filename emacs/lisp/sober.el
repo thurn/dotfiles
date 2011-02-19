@@ -63,15 +63,15 @@ character of the current line."
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
-(define-key sober-mode-map (kbd "M-c") 'dthurn-down)
-(define-key sober-mode-map (kbd "C-j") 'dthurn-down) ;; C-j
-(define-key sober-mode-map (kbd "<down>") 'dthurn-down) ;; C-j
+(define-key sober-mode-map (kbd "M-c") 'dthurn-down) ;; C-j
+(define-key sober-mode-map (kbd "C-j") 'dthurn-down)
+(define-key sober-mode-map (kbd "<down>") 'dthurn-down)
 (define-key sober-mode-map (kbd "C-f") 'forward-word)
 (define-key sober-mode-map (kbd "C-k") 'dthurn-up)
 (define-key sober-mode-map (kbd "<up>") 'dthurn-up)
 (define-key sober-mode-map (kbd "C-d") 'forward-char)
 (define-key sober-mode-map (kbd "C-l") 'backward-word)
-(define-key sober-mode-map (kbd "M-z") 'backward-char) ;; C-;
+(define-key sober-mode-map (kbd "M-z") 'backward-char)
 (define-key sober-mode-map (kbd "C-;") 'backward-char) ;; C-;
 (define-key sober-mode-map (kbd "C-a") 'dthurn-bol)
 (define-key sober-mode-map (kbd "C-r") 'backward-kill-word)

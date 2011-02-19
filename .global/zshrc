@@ -197,8 +197,9 @@ then
     }
   fi
 else
-  # No emacs, do nothing
-  function precmd {}
+  # No emacs
+  function precmd {
+  }
 fi
 
 # A huge hack which sets $TERM to fix some programs 
