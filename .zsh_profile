@@ -1,8 +1,0 @@
-#
-# dthurn's zsh_profile
-#
-
-if [ -f ~/.zshrc ]; then
-   source ~/.zshrc
-fi
-

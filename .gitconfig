@@ -32,6 +32,6 @@
 [core]
     pager = vimpager
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.global/gitignore
+    excludesfile = ~/.global_gitignore
 [apply]
   whitespace = fix
