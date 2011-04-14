@@ -24,6 +24,6 @@ export ZSH_THEME="dthurn"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git dirpersist gem github pip ssh-agent svn)
+plugins=(git gem github pip svn)
 
 source $ZSH/oh-my-zsh.sh
