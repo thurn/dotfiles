@@ -14,6 +14,10 @@
     (add-to-list 'load-path dir)
     (normal-top-level-add-subdirs-to-load-path)))
 
+;; Seriously, Aquamacs? Why do I need to do this?
+(one-buffer-one-frame-mode 0)
+(defun one-buffer-one-frame-mode (&args) )
+
 ;; Set up ELPA, the Emacs Lisp Package Archive
 (when
     (load

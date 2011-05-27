@@ -101,7 +101,8 @@
     (font-lock-remove-keywords nil highlight-80+-keywords)
     (kill-local-variable 'highlight-80+-last-keywords)
     (kill-local-variable 'highlight-80+-last-width))
-  (font-lock-fontify-buffer))
+  (font-lock-mode 0)
+  (font-lock-mode t))
 
 (provide 'highlight-80+)
 ;;; highlight-80+.el ends here

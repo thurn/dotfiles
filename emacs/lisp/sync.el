@@ -1,6 +1,6 @@
-(defvar sync-remote-host "uvm")
-(defvar sync-remote-dir "/home/dthurn/Documents")
-(defvar sync-local-dir "/Users/dthurn/Documents/uvm")
+(defvar sync-remote-host "dev2181.snc6.facebook.com")
+(defvar sync-remote-dir "/home/dthurn/www")
+(defvar sync-local-dir "/Users/dthurn/Documents/www")
 
 (defun starts-with? (string substr)
   "Check if string starts with substr"

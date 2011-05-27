@@ -46,3 +46,24 @@ and set the focus back to Emacs frame"
 
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
+
+(defvar programming-major-mode-hooks
+ '(emacs-lisp-mode-hook
+   lisp-interaction-mode-hook
+   inferior-emacs-lisp-mode-hook
+   scheme-mode-hook
+   sql-mode-hode
+   lisp-mode-hook
+   haskell-mode-hook
+   clojure-mode-hook
+   python-mode-hook
+   c-mode-common-hook
+   php-mode-hook
+   )
+ "List of programming mode hooks.")
+
+(defun add-hook-to-all (hooks fn)
+ "Add a function to a list of hooks."
+ (mapcar (lambda (hook) (add-hook hook fn)) hooks))
+
+(calendar)

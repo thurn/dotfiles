@@ -1,5 +1,8 @@
 ;; Configuration for the emacs shell and the emacs terminal
 
+(defvar shell-path-dthurn (executable-find "/bin/zsh")
+     "Shell location")
+
 ;; Support colors properly in shell using AnsiColor:
 (require 'term)
 

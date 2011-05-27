@@ -12,9 +12,6 @@
 (defvar init-file-dthurn "init.el" 
      "The file to bootstrap my emacs configuration.")
 
-(defvar shell-path-dthurn "/bin/zsh"
-     "A guess at where my default shell is located.")
-
 (load-file (concat emacs-root-dthurn init-file-dthurn))
 
 ;; Start the emacs server for emacsclient to connect to

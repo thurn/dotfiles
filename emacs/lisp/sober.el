@@ -58,76 +58,94 @@ character of the current line."
   (call-interactively 'ido-goto-symbol)
   (call-interactively 'recenter))
 
-;; Function that opens files in other window if in shell mode
+(defun dthurn-page-down (&rest args)
+  (interactive)
+  (dotimes (_ 5 _)
+    (next-line)
+    (scroll-up 1)))
+
+(defun dthurn-page-up (&rest args)
+  (interactive)
+  (dotimes (_ 5 _)
+    (previous-line)
+    (scroll-down 1)))
 
 (defvar sober-mode-map (make-keymap)
-  "Keymap for sober-mode.")
+   "Keymap for sober-mode.")
 
-(define-key sober-mode-map (kbd "M-c") 'dthurn-down) ;; C-j
-(define-key sober-mode-map (kbd "C-j") 'dthurn-down)
-(define-key sober-mode-map (kbd "<down>") 'dthurn-down)
-(define-key sober-mode-map (kbd "C-f") 'forward-word)
-(define-key sober-mode-map (kbd "C-k") 'dthurn-up)
-(define-key sober-mode-map (kbd "<up>") 'dthurn-up)
-(define-key sober-mode-map (kbd "C-d") 'forward-char)
-(define-key sober-mode-map (kbd "C-l") 'backward-word)
-(define-key sober-mode-map (kbd "M-z") 'backward-char)
-(define-key sober-mode-map (kbd "C-;") 'backward-char) ;; C-;
-(define-key sober-mode-map (kbd "C-a") 'dthurn-bol)
-(define-key sober-mode-map (kbd "C-r") 'backward-kill-word)
-(define-key sober-mode-map (kbd "C-u") 'yank)
-(define-key sober-mode-map (kbd "C-v") 'save-buffer)
-(define-key sober-mode-map (kbd "C-n") 'kill-line)
-(define-key sober-mode-map (kbd "M-p") 'scroll-up) ;; C-i
-(define-key sober-mode-map (kbd "C-e") 'delete-char)
-(define-key sober-mode-map (kbd "C-t") 'other-window)
-(define-key sober-mode-map (kbd "M-x") 'end-of-line) ;; C-m
-(define-key sober-mode-map (kbd "C-o") 'dthurn-open)
-(define-key sober-mode-map (kbd "C-w") 'forward-sexp)
-(define-key sober-mode-map (kbd "M-q") 'execute-extended-command) ;; C-,
-(define-key sober-mode-map (kbd "C-,") 'execute-extended-command) ;; C-,
-(define-key sober-mode-map (kbd "C-p") 'ido-switch-buffer-other-window)
+(defmacro sober-map-key (key command)
+  `(global-set-key (kbd ,key) ,command)
+  `(define-key sober-mode-map (kbd ,key) ,command))
 
-(define-key sober-mode-map (kbd "M-j") 'ido-kill-buffer)
-(define-key sober-mode-map (kbd "M-f") 'scroll-down)
-(define-key sober-mode-map (kbd "M-k") 'set-mark-command)
-(define-key sober-mode-map (kbd "M-d") 'kill-word)
-(define-key sober-mode-map (kbd "M-l") 'isearch-backward)
-(define-key sober-mode-map (kbd "M-s") 'copy-region-as-kill)
-(define-key sober-mode-map (kbd "M-;") 'ido-switch-buffer)
-(define-key sober-mode-map (kbd "M-a") 'kill-region)
-(define-key sober-mode-map (kbd "M-r") 'forward-paragraph)
-(define-key sober-mode-map (kbd "M-u") 'beginning-of-buffer)
-(define-key sober-mode-map (kbd "M-g") 'end-of-buffer)
-(define-key sober-mode-map (kbd "M-h") 'backward-sexp)
-(define-key sober-mode-map (kbd "M-v") 'delete-other-windows)
-(define-key sober-mode-map (kbd "M-n") 'backward-paragraph)
+;; Global keybindings
 
-(define-key sober-mode-map (kbd "C-S-j") 'ido-kill-buffer)
-(define-key sober-mode-map (kbd "C-S-f") 'scroll-down)
-(define-key sober-mode-map (kbd "C-S-k") 'set-mark-command)
-(define-key sober-mode-map (kbd "C-S-d") 'kill-word)
-(define-key sober-mode-map (kbd "C-S-l") 'isearch-backward)
-(define-key sober-mode-map (kbd "C-S-s") 'copy-region-as-kill)
-(define-key sober-mode-map (kbd "C-:") 'ido-switch-buffer)
-(define-key sober-mode-map (kbd "C-S-a") 'kill-region)
-(define-key sober-mode-map (kbd "C-S-r") 'forward-paragraph)
-(define-key sober-mode-map (kbd "C-S-u") 'beginning-of-buffer)
-(define-key sober-mode-map (kbd "C-S-g") 'end-of-buffer)
-(define-key sober-mode-map (kbd "C-S-h") 'backward-sexp)
-(define-key sober-mode-map (kbd "C-S-v") 'delete-other-windows)
-(define-key sober-mode-map (kbd "C-S-n") 'backward-paragraph)
+; Top Row
+(sober-map-key "C-q" 'recenter)
+(sober-map-key "C-w" 'dthurn-page-up)
+(sober-map-key "C-e" 'end-of-line)
+(sober-map-key "C-r" 'backward-kill-word)
+(sober-map-key "C-t" 'other-window)
+(sober-map-key "C-y" 'goto-line)
+(sober-map-key "C-u" 'yank)
+(sober-map-key "M-t" 'dthurn-page-down) ; REMAPPED AT OS LEVEL TO SEND C-i
+(sober-map-key "C-o" 'dthurn-open)
+(sober-map-key "C-p" 'other-previous-window)
 
-(define-key sober-mode-map (kbd "M-i") 'dthurn-compile)
-(define-key sober-mode-map (kbd "M-o") 'slime-documentation)
-(define-key sober-mode-map (kbd "M-p") 'dthurn-goto-symbol)
-(define-key clojure-mode-map (kbd "TAB") 'slime-complete-symbol)
+; Middle Row
+(sober-map-key "C-a" 'dthurn-bol)
+(sober-map-key "C-d" 'forward-char)
+(sober-map-key "C-f" 'forward-word)
+(sober-map-key "C-g" 'keyboard-escape-quit)
+(sober-map-key "C-j" 'dthurn-down)
+(sober-map-key "C-k" 'dthurn-up)
+(sober-map-key "C-l" 'backward-word)
+(sober-map-key "C-;" 'backward-char)
+
+; Bottom Row
+; C-z is 'alternate down', not set yet
+(sober-map-key "C-v" 'save-buffer)
+; C-b is 'alternate up', not set yet
+(sober-map-key "C-n" 'kill-line)
+(sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
+(sober-map-key "C-," 'smex)
+(sober-map-key "C-/" 'undo)
+
+; Top Row (Meta)
+(sober-map-key "M-q" 'save-buffers-kill-terminal)
+(sober-map-key "M-w" 'delete-frame)
+(sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
+(sober-map-key "M-r" 'forward-paragraph)
+(sober-map-key "M-u" 'beginning-of-buffer)
+(sober-map-key "M-i" 'eval-buffer) ; Override as a compile command
+(sober-map-key "M-p" 'ido-goto-symbol)
+
+; Middle Row
+(sober-map-key "M-a" 'mark-whole-buffer)
+(sober-map-key "M-s" 'delete-other-windows)
+(sober-map-key "M-d" 'kill-word)
+(sober-map-key "M-f" 'forward-sexp)
+(sober-map-key "M-g" 'end-of-buffer)
+(sober-map-key "M-h" 'backward-sexp)
+(sober-map-key "M-j" 'ido-switch-buffer)
+(sober-map-key "M-k" 'set-mark-command)
+(sober-map-key "M-l" 'isearch-backward)
+(sober-map-key "M-;" 'ido-kill-buffer)
+
+; Bottom Row
+(sober-map-key "M-z" 'undo)
+(sober-map-key "M-x" 'kill-region)
+(sober-map-key "M-c" 'copy-region-as-kill)
+(sober-map-key "M-v" 'clipboard-yank)
+(sober-map-key "M-n" 'backward-paragraph)
+(sober-map-key "M-." 'find-tag)
+(sober-map-key "M-/" 'comment-or-uncomment-region-or-line)
+(sober-map-key "M-`" 'other-window)
 
 ;;;###autoload
-(define-minor-mode sober-mode
-  "Minor mode to enable the sober keybinding system."
-  :init-value nil
-  :group 'sober)
+ (define-minor-mode sober-mode
+   "Minor mode to enable the sober keybinding system."
+   :init-value nil
+   :group 'sober)
 
 ;;;###autoload
 (defun turn-on-sober-mode ()
