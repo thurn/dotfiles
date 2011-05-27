@@ -73,7 +73,8 @@ set noerrorbells
 set diffopt+=iwhite
 " Disable scroll bars in gvim
 set guioptions-=r
-
+" Keep going until you find a tags file
+set tags=tags;/
 
 
 " Enable the filetype plugin
@@ -101,8 +102,28 @@ if &t_Co > 2
     set incsearch 
 endif
 
+" Support for sablecc and stringtemplate file types
 au BufRead,BufNewFile *.sablecc set syntax=sablecc
 au BufRead,BufNewFile *.st set syntax=stringtemplate
+
+" Highlight lines that are over 80 characters in length
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+" Highlight tab characters
+syn match tab display "\t"
+hi link tab Error
+
+" Kill trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType c,cabal,cpp,haskell,javascript,php,python,readme,text
+  \ autocmd BufWritePre <buffer>
+  \ :call <SID>StripTrailingWhitespaces()
 
 " This is sort of a hack, but t_Co never seems to get set correctly
 set t_Co=256
@@ -113,6 +134,6 @@ colorscheme desert256
 source ~/.vim_mappings.vim
 
 " Source local vim config if itexists
-let VIM_CONFIG=expand("~/.vim_config")
+let VIM_CONFIG=expand("~/.vim_config.vim")
 if filereadable(VIM_CONFIG) | exe "source " . VIM_CONFIG | endif
 
