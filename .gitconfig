@@ -2,10 +2,6 @@
 	name = Derek Thurn
 	email = derek@thurn.ca
   editor = vim
-[diff]
-    external = git_diff_wrapper.sh
-[pager]
-  diff = 
 [color]
     branch = auto
     diff = auto
@@ -30,7 +26,6 @@
     co = checkout
     tree = log --graph --pretty=oneline --decorate
 [core]
-    pager = vimpager
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.global_gitignore
 [apply]

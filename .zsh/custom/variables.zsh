@@ -23,7 +23,7 @@ export dotfiles="git@github.com:thurn/dotfiles.git"
 
 export SVN_EDITOR=vim
 export EDITOR=vim
-export PAGER=~/bin/vimpager
+export PAGER=less
 
 # Helps emacsclient work properly
 export DISPLAY=''
