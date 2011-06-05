@@ -9,16 +9,17 @@
   (mapcar 'load-file (directory-files dir t "\\.el\\'")))
 
 (defun recursive-add-to-load-path-dthurn (dir)
-  "Adds the supplied directory to the load-path, as well as an of its subdirectories"
+  "Adds the supplied directory to the load-path, as well as an of its
+   subdirectories"
   (let ((default-directory dir))
     (add-to-list 'load-path dir)
     (normal-top-level-add-subdirs-to-load-path)))
 
 ;; Seriously, Aquamacs? Why do I need to do this?
 (if (boundp 'one-buffer-one-frame-mode)
- (progn
-  (one-buffer-one-frame-mode 0)
-  (defun one-buffer-one-frame-mode (&args))))
+    (progn
+      (one-buffer-one-frame-mode 0)
+      (defun one-buffer-one-frame-mode (&args))))
 
 ;; Set up ELPA, the Emacs Lisp Package Archive
 (when
@@ -26,8 +27,8 @@
      (concat emacs-root-dthurn "elpa/package.el"))
   (package-initialize))
 
-;; Set load path to be the site-lisp directory and all of its subdirectories. This 
-;; directory holds all of my emacs libraries.
+;; Set load path to be the site-lisp directory and all of its subdirectories.
+;; This directory holds all of my emacs libraries.
 (recursive-add-to-load-path-dthurn (concat emacs-root-dthurn "site-lisp"))
 
 ;; Load customizations. NOTE: Sometimes, the order of customization loading is 

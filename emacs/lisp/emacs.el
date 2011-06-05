@@ -54,6 +54,3 @@ and set the focus back to Emacs frame"
 ;; Maximize vertical space
 (setq split-height-threshold nil)
 
-(defun buffer-exists
-  "Check if a buffer exists by a given name"
-  (bufname) (not (eq nil (get-buffer bufname))))
