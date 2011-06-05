@@ -67,9 +67,9 @@ if [[ $OSTYPE == darwin* ]]; then
   alias ldd='otool -L'
   alias mkdir='mkdir -p -v'
 elif [[ $OSTYPE == "linux-gnu" ]]; then
-  alias la='ls -A -F --color=always'
-  alias ll='ls -A -l -F -h --color=always'
-  alias ls='ls -F --color=always'
+  alias la='ls -w 76 -A -F --color=always'
+  alias ll='ls -w 76 -A -l -F -h --color=always'
+  alias ls='ls -w 76 -F --color=always'
   alias mkdir='mkdir -p -v'
 elif [[ $OSTYPE == "cygwin" ]]; then
   alias la='ls -A -F --color=always'
