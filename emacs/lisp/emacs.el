@@ -39,7 +39,9 @@ and set the focus back to Emacs frame"
 (setq backup-directory-alist `(("." . "~/emacs/backups/")))
 
 ;; Define the emacs font
-(set-face-attribute 'default nil :font "Inconsolata-dz" :height 120)
+(setq dthurn-font-name "Inconsolata-dz")
+(if (member dthurn-font-name (font-family-list))
+    (set-face-attribute 'default nil :font "Inconsolata-dz" :height 120))
 
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
