@@ -3,3 +3,4 @@
 (require 'dired+)
 
 (toggle-dired-find-file-reuse-dir 1)
+(define-key dired-mode-map (kbd "<DEL>") 'dired-up-directory)
