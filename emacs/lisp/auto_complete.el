@@ -4,6 +4,8 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+(setq ac-delay 0)
+
  ;;;###autoload
 (defun dthurn-turn-on-auto-complete-mode ()
   "Turns on auto-complete mode if the buffer is appropriate."
@@ -11,8 +13,6 @@
                buffer-read-only
                (eq major-mode 'shell-mode)))
       (auto-complete-mode t)))
-
-(setq ac-delay 0)
 
 (define-global-minor-mode dthurn-auto-complete-global-mode
   auto-complete-mode

@@ -31,6 +31,8 @@ and set the focus back to Emacs frame"
 
 ;; Don't use the Emacs GUI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; Use qrr as an alias for query-replace-regex
 (defalias 'qrr 'query-replace-regexp)
@@ -51,3 +53,7 @@ and set the focus back to Emacs frame"
 
 ;; Maximize vertical space
 (setq split-height-threshold nil)
+
+(defun buffer-exists
+  "Check if a buffer exists by a given name"
+  (bufname) (not (eq nil (get-buffer bufname))))

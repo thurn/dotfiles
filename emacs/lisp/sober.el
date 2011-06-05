@@ -76,13 +76,26 @@ region) apply comment-or-uncomment to the current line"
   (interactive)
   (if (not mark-active)
       (comment-or-uncomment-region
-        (line-beginning-position) (line-end-position))
-      (if (< (point) (mark))
-          (comment-or-uncomment-region (point) (mark))
-        (comment-or-uncomment-region (mark) (point)))))
+       (line-beginning-position) (line-end-position))
+    (if (< (point) (mark))
+        (comment-or-uncomment-region (point) (mark))
+      (comment-or-uncomment-region (mark) (point)))))
+
+
+(defun dthurn-kill-buffer-if-exists (name)
+  "Kill a buffer named 'name' if it exists"
+  (if (not (eq nil (get-buffer name)))
+      (kill-buffer  name)))
+
+(defun dthurn-kill-starred-buffers ()
+  "Kill some buffers that annoy me"
+  (interactive)
+  (let ((buffers
+         '("*Help*" "*Apropos*" "Completions*" "*JDEE bsh*" "*Backtrace*")))
+    (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
-   "Keymap for sober-mode.")
+  "Keymap for sober-mode.")
 
 (defmacro sober-map-key (key command)
   `(global-set-key (kbd ,key) ,command)
@@ -90,76 +103,10 @@ region) apply comment-or-uncomment to the current line"
 
 (defmacro sober-define (key name body)
   `(defun ,name (&rest args)
-      (interactive)
-      ,body))
+t     (interactive)
+     ,body))
 
-;; Global keybindings
-
-;; ; Top Row
-;; (sober-define "C-q" sober-cq (recenter))
-;; (sober-define "C-w" sober-cw (dthurn-page-up))
-;; (sober-define "C-e" sober-ce (end-of-line))
-;; (sober-define "C-r" sober-cr (backward-kill-word))
-;; (sober-define "C-t" sober-ct (other-window))
-;; (sober-define "C-y" sober-cy (goto-line))
-;; (sober-define "C-u" sober-cu (yank))
-;; (sober-define "M-t" sober-ci (dthurn-page-down))
-;; (sober-define "C-o" sober-co (dthurn-open))
-;; (sober-define "C-p" sober-cp (other-previous-window))
-
-;; ; Middle Row
-;; (sober-define "C-a" sober-ca (dthurn-bol))
-;; (sober-define "C-d" sober-cd (forward-char))
-;; (sober-define "C-f" sober-cf (forward-word))
-;; (sober-define "C-g" sober-cg (keyboard-escape-quit))
-;; (sober-define "C-j" sober-cj (dthurn-down))
-;; (sober-define "C-k" sober-ck (dthurn-up))
-;; (sober-define "C-l" sober-cl (backward-word))
-;; (sober-define "C-;" sober-csemi (backward-char))
-
-;; ; Bottom Row
-;; ; C-z is 'alternate down', not set yet
-;; (sober-define "C-v" sober-cv (save-buffer))
-;; ; C-b is 'alternate up', not set yet
-;; (sober-define "C-n" sober-cn (kill-line))
-;; (sober-define "M-y" sober-cm (delete-char))
-;; (sober-define "C-," sober-ccomma (smex))
-;; (sober-define "C-/" sober-cslash (undo))
-
-;;; Global keybindings
-
-;; ; Top Row (Meta)
-;; (sober-map-key "M-q" 'sober-mq)
-;; (sober-map-key "M-w" 'sober-mw)
-;; (sober-map-key "M-e" 'sober-me) ; Override as a formatting command
-;; (sober-map-key "M-r" 'sober-mr)
-;; (sober-map-key "M-u" 'sober-mu)
-;; (sober-map-key "M-i" 'sober-mi) ; Override as a compile command
-;; (sober-map-key "M-p" 'sober-mp)
-
-;; ; Middle Row
-;; (sober-map-key "M-a" 'sober-ma)
-;; (sober-map-key "M-s" 'sober-ms)
-;; (sober-map-key "M-d" 'sober-md)
-;; (sober-map-key "M-f" 'sober-mf)
-;; (sober-map-key "M-g" 'sober-mg)
-;; (sober-map-key "M-h" 'sober-mh)
-;; (sober-map-key "M-j" 'sober-mj)
-;; (sober-map-key "M-k" 'sober-mk)
-;; (sober-map-key "M-l" 'sober-ml)
-;; (sober-map-key "M-;" 'sober-msemi)
-
-;; ; Bottom Row
-;; (sober-map-key "M-z" 'sober-mz)
-;; (sober-map-key "M-x" 'sober-mx)
-;; (sober-map-key "M-c" 'sober-mc)
-;; (sober-map-key "M-v" 'sober-mv)
-;; (sober-map-key "M-n" 'sober-mn)
-;; (sober-map-key "M-." 'sober-mdot)
-;; (sober-map-key "M-/" 'sober-mslash)
-;; (sober-map-key "M-`" 'sober-mbtick)
-
-; Top Row
+                                        ; Top Row
 (sober-map-key "C-q" 'recenter)
 (sober-map-key "C-w" 'dthurn-page-up)
 (sober-map-key "C-e" 'end-of-line)
@@ -171,7 +118,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" (lambda () (interactive) (other-window -1)))
 
-; Middle Row
+                                        ; Middle Row
 (sober-map-key "C-a" 'dthurn-bol)
 (sober-map-key "C-d" 'forward-char)
 (sober-map-key "C-f" 'forward-word)
@@ -181,7 +128,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
 
-; Bottom Row
+                                        ; Bottom Row
 (sober-map-key "C-z" 'comint-next-input)
 (sober-map-key "C-v" 'save-buffer)
 (sober-map-key "C-b" 'comint-previous-matching-input-from-input)
@@ -191,16 +138,16 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-[ a" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
 (sober-map-key "C-/" 'undo)
 
-; Top Row (Meta)
+                                        ; Top Row (Meta)
 (sober-map-key "M-q" 'save-buffers-kill-terminal)
-(sober-map-key "M-w" 'delete-frame)
+(sober-map-key "M-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
 (sober-map-key "M-i" 'eval-buffer) ; Override as a compile command
 (sober-map-key "M-p" 'ido-goto-symbol)
 
-; Middle Row
+                                        ; Middle Row
 (sober-map-key "M-a" 'mark-whole-buffer)
 (sober-map-key "M-s" 'delete-other-windows)
 (sober-map-key "M-d" 'kill-word)
@@ -212,7 +159,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-l" 'isearch-backward)
 (sober-map-key "M-;" 'eval-expression)
 
-; Bottom Row
+                                        ; Bottom Row
 (sober-map-key "M-z" 'undo)
 (sober-map-key "M-x" 'kill-region)
 (sober-map-key "M-c" 'copy-region-as-kill)
@@ -222,13 +169,11 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
 
-; (global-set-key (kbd "C-s") (lambda () (interactive) (recenter)))
-
 ;;;###autoload
- (define-minor-mode sober-mode
-   "Minor mode to enable the sober keybinding system."
-   :init-value nil
-   :group 'sober)
+(define-minor-mode sober-mode
+  "Minor mode to enable the sober keybinding system."
+  :init-value nil
+  :group 'sober)
 
 ;;;###autoload
 (defun turn-on-sober-mode ()
