@@ -177,6 +177,7 @@ character of the current line."
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
 (sober-map-key "C-," 'smex)
+(sober-map-key "M-[ a" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
 (sober-map-key "C-/" 'undo)
 
 ; Top Row (Meta)
