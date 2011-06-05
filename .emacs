@@ -15,7 +15,8 @@
 (defvar dthurn-local-config ".emacs_config"
      "Local configuration")
 
-(load-file (concat emacs-root-dthurn init-file-dthurn))
-
 (if (file-exists-p dthurn-local-config)
   (load-file dthurn-local-config))
+
+(load-file (concat emacs-root-dthurn init-file-dthurn))
+

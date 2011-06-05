@@ -25,6 +25,8 @@
 [alias]
     co = checkout
     tree = log --graph --pretty=oneline --decorate
+    up = !git fetch && git rebase trunk
+    release = !git fetch && git rebase trunk && git svn dcommit
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.global_gitignore

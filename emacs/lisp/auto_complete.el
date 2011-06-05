@@ -8,7 +8,8 @@
 (defun dthurn-turn-on-auto-complete-mode ()
   "Turns on auto-complete mode if the buffer is appropriate."
   (if (not (or (window-minibuffer-p)
-               buffer-read-only))
+               buffer-read-only
+               (eq major-mode 'shell-mode)))
       (auto-complete-mode t)))
 
 (setq ac-delay 0)

@@ -11,7 +11,7 @@ export ZSH=$HOME/.zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="dthurn"
+# export ZSH_THEME="dthurn"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"

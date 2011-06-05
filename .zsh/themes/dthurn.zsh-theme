@@ -1,2 +1,2 @@
-PROMPT=$'%{$fg_bold[blue]%}%~%{$reset_color%}
+PROMPT=$'%{$fg[red]%}%~%{$reset_color%}
 %# '

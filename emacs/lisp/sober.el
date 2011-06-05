@@ -70,6 +70,17 @@ character of the current line."
     (previous-line)
     (scroll-down 1)))
 
+(defun dthurn-comment-or-uncomment-region-or-line ()
+  "Like comment-or-uncomment-region, but if there's no mark (that means no
+region) apply comment-or-uncomment to the current line"
+  (interactive)
+  (if (not mark-active)
+      (comment-or-uncomment-region
+        (line-beginning-position) (line-end-position))
+      (if (< (point) (mark))
+          (comment-or-uncomment-region (point) (mark))
+        (comment-or-uncomment-region (mark) (point)))))
+
 (defvar sober-mode-map (make-keymap)
    "Keymap for sober-mode.")
 
@@ -171,9 +182,9 @@ character of the current line."
 (sober-map-key "C-;" 'backward-char)
 
 ; Bottom Row
-; C-z is 'alternate down', not set yet
+(sober-map-key "C-z" 'comint-next-input)
 (sober-map-key "C-v" 'save-buffer)
-; C-b is 'alternate up', not set yet
+(sober-map-key "C-b" 'comint-previous-matching-input-from-input)
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
 (sober-map-key "C-," 'smex)
@@ -199,7 +210,7 @@ character of the current line."
 (sober-map-key "M-j" 'ido-switch-buffer)
 (sober-map-key "M-k" 'set-mark-command)
 (sober-map-key "M-l" 'isearch-backward)
-(sober-map-key "M-;" 'doctor)
+(sober-map-key "M-;" 'eval-expression)
 
 ; Bottom Row
 (sober-map-key "M-z" 'undo)
@@ -208,7 +219,7 @@ character of the current line."
 (sober-map-key "M-v" 'clipboard-yank)
 (sober-map-key "M-n" 'backward-paragraph)
 (sober-map-key "M-." 'find-tag)
-(sober-map-key "M-/" 'comment-or-uncomment-region-or-line)
+(sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
 
 ; (global-set-key (kbd "C-s") (lambda () (interactive) (recenter)))
