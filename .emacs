@@ -12,5 +12,10 @@
 (defvar init-file-dthurn "init.el" 
      "The file to bootstrap my emacs configuration.")
 
+(defvar dthurn-local-config ".emacs_config"
+     "Local configuration")
+
 (load-file (concat emacs-root-dthurn init-file-dthurn))
 
+(if (file-exists-p dthurn-local-config)
+  (load-file dthurn-local-config))
