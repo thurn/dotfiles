@@ -6,22 +6,6 @@
 ;; Cause Emacs to use the bar cursor
 (setq-default cursor-type 'bar)
 
-;; Auto-hide compile window
-(defun notify-compilation-result(buffer msg)
-  "Notify that the compilation is finished,
-close the *compilation* buffer if the compilation is successful,
-and set the focus back to Emacs frame"
-  (if (string-match "^finished" msg)
-      (progn
-        (delete-windows-on buffer)
-        (tooltip-show "\n Compilation Successful  \n "))
-    (tooltip-show "\n Compilation Failed  \n "))
-  (setq current-frame (car (car (cdr (current-frame-configuration)))))
-  (select-frame-set-input-focus current-frame))
-
-(add-to-list 'compilation-finish-functions
-             'notify-compilation-result)
-
 ;; Automatically pull changes to open buffers
 (global-auto-revert-mode t)
 
@@ -54,3 +38,6 @@ and set the focus back to Emacs frame"
 ;; Maximize vertical space
 (setq split-height-threshold nil)
 
+;; I always want dired, and I always want a shell
+(shell)
+(dired "~")

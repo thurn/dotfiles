@@ -42,7 +42,7 @@ character of the current line."
 (defun dthurn-bol (&rest args)
   (interactive)
   (call-interactively 'dthurn-cycle-bol)
-  (if (eq major-mode 'slime-repl-mode) 
+  (if (eq major-mode 'slime-repl-mode)
       (call-interactively 'forward-word)))
 
 (defun dthurn-compile (&rest args)
@@ -91,7 +91,8 @@ region) apply comment-or-uncomment to the current line"
   "Kill some buffers that annoy me"
   (interactive)
   (let ((buffers
-         '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*")))
+         '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
+           "*grep*")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
