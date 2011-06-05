@@ -21,8 +21,8 @@ esac
 # Address to push to for dotfiles updates
 export dotfiles="git@github.com:thurn/dotfiles.git"
 
-export SVN_EDITOR=vim
-export EDITOR=vim
+export SVN_EDITOR=emacsclient
+export EDITOR=emacsclient
 export PAGER=less
 
 # Helps emacsclient work properly

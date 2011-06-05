@@ -91,7 +91,7 @@ region) apply comment-or-uncomment to the current line"
   "Kill some buffers that annoy me"
   (interactive)
   (let ((buffers
-         '("*Help*" "*Apropos*" "Completions*" "*JDEE bsh*" "*Backtrace*")))
+         '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
