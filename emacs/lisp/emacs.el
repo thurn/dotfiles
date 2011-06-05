@@ -37,7 +37,3 @@
 
 ;; Maximize vertical space
 (setq split-height-threshold nil)
-
-;; I always want dired, and I always want a shell
-(shell)
-(dired "~")
