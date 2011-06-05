@@ -1,6 +1,6 @@
 ;; Configuration for the emacs shell and the emacs terminal
 
-(defvar shell-path-dthurn (executable-find "/bin/zsh")
+(defvar shell-path-dthurn (executable-find "zsh")
      "Shell location")
 
 ;; Support colors properly in shell using AnsiColor:
@@ -9,12 +9,6 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
-
-;; C-f and C-j to navigate history in *shell* mode
-(add-hook 'shell-mode-hook
-          '(lambda ()
-             (define-key shell-mode-map "\C-f" 'comint-previous-matching-input-from-input)
-             (define-key shell-mode-map "\C-j" 'comint-next-input)))
 
 (defun ansi-term-current-directory ()
   "Opens a ansi-term in the current directory"

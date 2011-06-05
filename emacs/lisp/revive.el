@@ -14,5 +14,5 @@
 (global-set-key (kbd "C-c v") 'save-current-configuration)
 (global-set-key (kbd "C-c b") 'dthurn-resume)
 
-(add-hook 'auto-save-hook 'save-current-configuration)
-(add-hook 'kill-emacs-hook 'save-current-configuration)
+
+

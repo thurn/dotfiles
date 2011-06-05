@@ -1,3 +1,4 @@
 ;; Aquamacs-specific configuration
 
-(tabbar-mode -1)
+(if (boundp 'tabbar-mode)
+  (tabbar-mode -1))

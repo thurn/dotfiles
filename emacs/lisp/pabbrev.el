@@ -26,13 +26,4 @@
       
 (fset 'pabbrev-suggestions-goto-buffer 'pabbrevx-suggestions-goto-buffer)
 
- ;;;###autoload
-(defun dthurn-turn-on-pabbrev-mode ()
-  "Turns on pabbrev mode if the buffer is appropriate."
-  (if (not buffer-read-only) (pabbrev-mode t)))
-
-(define-global-minor-mode dthurn-pabbrev-global-mode pabbrev-mode dthurn-turn-on-pabbrev-mode)
-
-(setq pabbrev-idle-timer-verbose nil)
-(dthurn-pabbrev-global-mode t)
 

@@ -77,7 +77,76 @@ character of the current line."
   `(global-set-key (kbd ,key) ,command)
   `(define-key sober-mode-map (kbd ,key) ,command))
 
+(defmacro sober-define (key name body)
+  `(defun ,name (&rest args)
+      (interactive)
+      ,body))
+
 ;; Global keybindings
+
+;; ; Top Row
+;; (sober-define "C-q" sober-cq (recenter))
+;; (sober-define "C-w" sober-cw (dthurn-page-up))
+;; (sober-define "C-e" sober-ce (end-of-line))
+;; (sober-define "C-r" sober-cr (backward-kill-word))
+;; (sober-define "C-t" sober-ct (other-window))
+;; (sober-define "C-y" sober-cy (goto-line))
+;; (sober-define "C-u" sober-cu (yank))
+;; (sober-define "M-t" sober-ci (dthurn-page-down))
+;; (sober-define "C-o" sober-co (dthurn-open))
+;; (sober-define "C-p" sober-cp (other-previous-window))
+
+;; ; Middle Row
+;; (sober-define "C-a" sober-ca (dthurn-bol))
+;; (sober-define "C-d" sober-cd (forward-char))
+;; (sober-define "C-f" sober-cf (forward-word))
+;; (sober-define "C-g" sober-cg (keyboard-escape-quit))
+;; (sober-define "C-j" sober-cj (dthurn-down))
+;; (sober-define "C-k" sober-ck (dthurn-up))
+;; (sober-define "C-l" sober-cl (backward-word))
+;; (sober-define "C-;" sober-csemi (backward-char))
+
+;; ; Bottom Row
+;; ; C-z is 'alternate down', not set yet
+;; (sober-define "C-v" sober-cv (save-buffer))
+;; ; C-b is 'alternate up', not set yet
+;; (sober-define "C-n" sober-cn (kill-line))
+;; (sober-define "M-y" sober-cm (delete-char))
+;; (sober-define "C-," sober-ccomma (smex))
+;; (sober-define "C-/" sober-cslash (undo))
+
+;;; Global keybindings
+
+;; ; Top Row (Meta)
+;; (sober-map-key "M-q" 'sober-mq)
+;; (sober-map-key "M-w" 'sober-mw)
+;; (sober-map-key "M-e" 'sober-me) ; Override as a formatting command
+;; (sober-map-key "M-r" 'sober-mr)
+;; (sober-map-key "M-u" 'sober-mu)
+;; (sober-map-key "M-i" 'sober-mi) ; Override as a compile command
+;; (sober-map-key "M-p" 'sober-mp)
+
+;; ; Middle Row
+;; (sober-map-key "M-a" 'sober-ma)
+;; (sober-map-key "M-s" 'sober-ms)
+;; (sober-map-key "M-d" 'sober-md)
+;; (sober-map-key "M-f" 'sober-mf)
+;; (sober-map-key "M-g" 'sober-mg)
+;; (sober-map-key "M-h" 'sober-mh)
+;; (sober-map-key "M-j" 'sober-mj)
+;; (sober-map-key "M-k" 'sober-mk)
+;; (sober-map-key "M-l" 'sober-ml)
+;; (sober-map-key "M-;" 'sober-msemi)
+
+;; ; Bottom Row
+;; (sober-map-key "M-z" 'sober-mz)
+;; (sober-map-key "M-x" 'sober-mx)
+;; (sober-map-key "M-c" 'sober-mc)
+;; (sober-map-key "M-v" 'sober-mv)
+;; (sober-map-key "M-n" 'sober-mn)
+;; (sober-map-key "M-." 'sober-mdot)
+;; (sober-map-key "M-/" 'sober-mslash)
+;; (sober-map-key "M-`" 'sober-mbtick)
 
 ; Top Row
 (sober-map-key "C-q" 'recenter)
@@ -89,7 +158,7 @@ character of the current line."
 (sober-map-key "C-u" 'yank)
 (sober-map-key "M-t" 'dthurn-page-down) ; REMAPPED AT OS LEVEL TO SEND C-i
 (sober-map-key "C-o" 'dthurn-open)
-(sober-map-key "C-p" 'other-previous-window)
+(sober-map-key "C-p" (lambda () (interactive) (other-window -1)))
 
 ; Middle Row
 (sober-map-key "C-a" 'dthurn-bol)
@@ -129,7 +198,7 @@ character of the current line."
 (sober-map-key "M-j" 'ido-switch-buffer)
 (sober-map-key "M-k" 'set-mark-command)
 (sober-map-key "M-l" 'isearch-backward)
-(sober-map-key "M-;" 'ido-kill-buffer)
+(sober-map-key "M-;" 'doctor)
 
 ; Bottom Row
 (sober-map-key "M-z" 'undo)
@@ -140,6 +209,8 @@ character of the current line."
 (sober-map-key "M-." 'find-tag)
 (sober-map-key "M-/" 'comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
+
+; (global-set-key (kbd "C-s") (lambda () (interactive) (recenter)))
 
 ;;;###autoload
  (define-minor-mode sober-mode

@@ -14,5 +14,3 @@
 
 (load-file (concat emacs-root-dthurn init-file-dthurn))
 
-;; Start the emacs server for emacsclient to connect to
-(server-start)
