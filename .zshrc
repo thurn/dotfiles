@@ -19,7 +19,7 @@ then
   then
     if type git &> /dev/null;
     then
-      nohup git pull origin master > /dev/null 2> /dev/null &
+      nohup git pull origin master > /dev/null &
     else # Without git, ssh into thurn.ca, run a git pull, then rsync
       echo "No git!"
     fi
