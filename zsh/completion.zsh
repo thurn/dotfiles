@@ -8,9 +8,6 @@ setopt always_to_end
 
 WORDCHARS=''
 
-autoload -U compinit
-compinit -i
-
 zmodload -i zsh/complist
 
 ## case-insensitive (all),partial-word and then substring completion
@@ -22,9 +19,6 @@ else
 fi
 
 zstyle ':completion:*' list-colors ''
-
-# should this be in keybindings?
-bindkey -M menuselect '^o' accept-and-infer-next-history
 
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
@@ -62,3 +56,4 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # ... unless we really want to.
 zstyle '*' single-ignored show
 
+setopt NO_ALWAYS_LAST_PROMPT

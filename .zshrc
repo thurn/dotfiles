@@ -3,27 +3,25 @@ if [ -f ~/.shell_config ]; then
    source ~/.shell_config
 fi
 
-# Import dotfile updates
-source ~/.dotfile_import
+wd=$(pwd)
+home=~
 
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.zsh
+WHO=`who am i | sed -e 's/ .*//'`
+ID_WHO=`id -u $WHO`
+ID=`id -u`
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="dthurn"
+if [[ $wd == $home ]] # Only run from home directory
+then
+  if [[ "$ID" = "$ID_WHO" ]] # Do not run if SUed
+  then
+    if type git &> /dev/null;
+    then
+      git pull origin master 
+    else # Without git, ssh into thurn.ca, run a git pull, then rsync
+      echo "No git!"
+    fi
+  fi
+fi
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem github pip svn)
-
-source $ZSH/oh-my-zsh.sh
+ZSH=$HOME/zsh
+for config_file ($ZSH/*.zsh) source $config_file
