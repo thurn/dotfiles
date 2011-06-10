@@ -92,22 +92,19 @@ region) apply comment-or-uncomment to the current line"
   (interactive)
   (let ((buffers
          '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
-           "*grep*")))
+           "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
+           "*Occur*")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
 (defmacro sober-map-key (key command)
-  `(global-set-key (kbd ,key) ,command)
-  `(define-key sober-mode-map (kbd ,key) ,command))
+  `(progn
+     (global-set-key (kbd ,key) ,command)
+     (define-key sober-mode-map (kbd ,key) ,command)))
 
-(defmacro sober-define (key name body)
-  `(defun ,name (&rest args)
-t     (interactive)
-     ,body))
-
-                                        ; Top Row
+;; Top Row
 (sober-map-key "C-q" 'recenter)
 (sober-map-key "C-w" 'dthurn-page-up)
 (sober-map-key "C-e" 'end-of-line)
@@ -119,7 +116,7 @@ t     (interactive)
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" (lambda () (interactive) (other-window -1)))
 
-                                        ; Middle Row
+;; Middle Row
 (sober-map-key "C-a" 'dthurn-bol)
 (sober-map-key "C-d" 'forward-char)
 (sober-map-key "C-f" 'forward-word)
@@ -129,7 +126,7 @@ t     (interactive)
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
 
-                                        ; Bottom Row
+;; Bottom Row
 (sober-map-key "C-z" 'comint-next-input)
 (sober-map-key "C-v" 'save-buffer)
 (sober-map-key "C-b" 'comint-previous-matching-input-from-input)
@@ -139,7 +136,7 @@ t     (interactive)
 (sober-map-key "M-[ a" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
 (sober-map-key "C-/" 'undo)
 
-                                        ; Top Row (Meta)
+;; Top Row (Meta)
 (sober-map-key "M-q" 'save-buffers-kill-terminal)
 (sober-map-key "M-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
@@ -148,7 +145,7 @@ t     (interactive)
 (sober-map-key "M-i" 'eval-buffer) ; Override as a compile command
 (sober-map-key "M-p" 'ido-goto-symbol)
 
-                                        ; Middle Row
+;; Middle Row
 (sober-map-key "M-a" 'mark-whole-buffer)
 (sober-map-key "M-s" 'delete-other-windows)
 (sober-map-key "M-d" 'kill-word)
@@ -160,15 +157,17 @@ t     (interactive)
 (sober-map-key "M-l" 'isearch-backward)
 (sober-map-key "M-;" 'eval-expression)
 
-                                        ; Bottom Row
+;; Bottom Row
 (sober-map-key "M-z" 'undo)
 (sober-map-key "M-x" 'kill-region)
 (sober-map-key "M-c" 'copy-region-as-kill)
 (sober-map-key "M-v" 'clipboard-yank)
 (sober-map-key "M-n" 'backward-paragraph)
-(sober-map-key "M-." 'find-tag)
+(sober-map-key "M-." 'find-tag-other-window)
 (sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
+
+(sober-map-key "C-\\" 'universal-argument)
 
 ;;;###autoload
 (define-minor-mode sober-mode

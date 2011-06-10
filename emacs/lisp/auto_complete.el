@@ -6,6 +6,9 @@
 
 (setq ac-delay 0)
 
+(setq ac-sources
+      '(ac-source-abbrev ac-source-gtags ac-source-words-in-buffer))
+
  ;;;###autoload
 (defun dthurn-turn-on-auto-complete-mode ()
   "Turns on auto-complete mode if the buffer is appropriate."

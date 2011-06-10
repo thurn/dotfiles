@@ -6,6 +6,19 @@ if [ -f ~/.shell_config ]; then
    source ~/.shell_config
 fi
 
+# Are we running in emacs?
+emacs_shell=false
+emacs_term=false
+if (set -u; : $EMACS) 2> /dev/null
+then
+  if [[ $EMACS == "t" ]]
+  then
+    emacs_shell=true
+  else
+    emacs_term=true
+  fi
+fi
+
 wd=$(pwd)
 home=~
 
@@ -13,17 +26,12 @@ WHO=`who am i | sed -e 's/ .*//'`
 ID_WHO=`id -u $WHO`
 ID=`id -u`
 
-if [[ $wd == $home ]] # Only run from home directory
+# Only run from home directory, if not su-ed, if git is available
+if [[ $wd == $home ]] && [[ $ID = $ID_WHO ]] && type git &> /dev/null && ! $emacs_shell && ! $emacs_term;
 then
-  if [[ "$ID" = "$ID_WHO" ]] # Do not run if SUed
-  then
-    if type git &> /dev/null;
-    then
-      nohup git pull origin master > /dev/null &
-    else # Without git, ssh into thurn.ca, run a git pull, then rsync
-      echo "No git!"
-    fi
-  fi
+  nohup git pull origin master > /dev/null &
+else
+  echo "No git!"
 fi
 
 ZSH=$HOME/zsh

@@ -1,18 +1,6 @@
 #!/usr/bin/env zsh
 # -*- mode: zsh; -*-
 
-emacs_shell=false
-emacs_term=false
-if (set -u; : $EMACS) 2> /dev/null
-then
-  if [[ $EMACS == "t" ]]
-  then
-    emacs_shell=true
-  else
-    emacs_term=true
-  fi
-fi
-
 # Use ... for ../.. etc
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then

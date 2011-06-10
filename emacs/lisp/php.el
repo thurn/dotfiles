@@ -8,14 +8,16 @@
 ;;========================================================
 (defconst fb-php-style
   '((c-basic-offset . 2)
-    (c-offsets-alist . ( 
+    (c-offsets-alist . (
                         (arglist-intro . +)
                         (case-label . +)
                         (arglist-close . c-lineup-close-paren)
-                        ))) 
+                        )))
   "PHP Programming style"
 )
 (c-add-style "fb-php-style" fb-php-style)
+
+(add-to-list 'php-mode-hook (lambda () (flymake-mode 1)))
 
 ;; Automatically enable xhp-mode
 (setq magic-mode-alist (append '(("<\\?php\\s " . xhp-mode))
