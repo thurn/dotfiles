@@ -2,8 +2,8 @@
 # dthurn's zshrc
 
 # Local config
-if [ -f ~/.shell_config ]; then
-   source ~/.shell_config
+if [ -f ~/.shell_config.zsh ]; then
+   source ~/.shell_config.zsh
 fi
 
 # Are we running in emacs?
