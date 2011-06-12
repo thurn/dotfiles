@@ -1,4 +1,5 @@
 ;; Some useful elisp functions
+(require 'cl)
 
 ;; Split the screen into 80-column windows
 (defun smart-split ()
@@ -24,4 +25,13 @@
  "Untabifies the whole buffer"
  (interactive)
  (untabify (point-min) (point-max)))
+
+(defun dlog (&rest objects)
+  "Logs output to a buffer called *log*"
+  (lexical-let* ((buffer (get-buffer-create "*log*")))
+    (with-current-buffer buffer
+      (end-of-buffer)
+      (insert (concat "[" (current-time-string) "] "))
+      (mapcar (lambda (obj) (princ obj buffer) (insert " ")) objects)
+      (newline))))
 

@@ -15,5 +15,5 @@ if ($#ARGV == 0) {
   find(\&wanted, $ARGV[1]);
 } else {
   print "Usage: search REGEX [directory]\n";
-  print "Example: search .js ~\n";
+  print "Example: search '.js' ~\n";
 }

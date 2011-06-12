@@ -37,3 +37,8 @@
 
 ;; Maximize vertical space
 (setq split-height-threshold nil)
+
+
+
+
+

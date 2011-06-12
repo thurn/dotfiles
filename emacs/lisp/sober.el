@@ -93,7 +93,7 @@ region) apply comment-or-uncomment to the current line"
   (let ((buffers
          '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
-           "*Occur*")))
+           "*Occur*" "*log*" "*epic output*")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
