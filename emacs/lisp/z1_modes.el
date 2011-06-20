@@ -148,7 +148,7 @@
         ("\\.mf\\'" . metafont-mode)
         ("\\.mixal\\'" . mixal-mode)
         ("\\.mk\\'" . makefile-gmake-mode)
-        ("\\.ml\\'" . lisp-mode)
+        ("\\.ml[iylp]?" . tuareg-mode)
         ("\\.mp\\'" . metapost-mode)
         ("\\.mss\\'" . scribe-mode)
         ("\\.mx-chart\\'" . chart-mode)
