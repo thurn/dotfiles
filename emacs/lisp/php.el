@@ -16,11 +16,5 @@
   "PHP Programming style"
 )
 (c-add-style "fb-php-style" fb-php-style)
-
-(add-to-list 'php-mode-hook (lambda () (flymake-mode 1)))
-
-;; Automatically enable xhp-mode
-(setq magic-mode-alist (append '(("<\\?php\\s " . xhp-mode))
-                              magic-mode-alist))
-(setq auto-mode-alist (append '(("\\.php$" . xhp-mode))
-                              auto-mode-alist))
+(unless (boundp 'xhp-mode-hook) (setq xhp-mode-hook '()))
+(add-to-list 'xhp-mode-hook (lambda () (flymake-mode 1)))

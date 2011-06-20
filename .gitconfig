@@ -1,14 +1,13 @@
 [user]
 	name = dthurn
 	email = dthurn@fb.com
-  editor = vim
+    editor = emacs
 [color]
     branch = auto
     diff = auto
     status = auto
     interactive = auto
     ui = true
-    pager = true
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -30,5 +29,6 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.global_gitignore
+    pager = "cat"
 [apply]
   whitespace = fix

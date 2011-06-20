@@ -11,7 +11,7 @@
 
 ;; Use spaces, not tabs
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 
 ;; Don't use the Emacs GUI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
