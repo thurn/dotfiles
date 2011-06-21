@@ -23,19 +23,18 @@
 
 ;; Set up ELPA, the Emacs Lisp Package Archive
 (when
-    (load
-     (concat emacs-root-dthurn "elpa/package.el"))
-  (package-initialize))
+    (load "~/emacs/elpa/package.el")
+    (package-initialize))
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories.
 ;; This directory holds all of my emacs libraries.
-(recursive-add-to-load-path-dthurn (concat emacs-root-dthurn "site-lisp"))
+(recursive-add-to-load-path-dthurn "~/emacs/lib")
 
 ;; Load customizations. NOTE: Sometimes, the order of customization loading is 
 ;; important. To enable an ordering, the customizations are always loaded by 
 ;; dthurn-load-directory above in alphabetical order as specified by lessp. 
 ;; When customizations need to be ordered, prefix the file containing them
-;; with aa to put them at the start of the load sequence or zz to put them
+;; with aa to put them at the start of the load sequence or z to put them
 ;; at the end of the sequence, then differentiate among them using a digits.
-;; For example, to make visited.el load last, name it zz1_visited.el
-(load-directory-dthurn (concat emacs-root-dthurn "lisp"))
+;; For example, to make visited.el load last, name it z1_visited.el
+(load-directory-dthurn "~/emacs/conf")

@@ -3,20 +3,14 @@
 ;; Default .emacs file. Attempts to make an intelligent guess as
 ;; to the location of the root of my customizations.
 
-(defvar emacs-root-dthurn (if (or (eq system-type 'ms-dos)
-    (eq system-type 'windows-nt))
-        "C:/emacs/" ;; Windows root
-        "~/emacs/" ) ;; UNIX root
-     "A guess at where the emacs root is located.")
-
-(defvar init-file-dthurn "init.el" 
+(defconst init-file-dthurn "~/emacs/init.el" 
      "The file to bootstrap my emacs configuration.")
 
-(defvar dthurn-local-config ".emacs_config"
+(defconst dthurn-local-config "~/.emacs_config.el"
      "Local configuration")
 
 (if (file-exists-p dthurn-local-config)
   (load-file dthurn-local-config))
 
-(load-file (concat emacs-root-dthurn init-file-dthurn))
+(load-file init-file-dthurn)
 

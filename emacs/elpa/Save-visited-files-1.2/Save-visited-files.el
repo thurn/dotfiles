@@ -93,6 +93,7 @@
           (mapcar '(lambda (x) (insert x "\n"))
                   (remove-if '(lambda (x)
                                 (or (string-equal location x)
+                                    (not (file-exists-p x))
                                     (eq nil x))) (mapcar 'buffer-file-name (buffer-list))))
           (with-temp-message ""
             (write-file location nil)))

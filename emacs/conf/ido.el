@@ -4,7 +4,7 @@
 
 ;; Enable and configure ido-mode
 (ido-mode t)
-(setq ido-save-directory-list-file (concat emacs-root-dthurn ".ido.last"))
+(setq ido-save-directory-list-file "~/emacs/.ido.last")
 (setq ido-enable-flex-matching t)
 (ido-mode t)
 (ido-everywhere t)

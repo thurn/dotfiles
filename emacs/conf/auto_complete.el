@@ -1,6 +1,6 @@
 ;; Configuration for auto-complete-mode
 (require 'auto-complete)
-(add-to-list 'ac-dictionary-directories (concat emacs-root-dthurn "dict"))
+(add-to-list 'ac-dictionary-directories "~/emacs/dict")
 (require 'auto-complete-config)
 (ac-config-default)
 
@@ -42,4 +42,4 @@
 
 ;; (setq ac-sources
 ;;       '(ac-source-abbrev ac-source-gtags ac-source-words-in-buffer))
-(setq ac-sources '(ac-test-source))
+;; (setq ac-sources '(ac-test-source))
