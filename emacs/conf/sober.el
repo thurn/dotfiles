@@ -169,6 +169,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-`" 'other-window)
 
 (sober-map-key "C-\\" 'universal-argument)
+(sober-map-key "C-c j" 'move-to-window-line)
 
 ;;;###autoload
 (define-minor-mode sober-mode
