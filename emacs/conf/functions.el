@@ -64,3 +64,5 @@
              (delete-file filename)
              (set-visited-file-name newname)
              (set-buffer-modified-p nil) t))))
+(fset 'hlog
+   "\C-ahlog('>>> \C-n\C-u', \C-u);")
