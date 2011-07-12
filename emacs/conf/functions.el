@@ -66,3 +66,9 @@
              (set-buffer-modified-p nil) t))))
 (fset 'hlog
    "\C-ahlog('>>> \C-n\C-u', \C-u);")
+
+(defun shell-and-cd (&rest args)
+ (interactive)
+ (let ((dir default-directory))
+   (switch-to-buffer "*shell*")
+   (comint-send-string (current-buffer) (concat "cd " dir "\n"))))
