@@ -108,8 +108,9 @@
   (save-excursion
     (goto-char start)
     (while (< (point) end)
-      (search-forward "\n" nil t)
-      (xhp-mode-indent-line))))
+      (beginning-of-line)
+      (xhp-mode-indent-line)
+      (next-line))))
 
 (defconst xhp-mode-font-lock-keywords-1
   php-font-lock-keywords-1 ;; nothing to add at this level

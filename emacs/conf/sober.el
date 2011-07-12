@@ -182,8 +182,10 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
 
+(sober-map-key "C-x f" 'find-file-at-point)
 (sober-map-key "C-\\" 'universal-argument)
 (sober-map-key "C-c j" 'move-to-window-line)
+(sober-map-key "C-c i" 'fix-init)
 
 ;;;###autoload
 (define-minor-mode sober-mode
