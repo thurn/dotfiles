@@ -17,4 +17,4 @@
 )
 (c-add-style "fb-php-style" fb-php-style)
 (unless (boundp 'xhp-mode-hook) (setq xhp-mode-hook '()))
-(add-to-list 'xhp-mode-hook (lambda () (flymake-mode 1)))
+;(add-to-list 'xhp-mode-hook (lambda () (flymake-mode 1)))

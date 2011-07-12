@@ -94,8 +94,22 @@ region) apply comment-or-uncomment to the current line"
          '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
-           "*Async Shell Command*")))
+           "*Async Shell Command*" "*save*"
+           "*sync*" "*sync*<2>" "*sync*<3>" "*sync*<4>" "*sync*<5>"
+           "*sync*<6>" "*sync*<7>" "*sync*<8>" "*sync*<9>" "*sync*<10>"
+           "*sync*<11>" "*sync*<12>" "*sync*<13>" "*sync*<14>" "*sync*<15>"
+           "*sync*<16>*" "*sync*<17>" "*sync*<18>" "*sync*<19>" "*sync*<20>")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
+
+(defun sober-map-ci (command)
+  """Maps C-i to a specific command via some trickery."""
+  ;; Don't translate tab into C-i. 
+  (define-key function-key-map [tab] nil) 
+  ;; Swap the meanings of tab and C-i. 
+  (define-key key-translation-map [9] [tab]) 
+  (define-key key-translation-map [tab] [9]) 
+  ;; Bind tab (which is now actually C-i) 
+  (global-set-key [tab] 'comand))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
