@@ -72,3 +72,9 @@
  (let ((dir default-directory))
    (switch-to-buffer "*shell*")
    (comint-send-string (current-buffer) (concat "cd " dir "\n"))))
+
+(defun color-buffer ()
+  "Removes ANSI escape characters from the buffer and attempts to color it"
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+

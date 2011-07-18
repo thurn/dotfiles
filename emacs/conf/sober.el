@@ -94,11 +94,7 @@ region) apply comment-or-uncomment to the current line"
          '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
-           "*Async Shell Command*" "*save*"
-           "*sync*" "*sync*<2>" "*sync*<3>" "*sync*<4>" "*sync*<5>"
-           "*sync*<6>" "*sync*<7>" "*sync*<8>" "*sync*<9>" "*sync*<10>"
-           "*sync*<11>" "*sync*<12>" "*sync*<13>" "*sync*<14>" "*sync*<15>"
-           "*sync*<16>*" "*sync*<17>" "*sync*<18>" "*sync*<19>" "*sync*<20>")))
+           "*Async Shell Command*" "*save*" "*piped*")))
     (mapcar 'dthurn-kill-buffer-if-exists buffers)))
 
 (defun sober-map-ci (command)

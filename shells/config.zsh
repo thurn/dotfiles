@@ -30,12 +30,7 @@ else
 fi
 
 # Override $TERM aspirationally
-if $emacs_shell ;
-then
-  export TERM=dumb
-else
-  export TERM=xterm-256color
-fi
+export TERM=xterm-256color
 
 # Initialize colors.
 autoload -U colors
@@ -51,10 +46,5 @@ setopt PROMPT_SUBST
 # %~ is pwd
 # %f stops using a color
 # %# is % for non-root shells and # for root shells
-#if [[ $EMACS == "t" ]]
-#then
-#PROMPT='%U$fg[red]%~%u $fg[cyan]%# $reset_color'
-#else
 PROMPT='%U$fg[green]%~%u $fg[red]%n@%M
 $fg[cyan]%# $reset_color'
-#fi

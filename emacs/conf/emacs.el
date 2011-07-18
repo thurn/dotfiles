@@ -25,9 +25,10 @@
 (setq backup-directory-alist `(("." . "~/emacs/backups/")))
 
 ;; Define the emacs font
-(setq dthurn-font-name "Inconsolata-dz")
+(setq dthurn-font-name "Monaco")
 (if (member dthurn-font-name (font-family-list))
-    (set-face-attribute 'default nil :font "Inconsolata-dz" :height 120))
+    (set-face-attribute 'default nil :font "Monaco" :height 120)
+  (message "Font not found"))
 
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
@@ -37,8 +38,6 @@
 
 ;; Maximize vertical space
 (setq split-height-threshold nil)
-
-
 
 
 

@@ -1,6 +1,6 @@
 ;; Configuration for the emacs shell and the emacs terminal
 
-(defvar shell-path-dthurn (executable-find "zsh")
+(defvar shell-path-dthurn (executable-find "bash")
   "Shell location")
 
 ;; Support colors properly in shell using AnsiColor:
@@ -8,10 +8,11 @@
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(setq comint-prompt-read-only t)
 (add-hook 'shell-mode-hook (lambda ()
                              (setq show-trailing-whitespace nil)
                              (highlight-80+-mode -1)))
-(setq comint-prompt-read-only t)
+
 
 (defun ansi-term-current-directory ()
   "Opens a ansi-term in the current directory"
@@ -27,3 +28,8 @@
 ;; Use C-x as the escape character in *term* so many Emacs commands work
 ;; naturally
 (term-set-escape-char ?\C-x)
+
+;; Use bash in emacs, it works better
+(setq shell-file-name "/bin/bash")
+(setq explicit-shell-file-name "/bin/bash")
+

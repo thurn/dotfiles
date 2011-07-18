@@ -28,6 +28,6 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.global_gitignore
-    pager = "cat"
+    pager = "emacspager.pl"
 [apply]
   whitespace = fix
