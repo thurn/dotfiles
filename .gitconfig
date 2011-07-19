@@ -3,24 +3,27 @@
 	email = dthurn@fb.com
     editor = emacs
 [color]
-    branch = auto
-    diff = auto
-    status = auto
-    interactive = auto
-    ui = true
+        ui = auto
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        grep = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+        current = white blue bold
+        local  = blue
+        remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+        plain = white
+        meta = yellow bold
+        frag = magenta bold
+        old = red 
+        new = green
+        whitespace = red blink
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+        added = yellow
+        changed = green
+        untracked = cyan
 [alias]
     co = checkout
     tree = log --graph --pretty=oneline --decorate

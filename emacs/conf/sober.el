@@ -82,7 +82,7 @@ region) apply comment-or-uncomment to the current line"
       (comment-or-uncomment-region (mark) (point)))))
 
 
-(defun dthurn-kill-buffer-if-exists (name)
+(defun kill-buffer-if-exists (name)
   "Kill a buffer named 'name' if it exists"
   (if (not (eq nil (get-buffer name)))
       (kill-buffer  name)))
@@ -95,7 +95,7 @@ region) apply comment-or-uncomment to the current line"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
            "*Async Shell Command*" "*save*" "*piped*")))
-    (mapcar 'dthurn-kill-buffer-if-exists buffers)))
+    (mapcar 'kill-buffer-if-exists buffers)))
 
 (defun sober-map-ci (command)
   """Maps C-i to a specific command via some trickery."""

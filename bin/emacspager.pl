@@ -36,10 +36,11 @@ my $emacsclient = "emacsclient";
 # A server-session can be started by "M-x server-start".
 
 exit 1
-    if 0 != system("$emacsclient -n --eval '(progn (pop-to-buffer (get-buffer-create \"*piped*\")))'");
+    if 0 != system("$emacsclient -n --eval '(progn (kill-buffer-if-exists \"*piped*\") (pop-to-buffer (get-buffer-create \"*piped*\")))'");
 
 my $s = IO::Select->new;
 $s->add(\*STDIN);
+
 
 while (1)
 {
