@@ -65,16 +65,24 @@
              (set-visited-file-name newname)
              (set-buffer-modified-p nil) t))))
 (fset 'hlog
-   "\C-ahlog('>>> \C-n\C-u', \C-u);")
+      "\C-ahlog(';;; \C-n\C-u', print_shallow(\C-u));")
 
 (defun shell-and-cd (&rest args)
- (interactive)
- (let ((dir default-directory))
-   (switch-to-buffer "*shell*")
-   (comint-send-string (current-buffer) (concat "cd " dir "\n"))))
+  (interactive)
+  (let ((dir default-directory))
+    (switch-to-buffer "*shell*")
+    (kill-new (concat "cd " dir) nil)))
 
 (defun color-buffer ()
   "Removes ANSI escape characters from the buffer and attempts to color it"
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
 
+(defun fixup-overview ()
+  (interactive)
+  (save-excursion
+    (yank)
+    (replace-string "<a>" "" nil (point-min) (point-max))
+    (replace-string "</pre>" "" nil (point-min) (point-max))
+    (replace-regexp "kbd>.*" "kbd>" nil (point-min) (point-max))))
+(global-set-key (kbd "C-c C-o") 'fixup-overview)

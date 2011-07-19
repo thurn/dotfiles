@@ -8,7 +8,7 @@
 (setq ido-enable-flex-matching t)
 (ido-mode t)
 (ido-everywhere t)
-(setq ido-max-prospects 0)
+(setq ido-max-prospects 10)
 (setq ido-use-filename-at-point 'guess)
 (setq ido-create-new-buffer 'always)
 (setq confirm-nonexistent-file-or-buffer nil)

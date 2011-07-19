@@ -81,21 +81,28 @@ region) apply comment-or-uncomment to the current line"
         (comment-or-uncomment-region (point) (mark))
       (comment-or-uncomment-region (mark) (point)))))
 
+(defun dthurn-tab (&rest args)
+  (interactive)
+  (if (member (char-before) '(nil ?\ ?\n ?\t))
+      (let ((old (point)))
+        (indent-relative-maybe)
+        (when (= (point) old)
+          (beginning-of-line)
+          (insert-tab)
+          (goto-char (+ old 2))))
+    (dabbrev-expand nil)))
+
+(defun dthurn-backward-tab (&rest args)
+  (interactive)
+  (let ((old (point)))
+    (beginning-of-line)
+    (delete-char 2)
+    (goto-char (- old 2))))
 
 (defun kill-buffer-if-exists (name)
   "Kill a buffer named 'name' if it exists"
   (if (not (eq nil (get-buffer name)))
       (kill-buffer  name)))
-
-(defun dthurn-kill-starred-buffers ()
-  "Kill some buffers that annoy me"
-  (interactive)
-  (let ((buffers
-         '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
-           "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
-           "*Occur*" "*log*" "*epic output*" "*git-status*"
-           "*Async Shell Command*" "*save*" "*piped*")))
-    (mapcar 'kill-buffer-if-exists buffers)))
 
 (defun sober-map-ci (command)
   """Maps C-i to a specific command via some trickery."""
@@ -106,6 +113,27 @@ region) apply comment-or-uncomment to the current line"
   (define-key key-translation-map [tab] [9]) 
   ;; Bind tab (which is now actually C-i) 
   (global-set-key [tab] 'comand))
+
+(defun dthurn-kill-starred-buffers ()
+  "Kill some buffers that annoy me"
+  (interactive)
+  (let ((buffers
+         '("*Help*" "*Apropos*" "*Completions*" "*JDEE bsh*" "*Backtrace*"
+           "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
+           "*Occur*" "*log*" "*epic output*" "*git-status*"
+           "*Async Shell Command*" "*save*" "*piped*"
+           ;; "sync" "sync<2>" "sync<3>" "sync<4>" "sync<5>"
+           ;; "sync<6>" "sync<7>" "sync<8>" "sync<9>" "sync<10>"
+           ;; "sync<11>" "sync<12>" "sync<13>" "sync<14>" "sync<15>"
+           ;; "sync<16>" "sync<17>" "sync<18>" "sync<19>" "sync<20>"
+           ;; "sync<21>" "sync<22>" "sync<23>" "sync<24>" "sync<25>"
+           ;; "sync<26>" "sync<27>" "sync<28>" "sync<29>" "sync<30>"
+           ;; "sync<31>" "sync<32>" "sync<33>" "sync<34>" "sync<35>"
+           ;; "sync<36>" "sync<37>" "sync<38>" "sync<39>" "sync<40>"
+           ;; "sync<41>" "sync<42>" "sync<43>" "sync<44>" "sync<45>"
+           ;; "sync<46>" "sync<47>" "sync48>" "sync<49>" "sync<50>"
+           )))
+    (mapcar 'kill-buffer-if-exists buffers)))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
@@ -178,10 +206,12 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
 
-(sober-map-key "C-x f" 'find-file-at-point)
+(sober-map-key "C-x C-f" 'find-file-at-point)
 (sober-map-key "C-\\" 'universal-argument)
-(sober-map-key "C-c j" 'move-to-window-line)
-(sober-map-key "C-c i" 'fix-init)
+(sober-map-key "C-c <down>" 'move-to-window-line)
+(sober-map-key "C-c C-j" 'move-to-window-line)
+(sober-map-key "C-c C-i" 'fix-init)
+(sober-map-key "C-c C-h" 'hlog)
 
 ;;;###autoload
 (define-minor-mode sober-mode

@@ -39,5 +39,9 @@
 ;; Maximize vertical space
 (setq split-height-threshold nil)
 
-
+;; Add my local bin directory to $PATH
+(setenv "PATH"
+  (concat
+   "~/bin" ":"
+   (getenv "PATH")))
 

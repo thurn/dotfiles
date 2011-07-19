@@ -16,7 +16,7 @@ set number
 " Swap case is an operator
 set tildeop          
 " Help vim guess my background color
-set background=light
+set background=dark
 " Lots of history!
 set history=10000    
 " I have lots of RAM

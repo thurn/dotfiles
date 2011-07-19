@@ -113,7 +113,17 @@
       (next-line))))
 
 (defconst xhp-mode-font-lock-keywords-1
-  php-font-lock-keywords-1 ;; nothing to add at this level
+  (append
+   (list
+    '("\\<\\(const\\|attribute\\|enum\\|yield\\|children\\|required\\|private\\|default\\|null\\|true\\|false\\|int\\|bool\\|self\\)\\>"
+      (1 font-lock-keyword-face))
+    '("\\<\\(default\\):"
+      (1 font-lock-keyword-face))
+    '("\\<$\\(this\\)"
+      (1 font-lock-keyword-face))
+    '("\\<\\(MUST_PREPARE\\)"
+      (1 font-lock-keyword-face)))
+   php-font-lock-keywords-1)
   "Level 1 Font Lock for XHP Mode.")
 
 (defconst xhp-mode-font-lock-keywords-2

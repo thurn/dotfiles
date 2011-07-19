@@ -11,6 +11,7 @@
 
 server = ENV["ds"]
 program =  File.basename(__FILE__)
+
 relative_path = `pwd`.sub(File.expand_path("~"), "~").chomp
 before = after = ""
 
@@ -20,6 +21,10 @@ end
 
 if ENV[program + "_after"]
   after = " && " + ENV[program + "_after"]
+end
+
+if ENV[program + "_cmd"]
+  program = ENV[program + "_cmd"]
 end
 
 exec "#{before} ssh #{server} 'cd #{relative_path} ; " +

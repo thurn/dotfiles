@@ -13,12 +13,21 @@
   (loop for sync-local-dir in sync-local-dirs do
         (if (starts-with? buffer-file-name sync-local-dir)
             (save-window-excursion
-              (shell-command-to-string
-               (concat "scp " buffer-file-name " " sync-remote-host ":"
-                       sync-remote-dir
-                       (substring
-                        buffer-file-name
-                        (length sync-local-dir)) " &"))))))
+              (let ((buffer (generate-new-buffer "sync")))
+                (async-shell-command
+                 (concat "scp " buffer-file-name " " sync-remote-host ":"
+                         sync-remote-dir
+                         (substring
+                          buffer-file-name
+                          (length sync-local-dir)))
+                 buffer)
+                (run-with-timer
+                 60 nil
+                 (lambda (buffer)
+                   (kill-buffer-if-exists buffer))
+                 buffer))))))
+
+
 
 (add-hook 
  'after-save-hook 
