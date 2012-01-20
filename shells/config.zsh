@@ -1,17 +1,5 @@
 #!/usr/bin/env zsh
 # -*- mode: zsh; -*-
-
-# Use ... for ../.. etc
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-        LBUFFER+=/..
-  else
-        LBUFFER+=.
-          fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
-
 # Make cd push the old directory onto the directory stack.
 set -o AUTO_PUSHD
 # don't push duplicate directories
