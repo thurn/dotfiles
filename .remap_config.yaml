@@ -1,0 +1,33 @@
+--- 
+Google-chrome: 
+  \Cv: \Cs
+  \Ci: \[Page_Down]
+  \Cw: \[Page_Up]
+  \Ct: \C\[Page_Down]
+  \Cp: \C\[Page_Up]
+  \C/: \Cz
+  \Cu: \Cv
+  \At: \Ct
+  \An: \Cn
+  \Aw: \Cw
+  \Al: \Cl
+  \Ag: \C\[End]
+  \Au: \C\[Home]
+  \Aa: \Ca
+  \Az: \Cz
+  \Ax: \Cx
+  \Ac: \Cc
+  \Av: \Cv
+  \AN: \CN
+  \Cg: \[Escape]
+Gnome-terminal:
+  \Ct: \C\[Page_Down]
+  \Cp: \C\[Page_Up]
+  \Av: \CV
+  \Ac: \CC
+  \At: \CT
+  \An: \CN
+  \Aw: \CW
+  \Aq: \CQ
+Eclipse:
+  \Cg: \[Escape]

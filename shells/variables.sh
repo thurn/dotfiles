@@ -17,7 +17,7 @@ export EDITOR=vim
 export PAGER=less
 
 # Helps emacsclient work properly
-export DISPLAY=''
+#export DISPLAY=''
 
 # Tells clojure where to find clojure.jar
 export CLOJURE_EXT=~/.clojure

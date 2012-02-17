@@ -7,6 +7,7 @@
   "Turns on highlight-80+ mode if the buffer is appropriate."
   (if (not (or (window-minibuffer-p)
                buffer-read-only
+               (eq major-mode 'eshell-mode)
                (eq major-mode 'shell-mode)))
       (highlight-80+-mode t)))
 

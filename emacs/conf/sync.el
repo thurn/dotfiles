@@ -29,8 +29,8 @@
 
 
 
-(add-hook 
- 'after-save-hook 
- 'async-save)
+;(add-hook 
+; 'after-save-hook 
+; 'async-save)
 
 

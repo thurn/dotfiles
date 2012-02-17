@@ -22,12 +22,6 @@ alias ping='ping -c 5'
 # Show process names in pgrep
 alias pgrep="pgrep -l"
 
-# Use the $PAGER variable instead of less
-alias less=$PAGER
-
-# Show history in less
-alias history="history 0 | less"
-
 # Set up "pie" as sed-like perl
 alias pie='perl -p -i -e'
 

@@ -33,3 +33,10 @@
 (setq shell-file-name "/bin/bash")
 (setq explicit-shell-file-name "/bin/bash")
 
+(setq eshell-prompt-function
+      (lambda ()
+        (concat
+         (eshell/pwd)
+         "\n$ ")))
+
+(setq eshell-prompt-regexp "^[^#$]*[#$] ")

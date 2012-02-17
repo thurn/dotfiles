@@ -136,6 +136,7 @@
         ("\\.lex\\'" . c-mode)
         ("\\.li?sp\\'" . lisp-mode)
         ("\\.ltx\\'" . latex-mode)
+        ("\\.lua\\'" . lua-mode)
         ("\\.lzx\\'" . laszlo-nxml-mumamo-mode)
         ("\\.m$" . mercury-mode)
         ("\\.m$" . mercury-mode)
