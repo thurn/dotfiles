@@ -27,8 +27,7 @@
 ;; Define the emacs font
 (setq dthurn-font-name "Monaco")
 (if (member dthurn-font-name (font-family-list))
-    (set-face-attribute 'default nil :font "Monaco" :height 120)
-  (message "Font not found"))
+    (set-face-attribute 'default nil :font "Monaco" :height 120))
 
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
@@ -42,6 +41,8 @@
 ;; Add my local bin directory to $PATH
 (setenv "PATH"
   (concat
-   "~/bin" ":"
+   (getenv "HOME")
+   "/bin:"
    (getenv "PATH")))
 
+(setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))

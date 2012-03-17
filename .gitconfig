@@ -1,14 +1,14 @@
 [user]
 	name = Derek Thurn
 	email = dthurn@google.com
-    editor = emacs
+  editor = emacs_wrapper.rb
 [color]
-        ui = auto
-        diff = auto
-        status = auto
-        branch = auto
-        interactive = auto
-        grep = auto
+        ui = true
+        diff = true
+        status = true
+        branch = true
+        interactive = true
+        grep = true
 [color "branch"]
         current = white blue bold
         local  = blue

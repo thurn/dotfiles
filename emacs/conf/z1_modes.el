@@ -125,7 +125,7 @@
         ("\\.indent\\.pro\\'" . fundamental-mode)
         ("\\.ins\\'" . tex-mode)
         ("\\.itk\\'" . tcl-mode)
-        ("\\.java\\'" . jde-mode)
+        ("\\.java\\'" . java-mode)
         ("\\.jpe?g\\'" . image-mode)
         ("\\.js$" . js2-mode)
         ("\\.jsp\\'" . jsp-nxhtml-mumamo-mode)

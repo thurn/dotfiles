@@ -35,7 +35,7 @@ character of the current line."
 
 (defun dthurn-open (&rest args)
   (interactive)
-  (if (eq major-mode 'shell-mode)
+  (if (or (eq major-mode 'eshell-mode) (eq major-mode 'shell-mode))
       (call-interactively 'ido-find-file-other-window)
     (call-interactively 'ido-find-file)))
 

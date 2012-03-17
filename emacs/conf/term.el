@@ -33,10 +33,44 @@
 (setq shell-file-name "/bin/bash")
 (setq explicit-shell-file-name "/bin/bash")
 
+(defun dthurn-cleanup-prompt (path)
+  (replace-regexp-in-string "/usr/local/google/users/dthurn/oz/google3" "$g3" path))
+
 (setq eshell-prompt-function
       (lambda ()
         (concat
-         (eshell/pwd)
-         "\n$ ")))
+         (dthurn-cleanup-prompt (eshell/pwd))
+         "\n> ")))
 
-(setq eshell-prompt-regexp "^[^#$]*[#$] ")
+(setq eshell-prompt-regexp "^[^>]*[>] ")
+
+(defun eshell/emacs (file)
+  (find-file file))
+
+(defun eshell/vim (file)
+  (find-file file))
+
+(defun eshell/lock ()
+  (shell-command "gnome-screensaver-command --lock"))
+  
+(defun eshell/logoff ()
+  (shell-command "gnome-session-save --logout"))
+
+(defun eshell/reboot ()
+  (shell-command "sudo shutdown -r now"))
+
+(defun dthurn-cmdjoin (list)
+  (if list (concat "'" (mapconcat 'identity list "' '") "'") ""))
+
+(defun dthurn-git-exec (command args)
+  (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
+
+(defun eshell/git (command &rest args)
+  (cond 
+   ((member command '("log" "diff" "reflog"))
+    (progn
+      (dthurn-git-exec command (append args '("--color")))
+      (switch-to-buffer-other-window "*Shell Command Output*")
+      (color-buffer)))
+   ((member command '("status" "branch" "stash" "checkout" "commit" "add" "rebase" "reset" "help" "merge")) (dthurn-git-exec command args))
+   (t (concat "Command not supported: " command))))

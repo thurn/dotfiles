@@ -78,11 +78,4 @@
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
 
-(defun fixup-overview ()
-  (interactive)
-  (save-excursion
-    (yank)
-    (replace-string "<a>" "" nil (point-min) (point-max))
-    (replace-string "</pre>" "" nil (point-min) (point-max))
-    (replace-regexp "kbd>.*" "kbd>" nil (point-min) (point-max))))
-(global-set-key (kbd "C-c C-o") 'fixup-overview)
+

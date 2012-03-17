@@ -22,6 +22,15 @@
 "remap.rb '\Cg'"
    Control + g
 
+"remap.rb '\Cj'"
+   Control + j
+
+"remap.rb '\Ck'"
+   Control + k
+
+"remap.rb '\Cm'"
+   Control + m
+
 "remap.rb '\Al'"
    Alt + l
 
