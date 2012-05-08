@@ -1,7 +1,6 @@
 [user]
 	name = Derek Thurn
-	email = derek@thurn.ca
-    editor = emacs
+  editor = emacs
 [color]
         ui = auto
         diff = auto

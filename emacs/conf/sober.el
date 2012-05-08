@@ -41,9 +41,9 @@ character of the current line."
 
 (defun dthurn-bol (&rest args)
   (interactive)
-  (call-interactively 'dthurn-cycle-bol)
-  (if (eq major-mode 'slime-repl-mode)
-      (call-interactively 'forward-word)))
+  (if (eq major-mode 'eshell-mode)
+      (call-interactively 'eshell-bol)
+    (call-interactively 'dthurn-cycle-bol)))
 
 (defun dthurn-compile (&rest args)
   (interactive)
@@ -133,6 +133,27 @@ region) apply comment-or-uncomment to the current line"
    ((eq major-mode 'python-mode) (rope-code-assist nil))
    (t (indent-for-tab-command))))
 
+(defun dthurn-previous-input ()
+  "Completes to previous matching input"
+  (interactive)
+  (cond ((eq major-mode 'shell-mode)
+         (call-interactively 'comint-previous-matching-input-from-input))
+        ((eq major-mode 'slime-repl-mode)
+         (call-interactively 'slime-repl-backward-input))
+        ((eq major-mode 'eshell-mode)
+         (call-interactively 'eshell-previous-input))))
+
+(defun dthurn-next-input ()
+  "Completes to previous matching input"
+  (interactive)
+  (cond ((eq major-mode 'shell-mode)
+         (call-interactively 'comint-next-input))
+        ((eq major-mode 'slime-repl-mode)
+         (call-interactively 'slime-repl-forward-input))
+        ((eq major-mode 'eshell-mode)
+         (call-interactively 'eshell-next-input))))
+
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -158,15 +179,15 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-d" 'forward-char)
 (sober-map-key "C-f" 'forward-word)
 (sober-map-key "C-g" 'keyboard-escape-quit)
-(sober-map-key "C-j" 'dthurn-down)
-(sober-map-key "C-k" 'dthurn-up)
+(sober-map-key "C-j" 'next-line)
+(sober-map-key "C-k" 'previous-line)
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
 
 ;; Bottom Row
-(sober-map-key "C-z" 'comint-next-input)
+(sober-map-key "C-z" 'dthurn-next-input)
 (sober-map-key "C-v" 'save-buffer)
-(sober-map-key "C-b" 'comint-previous-matching-input-from-input)
+(sober-map-key "C-b" 'dthurn-previous-input)
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
 (sober-map-key "C-," 'smex)
@@ -175,34 +196,59 @@ region) apply comment-or-uncomment to the current line"
 
 ;; Top Row (Meta)
 (sober-map-key "M-q" 'save-buffers-kill-terminal)
+(sober-map-key "s-q" 'save-buffers-kill-terminal)
 (sober-map-key "M-w" 'dthurn-kill-starred-buffers)
+(sober-map-key "s-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
+(sober-map-key "s-e" 'iwb-dthurn) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
+(sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
+(sober-map-key "s-u" 'beginning-of-buffer)
 (sober-map-key "M-i" 'eval-buffer) ; Override as a compile command
+(sober-map-key "s-i" 'eval-buffer) ; Override as a compile command
 (sober-map-key "M-p" 'ido-goto-symbol)
+(sober-map-key "s-p" 'ido-goto-symbol)
 
 ;; Middle Row
 (sober-map-key "M-a" 'mark-whole-buffer)
+(sober-map-key "s-a" 'mark-whole-buffer)
 (sober-map-key "M-s" 'delete-other-windows)
+(sober-map-key "s-s" 'delete-other-windows)
 (sober-map-key "M-d" 'kill-word)
+(sober-map-key "s-d" 'kill-word)
 (sober-map-key "M-f" 'forward-sexp)
+(sober-map-key "s-f" 'forward-sexp)
 (sober-map-key "M-g" 'end-of-buffer)
+(sober-map-key "s-g" 'end-of-buffer)
 (sober-map-key "M-h" 'backward-sexp)
+(sober-map-key "s-h" 'backward-sexp)
 (sober-map-key "M-j" 'ido-switch-buffer)
+(sober-map-key "s-j" 'ido-switch-buffer)
 (sober-map-key "M-k" 'set-mark-command)
+(sober-map-key "s-k" 'set-mark-command)
 (sober-map-key "M-l" 'isearch-backward)
+(sober-map-key "s-l" 'isearch-backward)
 (sober-map-key "M-;" 'eval-expression)
+(sober-map-key "s-;" 'eval-expression)
 
 ;; Bottom Row
 (sober-map-key "M-z" 'undo)
+(sober-map-key "s-z" 'undo)
 (sober-map-key "M-x" 'kill-region)
+(sober-map-key "s-x" 'kill-region)
 (sober-map-key "M-c" 'copy-region-as-kill)
+(sober-map-key "s-c" 'copy-region-as-kill)
 (sober-map-key "M-v" 'clipboard-yank)
+(sober-map-key "s-v" 'clipboard-yank)
 (sober-map-key "M-n" 'backward-paragraph)
+(sober-map-key "s-n" 'backward-paragraph)
 (sober-map-key "M-." 'find-tag-other-window)
+(sober-map-key "s-." 'find-tag-other-window)
 (sober-map-key "M-/" 'dthurn-comment-or-uncomment-region-or-line)
+(sober-map-key "s-/" 'dthurn-comment-or-uncomment-region-or-line)
 (sober-map-key "M-`" 'other-window)
+(sober-map-key "s-`" 'other-window)
 
 (sober-map-key "C-x C-f" 'find-file-at-point)
 (sober-map-key "C-\\" 'universal-argument)

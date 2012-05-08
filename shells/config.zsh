@@ -1,17 +1,5 @@
 #!/usr/bin/env zsh
 # -*- mode: zsh; -*-
-
-# Use ... for ../.. etc
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-        LBUFFER+=/..
-  else
-        LBUFFER+=.
-          fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
-
 # Make cd push the old directory onto the directory stack.
 set -o AUTO_PUSHD
 # don't push duplicate directories
@@ -46,5 +34,5 @@ setopt PROMPT_SUBST
 # %~ is pwd
 # %f stops using a color
 # %# is % for non-root shells and # for root shells
-PROMPT='%U$fg[green]%~%u $fg[red]%n@%M
+PROMPT='%U$fg[green]%~%u $fg[red]%n@%m
 $fg[cyan]%# $reset_color'

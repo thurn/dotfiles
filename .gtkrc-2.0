@@ -1,0 +1,65 @@
+#
+# Bindings for GtkTextView and GtkEntry
+#
+binding "gtk-sober-text-entry"
+{
+  bind "<ctrl>semicolon" { "move-cursor" (logical-positions, -1, 0) }
+  bind "<shift><ctrl>semicolon" { "move-cursor" (logical-positions, -1, 1) }
+  bind "<ctrl>d" { "move-cursor" (logical-positions, 1, 0) }
+  bind "<shift><ctrl>d" { "move-cursor" (logical-positions, 1, 1) }
+
+  bind "<ctrl>l" { "move-cursor" (words, -1, 0) }
+  bind "<shift><ctrl>l" { "move-cursor" (words, -1, 1) }
+  bind "<ctrl>f" { "move-cursor" (words, 1, 0) }
+  bind "<shift><ctrl>f" { "move-cursor" (words, 1, 1) }
+
+  bind "<ctrl>a" { "move-cursor" (paragraph-ends, -1, 0) }
+  bind "<shift><ctrl>a" { "move-cursor" (paragraph-ends, -1, 1) }
+  bind "<ctrl>e" { "move-cursor" (paragraph-ends, 1, 0) }
+  bind "<shift><ctrl>e" { "move-cursor" (paragraph-ends, 1, 1) }
+
+  bind "<ctrl>m" { "delete-from-cursor" (chars, 1) }
+  bind "<alt>d" { "delete-from-cursor" (word-ends, 1) }
+  bind "<ctrl>n" { "delete-from-cursor" (paragraph-ends, 1) }
+
+  bind "<ctrl>r" { "delete-from-cursor" (word-ends, -1) }
+}
+
+#
+# Bindings for GtkTextView
+#
+binding "gtk-sober-text-view"
+{
+  bind "<ctrl>k" { "move-cursor" (display-lines, -1, 0) }
+  bind "<shift><ctrl>k" { "move-cursor" (display-lines, -1, 1) }
+  bind "<ctrl>j" { "move-cursor" (display-lines, 1, 0) }
+  bind "<shift><ctrl>j" { "move-cursor" (display-lines, 1, 1) }
+}
+
+#
+# Bindings for GtkTreeView
+#
+binding "gtk-sober-tree-view"
+{
+  bind "<ctrl>d" { "move-cursor" (logical-positions, 1) }
+  bind "<ctrl>semicolon" { "move-cursor" (logical-positions, -1) }
+}
+
+#
+# Bindings for menus
+#
+binding "gtk-sober-menu"
+{
+  bind "<ctrl>j" { "move-current" (next) }
+  bind "<ctrl>k" { "move-current" (prev) }
+  bind "<ctrl>d" { "move-current" (child) }
+  bind "<ctrl>semicolon" { "move-current" (parent) }
+}
+
+class "GtkEntry" binding "gtk-sober-text-entry"
+class "GtkTextView" binding "gtk-sober-text-entry"
+class "GtkTextView" binding "gtk-sober-text-view"
+class "GtkTreeView" binding "gtk-sober-tree-view"
+class "GtkMenuShell" binding "gtk-sober-menu"
+
+gtk-enable-mnemonics = 0
