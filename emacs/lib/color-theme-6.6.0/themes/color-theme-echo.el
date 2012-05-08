@@ -17,7 +17,7 @@
      (font-lock-builtin-face ((t (:foreground: "#aaccff")))) 
      (font-lock-comment-face ((t (:foreground "#aa44dd")))) 
      (font-lock-comment-delimiter-face ((t (:foreground "#aa44dd")))) 
-     (font-lock-constant-face ((t (:foreground "white")))) 
+     (font-lock-constant-face ((t (:foreground "LightSteelBlue")))) 
      (font-lock-function-name-face ((t (:foreground "#ffcc00")))) 
      (font-lock-keyword-face ((t (:foreground "#ff6600")))) 
      (font-lock-preprocessor-face ((t (:foreground "#aaffff")))) 
@@ -27,9 +27,9 @@
      (font-lock-type-face ((t (:foreground "#ff88bb")))) 
      (font-lock-variable-name-face ((t (:foreground "#aaccff")))) 
      (font-lock-warning-face
-      ((t (:foreground "white"))))
+      ((t (:foreground "yellow"))))
      (font-lock-error-face
-      ((t (:foreground "white"))))
+      ((t (:foreground "red"))))
      (paren-face-match-light ((t (:background "#777777")))) 
      (highlight ((t (:background "darkolivegreen")))) 
      (italic ((t (:italic t)))) 

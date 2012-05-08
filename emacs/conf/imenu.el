@@ -2,44 +2,61 @@
 
 (require 'imenu)
 (require 'cl)
+
 (defun ido-goto-symbol ()
-  "Will update the imenu index and then use ido to select a symbol to
-navigate to."
+  "Update the imenu index and then use ido to select a symbol to navigate to.
+Symbols matching the text at point are put first in the completion list."
   (interactive)
-  (setq imenu-create-index-function 'imenu-default-create-index-function)
+
+
+  ;; HACK: Set imenu-create-index-function correctly based on the current mode
+  (cond 
+   ((eq major-mode 'python-mode)
+    (setq imenu-create-index-function 'python-imenu-create-index))
+   (t (setq imenu-create-index-function 'imenu-default-create-index-function)))
+  ;; END HACK
+
+
   (imenu--make-index-alist)
   (let ((name-and-pos '())
         (symbol-names '()))
-    (flet ((addsymbols (symbol-list)
-                       (when (listp symbol-list)
-                         (dolist (symbol symbol-list)
-                           (let ((name nil) (position nil))
-                             (cond
-                              ((and (listp symbol) (imenu--subalist-p symbol))
-                               (addsymbols symbol))
-                              ((listp symbol)
-                               (setq name (car symbol))
-                               (setq position (cdr symbol)))
-                              ((stringp symbol)
-                               (setq name symbol)
-                               (setq position (get-text-property 1
-                                                                 'org-imenu-marker symbol))))
-                             (unless (or (null position) (null name))
-                               (add-to-list 'symbol-names name)
-                               (add-to-list 'name-and-pos (cons name
-                                                                position))))))))
-      (addsymbols imenu--index-alist)
-      (if (not symbol-names)
-          (ido-goto-symbol)
-        (let* ((symbol-at-point (symbol-name (symbol-at-point)))
-               (selected-symbol (ido-completing-read
-                                 "Symbol? "
-                                 (if (member symbol-at-point symbol-names)
-                                     (cons symbol-at-point (remove-if
-                                                            (lambda
-                                                              (x) (string-equal x symbol-at-point))
-                                                            symbol-names))
-                                   symbol-names)))
-               (position (cdr (assoc selected-symbol name-and-pos))))
-          (if (markerp position)
-              (goto-char position) (goto-char (overlay-start position))))))))
+    (flet ((addsymbols
+            (symbol-list)
+            (when (listp symbol-list)
+              (dolist (symbol symbol-list)
+                (let ((name nil) (position nil))
+                  (cond
+                   ((and (listp symbol) (imenu--subalist-p symbol))
+                    (addsymbols symbol))
+                   
+                   ((listp symbol)
+                    (setq name (car symbol))
+                    (setq position (cdr symbol)))
+                   
+                   ((stringp symbol)
+                    (setq name symbol)
+                    (setq position
+                          (get-text-property 1 'org-imenu-marker symbol))))
+                  
+                  (unless (or (null position) (null name))
+                    (add-to-list 'symbol-names name)
+                    (add-to-list 'name-and-pos (cons name position))))))))
+      (addsymbols imenu--index-alist))
+    ;; If there are matching symbols at point, put them at the beginning of
+    ;; 'symbol-names'.
+    (let ((symbol-at-point (thing-at-point 'symbol)))
+      (when symbol-at-point
+        (let* ((regexp (concat (regexp-quote symbol-at-point) "$"))
+               (matching-symbols
+                (delq nil (mapcar (lambda (symbol)
+                                    (if (string-match regexp symbol) symbol))
+                                  symbol-names))))
+          (when matching-symbols
+            (sort matching-symbols (lambda (a b) (> (length a) (length b))))
+            (mapc (lambda (symbol)
+                    (setq symbol-names (cons symbol
+                                             (delete symbol symbol-names))))
+                  matching-symbols)))))
+    (let* ((selected-symbol (ido-completing-read "Symbol? " symbol-names))
+           (position (cdr (assoc selected-symbol name-and-pos))))
+      (goto-char position))))

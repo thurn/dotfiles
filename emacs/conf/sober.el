@@ -122,18 +122,16 @@ region) apply comment-or-uncomment to the current line"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
            "*Async Shell Command*" "*save*" "*piped*"
-           ;; "sync" "sync<2>" "sync<3>" "sync<4>" "sync<5>"
-           ;; "sync<6>" "sync<7>" "sync<8>" "sync<9>" "sync<10>"
-           ;; "sync<11>" "sync<12>" "sync<13>" "sync<14>" "sync<15>"
-           ;; "sync<16>" "sync<17>" "sync<18>" "sync<19>" "sync<20>"
-           ;; "sync<21>" "sync<22>" "sync<23>" "sync<24>" "sync<25>"
-           ;; "sync<26>" "sync<27>" "sync<28>" "sync<29>" "sync<30>"
-           ;; "sync<31>" "sync<32>" "sync<33>" "sync<34>" "sync<35>"
-           ;; "sync<36>" "sync<37>" "sync<38>" "sync<39>" "sync<40>"
-           ;; "sync<41>" "sync<42>" "sync<43>" "sync<44>" "sync<45>"
-           ;; "sync<46>" "sync<47>" "sync48>" "sync<49>" "sync<50>"
            )))
     (mapcar 'kill-buffer-if-exists buffers)))
+
+(defun dthurn-code-assist ()
+  "Mode-appropriate code assistance, stuff that's too slow to invoke through
+  auto-complete"
+  (interactive)
+  (cond
+   ((eq major-mode 'python-mode) (rope-code-assist nil))
+   (t (indent-for-tab-command))))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
@@ -211,7 +209,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-c <down>" 'move-to-window-line)
 (sober-map-key "C-c C-j" 'move-to-window-line)
 (sober-map-key "C-c C-i" 'fix-init)
-(sober-map-key "C-c C-h" 'hlog)
+(sober-map-key "C-c C-h" 'python-log)
+(sober-map-key "<C-tab>" 'dthurn-code-assist)
 
 ;;;###autoload
 (define-minor-mode sober-mode

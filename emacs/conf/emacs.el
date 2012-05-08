@@ -42,6 +42,6 @@
 ;; Add my local bin directory to $PATH
 (setenv "PATH"
   (concat
-   "~/bin" ":"
+   "~/bin:"
    (getenv "PATH")))
 

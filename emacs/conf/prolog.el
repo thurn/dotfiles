@@ -4,6 +4,5 @@
 (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
 (autoload 'mercury-mode "prolog" "Major mode for editing Mercury programs." t)
 (setq prolog-system 'swi)
-(setq auto-mode-alist (append '(("\\.pro$" . prolog-mode)
-                                ("\\.m$" . mercury-mode))
-                              auto-mode-alist))
+
+(setenv "EPROLOG" "~/bin/prolog")

@@ -1,6 +1,6 @@
-(defvar sync-remote-host "dev2181.snc6.facebook.com")
-(defvar sync-remote-dir "/home/dthurn/www")
-(defvar sync-local-dirs '("/Volumes/www/www" "/Users/dthurn/www"))
+;(defvar sync-remote-host "hostname")
+;(defvar sync-remote-dir "remote")
+;(defvar sync-local-dirs '("local"))
 
 (defun starts-with? (string substr)
   "Check if string starts with substr"
@@ -29,8 +29,8 @@
 
 
 
-(add-hook 
- 'after-save-hook 
- 'async-save)
+;(add-hook 
+; 'after-save-hook 
+; 'async-save)
 
 

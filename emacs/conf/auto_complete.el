@@ -5,6 +5,33 @@
 
 (ac-config-default)
 
+(setq ac-completing-map
+      '(keymap
+        (C-up . ac-quick-help-scroll-up)
+        (C-down . ac-quick-help-scroll-down)
+        (67108927 . ac-help)
+        (M-f1 . ac-persist-help)
+        (f1 . ac-help)
+        (19 . ac-isearch)
+        (27 keymap
+            (57 . ac-complete-9)
+            (56 . ac-complete-8)
+            (55 . ac-complete-7)
+            (54 . ac-complete-6)
+            (53 . ac-complete-5)
+            (52 . ac-complete-4)
+            (51 . ac-complete-3)
+            (50 . ac-complete-2)
+            (49 . ac-complete-1)
+            (16 . ac-quick-help-scroll-up)
+            (14 . ac-quick-help-scroll-down)
+            (67108927 . ac-persist-help)
+            (112 . ac-previous)
+            (110 . ac-next)
+            (9 . auto-complete))
+        (13 . ac-complete)
+        (9 . ac-expand)))
+
 ;; (setq-default ac-sources
 ;;       '(ac-source-words-in-buffer))
 ;; (setq ac-sources
