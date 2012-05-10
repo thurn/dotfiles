@@ -41,12 +41,7 @@
 ;; Add my local bin directory to $PATH
 (setenv "PATH"
   (concat
-<<<<<<< HEAD
-   (getenv "HOME")
-   "/bin:"
-=======
    "~/bin:"
->>>>>>> 360da1a0c98ec47a708961defa09465b023cede7
    (getenv "PATH")))
 
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))

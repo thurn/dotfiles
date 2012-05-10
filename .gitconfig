@@ -1,5 +1,5 @@
 [user]
-	name = Derek Thurn
+  name = Derek Thurn
   editor = emacs_wrapper.rb
 [color]
         ui = true
@@ -16,7 +16,7 @@
         plain = white
         meta = yellow bold
         frag = magenta bold
-        old = red 
+        old = red
         new = green
         whitespace = red blink
 [color "status"]
