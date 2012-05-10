@@ -67,6 +67,9 @@
 (fset 'hlog
       "\C-ahlog(';;; \C-n\C-u', print_shallow(\C-u));")
 
+(fset 'python-log
+      "\C-aprint '\C-n\C-u: ', str(\C-u)")
+
 (defun shell-and-cd (&rest args)
   (interactive)
   (let ((dir default-directory))

@@ -12,8 +12,13 @@ export HISTCONTROL=ignoredups
 # Address to push to for dotfiles updates
 export dotfiles="git@github.com:thurn/dotfiles.git"
 
+<<<<<<< HEAD
 export SVN_EDITOR=emacs_wrapper.rb
 export EDITOR=emacs_wrapper.rb
+=======
+export SVN_EDITOR=emacsclient
+export EDITOR=emacsclient
+>>>>>>> 360da1a0c98ec47a708961defa09465b023cede7
 export PAGER=less
 
 # Helps emacsclient work properly

@@ -125,6 +125,14 @@ region) apply comment-or-uncomment to the current line"
            )))
     (mapcar 'kill-buffer-if-exists buffers)))
 
+(defun dthurn-code-assist ()
+  "Mode-appropriate code assistance, stuff that's too slow to invoke through
+  auto-complete"
+  (interactive)
+  (cond
+   ((eq major-mode 'python-mode) (rope-code-assist nil))
+   (t (indent-for-tab-command))))
+
 (defun dthurn-previous-input ()
   "Completes to previous matching input"
   (interactive)
@@ -247,7 +255,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-c <down>" 'move-to-window-line)
 (sober-map-key "C-c C-j" 'move-to-window-line)
 (sober-map-key "C-c C-i" 'fix-init)
-(sober-map-key "C-c C-h" 'hlog)
+(sober-map-key "C-c C-h" 'python-log)
+(sober-map-key "<C-tab>" 'dthurn-code-assist)
 
 ;;;###autoload
 (define-minor-mode sober-mode

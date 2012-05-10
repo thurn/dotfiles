@@ -171,6 +171,9 @@ function switch_to_client(client_class, tag_idx)
       local clients = client.get()
       for i = 1, #clients do
          local client = clients[i]
+         -- io.stderr:write("\nclass: " .. client.class)
+         -- io.stderr:write("\neq: " .. tostring(client.class == "java-lang-Threadu"))
+         -- Output goes to /usr/local/google/home/dthurn/.xsession-errors
          if client.class == client_class then
             awful.tag.viewonly(tags[client.screen][tag_idx])
             client.raise(client)
@@ -185,7 +188,6 @@ function switch_to_client_index(client_class, index, tag_idx)
    function result()
       local clients = client.get()
       local counter = 1
-      print ("counter starts " .. counter)
       for i = 1, #clients do
          local client = clients[i]
          if client.class == client_class then
@@ -195,7 +197,6 @@ function switch_to_client_index(client_class, index, tag_idx)
                awful.client.focus.byidx(0, client)
                return
             else
-               print ("counter is " .. counter)
                counter = counter + 1
             end
          end
@@ -225,7 +226,7 @@ globalkeys = awful.util.table.join(
     -- My personal app switching
 
     awful.key({ modkey,           }, "m", switch_to_client("Emacs", 3)),
-    awful.key({ modkey,           }, ";", switch_to_client("Emacs", 3)),
+    awful.key({ modkey,           }, ";", switch_to_client("Eclipse", 4)),
     awful.key({ modkey,           }, "j", switch_to_client("Eclipse", 2)),
     awful.key({ modkey,           }, "k", switch_to_client_index("Google-chrome", 1, 1)),
     awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 2, 1)),

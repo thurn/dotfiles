@@ -1,6 +1,5 @@
 [user]
 	name = Derek Thurn
-	email = dthurn@google.com
   editor = emacs_wrapper.rb
 [color]
         ui = true

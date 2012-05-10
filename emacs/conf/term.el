@@ -34,7 +34,7 @@
 (setq explicit-shell-file-name "/bin/bash")
 
 (defun dthurn-cleanup-prompt (path)
-  (replace-regexp-in-string "/usr/local/google/users/dthurn/oz/google3" "$g3" path))
+  (replace-regexp-in-string "/home/dthurn" "~" path))
 
 (setq eshell-prompt-function
       (lambda ()
@@ -45,10 +45,10 @@
 (setq eshell-prompt-regexp "^[^>]*[>] ")
 
 (defun eshell/emacs (file)
-  (find-file file))
+  (find-file-other-window file))
 
 (defun eshell/vim (file)
-  (find-file file))
+  (find-file-other-window file))
 
 (defun eshell/lock ()
   (shell-command "gnome-screensaver-command --lock"))
@@ -72,5 +72,5 @@
       (dthurn-git-exec command (append args '("--color")))
       (switch-to-buffer-other-window "*Shell Command Output*")
       (color-buffer)))
-   ((member command '("status" "branch" "stash" "checkout" "commit" "add" "rebase" "reset" "help" "merge")) (dthurn-git-exec command args))
+   ((member command '("branch" "mv" "stash" "commit" "add" "tag" "rebase" "reset" "help" "merge" "rm")) (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))
