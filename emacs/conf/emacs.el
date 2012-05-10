@@ -45,3 +45,7 @@
    (getenv "PATH")))
 
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
+
+;; Uniquify buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
