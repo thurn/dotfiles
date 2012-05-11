@@ -10,8 +10,7 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (setq comint-prompt-read-only t)
 (add-hook 'shell-mode-hook (lambda ()
-                             (setq show-trailing-whitespace nil)
-                             (highlight-80+-mode -1)))
+                             (setq show-trailing-whitespace nil)))
 
 
 (defun ansi-term-current-directory ()
@@ -63,14 +62,14 @@
   (if list (concat "'" (mapconcat 'identity list "' '") "'") ""))
 
 (defun dthurn-git-exec (command args)
-  (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
+  (async-shell-command (concat "git " command " " (dthurn-cmdjoin args))))
 
 (defun eshell/git (command &rest args)
   (cond 
-   ((member command '("log" "diff" "reflog"))
+   ((member command '("log" "diff" "reflog" "grep"))
     (progn
       (dthurn-git-exec command (append args '("--color")))
-      (switch-to-buffer-other-window "*Shell Command Output*")
+      (switch-to-buffer-other-window "*Async Shell Command Output*")
       (color-buffer)))
-   ((member command '("branch" "mv" "stash" "commit" "add" "tag" "rebase" "reset" "help" "merge" "rm")) (dthurn-git-exec command args))
+   ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help" "merge" "rm")) (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))

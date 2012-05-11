@@ -180,7 +180,9 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-f" 'forward-word)
 (sober-map-key "C-g" 'keyboard-escape-quit)
 (sober-map-key "C-j" 'next-line)
+(sober-map-key "<down>" 'next-line)
 (sober-map-key "C-k" 'previous-line)
+(sober-map-key "<up>" 'previous-line)
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
 

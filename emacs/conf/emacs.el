@@ -41,10 +41,14 @@
 ;; Add my local bin directory to $PATH
 (setenv "PATH"
   (concat
-   "~/bin:"
+   (getenv "HOME")
+   "/bin:"
    (getenv "PATH")))
 
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
+
+;; Hack around programs that don't think eshell is a fully-functional terminal
+(setenv "TERM" "xterm")
 
 ;; Uniquify buffer names
 (require 'uniquify)
