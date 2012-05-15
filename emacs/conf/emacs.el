@@ -53,3 +53,6 @@
 ;; Uniquify buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+;; Always run a server
+(server-start)

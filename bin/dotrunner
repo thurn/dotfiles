@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+# dotrunner
+
+def match(line)
+  inverted = false
+  result = false
+  ARGV[1 .. ARGV.length].each do |arg|
+    if arg == "--invert"
+      inverted = (not inverted)
+    else
+      if inverted
+        result = false if line.include? arg
+      else
+        result = true if line.include? arg
+      end
+    end
+  end
+  return result
+end
+
+$stdout.sync = true
+
+if ARGV.length < 2
+  puts 'USAGE: dotrunner /tmp/outfile "pattern1" --invert "pattern2" < /input/file'
+  exit
+end
+
+last_dot_time = Time.now
+next_needs_newline = false
+num_dots = 1
+
+File.open(ARGV[0], "w") do |outfile|
+  $stdin.each_line do |line|
+    outfile.write_nonblock line
+    if match(line)
+      if next_needs_newline
+        print "\n"
+      end
+      print line
+      next_needs_newline = false
+    else
+      if (Time.now - last_dot_time) > 0.1
+        print "."
+        num_dots += 1
+        next_needs_newline = true
+      end
+      if num_dots % 80 == 0
+        print "\n"
+        num_dots += 1
+        next_needs_newline = false
+      end
+      last_dot_time = Time.now
+    end
+  end
+end

@@ -61,15 +61,22 @@
 (defun dthurn-cmdjoin (list)
   (if list (concat "'" (mapconcat 'identity list "' '") "'") ""))
 
-(defun dthurn-git-exec (command args)
+(defun dthurn-async-git-exec (command args)
   (async-shell-command (concat "git " command " " (dthurn-cmdjoin args))))
+
+(defun dthurn-git-exec (command args)
+  (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
 
 (defun eshell/git (command &rest args)
   (cond 
    ((member command '("log" "diff" "reflog" "grep"))
     (progn
-      (dthurn-git-exec command (append args '("--color")))
+      (dthurn-async-git-exec command (append args '("--color")))
       (switch-to-buffer-other-window "*Async Shell Command Output*")
       (color-buffer)))
-   ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help" "merge" "rm")) (dthurn-git-exec command args))
+   ((member command '("rebase"))
+    (dthurn-async-git-exec command args))
+   ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
+                      "merge" "rm" "push" "status"))
+    (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))

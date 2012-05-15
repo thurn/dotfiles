@@ -5,4 +5,4 @@
 (require 'color-theme-solarized)
 
 (color-theme-initialize)
-(color-theme-echo-glossy)
+(color-theme-dthurn)
