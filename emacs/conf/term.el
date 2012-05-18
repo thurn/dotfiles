@@ -69,12 +69,12 @@
 
 (defun eshell/git (command &rest args)
   (cond 
-   ((member command '("log" "diff" "reflog" "grep"))
+   ((member command '("log" "diff" "reflog"))
     (progn
       (dthurn-async-git-exec command (append args '("--color")))
       (switch-to-buffer-other-window "*Async Shell Command Output*")
       (color-buffer)))
-   ((member command '("rebase"))
+   ((member command '("rebase" "grep"))
     (dthurn-async-git-exec command args))
    ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
                       "merge" "rm" "push" "status"))

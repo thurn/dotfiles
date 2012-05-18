@@ -20,8 +20,6 @@ Google-chrome:
   \Av: \Cv
   \AN: \CN
   \Cg: \[Escape]
-  \Cj: \[Down]
-  \Ck: \[Up]
 Gnome-terminal:
   \Ct: \C\[Page_Down]
   \Cp: \C\[Page_Up]
@@ -31,8 +29,6 @@ Gnome-terminal:
   \An: \CN
   \Aw: \CW
   \Aq: \CQ
-  \Cj: \[Down]
-  \Ck: \[Up]
 Eclipse:
   \Cg: \[Escape]
 Emacs:

@@ -174,7 +174,8 @@ function switch_to_client(client_class, tag_idx)
          -- io.stderr:write("\nclass: " .. client.class)
          -- io.stderr:write("\neq: " .. tostring(client.class == "java-lang-Threadu"))
          -- Output goes to /usr/local/google/home/dthurn/.xsession-errors
-         if client.class == client_class then
+
+         if string.find(client.class, client_class) then
             awful.tag.viewonly(tags[client.screen][tag_idx])
             client.raise(client)
             awful.client.focus.byidx(0, client)
@@ -226,8 +227,8 @@ globalkeys = awful.util.table.join(
     -- My personal app switching
 
     awful.key({ modkey,           }, "m", switch_to_client("Emacs", 3)),
+    awful.key({ modkey,           }, "j", switch_to_client("jetbrains", 2)),
     awful.key({ modkey,           }, ";", switch_to_client("Eclipse", 4)),
-    awful.key({ modkey,           }, "j", switch_to_client("Eclipse", 2)),
     awful.key({ modkey,           }, "k", switch_to_client_index("Google-chrome", 1, 1)),
     awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 2, 1)),
     awful.key({ modkey,           }, "l", switch_to_client_index("Google-chrome", 3, 1)),
