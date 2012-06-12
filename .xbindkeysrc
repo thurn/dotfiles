@@ -22,6 +22,21 @@
 "remap.rb '\Cg'"
    Control + g
 
+"xvkbd -xsendevent -text '\[Down]' > /dev/null 2> /dev/null"
+   Control + j
+
+"xvkbd -xsendevent -text '\[Up]' > /dev/null 2> /dev/null"
+   Control + k
+
+"xvkbd -xsendevent -text '\[Right]' > /dev/null 2> /dev/null"
+   Control + d
+
+"xvkbd -xsendevent -text '\[Left]' > /dev/null 2> /dev/null"
+   Control + semicolon
+
+"remap.rb '\Cm'"
+   Control + m
+
 "remap.rb '\Al'"
    Alt + l
 

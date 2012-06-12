@@ -35,7 +35,7 @@ character of the current line."
 
 (defun dthurn-open (&rest args)
   (interactive)
-  (if (eq major-mode 'shell-mode)
+  (if (or (eq major-mode 'eshell-mode) (eq major-mode 'shell-mode))
       (call-interactively 'ido-find-file-other-window)
     (call-interactively 'ido-find-file)))
 
@@ -154,6 +154,12 @@ region) apply comment-or-uncomment to the current line"
          (call-interactively 'eshell-next-input))))
 
 
+(defun dthurn-eval-buffer ()
+  "Evaluate current emacs elisp buffer"
+  (interactive)
+  (save-buffer)
+  (eval-buffer))
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -180,7 +186,9 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-f" 'forward-word)
 (sober-map-key "C-g" 'keyboard-escape-quit)
 (sober-map-key "C-j" 'next-line)
+(sober-map-key "<down>" 'next-line)
 (sober-map-key "C-k" 'previous-line)
+(sober-map-key "<up>" 'previous-line)
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
 
@@ -205,8 +213,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
 (sober-map-key "s-u" 'beginning-of-buffer)
-(sober-map-key "M-i" 'eval-buffer) ; Override as a compile command
-(sober-map-key "s-i" 'eval-buffer) ; Override as a compile command
+(sober-map-key "M-i" 'dthurn-eval-buffer) ; Override as a compile command
+(sober-map-key "s-i" 'dthurn-eval-buffer) ; Override as a compile command
 (sober-map-key "M-p" 'ido-goto-symbol)
 (sober-map-key "s-p" 'ido-goto-symbol)
 
@@ -241,6 +249,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "s-c" 'copy-region-as-kill)
 (sober-map-key "M-v" 'clipboard-yank)
 (sober-map-key "s-v" 'clipboard-yank)
+(sober-map-key "M-b" 'eshell-previous-matching-input-from-input)
+(sober-map-key "s-b" 'eshell-previous-matching-input-from-input)
 (sober-map-key "M-n" 'backward-paragraph)
 (sober-map-key "s-n" 'backward-paragraph)
 (sober-map-key "M-." 'find-tag-other-window)
@@ -255,8 +265,9 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-c <down>" 'move-to-window-line)
 (sober-map-key "C-c C-j" 'move-to-window-line)
 (sober-map-key "C-c C-i" 'fix-init)
-(sober-map-key "C-c C-h" 'python-log)
+(sober-map-key "C-c C-h" 'java-println)
 (sober-map-key "<C-tab>" 'dthurn-code-assist)
+(sober-map-key "C-c M-y" 'call-last-kbd-macro)
 
 ;;;###autoload
 (define-minor-mode sober-mode

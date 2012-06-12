@@ -15,12 +15,6 @@
     (add-to-list 'load-path dir)
     (normal-top-level-add-subdirs-to-load-path)))
 
-;; Seriously, Aquamacs? Why do I need to do this?
-(if (boundp 'one-buffer-one-frame-mode)
-    (progn
-      (one-buffer-one-frame-mode 0)
-      (defun one-buffer-one-frame-mode (&args))))
-
 ;; Set up ELPA, the Emacs Lisp Package Archive
 (when
     (load "~/emacs/elpa/package.el")
@@ -35,6 +29,6 @@
 ;; dthurn-load-directory above in alphabetical order as specified by lessp. 
 ;; When customizations need to be ordered, prefix the file containing them
 ;; with aa to put them at the start of the load sequence or z to put them
-;; at the end of the sequence, then differentiate among them using a digits.
+;; at the end of the sequence, then differentiate among them using digits.
 ;; For example, to make visited.el load last, name it z1_visited.el
 (load-directory-dthurn "~/emacs/conf")

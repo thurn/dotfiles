@@ -76,7 +76,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, "%a %b %d, %I:%M", 60)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -166,12 +166,17 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
-function switch_to_client(client_class)
+function switch_to_client(client_class, tag_idx)
    function result()
       local clients = client.get()
       for i = 1, #clients do
          local client = clients[i]
-         if client.class == client_class then
+         -- io.stderr:write("\nclass: " .. client.class)
+         -- io.stderr:write("\neq: " .. tostring(client.class == "java-lang-Threadu"))
+         -- Output goes to /usr/local/google/home/dthurn/.xsession-errors
+
+         if string.find(client.class, client_class) then
+            awful.tag.viewonly(tags[client.screen][tag_idx])
             client.raise(client)
             awful.client.focus.byidx(0, client)
          end
@@ -180,20 +185,19 @@ function switch_to_client(client_class)
    return result
 end
 
-function switch_to_client_index(client_class, index)
+function switch_to_client_index(client_class, index, tag_idx)
    function result()
       local clients = client.get()
       local counter = 1
-      print ("counter starts " .. counter)
       for i = 1, #clients do
          local client = clients[i]
          if client.class == client_class then
             if counter == index then
+               awful.tag.viewonly(tags[client.screen][tag_idx])
                client.raise(client)
                awful.client.focus.byidx(0, client)
                return
             else
-               print ("counter is " .. counter)
                counter = counter + 1
             end
          end
@@ -218,17 +222,19 @@ globalkeys = awful.util.table.join(
     --         awful.client.focus.byidx(-1)
     --         if client.focus then client.focus:raise() end
     --     end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show(true)        end),
 
     -- My personal app switching
 
-    awful.key({ modkey,           }, "m", switch_to_client("Emacs")),
-    awful.key({ modkey,           }, "j", switch_to_client("Eclipse")),
-    awful.key({ modkey,           }, "k", switch_to_client_index("Google-chrome", 1)),
-    awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 2)),
-    awful.key({ modkey,           }, "l", switch_to_client_index("Google-chrome", 3)),
-    awful.key({ modkey,           }, "n", switch_to_client_index("Google-chrome", 4)),
-    awful.key({ modkey,           }, ";", switch_to_client("Gnome-terminal")),
+    awful.key({ modkey,           }, "m", switch_to_client("Emacs", 3)),
+    awful.key({ modkey,           }, "j", switch_to_client("jetbrains", 2)),
+    awful.key({ modkey,           }, ";", switch_to_client("Eclipse", 4)),
+    awful.key({ modkey,           }, "k", switch_to_client_index("Google-chrome", 1, 1)),
+    awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 2, 1)),
+    awful.key({ modkey,           }, "l", switch_to_client_index("Google-chrome", 3, 1)),
+    awful.key({ modkey,           }, "n", switch_to_client_index("Google-chrome", 4, 1)),
+    --awful.key({ modkey,           }, ";", switch_to_client("Gnome-terminal", 3)),
+    awful.key({ modkey,           }, "y", function () awful.util.spawn("gnome-screensaver-command --lock") end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -272,7 +278,7 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ modkey,           }, "w",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),

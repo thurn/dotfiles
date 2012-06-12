@@ -31,3 +31,6 @@ Gnome-terminal:
   \Aq: \CQ
 Eclipse:
   \Cg: \[Escape]
+Emacs:
+  \Ci: \At
+  \Cm: \Ay

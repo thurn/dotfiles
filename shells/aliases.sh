@@ -32,7 +32,6 @@ alias rm='~/bin/trsh.pl'
 alias wget='wget --no-check-certificate'
 
 # Use emacs in daemon mode by default
-alias start-emacs='/usr/bin/env emacs --daemon'
 alias emacs='emacs_wrapper.rb'
 alias kill-emacs='emacsclient -e "(kill-emacs)"'
 

@@ -64,11 +64,11 @@
              (delete-file filename)
              (set-visited-file-name newname)
              (set-buffer-modified-p nil) t))))
-(fset 'hlog
-      "\C-ahlog(';;; \C-n\C-u', print_shallow(\C-u));")
 
-(fset 'python-log
-      "\C-aprint '\C-n\C-u: ', str(\C-u)")
+(fset 'java-println
+   [?\C-a ?\C-n ?S ?y ?s ?t ?e ?m ?. ?o ?u ?t ?. ?p ?r ?i ?n ?t ?l ?n ?\( ?\" ?> ?> ?> ?  ?* ?* ?* ?  ?\C-u ?  ?* ?* ?* ?\\ ?n ?> ?> ?> ? ?\" ?, ?  backspace backspace ?  ?+ ?  ?\C-u ?. ?t ?o ?S ?t ?r ?i ?n ?g ?\( ?\) ?. ?r ?e ?p ?l ?a ?c ?e ?\( ?\" ?\\ ?n ?\" ?, ?  ?\" ?\\ ?n ?> ?> ?> ?  ?\" ?\) ?\) ?\; ?\C-v])
+
+
 
 (defun shell-and-cd (&rest args)
   (interactive)
@@ -80,12 +80,3 @@
   "Removes ANSI escape characters from the buffer and attempts to color it"
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
-
-(defun fixup-overview ()
-  (interactive)
-  (save-excursion
-    (yank)
-    (replace-string "<a>" "" nil (point-min) (point-max))
-    (replace-string "</pre>" "" nil (point-min) (point-max))
-    (replace-regexp "kbd>.*" "kbd>" nil (point-min) (point-max))))
-(global-set-key (kbd "C-c C-o") 'fixup-overview)
