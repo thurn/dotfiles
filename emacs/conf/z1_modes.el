@@ -141,6 +141,7 @@
         ("\\.ml[iylp]?" . tuareg-mode)
         ("\\.mp\\'" . metapost-mode)
         ("\\.mss\\'" . scribe-mode)
+        ("\\.muse\\'" . muse-mode)
         ("\\.mx-chart\\'" . chart-mode)
         ("\\.nmb$" . nimbus-mode)
         ("\\.oak\\'" . scheme-mode)
