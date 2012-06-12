@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import os
+import glob
+
+os.system("prodaccess")
+file = open(os.path.expanduser("~/.emacs-visited-files"))
+for line in file:
+  line = line.strip()
+  dirname = os.path.dirname(line)
+  if not os.path.exists(dirname):
+    os.makedirs(dirname)
+  for f in glob.glob(dirname + "/*#*"):
+    os.remove(f)
+
+os.execlp("emacsd", "emacsd")

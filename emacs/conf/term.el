@@ -77,6 +77,6 @@
    ((member command '("rebase" "grep"))
     (dthurn-async-git-exec command args))
    ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
-                      "merge" "rm" "push" "status"))
+                      "merge" "rm" "push" "status" "clean" "mergetool" "config"))
     (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))

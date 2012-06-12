@@ -43,6 +43,8 @@
   (concat
    (getenv "HOME")
    "/bin:"
+   (getenv "HOME")
+   "/haskell/bin:"
    (getenv "PATH")))
 
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
