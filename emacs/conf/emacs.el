@@ -38,7 +38,7 @@
 ;; Maximize vertical space
 (setq split-height-threshold nil)
 
-;; Add my local bin directory to $PATH
+;; Set my local path
 (setenv "PATH"
   (concat
    (getenv "HOME")
@@ -46,6 +46,8 @@
    (getenv "HOME")
    "/haskell/bin:"
    (getenv "PATH")))
+
+(setq exec-path (split-string (getenv "PATH") ":"))
 
 ;; Use emacs for $EDITOR
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))

@@ -36,6 +36,7 @@
   whitespace = fix
 [merge]
 	tool = meldscript
+	conflictstyle = diff3
 [mergetool "meldscript"]
 	cmd = git_merge_meld.sh $LOCAL $BASE $REMOTE $MERGED
 [rerere]
