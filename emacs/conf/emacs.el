@@ -45,6 +45,8 @@
    "/bin:"
    (getenv "HOME")
    "/haskell/bin:"
+   (getenv "HOME")
+   "/.cabal/bin:"
    (getenv "PATH")))
 
 (setq exec-path (split-string (getenv "PATH") ":"))
