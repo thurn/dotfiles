@@ -41,9 +41,12 @@ character of the current line."
 
 (defun dthurn-bol (&rest args)
   (interactive)
-  (if (eq major-mode 'eshell-mode)
-      (call-interactively 'eshell-bol)
-    (call-interactively 'dthurn-cycle-bol)))
+  (cond ((eq major-mode 'eshell-mode)
+         (call-interactively 'eshell-bol))
+        ((eq major-mode 'haskell-interactive-mode)
+         (call-interactively 'haskell-interactive-mode-beginning))
+        (t
+         (call-interactively 'dthurn-cycle-bol))))
 
 (defun dthurn-compile (&rest args)
   (interactive)
@@ -141,7 +144,9 @@ region) apply comment-or-uncomment to the current line"
         ((eq major-mode 'slime-repl-mode)
          (call-interactively 'slime-repl-backward-input))
         ((eq major-mode 'eshell-mode)
-         (call-interactively 'eshell-previous-input))))
+         (call-interactively 'eshell-previous-input))
+        ((eq major-mode 'haskell-interactive-mode)
+         (haskell-interactive-mode-history-toggle 1))))
 
 (defun dthurn-next-input ()
   "Completes to previous matching input"
@@ -151,14 +156,22 @@ region) apply comment-or-uncomment to the current line"
         ((eq major-mode 'slime-repl-mode)
          (call-interactively 'slime-repl-forward-input))
         ((eq major-mode 'eshell-mode)
-         (call-interactively 'eshell-next-input))))
-
+         (call-interactively 'eshell-next-input))
+        ((eq major-mode 'haskell-interactive-mode)
+         (haskell-interactive-mode-history-toggle -1))))
 
 (defun dthurn-eval-buffer ()
   "Evaluate current emacs elisp buffer"
   (interactive)
   (save-buffer)
   (eval-buffer))
+
+(defun dthurn-save-buffer ()
+  "Saves the buffer"
+  (interactive)
+  (cond
+   ((eq major-mode 'haskell-mode) (haskell-mode-save-buffer))
+   (t (save-buffer))))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
@@ -194,7 +207,7 @@ region) apply comment-or-uncomment to the current line"
 
 ;; Bottom Row
 (sober-map-key "C-z" 'dthurn-next-input)
-(sober-map-key "C-v" 'save-buffer)
+(sober-map-key "C-v" 'dthurn-save-buffer)
 (sober-map-key "C-b" 'dthurn-previous-input)
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m

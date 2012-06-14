@@ -15,7 +15,7 @@
 
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p t)
+ ;'(haskell-notify-p t)
 
  ;; To enable tags generation on save.
  '(haskell-tags-on-save t)
@@ -30,6 +30,7 @@
 (defun haskell-hook ()
   ;; Use simple indentation.
   (turn-on-haskell-simple-indent)
+  (auto-complete-mode)
   (define-key haskell-mode-map (kbd "<return>") 'haskell-simple-indent-newline-same-col)
   (define-key haskell-mode-map (kbd "C-<return>") 'haskell-simple-indent-newline-indent)
 
@@ -41,7 +42,7 @@
   (define-key haskell-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch)
   ;; “Bring” the REPL, hiding all other windows apart from the source
   ;; and the REPL.
-  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-mode-map (kbd "C-c C-f") 'switch-to-haskell)
 
   ;; Build the Cabal project.
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
@@ -51,23 +52,23 @@
   ;; Get the type and info of the symbol at point, print it in the
   ;; message buffer.
   (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-c M-t") 'haskell-process-do-info)
 
   ;; Contextually do clever things on the space key, in particular:
   ;;   1. Complete imports, letting you choose the module name.
   ;;   2. Show the type of the symbol after the space.
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+  ; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
   ;; Jump to the imports. Keep tapping to jump between import
   ;; groups. C-u f8 to jump back again.
-  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+  (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-navigate-imports)
 
   ;; Jump to the definition of the current symbol.
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
 
   ;; Save the current buffer and generate etags (a TAGS file) for the
   ;; whole project.
-  (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer)
+  ;(define-key haskell-mode-map (kbd "C-v") 'haskell-mode-save-buffer)
 
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")
