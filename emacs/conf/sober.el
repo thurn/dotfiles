@@ -170,7 +170,6 @@ region) apply comment-or-uncomment to the current line"
   "Saves the buffer"
   (interactive)
   (cond
-   ((eq major-mode 'haskell-mode) (haskell-mode-save-buffer))
    (t (save-buffer))))
 
 (defvar sober-mode-map (make-keymap)
