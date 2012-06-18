@@ -1,3 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 
-cabal build && cabal test --test-options --maximum-generated-tests=5000
+if ARGV.length == 0
+  max_tests = 500
+else
+  max_tests = ARGV[0].to_i
+end
+
+exec "cabal build && cabal test --test-options --maximum-generated-tests=#{max_tests}"
