@@ -3,5 +3,5 @@
 !shells/
 !.vim/
 !zsh/
-!bin/
 /.vim/.netrwhist
+*.swp
