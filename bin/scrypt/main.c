@@ -60,7 +60,7 @@ remove_punctuation(unsigned char c) {
 }
 
 void
-print_it(unsigned char* buffer, int allow_punctuation) {
+print_it(unsigned char* buffer, int allow_punctuation, int addbang) {
   int i;
   for (i = 0; i < 10; ++i) {
     unsigned char c = buffer[i];
@@ -76,7 +76,11 @@ print_it(unsigned char* buffer, int allow_punctuation) {
     if (!allow_punctuation) {
       c = remove_punctuation(c);
     }
-    printf("%c", c);
+    if (addbang && i == 0) {
+      printf("!");
+    } else {
+      printf("%c", c);
+    }
   }
 }
 
@@ -92,6 +96,7 @@ main(int argc, char* argv[])
   int result;
   int i = 0;
   int punctuation = 1;
+  int addbang = 0;
 
   if (argc != 2) {
     usage();
@@ -100,6 +105,9 @@ main(int argc, char* argv[])
   // Disable punctuation in output for sites that are jerks
   if (strcmp(argv[1], "chase.com") == 0) {
     punctuation = 0;
+  }
+  if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
+    addbang = 1;
   }
 
 	/* Prompt for a password. */
@@ -115,7 +123,7 @@ main(int argc, char* argv[])
     fprintf(stderr, "Something went wrong!\n");
     exit(1);
   } else {
-    print_it(buf, punctuation);
+    print_it(buf, punctuation, addbang);
     printf("\n");
   }
 
