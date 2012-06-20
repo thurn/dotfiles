@@ -84,9 +84,9 @@ int
 main(int argc, char* argv[])
 {
 	char * passwd;
-  uint64_t N = 1 << 16;
-  uint32_t r = 16;
-  uint32_t p = 2;
+  uint64_t N = 1 << 14;
+  uint32_t r = 8;
+  uint32_t p = 1;
   char buf[65];
   uint8_t buflen = 64;
   int result;
