@@ -6,4 +6,6 @@ else
   max_tests = ARGV[0].to_i
 end
 
+Dir.chdir("#{ENV['HOME']}/cantor")
+
 exec "cabal build && cabal test --test-options --maximum-generated-tests=#{max_tests}"
