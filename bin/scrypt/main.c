@@ -25,7 +25,116 @@
  */
 #include "scrypt_platform.h"
 
-#include <);
+#include <errno.h>
+#include <inttypes.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "readpass.h"
+#include "scryptenc.h"
+#include "warn.h"
+
+static void
+usage(void)
+{
+
+	fprintf(stderr, "usage: scrypt {domain} [--no_punctuation]\n");
+	exit(1);
+}
+
+unsigned char
+remove_punctuation(unsigned char c) {
+  if (c >= 33 && c <= 47) {
+    return c + 33;
+  } else if (c >= 58 && c <= 64) {
+    return c + 10;
+  } else if (c >= 91 && c <=96) {
+    return c - 10;
+  } else if (c >= 123) {
+    return c - 10;
+  } else {
+    return c;
+  }
+}
+
+void
+print_it(unsigned char* buffer, int allow_punctuation, int addbang) {
+  int i;
+  for (i = 0; i < 10; ++i) {
+    unsigned char c = buffer[i];
+    if (c > 126) {
+      c -= 126;
+    }
+    if (c > 126) {
+      c -= 126;
+    }
+    if (c < 33) {
+      c += 33;
+    }
+    if (!allow_punctuation) {
+      c = remove_punctuation(c);
+    }
+    if (addbang && i == 0) {
+      printf("!");
+    } else {
+      printf("%c", c);
+    }
+  }
+}
+
+void
+print_error(int error) {
+  char* desc = "";
+  switch (error) {
+    case EFBIG: desc = "EFBIG"; break;
+    case EINVAL: desc = "EINVAL"; break;
+    case ENOMEM: desc = "ENOMEM"; break;
+  }
+  fprintf(stderr, "Error Code %d!\n%s\n", error, desc);
+}
+
+int
+main(int argc, char* argv[])
+{
+	char * passwd;
+  uint64_t N = 1 << 14;
+  uint32_t r = 8;
+  uint32_t p = 1;
+  char buf[65];
+  size_t buflen = 64;
+  int result;
+  int i = 0;
+  int punctuation = 1;
+  int addbang = 0;
+
+  if (argc != 2) {
+    usage();
+  }
+
+  // Disable punctuation in output for sites that are jerks
+  if (strcmp(argv[1], "chase.com") == 0 ||
+      strcmp(argv[1], "fandango.com") == 0) {
+    punctuation = 0;
+  }
+  if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
+    addbang = 1;
+  }
+
+	/* Prompt for a password. */
+	if (tarsnap_readpass(&passwd, "Please enter passphrase", NULL, 1)) {
+		exit(1);
+  }
+
+  result = crypto_scrypt(passwd, strlen(passwd), argv[1], strlen(argv[1]), N, r,
+                         p, buf, buflen);
+  buf[64] = 0;
+
+  if (result != 0) {
+    fprintf(stderr, "Something went wrong!\n");
+    print_error(errno);
     exit(1);
   } else {
     print_it(buf, punctuation, addbang);
