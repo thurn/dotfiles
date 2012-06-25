@@ -25,6 +25,7 @@
  */
 #include "scrypt_platform.h"
 
+#include <errno.h>
 #include <inttypes.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -84,6 +85,17 @@ print_it(unsigned char* buffer, int allow_punctuation, int addbang) {
   }
 }
 
+void
+print_error(int error) {
+  char* desc = "";
+  switch (error) {
+    case EFBIG: desc = "EFBIG"; break;
+    case EINVAL: desc = "EINVAL"; break;
+    case ENOMEM: desc = "ENOMEM"; break;
+  }
+  fprintf(stderr, "Error Code %d!\n%s\n", error, desc);
+}
+
 int
 main(int argc, char* argv[])
 {
@@ -92,7 +104,7 @@ main(int argc, char* argv[])
   uint32_t r = 8;
   uint32_t p = 1;
   char buf[65];
-  uint8_t buflen = 64;
+  size_t buflen = 64;
   int result;
   int i = 0;
   int punctuation = 1;
@@ -122,6 +134,7 @@ main(int argc, char* argv[])
 
   if (result != 0) {
     fprintf(stderr, "Something went wrong!\n");
+    print_error(errno);
     exit(1);
   } else {
     print_it(buf, punctuation, addbang);
