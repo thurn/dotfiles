@@ -103,7 +103,8 @@ main(int argc, char* argv[])
   }
 
   // Disable punctuation in output for sites that are jerks
-  if (strcmp(argv[1], "chase.com") == 0) {
+  if (strcmp(argv[1], "chase.com") == 0 ||
+      strcmp(argv[1], "fandango.com") == 0) {
     punctuation = 0;
   }
   if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
