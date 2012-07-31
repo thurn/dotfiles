@@ -110,13 +110,14 @@ main(int argc, char* argv[])
   int punctuation = 1;
   int addbang = 0;
 
-  if (argc != 2) {
+  if (argc < 2) {
     usage();
   }
 
   // Disable punctuation in output for sites that are jerks
   if (strcmp(argv[1], "chase.com") == 0 ||
-      strcmp(argv[1], "fandango.com") == 0) {
+      strcmp(argv[1], "fandango.com") == 0 ||
+      argc == 3) {
     punctuation = 0;
   }
   if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
