@@ -146,7 +146,9 @@ region) apply comment-or-uncomment to the current line"
         ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-previous-input))
         ((eq major-mode 'haskell-interactive-mode)
-         (haskell-interactive-mode-history-toggle 1))))
+         (haskell-interactive-mode-history-toggle 1))
+        ((eq major-mode 'term-mode)
+         (call-interactively 'term-previous-input))))
 
 (defun dthurn-next-input ()
   "Completes to previous matching input"

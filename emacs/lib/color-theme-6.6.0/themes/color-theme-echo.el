@@ -88,8 +88,7 @@
      (highlight ((t (:background "darkolivegreen")))) 
      (italic ((t (:italic t)))) 
      (modeline ((t (:background "#a5baf1" :foreground "black")))) 
-     (modeline-buffer-id ((t (:background "#a5ba1" :foreground 
-"black")))) 
+     (modeline-buffer-id ((t (:background "#a5baf1" :foreground "black")))) 
      (modeline-mousable ((t (:background "#a5baf1" :foreground 
 "black")))) 
      (modeline-mousable-minor-mode ((t (:background 
