@@ -61,9 +61,10 @@ remove_punctuation(unsigned char c) {
 }
 
 void
-print_it(unsigned char* buffer, int allow_punctuation, int addbang) {
+print_it(unsigned char* buffer, int allow_punctuation, int addbang, int length,
+         int addfive) {
   int i;
-  for (i = 0; i < 10; ++i) {
+  for (i = 0; i < length; ++i) {
     unsigned char c = buffer[i];
     if (c > 126) {
       c -= 126;
@@ -79,6 +80,8 @@ print_it(unsigned char* buffer, int allow_punctuation, int addbang) {
     }
     if (addbang && i == 0) {
       printf("!");
+    } else if (addfive && i == 5) {
+      printf("5");
     } else {
       printf("%c", c);
     }
@@ -107,8 +110,10 @@ main(int argc, char* argv[])
   size_t buflen = 64;
   int result;
   int i = 0;
-  int punctuation = 1;
-  int addbang = 0;
+  int punctuation = 1; // Whether to allow punctuation in the output
+  int addbang = 0; // The the first character '!'
+  int addfive = 0; // Make the 5th character '5'
+  int length = 10; // Desired password length
 
   if (argc != 2) {
     usage();
@@ -119,8 +124,15 @@ main(int argc, char* argv[])
       strcmp(argv[1], "fandango.com") == 0) {
     punctuation = 0;
   }
-  if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
+  else if (strcmp(argv[1], "kaiserpermanente.org") == 0) {
     addbang = 1;
+  }
+  else if (strcmp(argv[1], "schwab.com") == 0) {
+    // Schwab may have the stupidest password requirements I've ever
+    // encountered.
+    length = 8;
+    addfive = 1;
+    punctuation = 0;
   }
 
 	/* Prompt for a password. */
@@ -137,7 +149,7 @@ main(int argc, char* argv[])
     print_error(errno);
     exit(1);
   } else {
-    print_it(buf, punctuation, addbang);
+    print_it(buf, punctuation, addbang, length, addfive);
     printf("\n");
   }
 
