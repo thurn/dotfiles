@@ -62,4 +62,4 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; Always run a server
-(server-start)
+; (server-start)

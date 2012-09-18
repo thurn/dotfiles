@@ -33,8 +33,8 @@
 (setq explicit-shell-file-name "/bin/bash")
 
 (defun dthurn-cleanup-prompt (path)
-  (replace-regexp-in-string "/home/dthurn" "~" path)
-  (replace-regexp-in-string "/Users/dthurn" "~" path))
+  (setq x (replace-regexp-in-string "/home/dthurn" "~" path))
+  (replace-regexp-in-string "/Users/dthurn" "~" x))
 
 (setq eshell-prompt-function
       (lambda ()

@@ -3,7 +3,7 @@
 import os
 import glob
 
-os.system("prodaccess")
+print("Reminder: Prodaccess required!")
 file = open(os.path.expanduser("~/.emacs-visited-files"))
 for line in file:
   line = line.strip()

@@ -227,11 +227,11 @@ globalkeys = awful.util.table.join(
     -- My personal app switching
 
     awful.key({ modkey,           }, "m", switch_to_client("Emacs", 3)),
-    awful.key({ modkey,           }, "j", switch_to_client("jetbrains", 2)),
-    awful.key({ modkey,           }, ";", switch_to_client("Eclipse", 4)),
+    awful.key({ modkey,           }, "j", switch_to_client("Eclipse", 2)),
+    awful.key({ modkey,           }, ";", switch_to_client("Emacs", 4)),
     awful.key({ modkey,           }, "k", switch_to_client_index("Google-chrome", 1, 1)),
-    awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 2, 1)),
-    awful.key({ modkey,           }, "l", switch_to_client_index("Google-chrome", 3, 1)),
+    awful.key({ modkey,           }, "l", switch_to_client_index("Google-chrome", 2, 1)),
+    awful.key({ modkey,           }, "h", switch_to_client_index("Google-chrome", 3, 1)),
     awful.key({ modkey,           }, "n", switch_to_client_index("Google-chrome", 4, 1)),
     --awful.key({ modkey,           }, ";", switch_to_client("Gnome-terminal", 3)),
     awful.key({ modkey,           }, "y", function () awful.util.spawn("gnome-screensaver-command --lock") end),
