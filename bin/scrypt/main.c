@@ -134,6 +134,8 @@ main(int argc, char* argv[])
     length = 8;
     addfive = 1;
     punctuation = 0;
+  } else if (strcmp(argv[1], "deltadentalins.com") == 0) {
+    addfive = 1;
   }
 
 	/* Prompt for a password. */
