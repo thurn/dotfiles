@@ -1,4 +1,4 @@
 #!/bin/zsh
 # dthurn's zshrc
 
-source ~/.zsh_profile
+source $HOME/.zsh_profile

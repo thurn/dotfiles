@@ -1,6 +1,7 @@
 [user]
-  name = Derek Thurn
+	name = Derek Thurn
   editor = emacs_wrapper.rb
+	email = derek@thurn.ca
 [color]
         ui = true
         diff = true
