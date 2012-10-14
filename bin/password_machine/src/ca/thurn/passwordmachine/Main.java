@@ -27,8 +27,10 @@ public class Main {
 		}
 
 		// Disable punctuation in output for sites that are jerks
-		if (args[0].equals("chase.com") || args[0].equals("fandango.com")
-				|| args.length == 2) {
+		if (args[0].equals("chase.com") ||
+        args[0].equals("fandango.com") ||
+        args[0].equals("apple.com") ||
+				args.length == 2) {
 			allowPunctuation = false;
 		} else if (args[0].equals("kaiserpermanente.org")) {
 			addBang = true;
