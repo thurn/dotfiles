@@ -175,11 +175,6 @@ region) apply comment-or-uncomment to the current line"
   (cond
    (t (save-buffer))))
 
-(defun dthurn-execute-shell-command ()
-  "Executes a selected shell command asynchronously"
-  (interactive)
-  (async-shell-command "/home/dthurn/bin/baf"))
-
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -283,7 +278,6 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-x C-f" 'find-file-at-point)
 (sober-map-key "C-\\" 'universal-argument)
 (sober-map-key "C-c <down>" 'move-to-window-line)
-(sober-map-key "C-c <up>" 'dthurn-execute-shell-command)
 (sober-map-key "C-c C-j" 'move-to-window-line)
 (sober-map-key "C-c C-i" 'fix-init)
 (sober-map-key "C-c C-h" 'java-println)
