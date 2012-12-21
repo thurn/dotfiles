@@ -42,7 +42,8 @@ public class Main {
 			length = 8;
 			addFive = true;
 			allowPunctuation = false;
-		} else if (args[0].equals("deltadentalins.com")) {
+		} else if (args[0].equals("deltadentalins.com") ||
+               args[0].equals("morganstanleysmithbarney.com")) {
 			addFive = true;
 		}
 		
