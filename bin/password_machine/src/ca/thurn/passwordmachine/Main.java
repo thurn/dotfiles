@@ -30,6 +30,7 @@ public class Main {
 		if (args[0].equals("chase.com") ||
         args[0].equals("fandango.com") ||
         args[0].equals("apple.com") ||
+        args[0].equals("comcast.com") ||
         args[0].equals("verizonwireless.com") ||
         args[0].equals("opentable.com") ||
 				args.length == 2) {

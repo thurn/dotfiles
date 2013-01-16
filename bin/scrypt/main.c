@@ -123,6 +123,7 @@ main(int argc, char* argv[])
   if (strcmp(argv[1], "chase.com") == 0 ||
       strcmp(argv[1], "fandango.com") == 0 ||
       strcmp(argv[1], "apple.com") == 0 ||
+      strcmp(argv[1], "comcast.com") == 0 ||
       strcmp(argv[1], "verizonwireless.com") == 0 ||
       strcmp(argv[1], "opentable.com") == 0 ||
       argc == 3) {
@@ -137,7 +138,8 @@ main(int argc, char* argv[])
     length = 8;
     addfive = 1;
     punctuation = 0;
-  } else if (strcmp(argv[1], "deltadentalins.com") == 0 ||
+  }
+  else if (strcmp(argv[1], "deltadentalins.com") == 0 ||
              strcmp(argv[1], "morganstanleysmithbarney.com") == 0) {
     addfive = 1;
   }

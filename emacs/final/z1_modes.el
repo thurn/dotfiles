@@ -98,6 +98,7 @@
         ("\\.el\\'" . emacs-lisp-mode)
         ("\\.exp\\'" . tcl-mode)
         ("\\.f9[05]\\'" . f90-mode)
+        ("\\.fs[iylx]?$" . fsharp-mode)
         ("\\.for\\'" . fortran-mode)
         ("\\.g?z\\(~\\|\\.~[0-9]+~\\)?\\'" nil jka-compr)
         ("\\.g\\'" . antlr-mode)
