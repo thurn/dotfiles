@@ -45,6 +45,7 @@
    "/bin:"
    (getenv "HOME")
    "/haskell/bin:"
+   "/usr/local/bin:"
    (getenv "HOME")
    "/.cabal/bin:"
    (getenv "PATH")))

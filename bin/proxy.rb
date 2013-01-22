@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # Implements a proxy local command to some command on a server stored in a
-# custom system environment variable named $ds. Symlink this script to 
+# custom system environment variable named $ws. Symlink this script to 
 # the name of the binary you want to call on the server (and make sure 
 # it is in your non-interactive path on the server). The script will
 # *attempt* to switch to a directory with the same name as your current
@@ -9,7 +9,7 @@
 # program_after (where the program name is program), the value of these 
 # variables will be executed respectively before or after the command
 
-server = ENV["ds"]
+server = ENV["ws"]
 program =  File.basename(__FILE__)
 
 relative_path = `pwd`.sub(File.expand_path("~"), "~").chomp
@@ -27,5 +27,9 @@ if ENV[program + "_cmd"]
   program = ENV[program + "_cmd"]
 end
 
-exec "#{before} ssh #{server} 'cd #{relative_path} ; " +
-     "#{program} #{ARGV.join(' ')}' #{after}"
+exec "#{before} " +
+     "ssh #{server} " +
+     "'export PATH=$HOME/bin:$PATH ; " +
+     "cd #{relative_path} ; " +
+     "#{program} #{ARGV.join(' ')}' " +
+     "#{after}"

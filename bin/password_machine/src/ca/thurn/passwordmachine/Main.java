@@ -30,7 +30,9 @@ public class Main {
 		if (args[0].equals("chase.com") ||
         args[0].equals("fandango.com") ||
         args[0].equals("apple.com") ||
+        args[0].equals("comcast.com") ||
         args[0].equals("verizonwireless.com") ||
+        args[0].equals("opentable.com") ||
 				args.length == 2) {
 			allowPunctuation = false;
 		} else if (args[0].equals("kaiserpermanente.org")) {
@@ -41,7 +43,8 @@ public class Main {
 			length = 8;
 			addFive = true;
 			allowPunctuation = false;
-		} else if (args[0].equals("deltadentalins.com")) {
+		} else if (args[0].equals("deltadentalins.com") ||
+               args[0].equals("morganstanleysmithbarney.com")) {
 			addFive = true;
 		}
 		
