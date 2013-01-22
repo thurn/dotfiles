@@ -73,10 +73,15 @@
 (defun shell-and-cd (&rest args)
   (interactive)
   (let ((dir default-directory))
-    (switch-to-buffer "*shell*")
+    (switch-to-buffer "*eshell*")
     (kill-new (concat "cd " dir) nil)))
 
 (defun color-buffer ()
   "Removes ANSI escape characters from the buffer and attempts to color it"
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
+
+(defun dthurn-pwd ()
+  "Puts the pwd at the end of the kill ring"
+  (interactive)
+  (kill-new (pwd)))
