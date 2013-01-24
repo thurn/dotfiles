@@ -32,6 +32,9 @@
         (13 . ac-complete)
         (9 . ac-expand)))
 
+;; Enable auto-complete
+(auto-complete-mode t)
+
 ;; (setq-default ac-sources
 ;;       '(ac-source-words-in-buffer))
 ;; (setq ac-sources
@@ -70,4 +73,3 @@
 ;; (defvar ac-test-source
 ;;   '((candidates . ac-hphpd-candidate)
 ;;     (prefix . "->\\(.*\\)")))
-

@@ -62,5 +62,8 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-;; Always run a server
-; (server-start)
+;; Enable the mouse over xterm
+(xterm-mouse-mode t)
+
+;; Show column number
+(column-number-mode t)

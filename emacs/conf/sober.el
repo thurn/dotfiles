@@ -281,6 +281,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "C-c C-j" 'move-to-window-line)
 (sober-map-key "C-c C-i" 'fix-init)
 (sober-map-key "C-c C-h" 'java-println)
+(sober-map-key "C-c C-p" 'balance-windows)
 (sober-map-key "<C-tab>" 'dthurn-code-assist)
 (sober-map-key "C-c M-y" 'call-last-kbd-macro)
 
