@@ -39,8 +39,7 @@
 (setq eshell-prompt-function
       (lambda ()
         (concat
-         (dthurn-cleanup-prompt (eshell/pwd))
-         "$")))
+         (dthurn-cleanup-prompt (eshell/pwd)) "$")))
 
 (setq eshell-prompt-regexp "^[^$]*[$]")
 
