@@ -39,10 +39,9 @@
 (setq eshell-prompt-function
       (lambda ()
         (concat
-         (dthurn-cleanup-prompt (eshell/pwd))
-         "\n> ")))
+         (dthurn-cleanup-prompt (eshell/pwd)) "$")))
 
-(setq eshell-prompt-regexp "^[^>]*[>] ")
+(setq eshell-prompt-regexp "^[^$]*[$]")
 
 (defun eshell/emacs (file)
   (find-file-other-window file))

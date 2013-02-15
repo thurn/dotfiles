@@ -32,6 +32,7 @@ public class Main {
         args[0].equals("apple.com") ||
         args[0].equals("comcast.com") ||
         args[0].equals("verizonwireless.com") ||
+        args[0].equals("gap.com") ||
         args[0].equals("opentable.com") ||
 				args.length == 2) {
 			allowPunctuation = false;
