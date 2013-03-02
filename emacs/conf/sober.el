@@ -183,6 +183,8 @@ region) apply comment-or-uncomment to the current line"
      (global-set-key (kbd ,key) ,command)
      (define-key sober-mode-map (kbd ,key) ,command)))
 
+(sober-map-key "C-SPC" 'ace-jump-mode)
+
 ;; Top Row
 (sober-map-key "C-q" 'recenter)
 (sober-map-key "C-w" 'dthurn-page-up)

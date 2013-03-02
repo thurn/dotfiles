@@ -67,3 +67,11 @@
 
 ;; Show column number
 (column-number-mode t)
+
+;; These default VC functions are incredibly slow under OSX (> 5 seconds) for me.
+;; Disabling them for now.
+(defun vc-find-file-hook () nil)
+(defun vc-before-save () nil)
+(defun vc-after-save () nil)
+
+

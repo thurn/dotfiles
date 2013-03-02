@@ -1,4 +1,4 @@
 ;; Configuration for git modes
 
-(require 'git-emacs)
-(require 'magit)
+;;;;(require 'git-emacs)
+;;;;(require 'magit)

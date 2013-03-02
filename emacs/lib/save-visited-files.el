@@ -72,6 +72,7 @@
                 (remove-if '(lambda (x)
                               (or (string-equal location x)
                                   (eq nil x))) (mapcar 'buffer-file-name (buffer-list))))
+        (dlog "location: " location)
         (with-temp-message ""
           (write-file location nil)))
       (kill-buffer (get-buffer "*Save Visited*")))))
