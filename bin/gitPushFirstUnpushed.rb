@@ -1,19 +1,49 @@
 #!/usr/bin/env ruby
 
 # Pushes the oldest commit in a git repository which has not yet been pushed
-# to origin/master
+# to origin/master (and updates its date)
 
 if ARGV.length == 0
   puts "Usage: gitPushFirstUnpushed.rb path/to/git/repo"
+  exit
 else
   Dir.chdir(ARGV[0])
 end
 
-commitSha = `git log origin/master..HEAD --format="%H" | tail -n 1`.chomp
+system "git checkout develop"
+
+# Get the SHA1 of the last commit
+commitFile = File.open("/tmp/commitSha.txt", "r")
+prevCommitSha = commitFile.read.chomp
+commitFile.close()
+
+# Get the SHA1 of the next commit to push
+commitSha = `git log #{prevCommitSha}..HEAD --format="%H" | tail -n 1`.chomp
 
 if commitSha.length > 5
-  puts "pushing #{commitSha}"
-  exec "git push origin #{commitSha}:master"
+  puts "found #{commitSha} to push"
 else
   puts "no commits found"
+  exit
 end
+
+puts "switching to master"
+exit unless system "git checkout master"
+
+puts "cherry-picking commit"
+exit unless system "git cherry-pick #{commitSha}"
+
+date = `gdate -R`.chomp
+puts "updating commit time to #{date}"
+exit unless system "git commit -a --amend --date='#{date}' -C HEAD"
+
+newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
+
+puts "pushing commit"
+exit unless system "git push origin #{newCommitSha}:master"
+
+newCommitFile = File.open("/tmp/commitSha.txt", "w")
+newCommitFile.write(commitSha)
+newCommitFile.close()
+
+system "git checkout develop"
