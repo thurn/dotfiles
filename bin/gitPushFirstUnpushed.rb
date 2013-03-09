@@ -12,6 +12,9 @@ end
 
 system "git checkout develop"
 
+# If there are any local modifications, first fold them into HEAD
+system "git commit --amend -a -C HEAD"
+
 # Get the SHA1 of the last commit
 commitFile = File.open("/tmp/commitSha.txt", "r")
 prevCommitSha = commitFile.read.chomp
