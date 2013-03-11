@@ -25,9 +25,8 @@
 (setq backup-directory-alist `(("." . "~/emacs/backups/")))
 
 ;; Define the emacs font
-(setq dthurn-font-name "Monaco")
-(if (member dthurn-font-name (font-family-list))
-    (set-face-attribute 'default nil :font "Monaco" :height 120))
+(if (member "Inconsolata-dz" (font-family-list))
+    (set-face-attribute 'default nil :font "Inconsolata-dz" :height 120))
 
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
@@ -55,7 +54,7 @@
 ;; Use emacs for $EDITOR
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
 
-;; Hack around programs that don't think eshell is a fully-functional terminal
+;; Hack around programs that don't think eshell is a fully-functional terminaldd
 (setenv "TERM" "xterm")
 
 ;; Uniquify buffer names
