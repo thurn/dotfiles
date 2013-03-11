@@ -74,4 +74,5 @@
 (defun vc-before-save () nil)
 (defun vc-after-save () nil)
 
-
+;; Kill trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
