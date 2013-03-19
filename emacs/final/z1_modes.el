@@ -125,6 +125,7 @@
         ("\\.l[gh]s\\'" . literate-haskell-mode)
         ("\\.l\\'" . lisp-mode)
         ("\\.ld[si]?\\>" . ld-script-mode)
+        ("\\.less\\'" . less-css-mode)
         ("\\.letter\\'" . text-mode)
         ("\\.lex\\'" . c-mode)
         ("\\.li?sp\\'" . lisp-mode)
