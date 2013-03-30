@@ -51,7 +51,7 @@
 
 (defun eshell/lock ()
   (shell-command "gnome-screensaver-command --lock"))
-  
+
 (defun eshell/logoff ()
   (shell-command "gnome-session-save --logout"))
 
@@ -68,7 +68,7 @@
   (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
 
 (defun eshell/git (command &rest args)
-  (cond 
+  (cond
    ((equal command "log")
      (shell-command "git log -n 500 --color")
      (switch-to-buffer-other-window "*Shell Command Output*")
@@ -76,6 +76,7 @@
    ((member command '("rebase" "grep" "clone"))
     (dthurn-async-git-exec command args))
    ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
-                      "merge" "rm" "push" "status" "clean" "mergetool" "config" "pull" "push"))
+                      "merge" "rm" "push" "status" "clean" "mergetool" "config"
+                      "pull" "push" "checkout"))
     (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))
