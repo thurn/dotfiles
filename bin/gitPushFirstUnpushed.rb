@@ -16,7 +16,7 @@ system "git checkout develop"
 system "git commit --amend -a -C HEAD"
 
 # Get the SHA1 of the last commit
-commitFile = File.open(File.expand_path("~/commitSha.txt"), "r")
+commitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "r")
 prevCommitSha = commitFile.read.chomp
 commitFile.close()
 
@@ -45,7 +45,7 @@ newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
 puts "pushing commit"
 exit unless system "git push origin #{newCommitSha}:master"
 
-newCommitFile = File.open(File.expand_path("~/commitSha.txt"), "w")
+newCommitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "w")
 newCommitFile.write(commitSha)
 newCommitFile.close()
 
