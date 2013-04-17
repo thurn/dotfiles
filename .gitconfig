@@ -42,3 +42,5 @@
 	cmd = git_merge_meld.sh $LOCAL $BASE $REMOTE $MERGED
 [rerere]
 	enabled = true
+[push]
+	default = matching

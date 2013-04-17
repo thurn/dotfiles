@@ -70,7 +70,7 @@
 (defun eshell/git (command &rest args)
   (cond 
    ((equal command "log")
-     (shell-command "git log -n 500 --color")
+     (shell-command "git log -n 100 --color")
      (switch-to-buffer-other-window "*Shell Command Output*")
      (color-buffer))
    ((member command '("rebase" "grep" "clone"))
