@@ -16,12 +16,12 @@ system "git checkout develop"
 system "git commit --amend -a -C HEAD"
 
 # Get the SHA1 of the last commit
-commitFile = File.open("/tmp/commitSha.txt", "r")
+commitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "r")
 prevCommitSha = commitFile.read.chomp
 commitFile.close()
 
 # Get the SHA1 of the next commit to push
-commitSha = `git log #{prevCommitSha}..HEAD --format="%H" | tail -n 1`.chomp
+commitSha = `git log #{prevCommitSha}..HEAD --format='%H' | tail -n 1`.chomp
 
 if commitSha.length > 5
   puts "found #{commitSha} to push"
@@ -45,7 +45,7 @@ newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
 puts "pushing commit"
 exit unless system "git push origin #{newCommitSha}:master"
 
-newCommitFile = File.open("/tmp/commitSha.txt", "w")
+newCommitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "w")
 newCommitFile.write(commitSha)
 newCommitFile.close()
 
