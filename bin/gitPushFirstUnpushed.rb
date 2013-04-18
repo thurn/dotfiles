@@ -34,7 +34,7 @@ puts "switching to master"
 exit unless system "git checkout master"
 
 puts "cherry-picking commit"
-exit unless system "git cherry-pick #{commitSha}"
+exit unless system "git cherry-pick #{commitSha} --strategy recursive -X theirs"
 
 date = `gdate -R`.chomp
 puts "updating commit time to #{date}"
