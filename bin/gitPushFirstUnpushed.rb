@@ -36,7 +36,7 @@ exit unless system "git checkout master"
 puts "cherry-picking commit"
 exit unless system "git cherry-pick #{commitSha} --strategy recursive -X theirs"
 
-date = `gdate -R`.chomp
+date = `/usr/local/bin/gdate -R`.chomp
 puts "updating commit time to #{date}"
 exit unless system "git commit -a --amend --date='#{date}' -C HEAD"
 
