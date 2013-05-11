@@ -84,24 +84,6 @@ region) apply comment-or-uncomment to the current line"
         (comment-or-uncomment-region (point) (mark))
       (comment-or-uncomment-region (mark) (point)))))
 
-(defun dthurn-tab (&rest args)
-  (interactive)
-  (if (member (char-before) '(nil ?\ ?\n ?\t))
-      (let ((old (point)))
-        (indent-relative-maybe)
-        (when (= (point) old)
-          (beginning-of-line)
-          (insert-tab)
-          (goto-char (+ old 2))))
-    (dabbrev-expand nil)))
-
-(defun dthurn-backward-tab (&rest args)
-  (interactive)
-  (let ((old (point)))
-    (beginning-of-line)
-    (delete-char 2)
-    (goto-char (- old 2))))
-
 (defun kill-buffer-if-exists (name)
   "Kill a buffer named 'name' if it exists"
   (if (not (eq nil (get-buffer name)))
@@ -109,12 +91,12 @@ region) apply comment-or-uncomment to the current line"
 
 (defun sober-map-ci (command)
   """Maps C-i to a specific command via some trickery."""
-  ;; Don't translate tab into C-i. 
-  (define-key function-key-map [tab] nil) 
-  ;; Swap the meanings of tab and C-i. 
-  (define-key key-translation-map [9] [tab]) 
-  (define-key key-translation-map [tab] [9]) 
-  ;; Bind tab (which is now actually C-i) 
+  ;; Don't translate tab into C-i.
+  (define-key function-key-map [tab] nil)
+  ;; Swap the meanings of tab and C-i.
+  (define-key key-translation-map [9] [tab])
+  (define-key key-translation-map [tab] [9])
+  ;; Bind tab (which is now actually C-i)
   (global-set-key [tab] 'comand))
 
 (defun dthurn-kill-starred-buffers ()
@@ -125,7 +107,7 @@ region) apply comment-or-uncomment to the current line"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
            "*Async Shell Command*" "*save*" "*piped*" "*Async Shell Command Output*"
-           "*cs*" 
+           "*cs*"
            )))
     (mapcar 'kill-buffer-if-exists buffers)))
 
@@ -175,6 +157,35 @@ region) apply comment-or-uncomment to the current line"
   (cond
    (t (save-buffer))))
 
+(defun dthurn-tab (&rest args)
+  (interactive)
+  (cond
+    ((minibufferp)
+      (unless (minibuffer-complete)
+        (dabbrev-expand nil)))
+    (mark-active
+      (let ((deactivate-mark nil))
+        (indent-rigidly (region-beginning) (region-end) 2)))
+    ((member (char-before) '(nil ?\ ?\n ?\t))
+      (let ((old (point)))
+        (beginning-of-line)
+        (insert-tab)
+        (goto-char (+ old 2))))
+    (t
+      (auto-complete))))
+
+(defun dthurn-backward-tab (&rest args)
+  (interactive)
+  (cond
+    (mark-active
+      (let ((deactivate-mark nil))
+        (indent-rigidly (region-beginning) (region-end) -2)))
+    (t
+      (let ((old (point)))
+        (beginning-of-line)
+        (delete-char 2)
+        (goto-char (- old 2))))))
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -184,6 +195,8 @@ region) apply comment-or-uncomment to the current line"
      (define-key sober-mode-map (kbd ,key) ,command)))
 
 (sober-map-key "C-SPC" 'ace-jump-mode)
+(sober-map-key "TAB" 'dthurn-tab)
+(sober-map-key "<backtab>" 'dthurn-backward-tab)
 
 ;; Top Row
 (sober-map-key "C-q" 'recenter)

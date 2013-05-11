@@ -126,6 +126,7 @@ main(int argc, char* argv[])
       strcmp(argv[1], "comcast.com") == 0 ||
       strcmp(argv[1], "verizonwireless.com") == 0 ||
       strcmp(argv[1], "gap.com") == 0 ||
+      strcmp(argv[1], "audible.com") == 0 ||
       strcmp(argv[1], "opentable.com") == 0 ||
       argc == 3) {
     punctuation = 0;

@@ -73,6 +73,10 @@
      (shell-command "git log -n 100 --color")
      (switch-to-buffer-other-window "*Shell Command Output*")
      (color-buffer))
+   ((equal command "diff")
+     (shell-command "git diff --color")
+     (switch-to-buffer-other-window "*Shell Command Output*")
+     (color-buffer))
    ((member command '("rebase" "grep" "clone"))
     (dthurn-async-git-exec command args))
    ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
