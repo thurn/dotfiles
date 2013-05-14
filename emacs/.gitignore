@@ -9,3 +9,5 @@ tramp
 *.fasl
 *#
 backups/*
+ac-comphist.dat
+elpa/archives

@@ -15,10 +15,21 @@
     (add-to-list 'load-path dir)
     (normal-top-level-add-subdirs-to-load-path)))
 
-;; Set up ELPA, the Emacs Lisp Package Archive
-(when
-    (load "~/emacs/elpa/package.el")
-    (package-initialize))
+(setq user-emacs-directory "~/emacs/")
+
+;; Set up El-Get
+(add-to-list 'load-path "~/emacs/el-get/el-get")
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+(add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes")
+(add-to-list  'package-archives
+  '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq el-get-user-package-directory "~/emacs/el-get/init")
+(el-get 'sync)
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories.
 ;; This directory holds all of my emacs libraries.

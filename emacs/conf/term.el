@@ -84,3 +84,7 @@
                       "pull" "push" "checkout"))
     (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))
+
+(defun eshell/ack (regexp)
+  (ack regexp)
+  (switch-to-buffer-other-window "*Ack-and-a-half*"))

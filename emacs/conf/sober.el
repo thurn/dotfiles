@@ -107,7 +107,7 @@ region) apply comment-or-uncomment to the current line"
            "*grep*" "*Compile-Log*" "*Shell Command Output*" "*compilation*"
            "*Occur*" "*log*" "*epic output*" "*git-status*"
            "*Async Shell Command*" "*save*" "*piped*" "*Async Shell Command Output*"
-           "*cs*"
+           "*cs*" "*Ack-and-a-half*"
            )))
     (mapcar 'kill-buffer-if-exists buffers)))
 
