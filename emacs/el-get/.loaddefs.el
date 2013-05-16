@@ -52,6 +52,26 @@ Display a list of packages.
 
 ;;;***
 
+;;;### (autoloads (textmate-mode) "textmate/textmate" "textmate/textmate.el"
+;;;;;;  (20885 21253))
+;;; Generated autoloads from textmate/textmate.el
+
+(defvar textmate-mode nil "\
+Non-nil if Textmate mode is enabled.
+See the command `textmate-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `textmate-mode'.")
+
+(custom-autoload 'textmate-mode "textmate/textmate" nil)
+
+(autoload 'textmate-mode "textmate/textmate" "\
+TextMate Emulation Minor Mode
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads (global-undo-tree-mode undo-tree-mode) "undo-tree/undo-tree"
 ;;;;;;  "undo-tree/undo-tree.el" (20881 36553))
 ;;; Generated autoloads from undo-tree/undo-tree.el
@@ -99,12 +119,12 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("el-get/el-get-autoloads.el" "el-get/el-get-build.el"
-;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
-;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
-;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "kill-ring-ido/kill-ring-ido.el")
-;;;;;;  (20881 37377 711511))
+;;;### (autoloads nil nil ("command-frequency/command-frequency.el"
+;;;;;;  "el-get/el-get-autoloads.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
+;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
+;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "kill-ring-ido/kill-ring-ido.el")
+;;;;;;  (20885 21254 78527))
 
 ;;;***
 

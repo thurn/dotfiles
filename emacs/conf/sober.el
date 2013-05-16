@@ -58,7 +58,7 @@ character of the current line."
 
 (defun dthurn-goto-symbol (&rest args)
   (interactive)
-  (call-interactively 'ido-goto-symbol)
+  (call-interactively 'textmate-goto-symbol)
   (call-interactively 'recenter))
 
 (defun dthurn-page-down (&rest args)
@@ -245,8 +245,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "s-u" 'beginning-of-buffer)
 (sober-map-key "M-i" 'dthurn-eval-buffer) ; Override as a compile command
 (sober-map-key "s-i" 'dthurn-eval-buffer) ; Override as a compile command
-(sober-map-key "M-p" 'ido-goto-symbol)
-(sober-map-key "s-p" 'ido-goto-symbol)
+(sober-map-key "M-p" 'dthurn-goto-symbol)
+(sober-map-key "s-p" 'dthurn-goto-symbol)
 
 ;; Middle Row
 (sober-map-key "M-a" 'mark-whole-buffer)
