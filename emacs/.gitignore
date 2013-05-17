@@ -12,3 +12,8 @@ backups/*
 ac-comphist.dat
 elpa/archives
 url/
+el-get/.loaddefs.el
+el-get/.status.el
+eshell/
+el-get/
+!el-get/init

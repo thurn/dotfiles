@@ -163,6 +163,8 @@ region) apply comment-or-uncomment to the current line"
     ((minibufferp)
       (unless (minibuffer-complete)
         (dabbrev-expand nil)))
+    ((member major-mode '(eshell-mode))
+      (pcomplete))
     (mark-active
       (let ((deactivate-mark nil))
         (indent-rigidly (region-beginning) (region-end) 2)))
