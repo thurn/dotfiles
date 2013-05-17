@@ -25,11 +25,18 @@
    (lambda (s)
      (end-of-buffer)
      (eval-print-last-sexp))))
-(add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes")
-(add-to-list  'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(if (boundp 'el-get-recipe-path)
+  (add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes"))
+(if (boundp 'package-archives)
+  (add-to-list  'package-archives
+    '("marmalade" . "http://marmalade-repo.org/packages/")))
 (setq el-get-user-package-directory "~/emacs/el-get/init")
-(el-get 'sync)
+
+(setq dthurn-el-get-packages
+  '(command-frequency textmate undo-tree))
+
+(el-get 'sync dthurn-el-get-packages)
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories.
 ;; This directory holds all of my emacs libraries.
@@ -51,3 +58,18 @@
 ;; possible in the startup process. The same rule about alphabetical loading
 ;; applies to final.
 (load-directory-dthurn "~/emacs/final")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(haskell-process-type (quote ghci))
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
+ '(safe-local-variable-values (quote ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
