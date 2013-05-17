@@ -14,7 +14,7 @@
   (if (not (or (window-minibuffer-p)
                (minibufferp)
                buffer-read-only
-               (eq major-mode 'shell-mode)))
+               (member major-mode '(shell-mode eshell-mode))))
       (auto-complete-mode t)))
 
 (define-global-minor-mode dthurn-auto-complete-global-mode
