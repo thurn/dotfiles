@@ -25,9 +25,12 @@
    (lambda (s)
      (end-of-buffer)
      (eval-print-last-sexp))))
-(add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes")
-(add-to-list  'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(if (boundp 'el-get-recipe-path)
+  (add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes"))
+(if (boundp 'package-archives)
+  (add-to-list  'package-archives
+    '("marmalade" . "http://marmalade-repo.org/packages/")))
 (setq el-get-user-package-directory "~/emacs/el-get/init")
 
 (setq dthurn-el-get-packages
