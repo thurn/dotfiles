@@ -1,5 +1,5 @@
 #!/bin/bash
-# dthurn's bashrc
+# dthurn's bash_profile
 
 # Local config
 if [ -f ~/.shell_config.sh ]; then
