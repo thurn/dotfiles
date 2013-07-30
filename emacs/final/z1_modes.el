@@ -1,4 +1,4 @@
-;; Hard-set t he auto-mode-alist and magic-mode-alist variables.
+;; Hard-set the auto-mode-alist and magic-mode-alist variables.
 ;; I prefer things to be explicit!
 
 (setq auto-mode-alist
@@ -108,8 +108,8 @@
         ("\\.gsp\\'" . gsp-html-mumamo-mode)
         ("\\.gss\\'" . css-mode)
         ("\\.hsc\\'" . haskell-c-mode)
-        ("\\.htm\\'" . javascript-mode)
-        ("\\.html\\'" . javascript-mode)
+        ("\\.htm\\'" . html-mode)
+        ("\\.html\\'" . html-mode)
         ("\\.i?tcl\\'" . tcl-mode)
         ("\\.i\\'" . c-mode)
         ("\\.icn\\'" . icon-mode)
