@@ -32,9 +32,10 @@
   (add-to-list  'package-archives
     '("marmalade" . "http://marmalade-repo.org/packages/")))
 (setq el-get-user-package-directory "~/emacs/el-get/init")
+(el-get-elpa-build-local-recipes)
 
 (setq dthurn-el-get-packages
-  '(command-frequency textmate undo-tree))
+  '(command-frequency textmate undo-tree hungry-delete))
 
 (el-get 'sync dthurn-el-get-packages)
 
