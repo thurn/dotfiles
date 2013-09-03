@@ -109,7 +109,7 @@
         ("\\.gss\\'" . css-mode)
         ("\\.hsc\\'" . haskell-c-mode)
         ("\\.htm\\'" . javascript-mode)
-        ("\\.html\\'" . javascript-mode)
+        ("\\.html\\'" . html-mode)
         ("\\.i?tcl\\'" . tcl-mode)
         ("\\.i\\'" . c-mode)
         ("\\.icn\\'" . icon-mode)
