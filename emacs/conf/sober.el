@@ -165,6 +165,8 @@ region) apply comment-or-uncomment to the current line"
         (dabbrev-expand nil)))
     ((member major-mode '(eshell-mode))
       (pcomplete))
+    ((member major-mode '(shell-mode))
+      (completion-at-point))
     (mark-active
       (let ((deactivate-mark nil))
         (indent-rigidly (region-beginning) (region-end) 2)))

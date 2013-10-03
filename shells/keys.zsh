@@ -4,14 +4,12 @@ stty -ixon
 if $emacs_shell ;
 then
 else
-  bindkey '^j' history-beginning-search-forward
-  bindkey '<up>' history-beginning-search-forward
-  bindkey '\ec' history-beginning-search-backward
-  bindkey '<down>' history-beginning-search-backward
+  bindkey '^k' history-search-backward
+  bindkey '^j' history-search-forward
   bindkey '^f' forward-word
   bindkey '^d' forward-char
   bindkey '^l' backward-word
-  bindkey '\ez' backward-char
+  bindkey '^;' backward-char
   bindkey '^r' backward-kill-word
   bindkey '^u' yank
   bindkey '^n' kill-line
