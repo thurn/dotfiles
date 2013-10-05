@@ -37,6 +37,7 @@ public class Main {
         args[0].equals("purpletie.com") ||
         args[0].equals("opentable.com") ||
         args[0].equals("videoeta.com") ||
+        args[0].equals("topcoder.com") ||
 				args.length == 2) {
 			allowPunctuation = false;
 		} else if (args[0].equals("kaiserpermanente.org")) {
