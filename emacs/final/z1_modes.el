@@ -105,6 +105,7 @@
         ("\\.gcov\\'" . compilation-mode)
         ("\\.gif\\'" . image-mode)
         ("\\.gpg\\(~\\|\\.~[0-9]+~\\)?\\'" nil epa-file)
+        ("\\.gradle\\'" . groovy-mode)
         ("\\.gsp\\'" . gsp-html-mumamo-mode)
         ("\\.gss\\'" . css-mode)
         ("\\.hsc\\'" . haskell-c-mode)

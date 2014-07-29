@@ -35,6 +35,8 @@ alias wget='wget --no-check-certificate'
 alias emacs='emacs_wrapper.rb'
 alias kill-emacs='emacsclient -e "(kill-emacs)"'
 
+alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
 alias lg='ls | grep -i'
 alias pd='popd'
 alias mkdir='mkdir -p'
@@ -71,3 +73,20 @@ elif [[ $OSTYPE == solaris* ]]; then
   alias ll='ls -A -l -F'
   alias ls='ls -F'
 fi
+
+alias mt="make test"
+
+alias cdd="cd ~/Desktop"
+alias cdb="cd ~/Dropbox"
+alias cdn="cd ~/Downloads"
+alias cd1="cd .."
+alias cd2="cd ../.."
+alias cd3="cd ../../.."
+alias cd4="cd ../../../.."
+alias cd5="cd ../../../../.."
+alias cd6="cd ../../../../../.."
+alias cd7="cd ../../../../../../.."
+alias cd8="cd ../../../../../../../.."
+alias cd9="cd ../../../../../../../../.."
+
+alias pyserve="python -m SimpleHTTPServer"

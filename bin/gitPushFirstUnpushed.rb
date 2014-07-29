@@ -10,10 +10,14 @@ else
   Dir.chdir(ARGV[0])
 end
 
+puts "switching to develop"
 system "git checkout develop"
 
-# If there are any local modifications, first fold them into HEAD
-system "git commit --amend -a -C HEAD"
+puts "tracking all untracked files"
+system "git add -A"
+
+puts "rolling local changes into last commit"
+system "git commit -a --amend -C HEAD"
 
 # Get the SHA1 of the last commit
 commitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "r")
@@ -42,11 +46,15 @@ exit unless system "git commit -a --amend --date='#{date}' -C HEAD"
 
 newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
 
-puts "pushing commit"
+puts "pushing commit #{newCommitSha}"
 exit unless system "git push origin #{newCommitSha}:master"
 
+puts "writing #{commitSha} to commitSha.txt"
 newCommitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "w")
 newCommitFile.write(commitSha)
 newCommitFile.close()
 
+puts "switching back to develop"
 system "git checkout develop"
+
+puts "restoring local changes"

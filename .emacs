@@ -35,9 +35,9 @@
 (el-get-elpa-build-local-recipes)
 
 (setq dthurn-el-get-packages
-  '(command-frequency textmate undo-tree hungry-delete))
+  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode))
 
-(el-get 'sync dthurn-el-get-packages)
+(el-get nil dthurn-el-get-packages)
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories.
 ;; This directory holds all of my emacs libraries.
