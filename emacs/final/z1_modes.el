@@ -131,7 +131,6 @@
         ("\\.li?sp\\'" . lisp-mode)
         ("\\.ltx\\'" . latex-mode)
         ("\\.lua\\'" . lua-mode)
-        ("\\.m$" . mercury-mode)
         ("\\.m?spec\\'" . sh-mode)
         ("\\.m[4c]\\'" . m4-mode)
         ("\\.m[mes]\\'" . nroff-mode)
