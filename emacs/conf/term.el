@@ -38,9 +38,9 @@
 (setq eshell-prompt-function
       (lambda ()
         (concat
-         (dthurn-cleanup-prompt (eshell/pwd)) "$")))
+         (dthurn-cleanup-prompt (eshell/pwd)) "\n$ ")))
 
-(setq eshell-prompt-regexp "^[^$]*[$]")
+(setq eshell-prompt-regexp "^[^$]*[$][ ]")
 
 (defun eshell/emacs (file)
   (find-file-other-window file))
@@ -66,15 +66,20 @@
 (defun dthurn-git-exec (command args)
   (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
 
+(defun eshell/ll ()
+  (eshell/ls "-l" "-a" "-h"))
+
 (defun eshell/git (command &rest args)
   (cond
    ((equal command "log")
      (shell-command "git log -n 100 --color")
      (switch-to-buffer-other-window "*Shell Command Output*")
+     (help-mode)
      (color-buffer))
    ((equal command "diff")
      (shell-command "git diff --color")
      (switch-to-buffer-other-window "*Shell Command Output*")
+     (help-mode)
      (color-buffer))
    ((member command '("rebase" "grep" "clone"))
     (dthurn-async-git-exec command args))

@@ -22,7 +22,12 @@
 (defalias 'qrr 'query-replace-regexp)
 
 ;; Define a backup directory
-(setq backup-directory-alist `(("." . "~/emacs/backups/")))
+(setq dthurn-backup-file-directory "~/emacs/backups")
+(setq backup-directory-alist
+      `((".*" . ,dthurn-backup-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,dthurn-backup-file-directory t)))
+(setq backup-by-copying t)
 
 ;; Define the emacs font
 (if (member "Inconsolata-dz" (font-family-list))

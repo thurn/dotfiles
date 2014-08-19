@@ -276,8 +276,8 @@ region) apply comment-or-uncomment to the current line"
 
 ;; Bottom Row
 (sober-map-key "M-z" 'undo)
-(sober-map-key "s-z" 'undo)
 (sober-map-key "M-x" 'kill-region)
+(sober-map-key "s-z" 'undo)
 (sober-map-key "s-x" 'kill-region)
 (sober-map-key "M-c" 'copy-region-as-kill)
 (sober-map-key "s-c" 'copy-region-as-kill)
