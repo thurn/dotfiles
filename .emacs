@@ -35,7 +35,7 @@
 (el-get-elpa-build-local-recipes)
 
 (setq dthurn-el-get-packages
-  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode magit))
+  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode magit ack-and-a-half))
 
 (el-get nil dthurn-el-get-packages)
 

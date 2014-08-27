@@ -80,3 +80,6 @@
 
 ;; Kill trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Start the server
+(server-start)
