@@ -51,6 +51,7 @@ public class Main {
 			addFive = true;
 			allowPunctuation = false;
 		} else if (args[0].equals("deltadentalins.com") ||
+	             args[0].equals("mozilla.org") ||
                args[0].equals("morganstanleysmithbarney.com")) {
 			addFive = true;
 		}

@@ -147,7 +147,8 @@ main(int argc, char* argv[])
     punctuation = 0;
   }
   else if (strcmp(argv[1], "deltadentalins.com") == 0 ||
-             strcmp(argv[1], "morganstanleysmithbarney.com") == 0) {
+           strcmp(argv[1], "mozilla.org") == 0 ||
+           strcmp(argv[1], "morganstanleysmithbarney.com") == 0) {
     addfive = 1;
   }
 
