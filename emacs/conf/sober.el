@@ -119,6 +119,33 @@ region) apply comment-or-uncomment to the current line"
    ((eq major-mode 'python-mode) (rope-code-assist nil))
    (t (indent-for-tab-command))))
 
+;; (defun dthurn-eshell-previous-matching-input ()
+;;   "Completes to the previous matching input in *eshell*, allows multiple calls
+;;   to move through previous matching inputs."
+;;   (interactive)
+;;   (if (eq last-command 'dthurn-previous-input)
+;;     (incf dthurn-previous-matching-input-prefix)
+;;     (setq dthurn-previous-matching-input-prefix 1))
+;;   (dlog dthurn-previous-matching-input-prefix)
+;;   (let ((current-prefix-arg dthurn-previous-matching-input-prefix))
+;;     (call-interactively 'eshell-previous-matching-input-from-input)))
+
+(defun dthurn-eshell-previous-matching-input-from-input (arg)
+  "Search backwards through input history for match for current input.
+\(Previous history elements are earlier commands.)
+With prefix argument N, search for Nth previous match.
+If N is negative, search forwards for the -Nth following match."
+  (interactive "p")
+  (if (not (memq last-command '(dthurn-previous-input 'dthurn-next-input)))
+      ;; Starting a new search
+      (setq eshell-matching-input-from-input-string
+	    (buffer-substring (save-excursion (eshell-bol) (point))
+			      (point))
+	    eshell-history-index nil))
+  (eshell-previous-matching-input
+   (concat "^" (regexp-quote eshell-matching-input-from-input-string))
+   arg))
+
 (defun dthurn-previous-input ()
   "Completes to previous matching input"
   (interactive)
@@ -127,14 +154,14 @@ region) apply comment-or-uncomment to the current line"
         ((eq major-mode 'slime-repl-mode)
          (call-interactively 'slime-repl-backward-input))
         ((eq major-mode 'eshell-mode)
-         (call-interactively 'eshell-previous-input))
+         (call-interactively 'dthurn-eshell-previous-matching-input-from-input))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle 1))
         ((eq major-mode 'term-mode)
          (call-interactively 'term-previous-input))))
 
 (defun dthurn-next-input ()
-  "Completes to previous matching input"
+  "Shows the next input from history"
   (interactive)
   (cond ((eq major-mode 'shell-mode)
          (call-interactively 'comint-next-input))
@@ -203,7 +230,7 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
 ;; Top Row
-(sober-map-key "C-q" 'recenter)
+(sober-map-key "C-q" 'move-to-window-line)
 (sober-map-key "C-w" 'dthurn-page-up)
 (sober-map-key "C-e" 'end-of-line)
 (sober-map-key "C-r" 'backward-kill-word)
@@ -283,8 +310,6 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "s-c" 'copy-region-as-kill)
 (sober-map-key "M-v" 'clipboard-yank)
 (sober-map-key "s-v" 'clipboard-yank)
-(sober-map-key "M-b" 'eshell-previous-matching-input-from-input)
-(sober-map-key "s-b" 'eshell-previous-matching-input-from-input)
 (sober-map-key "M-n" 'backward-paragraph)
 (sober-map-key "s-n" 'backward-paragraph)
 (sober-map-key "M-." 'find-tag-other-window)
