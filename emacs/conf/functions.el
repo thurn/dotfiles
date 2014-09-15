@@ -85,3 +85,11 @@
   "Puts the pwd at the end of the kill ring"
   (interactive)
   (kill-new (pwd)))
+
+(defun rab ()
+  "Reverts all open buffers. Handle with care!"
+  (interactive)
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (buffer-modified-p))
+        (revert-buffer t t t)))))
