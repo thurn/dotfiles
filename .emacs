@@ -29,13 +29,16 @@
 (if (boundp 'el-get-recipe-path)
   (add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes"))
 (if (boundp 'package-archives)
-  (add-to-list  'package-archives
+  (add-to-list 'package-archives
+    '("melpa" . "http://melpa.milkbox.net/packages/")
     '("marmalade" . "http://marmalade-repo.org/packages/")))
 (setq el-get-user-package-directory "~/emacs/el-get/init")
 (el-get-elpa-build-local-recipes)
 
 (setq dthurn-el-get-packages
-  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode magit ack-and-a-half))
+  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode
+    ack-and-a-half cider auto-complete ac-cider clojure-mode clj-refactor
+    eval-sexp-fu smartparens))
 
 (el-get nil dthurn-el-get-packages)
 
