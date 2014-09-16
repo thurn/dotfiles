@@ -1,1 +1,0 @@
-(require 'kill-ring-ido)
