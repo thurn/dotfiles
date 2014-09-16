@@ -83,6 +83,7 @@
         ("\\.cinc" . python-mode)
         ("\\.cl[so]\\'" . latex-mode)
         ("\\.clj$" . clojure-mode)
+        ("\\.cljs$" . clojure-mode)
         ("\\.coffee$" . coffee-mode)
         ("\\.com\\'" . dcl-mode)
         ("\\.css\\'" . css-mode)

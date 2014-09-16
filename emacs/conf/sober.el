@@ -43,6 +43,8 @@ character of the current line."
   (interactive)
   (cond ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-bol))
+        ((eq major-mode 'cider-repl-mode)
+          (call-interactively 'cider-repl-bol))
         ((eq major-mode 'haskell-interactive-mode)
          (call-interactively 'haskell-interactive-mode-beginning))
         (t
@@ -157,6 +159,8 @@ If N is negative, search forwards for the -Nth following match."
          (call-interactively 'dthurn-eshell-previous-matching-input-from-input))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle 1))
+        ((eq major-mode 'cider-repl-mode)
+          (cider-repl-previous-input))
         ((eq major-mode 'term-mode)
          (call-interactively 'term-previous-input))))
 
@@ -169,6 +173,8 @@ If N is negative, search forwards for the -Nth following match."
          (call-interactively 'slime-repl-forward-input))
         ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-next-input))
+        ((eq major-mode 'cider-repl-mode)
+          (cider-repl-next-input))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle -1))))
 
@@ -203,7 +209,7 @@ If N is negative, search forwards for the -Nth following match."
         (insert-tab)
         (goto-char (+ old 2))))
     (t
-      (auto-complete))))
+      (company-complete-common))))
 
 (defun dthurn-backward-tab (&rest args)
   (interactive)
