@@ -93,3 +93,8 @@
     (with-current-buffer buf
       (when (and (buffer-file-name) (file-exists-p (buffer-file-name)) (buffer-modified-p))
         (revert-buffer t t t)))))
+
+(defun ils ()
+  "Inserts the results of ls at point"
+  (interactive)
+  (insert (shell-command-to-string "ls")))

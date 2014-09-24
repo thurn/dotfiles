@@ -175,6 +175,7 @@
         ("\\.sql\\'" . sql-mode)
         ("\\.srt$" . srecode-template-mode)
         ("\\.st\\'" . stringtemplate-mode)
+        ("\\.strings\\'" . javascript-mode)
         ("\\.sty\\'" . latex-mode)
         ("\\.tar\\'" . tar-mode)
         ("\\.tbz2?\\'" . tar-mode)

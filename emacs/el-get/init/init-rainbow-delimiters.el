@@ -1,5 +1,5 @@
-(require 'cl-lib)
-(require 'color)
+(require 'rainbow-delimiters)
+
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (set-face-attribute 'rainbow-delimiters-depth-1-face nil :foreground "red")

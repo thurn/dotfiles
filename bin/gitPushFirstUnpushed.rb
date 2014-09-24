@@ -4,7 +4,7 @@
 # to origin/master (and updates its date)
 
 if ARGV.length == 0
-  puts "Usage: gitPushFirstUnpushed.rb path/to/git/repo"
+  puts "Usage: gitPushFirstUnpushed.rb path/to/git/repo [search_string] [replace_string]"
   exit
 else
   Dir.chdir(ARGV[0])
@@ -41,7 +41,15 @@ puts "cherry-picking commit"
 exit unless system "git cherry-pick #{commitSha} --strategy recursive -X theirs"
 
 date = `/usr/local/bin/gdate -R`.chomp
+# Day names: "Mon" / "Tue" / "Wed" / "Thu" / "Fri" / "Sat" / "Sun"
+
+if ARGV.length == 3
+  puts "replacing #{ARGV[1]} with #{ARGV[2]}"
+  date = date.sub(ARGV[1], ARGV[2])
+end
+
 puts "updating commit time to #{date}"
+
 exit unless system "git commit -a --amend --date='#{date}' -C HEAD"
 
 newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
