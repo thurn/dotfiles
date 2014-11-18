@@ -83,3 +83,5 @@
 
 ;; Start the server
 (server-start)
+
+(setq-default fill-column 80)
