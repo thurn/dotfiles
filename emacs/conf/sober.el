@@ -1,4 +1,5 @@
 ;; Provides Sober-Mode, Giving You Sober Keybindings As A Minor Mode
+(require 'cl)
 
 ;; Function to cycle between hard and soft bol
 (defun dthurn-cycle-bol (&optional arg)
@@ -223,6 +224,20 @@ If N is negative, search forwards for the -Nth following match."
         (delete-char 2)
         (goto-char (- old 2))))))
 
+(defvar skip-windows '("*cljsbuild*"))
+
+(defun dthurn-other-window ()
+  (interactive)
+  (other-window 1)
+  (while (member (buffer-name) skip-windows)
+    (other-window 1)))
+
+(defun dthurn-previous-window ()
+  (interactive)
+  (other-window -1)
+  (while (member (buffer-name) skip-windows)
+    (other-window -1)))
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -240,12 +255,14 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-w" 'dthurn-page-up)
 (sober-map-key "C-e" 'end-of-line)
 (sober-map-key "C-r" 'backward-kill-word)
-(sober-map-key "C-t" 'other-window)
+(sober-map-key "C-t" 'dthurn-other-window)
+(sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
 (sober-map-key "M-t" 'dthurn-page-down) ; REMAPPED AT OS LEVEL TO SEND C-i
 (sober-map-key "C-o" 'dthurn-open)
-(sober-map-key "C-p" (lambda () (interactive) (other-window -1)))
+(sober-map-key "C-p" 'dthurn-previous-window)
+(sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))
 
 ;; Middle Row
 (sober-map-key "C-a" 'dthurn-bol)
@@ -274,8 +291,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "s-q" 'save-buffers-kill-terminal)
 (sober-map-key "M-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "s-w" 'dthurn-kill-starred-buffers)
-(sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
-(sober-map-key "s-e" 'iwb-dthurn) ; Override as a formatting command
+(sober-map-key "M-e" 'indent-sexp) ; Override as a formatting command
+(sober-map-key "s-e" 'indent-sexp) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
 (sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
