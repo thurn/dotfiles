@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Pushes the oldest commit in a git repository which has not yet been pushed
-# to origin/master (and updates its date)
+# to origin/gh-pages (and updates its date)
 
 if ARGV.length == 0
   puts "Usage: gitPushFirstUnpushed.rb path/to/git/repo [search_string] [replace_string]"
@@ -34,8 +34,8 @@ else
   exit
 end
 
-puts "switching to master"
-exit unless system "git checkout master"
+puts "switching to gh-pages"
+exit unless system "git checkout gh-pages"
 
 puts "cherry-picking commit"
 exit unless system "git cherry-pick #{commitSha} --strategy recursive -X theirs"
@@ -55,7 +55,7 @@ exit unless system "git commit -a --amend --date='#{date}' -C HEAD"
 newCommitSha = `git log HEAD --format="%H" | head -n 1`.chomp
 
 puts "pushing commit #{newCommitSha}"
-exit unless system "git push origin #{newCommitSha}:master"
+exit unless system "git push origin #{newCommitSha}:gh-pages"
 
 puts "writing #{commitSha} to commitSha.txt"
 newCommitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "w")

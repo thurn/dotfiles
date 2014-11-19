@@ -81,5 +81,7 @@
 ;; Kill trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(set-default 'fill-column 80)
+
 ;; Start the server
 (server-start)
