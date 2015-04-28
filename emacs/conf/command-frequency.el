@@ -1,5 +1,0 @@
-(setq-default command-frequency-table-file "~/.frequencies")
-(require 'command-frequency)
-(command-frequency-table-load)
-(command-frequency-mode 1)
-(command-frequency-autosave-mode 1)

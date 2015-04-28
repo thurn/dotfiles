@@ -38,9 +38,9 @@
 (setq eshell-prompt-function
       (lambda ()
         (concat
-         (dthurn-cleanup-prompt (eshell/pwd)) "$")))
+         (dthurn-cleanup-prompt (eshell/pwd)) "\n$ ")))
 
-(setq eshell-prompt-regexp "^[^$]*[$]")
+(setq eshell-prompt-regexp "^[^$]*[$][ ]")
 
 (defun eshell/emacs (file)
   (find-file-other-window file))
@@ -66,24 +66,35 @@
 (defun dthurn-git-exec (command args)
   (shell-command (concat "git " command " " (dthurn-cmdjoin args))))
 
+(defun eshell/ll ()
+  (eshell/ls "-l" "-a" "-h"))
+
+(defun eshell/ack (pattern)
+  (ack pattern nil default-directory)
+  (switch-to-buffer-other-window "*Ack-and-a-half*"))
+
+(defun eshell/ackr (pattern)
+  (ack pattern t default-directory)
+  (switch-to-buffer-other-window "*Ack-and-a-half*"))
+
 (defun eshell/git (command &rest args)
   (cond
    ((equal command "log")
-     (shell-command "git log -n 100 --color")
-     (switch-to-buffer-other-window "*Shell Command Output*")
-     (color-buffer))
+    (let ((inhibit-read-only t))
+      (shell-command "git log -n 100 --color")
+      (switch-to-buffer-other-window "*Shell Command Output*")
+      (color-buffer)
+      (help-mode)))
    ((equal command "diff")
-     (shell-command "git diff --color")
-     (switch-to-buffer-other-window "*Shell Command Output*")
-     (color-buffer))
+    (let ((inhibit-read-only t))
+      (shell-command "git diff --color")
+      (switch-to-buffer-other-window "*Shell Command Output*")
+      (color-buffer)
+      (help-mode)))
    ((member command '("rebase" "grep" "clone"))
     (dthurn-async-git-exec command args))
    ((member command '("branch" "mv" "stash" "commit" "add" "tag" "reset" "help"
                       "merge" "rm" "push" "status" "clean" "mergetool" "config"
-                      "pull" "push" "checkout"))
+                      "pull" "push" "checkout" "remote" "fetch" "init"))
     (dthurn-git-exec command args))
    (t (concat "Command not supported: " command))))
-
-(defun eshell/ack (regexp)
-  (ack regexp)
-  (switch-to-buffer-other-window "*Ack-and-a-half*"))

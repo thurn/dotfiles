@@ -15,5 +15,6 @@ url/
 el-get/.loaddefs.el
 el-get/.status.el
 eshell/
-el-get/
+el-get/*
 !el-get/init
+bookmarks

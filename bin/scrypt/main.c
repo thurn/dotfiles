@@ -122,7 +122,7 @@ main(int argc, char* argv[])
   // Disable punctuation in output for sites that are jerks
   if (strcmp(argv[1], "chase.com") == 0 ||
       strcmp(argv[1], "fandango.com") == 0 ||
-      strcmp(argv[1], "apple.com") == 0 ||
+      //strcmp(argv[1], "apple.com") == 0 ||
       strcmp(argv[1], "comcast.com") == 0 ||
       strcmp(argv[1], "verizonwireless.com") == 0 ||
       strcmp(argv[1], "gap.com") == 0 ||
@@ -147,7 +147,8 @@ main(int argc, char* argv[])
     punctuation = 0;
   }
   else if (strcmp(argv[1], "deltadentalins.com") == 0 ||
-             strcmp(argv[1], "morganstanleysmithbarney.com") == 0) {
+           strcmp(argv[1], "mozilla.org") == 0 ||
+           strcmp(argv[1], "morganstanleysmithbarney.com") == 0) {
     addfive = 1;
   }
 

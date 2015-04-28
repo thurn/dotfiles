@@ -1,4 +1,5 @@
 ;; Provides Sober-Mode, Giving You Sober Keybindings As A Minor Mode
+(require 'cl)
 
 ;; Function to cycle between hard and soft bol
 (defun dthurn-cycle-bol (&optional arg)
@@ -43,6 +44,8 @@ character of the current line."
   (interactive)
   (cond ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-bol))
+        ((eq major-mode 'cider-repl-mode)
+          (call-interactively 'cider-repl-bol))
         ((eq major-mode 'haskell-interactive-mode)
          (call-interactively 'haskell-interactive-mode-beginning))
         (t
@@ -119,6 +122,33 @@ region) apply comment-or-uncomment to the current line"
    ((eq major-mode 'python-mode) (rope-code-assist nil))
    (t (indent-for-tab-command))))
 
+;; (defun dthurn-eshell-previous-matching-input ()
+;;   "Completes to the previous matching input in *eshell*, allows multiple calls
+;;   to move through previous matching inputs."
+;;   (interactive)
+;;   (if (eq last-command 'dthurn-previous-input)
+;;     (incf dthurn-previous-matching-input-prefix)
+;;     (setq dthurn-previous-matching-input-prefix 1))
+;;   (dlog dthurn-previous-matching-input-prefix)
+;;   (let ((current-prefix-arg dthurn-previous-matching-input-prefix))
+;;     (call-interactively 'eshell-previous-matching-input-from-input)))
+
+(defun dthurn-eshell-previous-matching-input-from-input (arg)
+  "Search backwards through input history for match for current input.
+\(Previous history elements are earlier commands.)
+With prefix argument N, search for Nth previous match.
+If N is negative, search forwards for the -Nth following match."
+  (interactive "p")
+  (if (not (memq last-command '(dthurn-previous-input 'dthurn-next-input)))
+      ;; Starting a new search
+      (setq eshell-matching-input-from-input-string
+	    (buffer-substring (save-excursion (eshell-bol) (point))
+			      (point))
+	    eshell-history-index nil))
+  (eshell-previous-matching-input
+   (concat "^" (regexp-quote eshell-matching-input-from-input-string))
+   arg))
+
 (defun dthurn-previous-input ()
   "Completes to previous matching input"
   (interactive)
@@ -127,14 +157,16 @@ region) apply comment-or-uncomment to the current line"
         ((eq major-mode 'slime-repl-mode)
          (call-interactively 'slime-repl-backward-input))
         ((eq major-mode 'eshell-mode)
-         (call-interactively 'eshell-previous-input))
+         (call-interactively 'dthurn-eshell-previous-matching-input-from-input))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle 1))
+        ((eq major-mode 'cider-repl-mode)
+          (cider-repl-previous-input))
         ((eq major-mode 'term-mode)
          (call-interactively 'term-previous-input))))
 
 (defun dthurn-next-input ()
-  "Completes to previous matching input"
+  "Shows the next input from history"
   (interactive)
   (cond ((eq major-mode 'shell-mode)
          (call-interactively 'comint-next-input))
@@ -142,6 +174,8 @@ region) apply comment-or-uncomment to the current line"
          (call-interactively 'slime-repl-forward-input))
         ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-next-input))
+        ((eq major-mode 'cider-repl-mode)
+          (cider-repl-next-input))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle -1))))
 
@@ -176,7 +210,7 @@ region) apply comment-or-uncomment to the current line"
         (insert-tab)
         (goto-char (+ old 2))))
     (t
-      (auto-complete))))
+      (company-complete-common))))
 
 (defun dthurn-backward-tab (&rest args)
   (interactive)
@@ -189,6 +223,20 @@ region) apply comment-or-uncomment to the current line"
         (beginning-of-line)
         (delete-char 2)
         (goto-char (- old 2))))))
+
+(defvar skip-windows '("*cljsbuild*"))
+
+(defun dthurn-other-window ()
+  (interactive)
+  (other-window 1)
+  (while (member (buffer-name) skip-windows)
+    (other-window 1)))
+
+(defun dthurn-previous-window ()
+  (interactive)
+  (other-window -1)
+  (while (member (buffer-name) skip-windows)
+    (other-window -1)))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
@@ -203,16 +251,18 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
 ;; Top Row
-(sober-map-key "C-q" 'recenter)
+(sober-map-key "C-q" 'move-to-window-line)
 (sober-map-key "C-w" 'dthurn-page-up)
 (sober-map-key "C-e" 'end-of-line)
 (sober-map-key "C-r" 'backward-kill-word)
-(sober-map-key "C-t" 'other-window)
+(sober-map-key "C-t" 'dthurn-other-window)
+(sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
 (sober-map-key "M-t" 'dthurn-page-down) ; REMAPPED AT OS LEVEL TO SEND C-i
 (sober-map-key "C-o" 'dthurn-open)
-(sober-map-key "C-p" (lambda () (interactive) (other-window -1)))
+(sober-map-key "C-p" 'dthurn-previous-window)
+(sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))
 
 ;; Middle Row
 (sober-map-key "C-a" 'dthurn-bol)
@@ -241,8 +291,8 @@ region) apply comment-or-uncomment to the current line"
 (sober-map-key "s-q" 'save-buffers-kill-terminal)
 (sober-map-key "M-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "s-w" 'dthurn-kill-starred-buffers)
-(sober-map-key "M-e" 'iwb-dthurn) ; Override as a formatting command
-(sober-map-key "s-e" 'iwb-dthurn) ; Override as a formatting command
+(sober-map-key "M-e" 'indent-sexp) ; Override as a formatting command
+(sober-map-key "s-e" 'indent-sexp) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
 (sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
@@ -276,15 +326,13 @@ region) apply comment-or-uncomment to the current line"
 
 ;; Bottom Row
 (sober-map-key "M-z" 'undo)
-(sober-map-key "s-z" 'undo)
 (sober-map-key "M-x" 'kill-region)
+(sober-map-key "s-z" 'undo)
 (sober-map-key "s-x" 'kill-region)
 (sober-map-key "M-c" 'copy-region-as-kill)
 (sober-map-key "s-c" 'copy-region-as-kill)
 (sober-map-key "M-v" 'clipboard-yank)
 (sober-map-key "s-v" 'clipboard-yank)
-(sober-map-key "M-b" 'eshell-previous-matching-input-from-input)
-(sober-map-key "s-b" 'eshell-previous-matching-input-from-input)
 (sober-map-key "M-n" 'backward-paragraph)
 (sober-map-key "s-n" 'backward-paragraph)
 (sober-map-key "M-." 'find-tag-other-window)

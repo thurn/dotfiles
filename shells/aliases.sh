@@ -43,8 +43,8 @@ alias mkdir='mkdir -p'
 alias d='dirs -v'
 
 # mkdir then cd to it
-function mcd() { 
-  mkdir -p "$1" && cd "$1"; 
+function mcd() {
+  mkdir -p "$1" && cd "$1";
 }
 
 # cd and then ls
@@ -89,4 +89,4 @@ alias cd7="cd ../../../../../../.."
 alias cd8="cd ../../../../../../../.."
 alias cd9="cd ../../../../../../../../.."
 
-alias pyserve="python -m SimpleHTTPServer"
+alias serve="python -m SimpleHTTPServer"
