@@ -13,7 +13,7 @@ export HISTCONTROL=ignoredups
 export dotfiles="git@github.com:thurn/dotfiles.git"
 
 export SVN_EDITOR=emacsclient
-export EDITOR=emacsclient
+export EDITOR=vim
 export PAGER=less
 
 # Helps emacsclient work properly

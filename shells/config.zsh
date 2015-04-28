@@ -34,5 +34,8 @@ setopt PROMPT_SUBST
 # %~ is pwd
 # %f stops using a color
 # %# is % for non-root shells and # for root shells
-PROMPT='%U$fg[green]%~%u $fg[red]%n@%m
+# %n is username
+# %m is hostname
+# $STY is screen terminal name
+PROMPT='%U$fg[green]%~%u $fg[cyan]$STY $fg[red]%n@%m
 $fg[cyan]%# $reset_color'
