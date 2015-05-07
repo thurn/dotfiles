@@ -1,0 +1,4 @@
+(:name control-lock
+:auto-generated t
+:type elpa
+:description "Like caps-lock, but for your control key.  Give your pinky a rest!")

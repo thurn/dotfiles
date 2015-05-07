@@ -1,0 +1,4 @@
+(:name bundler
+:auto-generated t
+:type elpa
+:description "Interact with Bundler from Emacs")

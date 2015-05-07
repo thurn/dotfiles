@@ -1,0 +1,4 @@
+(:name outline-magic
+:auto-generated t
+:type elpa
+:description "outline mode extensions for Emacs")

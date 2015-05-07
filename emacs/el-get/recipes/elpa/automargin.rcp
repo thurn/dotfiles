@@ -1,0 +1,4 @@
+(:name automargin
+:auto-generated t
+:type elpa
+:description "add margins to windows not-splitted, and center them")

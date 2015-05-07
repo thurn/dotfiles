@@ -1,0 +1,4 @@
+(:name org-bullets
+:auto-generated t
+:type elpa
+:description "Show bullets in org-mode as UTF-8 characters")

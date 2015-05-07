@@ -1,0 +1,4 @@
+(:name summarye
+:auto-generated t
+:type elpa
+:description "list up matched strings from a buffer, and display them in summary buffer")

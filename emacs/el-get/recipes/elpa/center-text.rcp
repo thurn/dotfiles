@@ -1,0 +1,4 @@
+(:name center-text
+:auto-generated t
+:type elpa
+:description "Center the text in a fixed-width column")

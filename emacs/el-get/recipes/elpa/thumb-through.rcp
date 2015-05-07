@@ -1,0 +1,4 @@
+(:name thumb-through
+:auto-generated t
+:type elpa
+:description "Plain text reader of HTML documents")

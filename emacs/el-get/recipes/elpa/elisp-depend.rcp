@@ -1,0 +1,4 @@
+(:name elisp-depend
+:auto-generated t
+:type elpa
+:description "Parse depend libraries of elisp file.")

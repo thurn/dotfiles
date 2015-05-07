@@ -1,0 +1,4 @@
+(:name javaimp
+:auto-generated t
+:type elpa
+:description "Add and reorder Java import statements in Maven projects")

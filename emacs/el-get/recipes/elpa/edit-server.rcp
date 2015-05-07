@@ -1,0 +1,4 @@
+(:name edit-server
+:auto-generated t
+:type elpa
+:description "server that responds to edit requests from Chrome")

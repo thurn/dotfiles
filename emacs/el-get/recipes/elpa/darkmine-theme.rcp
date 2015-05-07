@@ -1,0 +1,4 @@
+(:name darkmine-theme
+:auto-generated t
+:type elpa
+:description "Yet another emacs dark color theme.")

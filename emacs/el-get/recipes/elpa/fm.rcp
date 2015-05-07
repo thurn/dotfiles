@@ -1,0 +1,4 @@
+(:name fm
+:auto-generated t
+:type elpa
+:description "follow mode for compilation/output buffers")

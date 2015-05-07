@@ -1,0 +1,4 @@
+(:name es-lib
+:auto-generated t
+:type elpa
+:description "A collection of emacs utilities")

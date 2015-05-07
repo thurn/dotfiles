@@ -1,0 +1,4 @@
+(:name evil-indent-textobject
+:auto-generated t
+:type elpa
+:description "evil textobjects based on indentation")

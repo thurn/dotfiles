@@ -1,0 +1,4 @@
+(:name glsl-mode
+:auto-generated t
+:type elpa
+:description "major mode for Open GLSL shader files")

@@ -1,0 +1,4 @@
+(:name occur-context-resize
+:auto-generated t
+:type elpa
+:description "dynamically resize context around matches in occur-mode")

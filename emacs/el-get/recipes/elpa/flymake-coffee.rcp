@@ -1,0 +1,4 @@
+(:name flymake-coffee
+:auto-generated t
+:type elpa
+:description "A flymake handler for coffee script")

@@ -1,0 +1,4 @@
+(:name chm-view
+:auto-generated t
+:type elpa
+:description "View CHM file.")

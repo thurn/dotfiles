@@ -1,0 +1,4 @@
+(:name om-mode
+:auto-generated t
+:type elpa
+:description "Insert Om component template with life cycle.")

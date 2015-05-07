@@ -1,0 +1,4 @@
+(:name nyan-prompt
+:auto-generated t
+:type elpa
+:description "Nyan Cat on the eshell prompt.")

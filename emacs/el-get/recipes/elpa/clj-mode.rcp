@@ -1,0 +1,4 @@
+(:name clj-mode
+:auto-generated t
+:type elpa
+:description "basic Major mode (clj) for Clojure code")

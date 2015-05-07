@@ -1,0 +1,4 @@
+(:name color-theme-approximate
+:auto-generated t
+:type elpa
+:description "Makes Emacs theme works on terminal transparently")

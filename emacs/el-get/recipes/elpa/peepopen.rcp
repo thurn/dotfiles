@@ -1,0 +1,4 @@
+(:name peepopen
+:auto-generated t
+:type elpa
+:description "Graphical file chooser for Emacs on Mac OS X.")

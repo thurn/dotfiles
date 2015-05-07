@@ -1,0 +1,4 @@
+(:name oauth2
+:auto-generated t
+:type elpa
+:description "OAuth 2.0 Authorization Protocol")

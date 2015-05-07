@@ -1,0 +1,4 @@
+(:name iregister
+:auto-generated t
+:type elpa
+:description "Interactive register commands for Emacs.")

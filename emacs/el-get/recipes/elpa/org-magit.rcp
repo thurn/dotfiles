@@ -1,0 +1,4 @@
+(:name org-magit
+:auto-generated t
+:type elpa
+:description "basic support for magit links")

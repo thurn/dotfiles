@@ -1,0 +1,4 @@
+(:name simple-mode-line
+:auto-generated t
+:type elpa
+:description "Simplified Mode Line for Emacs 24")

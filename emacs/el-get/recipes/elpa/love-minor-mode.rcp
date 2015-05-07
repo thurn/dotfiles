@@ -1,0 +1,4 @@
+(:name love-minor-mode
+:auto-generated t
+:type elpa
+:description "Minor mode for working on LÖVE projects")

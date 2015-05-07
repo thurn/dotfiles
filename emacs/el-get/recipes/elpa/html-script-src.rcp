@@ -1,0 +1,4 @@
+(:name html-script-src
+:auto-generated t
+:type elpa
+:description "Insert <script src=".."> for popular JavaScript libraries")

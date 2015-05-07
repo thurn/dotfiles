@@ -1,0 +1,4 @@
+(:name cfengine-code-style
+:auto-generated t
+:type elpa
+:description "C code style for CFEngine project.")

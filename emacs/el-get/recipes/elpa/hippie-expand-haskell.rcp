@@ -1,0 +1,4 @@
+(:name hippie-expand-haskell
+:auto-generated t
+:type elpa
+:description "Hippie expand try function using ghc's completion function.")

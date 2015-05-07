@@ -1,0 +1,4 @@
+(:name historyf
+:auto-generated t
+:type elpa
+:description "file history library like browser")

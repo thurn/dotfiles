@@ -1,0 +1,4 @@
+(:name load-relative
+:auto-generated t
+:type elpa
+:description "relative file load (within a multi-file Emacs package)")

@@ -1,0 +1,4 @@
+(:name emacs-eclim
+:auto-generated t
+:type elpa
+:description "An interface to the Eclipse IDE.")

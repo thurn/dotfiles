@@ -1,0 +1,4 @@
+(:name pycomplete
+:auto-generated t
+:type elpa
+:description "Complete symbols at point using Pymacs.")

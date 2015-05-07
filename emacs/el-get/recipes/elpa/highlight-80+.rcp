@@ -1,0 +1,4 @@
+(:name highlight-80+
+:auto-generated t
+:type elpa
+:description "highlight characters beyond column 80")

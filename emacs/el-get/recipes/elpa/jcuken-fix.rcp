@@ -1,0 +1,4 @@
+(:name jcuken-fix
+:auto-generated t
+:type elpa
+:description "Map Modifier-CyrillicLetter to the underlying Modifier-LatinLetter.")

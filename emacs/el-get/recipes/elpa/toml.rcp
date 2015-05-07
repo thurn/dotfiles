@@ -1,0 +1,4 @@
+(:name toml
+:auto-generated t
+:type elpa
+:description "TOML (Tom's Obvious, Minimal Language) parser")

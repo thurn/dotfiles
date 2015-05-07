@@ -1,0 +1,4 @@
+(:name solarized-theme
+:auto-generated t
+:type elpa
+:description "The Solarized color theme, ported to Emacs.")

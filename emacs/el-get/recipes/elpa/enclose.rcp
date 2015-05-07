@@ -1,0 +1,4 @@
+(:name enclose
+:auto-generated t
+:type elpa
+:description "Enclose cursor within punctuation pairs.")

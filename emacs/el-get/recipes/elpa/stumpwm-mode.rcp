@@ -1,0 +1,4 @@
+(:name stumpwm-mode
+:auto-generated t
+:type elpa
+:description "special lisp mode for evaluating code into running stumpwm")

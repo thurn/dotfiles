@@ -1,0 +1,4 @@
+(:name math-symbols
+:auto-generated t
+:type elpa
+:description "Math Symbol Input methods and conversion tools")

@@ -1,0 +1,4 @@
+(:name config-block
+:auto-generated t
+:type elpa
+:description "config-block is utility for individual settings (e.g. .emacs).")

@@ -1,0 +1,4 @@
+(:name org-present
+:auto-generated t
+:type elpa
+:description "Minimalist presentation minor-mode for Emacs org-mode.")

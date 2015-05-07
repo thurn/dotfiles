@@ -1,0 +1,4 @@
+(:name mote-mode
+:auto-generated t
+:type elpa
+:description "Mote minor mode")

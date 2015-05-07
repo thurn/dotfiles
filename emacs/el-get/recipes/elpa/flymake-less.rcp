@@ -1,0 +1,4 @@
+(:name flymake-less
+:auto-generated t
+:type elpa
+:description "Flymake handler for LESS stylesheets (lesscss.org)")

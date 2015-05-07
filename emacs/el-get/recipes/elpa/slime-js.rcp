@@ -1,0 +1,4 @@
+(:name slime-js
+:auto-generated t
+:type elpa
+:description "Slime extension for swank-js.")

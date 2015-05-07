@@ -1,0 +1,4 @@
+(:name org-context
+:auto-generated t
+:type elpa
+:description "Contextual capture and agenda commands for Org-mode")

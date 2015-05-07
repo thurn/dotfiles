@@ -1,0 +1,4 @@
+(:name watch-buffer
+:auto-generated t
+:type elpa
+:description "run a shell command when saving a buffer")

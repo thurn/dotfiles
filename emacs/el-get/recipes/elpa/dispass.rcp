@@ -1,0 +1,4 @@
+(:name dispass
+:auto-generated t
+:type elpa
+:description "Emacs wrapper for DisPass")

@@ -1,0 +1,4 @@
+(:name wordsmith-mode
+:auto-generated t
+:type elpa
+:description "Syntax analysis and NLP text-processing in Emacs (OSX-only)")

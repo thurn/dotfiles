@@ -1,0 +1,4 @@
+(:name doremi-cmd
+:auto-generated t
+:type elpa
+:description "Miscellaneous Do Re Mi commands")

@@ -1,0 +1,4 @@
+(:name el-mock
+:auto-generated t
+:type elpa
+:description "Tiny Mock and Stub framework in Emacs Lisp")

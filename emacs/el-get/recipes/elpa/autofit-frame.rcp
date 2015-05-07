@@ -1,0 +1,4 @@
+(:name autofit-frame
+:auto-generated t
+:type elpa
+:description "Automatically resize one-window frames to fit")

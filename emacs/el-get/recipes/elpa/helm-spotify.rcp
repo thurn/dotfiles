@@ -1,0 +1,4 @@
+(:name helm-spotify
+:auto-generated t
+:type elpa
+:description "Control Spotify with Helm.")

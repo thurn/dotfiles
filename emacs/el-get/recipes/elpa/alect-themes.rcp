@@ -1,0 +1,4 @@
+(:name alect-themes
+:auto-generated t
+:type elpa
+:description "Configurable color themes (light, dark and black) for Emacs 24")

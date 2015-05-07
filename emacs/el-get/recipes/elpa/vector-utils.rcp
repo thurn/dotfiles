@@ -1,0 +1,4 @@
+(:name vector-utils
+:auto-generated t
+:type elpa
+:description "Vector-manipulation utility functions")

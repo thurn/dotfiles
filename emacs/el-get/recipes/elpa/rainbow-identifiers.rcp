@@ -1,0 +1,4 @@
+(:name rainbow-identifiers
+:auto-generated t
+:type elpa
+:description "Highlight identifiers according to their names")

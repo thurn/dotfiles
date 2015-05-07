@@ -1,0 +1,4 @@
+(:name cryptol-mode
+:auto-generated t
+:type elpa
+:description "Cryptol major mode for Emacs")

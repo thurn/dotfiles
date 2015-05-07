@@ -1,0 +1,4 @@
+(:name mac-key-mode
+:auto-generated t
+:type elpa
+:description "provide mac-style key bindings on Carbon Emacs")

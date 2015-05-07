@@ -1,0 +1,4 @@
+(:name clojure-mode-extra-font-locking
+:auto-generated t
+:type elpa
+:description "Extra font-locking for Clojure mode")

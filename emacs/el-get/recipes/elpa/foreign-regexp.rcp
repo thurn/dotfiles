@@ -1,0 +1,4 @@
+(:name foreign-regexp
+:auto-generated t
+:type elpa
+:description "search and replace by foreign regexp.")

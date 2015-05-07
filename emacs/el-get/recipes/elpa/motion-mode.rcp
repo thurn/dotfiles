@@ -1,0 +1,4 @@
+(:name motion-mode
+:auto-generated t
+:type elpa
+:description "major mode for RubyMotion enviroment")

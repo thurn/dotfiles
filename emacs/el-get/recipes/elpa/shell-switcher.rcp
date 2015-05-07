@@ -1,0 +1,4 @@
+(:name shell-switcher
+:auto-generated t
+:type elpa
+:description "Provide fast switching between shell buffers")

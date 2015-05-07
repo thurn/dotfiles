@@ -1,0 +1,4 @@
+(:name ergoemacs-mode
+:auto-generated t
+:type elpa
+:description "Emacs mode based on common modern interface and ergonomics.")

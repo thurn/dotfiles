@@ -1,0 +1,4 @@
+(:name easy-after-load
+:auto-generated t
+:type elpa
+:description "eval-after-load for all files in a directory")

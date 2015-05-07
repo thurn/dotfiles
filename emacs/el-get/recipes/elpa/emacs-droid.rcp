@@ -1,0 +1,4 @@
+(:name emacs-droid
+:auto-generated t
+:type elpa
+:description "Android application development tools for Emacs")

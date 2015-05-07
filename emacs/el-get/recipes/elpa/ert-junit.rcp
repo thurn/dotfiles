@@ -1,0 +1,4 @@
+(:name ert-junit
+:auto-generated t
+:type elpa
+:description "JUnit XML reports from ert results")

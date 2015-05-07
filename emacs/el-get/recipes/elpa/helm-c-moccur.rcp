@@ -1,0 +1,4 @@
+(:name helm-c-moccur
+:auto-generated t
+:type elpa
+:description "helm source for color-moccur.el")

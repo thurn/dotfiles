@@ -1,0 +1,4 @@
+(:name drupal-mode
+:auto-generated t
+:type elpa
+:description "Advanced minor mode for Drupal development")

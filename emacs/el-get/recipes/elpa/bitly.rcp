@@ -1,0 +1,4 @@
+(:name bitly
+:auto-generated t
+:type elpa
+:description "Shorten URLs using the bitly.com shortener service")

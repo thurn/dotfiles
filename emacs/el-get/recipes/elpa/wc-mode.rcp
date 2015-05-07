@@ -1,0 +1,4 @@
+(:name wc-mode
+:auto-generated t
+:type elpa
+:description "show wc-like information in status bar")

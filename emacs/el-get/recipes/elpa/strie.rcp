@@ -1,0 +1,4 @@
+(:name strie
+:auto-generated t
+:type elpa
+:description "A simple trie data structure implementation")

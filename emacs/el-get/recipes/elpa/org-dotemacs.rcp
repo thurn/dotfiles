@@ -1,0 +1,4 @@
+(:name org-dotemacs
+:auto-generated t
+:type elpa
+:description "Store your emacs config as an org file, and choose which bits to load.")

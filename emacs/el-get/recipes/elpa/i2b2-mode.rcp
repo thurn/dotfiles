@@ -1,0 +1,4 @@
+(:name i2b2-mode
+:auto-generated t
+:type elpa
+:description "Highlights corresponding PHI data in the text portion of an i2b2 XML Document.")

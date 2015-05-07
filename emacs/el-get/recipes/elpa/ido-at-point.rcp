@@ -1,0 +1,4 @@
+(:name ido-at-point
+:auto-generated t
+:type elpa
+:description "ido-style completion-at-point")

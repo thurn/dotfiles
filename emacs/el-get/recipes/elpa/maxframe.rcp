@@ -1,0 +1,4 @@
+(:name maxframe
+:auto-generated t
+:type elpa
+:description "maximize the emacs frame based on display size")

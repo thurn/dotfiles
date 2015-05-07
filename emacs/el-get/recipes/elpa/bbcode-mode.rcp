@@ -1,0 +1,4 @@
+(:name bbcode-mode
+:auto-generated t
+:type elpa
+:description "Major mode for writing BBCode markup")

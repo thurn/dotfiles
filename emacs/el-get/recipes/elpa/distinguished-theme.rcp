@@ -1,0 +1,4 @@
+(:name distinguished-theme
+:auto-generated t
+:type elpa
+:description "A dark and elegant theme for emacs.")

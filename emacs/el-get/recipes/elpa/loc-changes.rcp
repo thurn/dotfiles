@@ -1,0 +1,4 @@
+(:name loc-changes
+:auto-generated t
+:type elpa
+:description "Helps users and programs keep track of positions even after buffer changes.")

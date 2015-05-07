@@ -1,0 +1,4 @@
+(:name helm-rails
+:auto-generated t
+:type elpa
+:description "Helm extension for Rails projects.")

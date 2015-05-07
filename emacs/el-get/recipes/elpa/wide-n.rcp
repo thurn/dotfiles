@@ -1,0 +1,4 @@
+(:name wide-n
+:auto-generated t
+:type elpa
+:description "Cycle among buffer restrictions")

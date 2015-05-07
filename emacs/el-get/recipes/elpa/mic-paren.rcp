@@ -1,0 +1,4 @@
+(:name mic-paren
+:auto-generated t
+:type elpa
+:description "advanced highlighting of matching parentheses")

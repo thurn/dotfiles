@@ -1,0 +1,4 @@
+(:name el-x
+:auto-generated t
+:type elpa
+:description "main entry point for el-x package")

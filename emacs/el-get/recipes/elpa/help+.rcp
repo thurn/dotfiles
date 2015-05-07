@@ -1,0 +1,4 @@
+(:name help+
+:auto-generated t
+:type elpa
+:description "Extensions to `help.el'.")

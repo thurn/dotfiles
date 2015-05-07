@@ -1,0 +1,4 @@
+(:name duplicate-thing
+:auto-generated t
+:type elpa
+:description "Duplicate current line & selection")

@@ -1,0 +1,4 @@
+(:name gnus-x-gm-raw
+:auto-generated t
+:type elpa
+:description "Search mail of Gmail using X-GM-RAW as web interface")

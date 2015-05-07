@@ -1,0 +1,4 @@
+(:name gnome-calendar
+:auto-generated t
+:type elpa
+:description "Integration with the GNOME Shell calendar")

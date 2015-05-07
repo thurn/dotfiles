@@ -1,0 +1,4 @@
+(:name org-toc
+:auto-generated t
+:type elpa
+:description "add table of contents to org-mode files")

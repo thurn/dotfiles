@@ -1,0 +1,4 @@
+(:name pcmpl-args
+:auto-generated t
+:type elpa
+:description "Enhanced shell command completion")

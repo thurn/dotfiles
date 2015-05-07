@@ -1,0 +1,4 @@
+(:name cython-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Cython files")

@@ -1,0 +1,4 @@
+(:name simple-call-tree+
+:auto-generated t
+:type elpa
+:description "Extensions to simple-call-tree")

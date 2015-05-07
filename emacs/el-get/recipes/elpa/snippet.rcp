@@ -1,0 +1,4 @@
+(:name snippet
+:auto-generated t
+:type elpa
+:description "Insert snippets of text into a buffer")

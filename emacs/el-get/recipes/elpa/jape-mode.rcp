@@ -1,0 +1,4 @@
+(:name jape-mode
+:auto-generated t
+:type elpa
+:description "An Emacs editing mode mode for GATE's JAPE files")

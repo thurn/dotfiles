@@ -1,0 +1,4 @@
+(:name project-root
+:auto-generated t
+:type elpa
+:description "Define a project root and take actions based upon it.")

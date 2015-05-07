@@ -1,0 +1,4 @@
+(:name fly-jshint-wsh
+:auto-generated t
+:type elpa
+:description "use flymake with jshint on js code, on Windows")

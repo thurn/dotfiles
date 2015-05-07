@@ -1,0 +1,4 @@
+(:name macro-utils
+:auto-generated t
+:type elpa
+:description "Utilities for writing macros.")

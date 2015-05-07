@@ -1,0 +1,4 @@
+(:name pcmpl-git
+:auto-generated t
+:type elpa
+:description "pcomplete for git")

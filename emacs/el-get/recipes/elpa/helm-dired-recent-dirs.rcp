@@ -1,0 +1,4 @@
+(:name helm-dired-recent-dirs
+:auto-generated t
+:type elpa
+:description "Show recent dirs with helm.el support.")

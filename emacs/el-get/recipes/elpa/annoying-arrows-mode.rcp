@@ -1,0 +1,4 @@
+(:name annoying-arrows-mode
+:auto-generated t
+:type elpa
+:description "Ring the bell if using arrows too much")

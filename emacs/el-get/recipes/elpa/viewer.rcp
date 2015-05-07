@@ -1,0 +1,4 @@
+(:name viewer
+:auto-generated t
+:type elpa
+:description "View-mode extension")

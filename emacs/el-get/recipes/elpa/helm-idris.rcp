@@ -1,0 +1,4 @@
+(:name helm-idris
+:auto-generated t
+:type elpa
+:description "A Helm datasource for Idris documentation, queried from the compiler")

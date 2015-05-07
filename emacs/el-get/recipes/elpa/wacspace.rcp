@@ -1,0 +1,4 @@
+(:name wacspace
+:auto-generated t
+:type elpa
+:description "The WACky WorkSPACE manager for emACS")

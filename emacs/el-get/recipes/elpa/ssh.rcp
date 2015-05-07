@@ -1,0 +1,4 @@
+(:name ssh
+:auto-generated t
+:type elpa
+:description "Support for remote logins using ssh.")

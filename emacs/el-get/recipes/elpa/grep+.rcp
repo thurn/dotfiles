@@ -1,0 +1,4 @@
+(:name grep+
+:auto-generated t
+:type elpa
+:description "Extensions to standard library `grep.el'.")

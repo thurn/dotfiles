@@ -1,0 +1,4 @@
+(:name purple-haze-theme
+:auto-generated t
+:type elpa
+:description "an overtly purple color theme for Emacs24.")

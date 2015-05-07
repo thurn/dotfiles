@@ -1,0 +1,4 @@
+(:name esxml
+:auto-generated t
+:type elpa
+:description "Library for working with xml via esxml and sxml")

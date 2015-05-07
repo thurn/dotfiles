@@ -1,0 +1,4 @@
+(:name purty-mode
+:auto-generated t
+:type elpa
+:description "Safely pretty-print greek letters, mathematical symbols, or anything else.")

@@ -1,0 +1,4 @@
+(:name badger-theme
+:auto-generated t
+:type elpa
+:description "A dark theme for Emacs 24.")

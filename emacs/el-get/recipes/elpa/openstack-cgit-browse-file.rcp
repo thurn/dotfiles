@@ -1,0 +1,4 @@
+(:name openstack-cgit-browse-file
+:auto-generated t
+:type elpa
+:description "Browse the current file in OpenStack cgit")

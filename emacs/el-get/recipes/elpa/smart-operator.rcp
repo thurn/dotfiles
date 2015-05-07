@@ -1,0 +1,4 @@
+(:name smart-operator
+:auto-generated t
+:type elpa
+:description "Beautify the operators in codes")

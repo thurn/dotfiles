@@ -1,0 +1,4 @@
+(:name isend-mode
+:auto-generated t
+:type elpa
+:description "Interactively send parts of an Emacs buffer to an interpreter")

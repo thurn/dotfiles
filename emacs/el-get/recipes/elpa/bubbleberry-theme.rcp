@@ -1,0 +1,4 @@
+(:name bubbleberry-theme
+:auto-generated t
+:type elpa
+:description "A theme based on LightTable for Emacs24")

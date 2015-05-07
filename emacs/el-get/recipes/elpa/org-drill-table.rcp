@@ -1,0 +1,4 @@
+(:name org-drill-table
+:auto-generated t
+:type elpa
+:description "Generate drill cards from org tables")

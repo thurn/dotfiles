@@ -1,0 +1,4 @@
+(:name helm-ack
+:auto-generated t
+:type elpa
+:description "Ack command with helm interface")

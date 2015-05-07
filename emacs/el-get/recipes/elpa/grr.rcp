@@ -1,0 +1,4 @@
+(:name grr
+:auto-generated t
+:type elpa
+:description "Simple Growl notifications for Emacs and Mac OS X")

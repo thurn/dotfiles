@@ -1,0 +1,4 @@
+(:name jumpc
+:auto-generated t
+:type elpa
+:description "jump to previous insertion points")

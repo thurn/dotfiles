@@ -1,0 +1,4 @@
+(:name keydef
+:auto-generated t
+:type elpa
+:description "a simpler way to define keys, with kbd syntax")

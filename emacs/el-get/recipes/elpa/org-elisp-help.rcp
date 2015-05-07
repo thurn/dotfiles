@@ -1,0 +1,4 @@
+(:name org-elisp-help
+:auto-generated t
+:type elpa
+:description "org links to emacs-lisp documentation")

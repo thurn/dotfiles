@@ -1,0 +1,4 @@
+(:name rectangle-utils
+:auto-generated t
+:type elpa
+:description "Some useful rectangle functions.")

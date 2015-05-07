@@ -1,0 +1,4 @@
+(:name sauron
+:auto-generated t
+:type elpa
+:description "Track (erc/org/dbus/...) events and react to them.")

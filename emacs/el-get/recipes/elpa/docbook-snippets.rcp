@@ -1,0 +1,4 @@
+(:name docbook-snippets
+:auto-generated t
+:type elpa
+:description "Yasnippets for DocBook")

@@ -1,0 +1,4 @@
+(:name notmuch-unread
+:auto-generated t
+:type elpa
+:description "Display unread mail count in the mode line")

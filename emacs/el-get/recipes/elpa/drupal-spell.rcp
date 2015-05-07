@@ -1,0 +1,4 @@
+(:name drupal-spell
+:auto-generated t
+:type elpa
+:description "Aspell extra dictionary for Drupal")

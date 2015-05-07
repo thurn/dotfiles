@@ -1,0 +1,4 @@
+(:name cake2
+:auto-generated t
+:type elpa
+:description "CakePHP2 Minor Mode")

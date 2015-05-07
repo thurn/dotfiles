@@ -1,0 +1,4 @@
+(:name nnir-est
+:auto-generated t
+:type elpa
+:description "Gnus nnir interface for HyperEstraier")

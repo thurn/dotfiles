@@ -1,0 +1,4 @@
+(:name package-filter
+:auto-generated t
+:type elpa
+:description "special handling for package.el")

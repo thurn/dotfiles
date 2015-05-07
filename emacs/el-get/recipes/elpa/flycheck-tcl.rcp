@@ -1,0 +1,4 @@
+(:name flycheck-tcl
+:auto-generated t
+:type elpa
+:description "A flycheck checker for Tcl using ActiveState's tclchecker")

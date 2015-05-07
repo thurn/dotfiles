@@ -1,0 +1,4 @@
+(:name muse
+:auto-generated t
+:type elpa
+:description "Authoring and publishing tool for Emacs")

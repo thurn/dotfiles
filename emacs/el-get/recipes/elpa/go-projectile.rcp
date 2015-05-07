@@ -1,0 +1,4 @@
+(:name go-projectile
+:auto-generated t
+:type elpa
+:description "Go add-ons for Projectile")

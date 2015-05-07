@@ -1,0 +1,4 @@
+(:name sublime-themes
+:auto-generated t
+:type elpa
+:description "A collection of themes based on Sublime Text")

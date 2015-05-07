@@ -1,0 +1,4 @@
+(:name pinboard-api
+:auto-generated t
+:type elpa
+:description "Rudimentary http://pinboard.in integration")

@@ -1,0 +1,4 @@
+(:name framesize
+:auto-generated t
+:type elpa
+:description "change the size of frames in Emacs")

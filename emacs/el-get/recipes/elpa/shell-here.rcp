@@ -1,0 +1,4 @@
+(:name shell-here
+:auto-generated t
+:type elpa
+:description "Open a shell relative to the working directory")

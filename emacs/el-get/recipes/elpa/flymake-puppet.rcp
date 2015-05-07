@@ -1,0 +1,4 @@
+(:name flymake-puppet
+:auto-generated t
+:type elpa
+:description "An Emacs flymake handler for syntax-checking puppet using puppet-lint")

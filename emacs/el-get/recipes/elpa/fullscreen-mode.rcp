@@ -1,0 +1,4 @@
+(:name fullscreen-mode
+:auto-generated t
+:type elpa
+:description "fullscreen window support for Emacs")

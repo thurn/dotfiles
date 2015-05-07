@@ -1,0 +1,4 @@
+(:name flymake-php
+:auto-generated t
+:type elpa
+:description "A flymake handler for php-mode files")

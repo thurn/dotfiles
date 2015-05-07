@@ -1,0 +1,4 @@
+(:name helm-cmd-t
+:auto-generated t
+:type elpa
+:description "cmd-t style completion")

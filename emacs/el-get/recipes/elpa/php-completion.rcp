@@ -1,0 +1,4 @@
+(:name php-completion
+:auto-generated t
+:type elpa
+:description "complete everything PHP with Anything.el")

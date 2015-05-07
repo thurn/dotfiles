@@ -1,0 +1,4 @@
+(:name perlbrew
+:auto-generated t
+:type elpa
+:description "A perlbrew wrapper for Emacs")

@@ -1,0 +1,4 @@
+(:name w3
+:auto-generated t
+:type elpa
+:description "Fully customizable, largely undocumented web browser for Emacs")

@@ -1,0 +1,4 @@
+(:name emacsql
+:auto-generated t
+:type elpa
+:description "high-level SQL database front-end")

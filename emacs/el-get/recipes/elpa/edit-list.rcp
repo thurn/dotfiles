@@ -1,0 +1,4 @@
+(:name edit-list
+:auto-generated t
+:type elpa
+:description "edit a single list")

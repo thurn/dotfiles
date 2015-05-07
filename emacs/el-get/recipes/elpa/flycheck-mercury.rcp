@@ -1,0 +1,4 @@
+(:name flycheck-mercury
+:auto-generated t
+:type elpa
+:description "Mercury support in Flycheck")

@@ -1,0 +1,4 @@
+(:name tabulated-list
+:auto-generated t
+:type elpa
+:description "generic major mode for tabulated lists.")

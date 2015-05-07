@@ -1,0 +1,4 @@
+(:name goto-chg
+:auto-generated t
+:type elpa
+:description "goto last change")

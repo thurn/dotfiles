@@ -1,0 +1,4 @@
+(:name keychain-environment
+:auto-generated t
+:type elpa
+:description "load keychain environment variables")

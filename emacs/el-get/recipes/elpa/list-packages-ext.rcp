@@ -1,0 +1,4 @@
+(:name list-packages-ext
+:auto-generated t
+:type elpa
+:description "Extras for list-packages")

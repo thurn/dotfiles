@@ -1,0 +1,4 @@
+(:name impatient-mode
+:auto-generated t
+:type elpa
+:description "Serve buffers live over HTTP")

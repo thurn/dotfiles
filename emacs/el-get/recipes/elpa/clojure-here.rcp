@@ -1,0 +1,4 @@
+(:name clojure-here
+:auto-generated t
+:type elpa
+:description "Clojure process in a buffer")

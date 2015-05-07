@@ -1,0 +1,4 @@
+(:name enh-ruby-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Ruby files")

@@ -1,0 +1,4 @@
+(:name state
+:auto-generated t
+:type elpa
+:description "Quick navigation between workspaces")

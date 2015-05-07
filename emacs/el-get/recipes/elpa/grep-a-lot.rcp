@@ -1,0 +1,4 @@
+(:name grep-a-lot
+:auto-generated t
+:type elpa
+:description "manages multiple search results buffers for grep.el")

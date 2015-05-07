@@ -1,0 +1,4 @@
+(:name e2wm-R
+:auto-generated t
+:type elpa
+:description "some e2wm plugin and perspective for GNU R")

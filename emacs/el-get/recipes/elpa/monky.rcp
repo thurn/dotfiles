@@ -1,0 +1,4 @@
+(:name monky
+:auto-generated t
+:type elpa
+:description "Control Hg from Emacs.")

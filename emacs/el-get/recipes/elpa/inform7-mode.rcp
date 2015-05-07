@@ -1,0 +1,4 @@
+(:name inform7-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Inform 7 source files")

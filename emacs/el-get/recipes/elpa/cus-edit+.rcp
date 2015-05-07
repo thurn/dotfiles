@@ -1,0 +1,4 @@
+(:name cus-edit+
+:auto-generated t
+:type elpa
+:description "Enhancements to `cus-edit.el'.")

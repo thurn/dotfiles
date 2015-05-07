@@ -1,0 +1,4 @@
+(:name load-theme-buffer-local
+:auto-generated t
+:type elpa
+:description "Install emacs24 color themes by buffer.")

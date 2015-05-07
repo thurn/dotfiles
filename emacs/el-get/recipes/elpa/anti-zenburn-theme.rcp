@@ -1,0 +1,4 @@
+(:name anti-zenburn-theme
+:auto-generated t
+:type elpa
+:description "Low-contrast Zenburn-inverted theme")

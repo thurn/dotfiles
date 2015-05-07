@@ -1,0 +1,4 @@
+(:name helm-descbinds
+:auto-generated t
+:type elpa
+:description "Yet Another `describe-bindings' with `helm'.")

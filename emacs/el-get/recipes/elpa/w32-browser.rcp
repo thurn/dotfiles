@@ -1,0 +1,4 @@
+(:name w32-browser
+:auto-generated t
+:type elpa
+:description "Run Windows application associated with a file.")

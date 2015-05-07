@@ -1,0 +1,4 @@
+(:name helm-recoll
+:auto-generated t
+:type elpa
+:description "helm interface for the recoll desktop search tool.")

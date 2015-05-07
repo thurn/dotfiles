@@ -1,0 +1,4 @@
+(:name window-margin
+:auto-generated t
+:type elpa
+:description "automatic margins for visual-line-mode wrapping")

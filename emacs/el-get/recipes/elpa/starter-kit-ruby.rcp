@@ -1,0 +1,4 @@
+(:name starter-kit-ruby
+:auto-generated t
+:type elpa
+:description "Saner defaults and goodies for Ruby")

@@ -1,0 +1,4 @@
+(:name hl-line+
+:auto-generated t
+:type elpa
+:description "Extensions to hl-line.el.")

@@ -1,0 +1,4 @@
+(:name register-channel
+:auto-generated t
+:type elpa
+:description "Jump around fast using registers")

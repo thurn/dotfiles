@@ -1,0 +1,4 @@
+(:name ycmd
+:auto-generated t
+:type elpa
+:description "emacs bindings to the ycmd completion server")

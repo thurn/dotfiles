@@ -1,0 +1,4 @@
+(:name servant
+:auto-generated t
+:type elpa
+:description "ELPA server written in Emacs Lisp")

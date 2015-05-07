@@ -1,0 +1,4 @@
+(:name cdnjs
+:auto-generated t
+:type elpa
+:description "A front end for http://cdnjs.com")

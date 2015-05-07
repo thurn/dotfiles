@@ -1,0 +1,4 @@
+(:name perl-myvar
+:auto-generated t
+:type elpa
+:description "Declare lexicaly scoped vars as my().")

@@ -1,0 +1,4 @@
+(:name dotassoc
+:auto-generated t
+:type elpa
+:description "dot access embedded alists")

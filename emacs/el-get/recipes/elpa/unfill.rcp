@@ -1,0 +1,4 @@
+(:name unfill
+:auto-generated t
+:type elpa
+:description "The inverse of fill-paragraph and fill-region")

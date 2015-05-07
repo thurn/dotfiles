@@ -1,0 +1,4 @@
+(:name immutant-server
+:auto-generated t
+:type elpa
+:description "Run your Immutant server in Emacs")

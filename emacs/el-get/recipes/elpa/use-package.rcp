@@ -1,0 +1,4 @@
+(:name use-package
+:auto-generated t
+:type elpa
+:description "A use-package declaration for simplifying your .emacs")

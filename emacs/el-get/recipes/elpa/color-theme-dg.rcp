@@ -1,0 +1,4 @@
+(:name color-theme-dg
+:auto-generated t
+:type elpa
+:description "A black and green color theme for Emacs.")

@@ -1,0 +1,4 @@
+(:name mark
+:auto-generated t
+:type elpa
+:description "Navigate and visualize the mark-ring")

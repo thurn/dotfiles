@@ -1,0 +1,4 @@
+(:name minibuffer-complete-cycle
+:auto-generated t
+:type elpa
+:description "Cycle through the *Completions* buffer")

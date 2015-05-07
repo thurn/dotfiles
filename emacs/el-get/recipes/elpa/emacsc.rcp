@@ -1,0 +1,4 @@
+(:name emacsc
+:auto-generated t
+:type elpa
+:description "helper for emacsc(1)")

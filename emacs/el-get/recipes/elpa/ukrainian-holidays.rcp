@@ -1,0 +1,4 @@
+(:name ukrainian-holidays
+:auto-generated t
+:type elpa
+:description "Ukrainian holidays for Emacs calendar.")

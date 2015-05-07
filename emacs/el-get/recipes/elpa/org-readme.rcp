@@ -1,0 +1,4 @@
+(:name org-readme
+:auto-generated t
+:type elpa
+:description "Integrates Readme.org and Commentary/Change-logs.")

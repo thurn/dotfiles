@@ -1,0 +1,4 @@
+(:name subatomic256-theme
+:auto-generated t
+:type elpa
+:description "Fork of subatomic-theme for terminals.")

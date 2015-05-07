@@ -1,0 +1,4 @@
+(:name toggle
+:auto-generated t
+:type elpa
+:description "quickly open corresponding file (eg test vs impl).")

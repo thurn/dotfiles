@@ -1,0 +1,4 @@
+(:name all-ext
+:auto-generated t
+:type elpa
+:description "Extension of M-x all")

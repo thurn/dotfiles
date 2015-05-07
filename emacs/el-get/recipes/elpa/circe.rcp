@@ -1,0 +1,4 @@
+(:name circe
+:auto-generated t
+:type elpa
+:description "Client for IRC in Emacs")

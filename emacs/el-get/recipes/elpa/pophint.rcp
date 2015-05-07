@@ -1,0 +1,4 @@
+(:name pophint
+:auto-generated t
+:type elpa
+:description "Provide navigation using pop-up tips, like Firefox's Vimperator Hint Mode")

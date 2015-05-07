@@ -1,0 +1,4 @@
+(:name lacarte
+:auto-generated t
+:type elpa
+:description "Execute menu items as commands, with completion.")

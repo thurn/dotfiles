@@ -1,0 +1,4 @@
+(:name mmm-mako
+:auto-generated t
+:type elpa
+:description "MMM submode class for Mako Templates")

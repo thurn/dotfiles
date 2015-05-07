@@ -1,0 +1,4 @@
+(:name pp-c-l
+:auto-generated t
+:type elpa
+:description "Display Control-l characters in a pretty way")

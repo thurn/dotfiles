@@ -1,0 +1,4 @@
+(:name snakehump
+:auto-generated t
+:type elpa
+:description "Convert between compound word conventions")

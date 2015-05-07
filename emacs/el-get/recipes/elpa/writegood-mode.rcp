@@ -1,0 +1,4 @@
+(:name writegood-mode
+:auto-generated t
+:type elpa
+:description "Polish up poor writing on the fly")

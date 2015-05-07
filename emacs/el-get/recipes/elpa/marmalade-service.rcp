@@ -1,0 +1,4 @@
+(:name marmalade-service
+:auto-generated t
+:type elpa
+:description "The Marmalade package store service.")

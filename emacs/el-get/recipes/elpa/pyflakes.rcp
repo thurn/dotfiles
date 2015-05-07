@@ -1,0 +1,4 @@
+(:name pyflakes
+:auto-generated t
+:type elpa
+:description "run the python pyflakes checker putting hits in a grep buffer")

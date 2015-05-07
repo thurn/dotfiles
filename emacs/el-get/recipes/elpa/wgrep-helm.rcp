@@ -1,0 +1,4 @@
+(:name wgrep-helm
+:auto-generated t
+:type elpa
+:description "Writable helm-grep-mode buffer and apply the changes to files")

@@ -1,0 +1,4 @@
+(:name kill-ring-ido
+:auto-generated t
+:type elpa
+:description "command for keyring browsing with ido")

@@ -1,0 +1,4 @@
+(:name vkill
+:auto-generated t
+:type elpa
+:description "view and kill Unix processes from within Emacs")

@@ -1,0 +1,4 @@
+(:name everything
+:auto-generated t
+:type elpa
+:description "Bridge to MS Windows desktop-search engine Everything")

@@ -1,0 +1,4 @@
+(:name highlight-stages
+:auto-generated t
+:type elpa
+:description "highlight staged (quasi-quoted) expressions")

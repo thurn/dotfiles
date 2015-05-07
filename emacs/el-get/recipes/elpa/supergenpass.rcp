@@ -1,0 +1,4 @@
+(:name supergenpass
+:auto-generated t
+:type elpa
+:description "SuperGenPass for Emacs")

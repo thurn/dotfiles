@@ -1,0 +1,4 @@
+(:name cycbuf
+:auto-generated t
+:type elpa
+:description "Cycle buffers, inspired by swbuff.el, swbuff-x.el, and bs.el")

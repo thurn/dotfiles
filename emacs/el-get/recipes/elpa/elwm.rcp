@@ -1,0 +1,4 @@
+(:name elwm
+:auto-generated t
+:type elpa
+:description "Minimalistic window manager for emacs")

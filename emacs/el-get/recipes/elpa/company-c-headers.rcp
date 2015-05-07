@@ -1,0 +1,4 @@
+(:name company-c-headers
+:auto-generated t
+:type elpa
+:description "Company mode backend for C/C++ header files")

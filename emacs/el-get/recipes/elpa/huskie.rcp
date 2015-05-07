@@ -1,0 +1,4 @@
+(:name huskie
+:auto-generated t
+:type elpa
+:description "chainsaw powered logging")

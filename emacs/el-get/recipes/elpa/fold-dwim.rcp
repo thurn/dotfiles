@@ -1,0 +1,4 @@
+(:name fold-dwim
+:auto-generated t
+:type elpa
+:description "Unified user interface for Emacs folding modes")

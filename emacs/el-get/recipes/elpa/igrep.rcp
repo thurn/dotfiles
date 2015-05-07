@@ -1,0 +1,4 @@
+(:name igrep
+:auto-generated t
+:type elpa
+:description "An improved interface to `grep` and `find`")

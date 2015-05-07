@@ -1,0 +1,4 @@
+(:name notmuch-labeler
+:auto-generated t
+:type elpa
+:description "Improve notmuch way of displaying labels")

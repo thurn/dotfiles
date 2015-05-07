@@ -1,0 +1,4 @@
+(:name auto-shell-command
+:auto-generated t
+:type elpa
+:description "Run the shell command asynchronously that you specified when you save the file.")

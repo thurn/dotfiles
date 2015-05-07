@@ -1,0 +1,4 @@
+(:name ack-and-a-half
+:auto-generated t
+:type elpa
+:description "Yet another front-end for ack")

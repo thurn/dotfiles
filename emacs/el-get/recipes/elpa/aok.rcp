@@ -1,0 +1,4 @@
+(:name aok
+:auto-generated t
+:type elpa
+:description "various useful ways to do `multi-occur'")

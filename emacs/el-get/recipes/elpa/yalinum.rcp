@@ -1,0 +1,4 @@
+(:name yalinum
+:auto-generated t
+:type elpa
+:description "yet another display line numbers.")

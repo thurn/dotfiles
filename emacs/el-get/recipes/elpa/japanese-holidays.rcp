@@ -1,0 +1,4 @@
+(:name japanese-holidays
+:auto-generated t
+:type elpa
+:description "calendar functions for the Japanese calendar")

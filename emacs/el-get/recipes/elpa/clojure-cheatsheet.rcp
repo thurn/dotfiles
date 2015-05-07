@@ -1,0 +1,4 @@
+(:name clojure-cheatsheet
+:auto-generated t
+:type elpa
+:description "The Clojure Cheatsheet for Emacs")

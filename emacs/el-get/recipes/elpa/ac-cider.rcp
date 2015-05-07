@@ -1,0 +1,4 @@
+(:name ac-cider
+:auto-generated t
+:type elpa
+:description "Clojure auto-complete sources using CIDER")

@@ -1,0 +1,4 @@
+(:name helm-helm-commands
+:auto-generated t
+:type elpa
+:description "List all helm commands with helm")

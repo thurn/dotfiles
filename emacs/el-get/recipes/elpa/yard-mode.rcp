@@ -1,0 +1,4 @@
+(:name yard-mode
+:auto-generated t
+:type elpa
+:description "Minor mode for Ruby YARD comments")

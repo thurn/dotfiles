@@ -1,0 +1,4 @@
+(:name yaml-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing YAML files")

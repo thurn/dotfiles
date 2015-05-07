@@ -1,0 +1,4 @@
+(:name isearch-switch
+:auto-generated t
+:type elpa
+:description "switch the manner you are isearching in.")

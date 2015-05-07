@@ -1,0 +1,4 @@
+(:name recursive-narrow
+:auto-generated t
+:type elpa
+:description "narrow-to-region that operates recursively")

@@ -1,0 +1,4 @@
+(:name elpa-mirror
+:auto-generated t
+:type elpa
+:description "ELPA mirror from locally installed packages is easy")

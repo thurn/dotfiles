@@ -1,0 +1,4 @@
+(:name bison-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing bison, yacc and lex files.")

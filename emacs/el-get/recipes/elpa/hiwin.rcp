@@ -1,0 +1,4 @@
+(:name hiwin
+:auto-generated t
+:type elpa
+:description "Visible active window mode.")

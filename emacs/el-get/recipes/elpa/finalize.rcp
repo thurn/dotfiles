@@ -1,0 +1,4 @@
+(:name finalize
+:auto-generated t
+:type elpa
+:description "finalizers for Emacs Lisp")

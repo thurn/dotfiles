@@ -1,0 +1,4 @@
+(:name linum-relative
+:auto-generated t
+:type elpa
+:description "display relative line number in emacs.")

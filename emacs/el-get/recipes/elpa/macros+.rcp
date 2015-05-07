@@ -1,0 +1,4 @@
+(:name macros+
+:auto-generated t
+:type elpa
+:description "Extensions to `macros.el'.")

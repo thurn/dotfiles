@@ -1,0 +1,4 @@
+(:name comint-better-defaults
+:auto-generated t
+:type elpa
+:description "better defaults for comint-derived modes")

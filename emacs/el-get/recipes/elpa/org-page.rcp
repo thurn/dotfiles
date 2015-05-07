@@ -1,0 +1,4 @@
+(:name org-page
+:auto-generated t
+:type elpa
+:description "a static site generator based on org mode")

@@ -1,0 +1,4 @@
+(:name subr+
+:auto-generated t
+:type elpa
+:description "Extensions to standard library `subr.el'.")

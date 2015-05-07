@@ -1,0 +1,4 @@
+(:name change-inner
+:auto-generated t
+:type elpa
+:description "Change contents based on semantic units")

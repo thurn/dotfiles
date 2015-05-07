@@ -1,0 +1,4 @@
+(:name simpleclip
+:auto-generated t
+:type elpa
+:description "Simplified access to the system clipboard")

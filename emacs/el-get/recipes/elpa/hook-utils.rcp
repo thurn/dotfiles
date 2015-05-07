@@ -1,0 +1,4 @@
+(:name hook-utils
+:auto-generated t
+:type elpa
+:description "Add a few utility functions for manipulating hooks")

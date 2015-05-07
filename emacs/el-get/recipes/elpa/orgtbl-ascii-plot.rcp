@@ -1,0 +1,4 @@
+(:name orgtbl-ascii-plot
+:auto-generated t
+:type elpa
+:description "ascii-art bar plots in org-mode tables")

@@ -1,0 +1,4 @@
+(:name clevercss
+:auto-generated t
+:type elpa
+:description "A major mode for editing CleverCSS files")

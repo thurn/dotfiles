@@ -1,0 +1,4 @@
+(:name markdown-mode+
+:auto-generated t
+:type elpa
+:description "extra functions for markdown-mode")

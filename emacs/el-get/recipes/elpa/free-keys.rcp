@@ -1,0 +1,4 @@
+(:name free-keys
+:auto-generated t
+:type elpa
+:description "Show free keybindings for modkeys or prefixes")

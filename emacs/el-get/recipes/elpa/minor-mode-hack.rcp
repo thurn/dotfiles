@@ -1,0 +1,4 @@
+(:name minor-mode-hack
+:auto-generated t
+:type elpa
+:description "Change priority of minor-mode keymaps")

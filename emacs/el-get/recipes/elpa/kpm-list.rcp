@@ -1,0 +1,4 @@
+(:name kpm-list
+:auto-generated t
+:type elpa
+:description "An emacs buffer list that tries to intelligently group together buffers.")

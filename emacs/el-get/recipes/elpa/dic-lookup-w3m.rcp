@@ -1,0 +1,4 @@
+(:name dic-lookup-w3m
+:auto-generated t
+:type elpa
+:description "look up dictionaries on the Internet")

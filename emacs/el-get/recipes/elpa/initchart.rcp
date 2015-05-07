@@ -1,0 +1,4 @@
+(:name initchart
+:auto-generated t
+:type elpa
+:description "Emacs' init process performance visualization")

@@ -1,0 +1,4 @@
+(:name beeminder
+:auto-generated t
+:type elpa
+:description "Emacs interface for Beeminder")

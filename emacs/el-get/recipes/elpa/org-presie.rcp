@@ -1,0 +1,4 @@
+(:name org-presie
+:auto-generated t
+:type elpa
+:description "simple presentation with an org file")

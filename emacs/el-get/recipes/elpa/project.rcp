@@ -1,0 +1,4 @@
+(:name project
+:auto-generated t
+:type elpa
+:description "Keep track of the current project")

@@ -1,0 +1,4 @@
+(:name loccur
+:auto-generated t
+:type elpa
+:description "Performs an occur-like folding in current buffer.")

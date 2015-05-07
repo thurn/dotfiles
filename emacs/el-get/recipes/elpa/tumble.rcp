@@ -1,0 +1,4 @@
+(:name tumble
+:auto-generated t
+:type elpa
+:description "an Tumblr mode for Emacs")

@@ -1,0 +1,4 @@
+(:name thing-cmds
+:auto-generated t
+:type elpa
+:description "Commands that use things, as defined by `thingatpt.el'.")

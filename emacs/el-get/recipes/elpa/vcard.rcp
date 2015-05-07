@@ -1,0 +1,4 @@
+(:name vcard
+:auto-generated t
+:type elpa
+:description "vcard parsing and display routines")

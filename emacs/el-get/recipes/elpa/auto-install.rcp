@@ -1,0 +1,4 @@
+(:name auto-install
+:auto-generated t
+:type elpa
+:description "Auto install elisp file")

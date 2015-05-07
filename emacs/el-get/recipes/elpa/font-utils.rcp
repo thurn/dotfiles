@@ -1,0 +1,4 @@
+(:name font-utils
+:auto-generated t
+:type elpa
+:description "Utility functions for working with fonts")

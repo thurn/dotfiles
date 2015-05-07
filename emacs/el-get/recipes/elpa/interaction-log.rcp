@@ -1,0 +1,4 @@
+(:name interaction-log
+:auto-generated t
+:type elpa
+:description "exhaustive log of interactions with Emacs")

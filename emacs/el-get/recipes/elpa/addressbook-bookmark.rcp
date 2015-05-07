@@ -1,0 +1,4 @@
+(:name addressbook-bookmark
+:auto-generated t
+:type elpa
+:description "An address book based on Standard Emacs bookmarks.")

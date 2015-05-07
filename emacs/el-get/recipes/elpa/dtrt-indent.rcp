@@ -1,0 +1,4 @@
+(:name dtrt-indent
+:auto-generated t
+:type elpa
+:description "Adapt to foreign indentation offsets")

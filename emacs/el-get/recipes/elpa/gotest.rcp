@@ -1,0 +1,4 @@
+(:name gotest
+:auto-generated t
+:type elpa
+:description "Launch GO unit tests")

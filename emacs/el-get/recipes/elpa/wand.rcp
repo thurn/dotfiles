@@ -1,0 +1,4 @@
+(:name wand
+:auto-generated t
+:type elpa
+:description "Magic wand for Emacs - Selecting and executing")

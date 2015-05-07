@@ -1,0 +1,4 @@
+(:name imenu+
+:auto-generated t
+:type elpa
+:description "Extensions to `imenu.el'.")

@@ -1,0 +1,4 @@
+(:name relative-buffers
+:auto-generated t
+:type elpa
+:description "Emacs buffers naming convention")

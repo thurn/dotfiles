@@ -1,0 +1,4 @@
+(:name gist
+:auto-generated t
+:type elpa
+:description "Emacs integration for gist.github.com")

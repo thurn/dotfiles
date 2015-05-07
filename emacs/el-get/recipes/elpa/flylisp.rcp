@@ -1,0 +1,4 @@
+(:name flylisp
+:auto-generated t
+:type elpa
+:description "Color unbalanced parentheses and parentheses inconsistent with indentation")

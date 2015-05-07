@@ -1,0 +1,4 @@
+(:name httpd
+:auto-generated t
+:type elpa
+:description "HTTP/1.0 web server for emacs")

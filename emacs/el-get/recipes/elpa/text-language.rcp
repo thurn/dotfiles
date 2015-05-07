@@ -1,0 +1,4 @@
+(:name text-language
+:auto-generated t
+:type elpa
+:description "tracking, setting, guessing language of text")

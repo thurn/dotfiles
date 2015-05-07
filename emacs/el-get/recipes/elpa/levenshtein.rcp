@@ -1,0 +1,4 @@
+(:name levenshtein
+:auto-generated t
+:type elpa
+:description "Edit distance between two strings.")

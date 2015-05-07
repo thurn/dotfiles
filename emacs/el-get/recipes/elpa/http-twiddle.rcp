@@ -1,0 +1,4 @@
+(:name http-twiddle
+:auto-generated t
+:type elpa
+:description "send & twiddle & resend HTTP requests")

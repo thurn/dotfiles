@@ -1,0 +1,4 @@
+(:name ucs-cmds
+:auto-generated t
+:type elpa
+:description "Macro to create commands that insert Unicode chars.")

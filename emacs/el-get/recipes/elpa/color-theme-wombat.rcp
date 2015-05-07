@@ -1,0 +1,4 @@
+(:name color-theme-wombat
+:auto-generated t
+:type elpa
+:description "The wombat color theme for Emacs.")

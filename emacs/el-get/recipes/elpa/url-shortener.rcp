@@ -1,0 +1,4 @@
+(:name url-shortener
+:auto-generated t
+:type elpa
+:description "shorten long url and expand tinyurl")

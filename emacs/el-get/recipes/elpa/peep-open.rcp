@@ -1,0 +1,4 @@
+(:name peep-open
+:auto-generated t
+:type elpa
+:description "PeepOpen plugin for emacs.")

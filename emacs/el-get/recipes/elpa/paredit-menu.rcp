@@ -1,0 +1,4 @@
+(:name paredit-menu
+:auto-generated t
+:type elpa
+:description "Adds a menu to paredit.el as memory aid")

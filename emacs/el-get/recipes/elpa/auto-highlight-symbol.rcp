@@ -1,0 +1,4 @@
+(:name auto-highlight-symbol
+:auto-generated t
+:type elpa
+:description "Automatic highlighting current symbol minor mode")

@@ -1,0 +1,4 @@
+(:name sclang-snippets
+:auto-generated t
+:type elpa
+:description "Snippets for the SuperCollider Emacs mode")

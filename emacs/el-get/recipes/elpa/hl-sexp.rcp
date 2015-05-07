@@ -1,0 +1,4 @@
+(:name hl-sexp
+:auto-generated t
+:type elpa
+:description "highlight the current sexp")

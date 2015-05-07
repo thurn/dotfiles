@@ -1,0 +1,4 @@
+(:name hayoo
+:auto-generated t
+:type elpa
+:description "Query hayoo and show results in a tabulated buffer.")

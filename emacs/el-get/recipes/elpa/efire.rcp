@@ -1,0 +1,4 @@
+(:name efire
+:auto-generated t
+:type elpa
+:description "Use campfire from Emacs")

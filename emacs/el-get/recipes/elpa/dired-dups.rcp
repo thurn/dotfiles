@@ -1,0 +1,4 @@
+(:name dired-dups
+:auto-generated t
+:type elpa
+:description "Find duplicate files and display them in a dired buffer")

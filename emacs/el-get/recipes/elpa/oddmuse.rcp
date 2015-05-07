@@ -1,0 +1,4 @@
+(:name oddmuse
+:auto-generated t
+:type elpa
+:description "edit pages on an Oddmuse wiki")

@@ -1,0 +1,4 @@
+(:name helm-git-files
+:auto-generated t
+:type elpa
+:description "helm for git files")

@@ -1,0 +1,4 @@
+(:name python-django
+:auto-generated t
+:type elpa
+:description "A Jazzy package for managing Django projects")

@@ -1,0 +1,4 @@
+(:name color-theme-tangotango
+:auto-generated t
+:type elpa
+:description "Tango Palette color theme for Emacs.")

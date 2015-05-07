@@ -1,0 +1,4 @@
+(:name tsql
+:auto-generated t
+:type elpa
+:description "customizes sql.el for T-SQL")

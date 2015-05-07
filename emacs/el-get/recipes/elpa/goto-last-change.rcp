@@ -1,0 +1,4 @@
+(:name goto-last-change
+:auto-generated t
+:type elpa
+:description "Move point through buffer-undo-list positions")

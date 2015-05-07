@@ -1,0 +1,4 @@
+(:name backup-walker
+:auto-generated t
+:type elpa
+:description "quickly traverse all backups of a file")

@@ -1,0 +1,4 @@
+(:name instapaper
+:auto-generated t
+:type elpa
+:description "add URLs to instapaper from emacs")

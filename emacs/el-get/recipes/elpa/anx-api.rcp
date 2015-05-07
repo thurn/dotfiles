@@ -1,0 +1,4 @@
+(:name anx-api
+:auto-generated t
+:type elpa
+:description "Interact with the AppNexus API from Emacs.")

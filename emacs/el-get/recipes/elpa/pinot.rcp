@@ -1,0 +1,4 @@
+(:name pinot
+:auto-generated t
+:type elpa
+:description "Emacs interface to pinot-search")

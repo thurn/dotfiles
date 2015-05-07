@@ -1,0 +1,4 @@
+(:name visible-mark
+:auto-generated t
+:type elpa
+:description "Make marks visible.")

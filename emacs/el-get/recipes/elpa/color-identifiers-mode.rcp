@@ -1,0 +1,4 @@
+(:name color-identifiers-mode
+:auto-generated t
+:type elpa
+:description "Color identifiers based on their names")

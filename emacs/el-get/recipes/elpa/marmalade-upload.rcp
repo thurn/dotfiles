@@ -1,0 +1,4 @@
+(:name marmalade-upload
+:auto-generated t
+:type elpa
+:description "upload client for marmalade from emacs")

@@ -1,0 +1,4 @@
+(:name sudo-ext
+:auto-generated t
+:type elpa
+:description "sudo support")

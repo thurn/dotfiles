@@ -1,0 +1,4 @@
+(:name sourcetalk
+:auto-generated t
+:type elpa
+:description "SourceTalk (http://sourcetalk.net) plugin for Emacs")

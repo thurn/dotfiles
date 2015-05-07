@@ -1,0 +1,4 @@
+(:name yabin
+:auto-generated t
+:type elpa
+:description "Yet Another Bignum package (A thin wrapper of calc.el).")

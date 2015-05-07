@@ -1,0 +1,4 @@
+(:name pcre2el
+:auto-generated t
+:type elpa
+:description "parse, convert, and font-lock PCRE, Emacs and rx regexps")

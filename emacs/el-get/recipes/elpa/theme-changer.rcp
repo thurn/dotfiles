@@ -1,0 +1,4 @@
+(:name theme-changer
+:auto-generated t
+:type elpa
+:description "Sunrise/Sunset Theme Changer for Emacs")

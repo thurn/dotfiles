@@ -1,0 +1,4 @@
+(:name github-browse-file
+:auto-generated t
+:type elpa
+:description "View the file you're editing on GitHub")

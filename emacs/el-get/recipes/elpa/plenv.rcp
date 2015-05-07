@@ -1,0 +1,4 @@
+(:name plenv
+:auto-generated t
+:type elpa
+:description "A plenv wrapper for Emacs")

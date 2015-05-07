@@ -1,0 +1,4 @@
+(:name tco
+:auto-generated t
+:type elpa
+:description "tail-call optimisation for Emacs lisp")

@@ -1,0 +1,4 @@
+(:name dired-narrow
+:auto-generated t
+:type elpa
+:description "Live-narrowing of search results for dired")

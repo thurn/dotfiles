@@ -1,0 +1,4 @@
+(:name geben
+:auto-generated t
+:type elpa
+:description "DBGp protocol frontend, a script debugger")

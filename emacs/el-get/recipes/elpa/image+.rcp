@@ -1,0 +1,4 @@
+(:name image+
+:auto-generated t
+:type elpa
+:description "Image manupulation extensions for Emacs")

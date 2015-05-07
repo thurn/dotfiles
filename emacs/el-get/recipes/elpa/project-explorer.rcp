@@ -1,0 +1,4 @@
+(:name project-explorer
+:auto-generated t
+:type elpa
+:description "A project explorer sidebar")

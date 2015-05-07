@@ -1,0 +1,4 @@
+(:name go-eldoc
+:auto-generated t
+:type elpa
+:description "eldoc for go-mode")

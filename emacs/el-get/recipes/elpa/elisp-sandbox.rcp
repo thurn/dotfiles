@@ -1,0 +1,4 @@
+(:name elisp-sandbox
+:auto-generated t
+:type elpa
+:description "Evaluate EmacsLisp expressions in a sandbox")

@@ -1,0 +1,4 @@
+(:name coffee-mode
+:auto-generated t
+:type elpa
+:description "Major mode to edit CoffeeScript files in Emacs")

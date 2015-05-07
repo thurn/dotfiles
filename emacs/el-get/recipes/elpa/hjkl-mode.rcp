@@ -1,0 +1,4 @@
+(:name hjkl-mode
+:auto-generated t
+:type elpa
+:description "import some vim's key bindings")

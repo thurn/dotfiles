@@ -1,0 +1,4 @@
+(:name doremi
+:auto-generated t
+:type elpa
+:description "Do Re Mi: Incremental change using arrow keys or mouse wheel.")

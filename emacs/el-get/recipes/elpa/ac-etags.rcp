@@ -1,0 +1,4 @@
+(:name ac-etags
+:auto-generated t
+:type elpa
+:description "etags/ctags completion source for auto-complete")

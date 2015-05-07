@@ -1,0 +1,4 @@
+(:name helm-flycheck
+:auto-generated t
+:type elpa
+:description "Show flycheck errors with helm")

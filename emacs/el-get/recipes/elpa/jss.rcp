@@ -1,0 +1,4 @@
+(:name jss
+:auto-generated t
+:type elpa
+:description "An emacs interface to webkit and mozilla debuggers")

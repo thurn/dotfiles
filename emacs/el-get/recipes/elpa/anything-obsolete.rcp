@@ -1,0 +1,4 @@
+(:name anything-obsolete
+:auto-generated t
+:type elpa
+:description "obsolete functions of anything")

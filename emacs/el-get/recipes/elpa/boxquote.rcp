@@ -1,0 +1,4 @@
+(:name boxquote
+:auto-generated t
+:type elpa
+:description "Quote text with a semi-box.")

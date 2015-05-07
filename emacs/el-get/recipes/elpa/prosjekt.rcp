@@ -1,0 +1,4 @@
+(:name prosjekt
+:auto-generated t
+:type elpa
+:description "a software project tool for emacs")

@@ -1,0 +1,4 @@
+(:name esup
+:auto-generated t
+:type elpa
+:description "the Emacs StartUp Profiler (ESUP)")

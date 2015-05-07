@@ -1,0 +1,4 @@
+(:name ws-butler
+:auto-generated t
+:type elpa
+:description "Unobtrusively remove trailing whitespace.")

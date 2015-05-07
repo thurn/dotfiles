@@ -1,0 +1,4 @@
+(:name backtrace-mode
+:auto-generated t
+:type elpa
+:description "A better way to browse /var/log/messages files")

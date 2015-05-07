@@ -1,0 +1,4 @@
+(:name ox-reveal
+:auto-generated t
+:type elpa
+:description "reveal.js Presentation Back-End for Org Export Engine")

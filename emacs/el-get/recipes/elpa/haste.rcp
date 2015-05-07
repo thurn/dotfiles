@@ -1,0 +1,4 @@
+(:name haste
+:auto-generated t
+:type elpa
+:description "Emacs client for hastebin (http://hastebin.com/about.md)")

@@ -1,0 +1,4 @@
+(:name scion
+:auto-generated t
+:type elpa
+:description "Haskell Minor Mode for Interacting with the Scion Library")

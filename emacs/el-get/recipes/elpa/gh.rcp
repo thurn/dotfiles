@@ -1,0 +1,4 @@
+(:name gh
+:auto-generated t
+:type elpa
+:description "A GitHub library for Emacs")

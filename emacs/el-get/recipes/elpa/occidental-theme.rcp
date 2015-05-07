@@ -1,0 +1,4 @@
+(:name occidental-theme
+:auto-generated t
+:type elpa
+:description "Custom theme for faces based on Adwaita")

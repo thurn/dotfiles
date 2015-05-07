@@ -1,0 +1,4 @@
+(:name xmlgen
+:auto-generated t
+:type elpa
+:description "A DSL for generating XML.")

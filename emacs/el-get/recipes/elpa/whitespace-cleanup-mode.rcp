@@ -1,0 +1,4 @@
+(:name whitespace-cleanup-mode
+:auto-generated t
+:type elpa
+:description "Intelligently call whitespace-cleanup on save")

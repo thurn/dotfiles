@@ -1,0 +1,4 @@
+(:name jedi-direx
+:auto-generated t
+:type elpa
+:description "Tree style source code viewer for Python buffer")

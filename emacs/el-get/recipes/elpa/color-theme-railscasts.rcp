@@ -1,0 +1,4 @@
+(:name color-theme-railscasts
+:auto-generated t
+:type elpa
+:description "Railscasts color theme for GNU Emacs.")

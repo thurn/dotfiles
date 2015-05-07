@@ -1,0 +1,4 @@
+(:name reverse-theme
+:auto-generated t
+:type elpa
+:description "Reverse theme for Emacs")

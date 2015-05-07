@@ -1,0 +1,4 @@
+(:name projekt
+:auto-generated t
+:type elpa
+:description "some kind of staging for CVS")

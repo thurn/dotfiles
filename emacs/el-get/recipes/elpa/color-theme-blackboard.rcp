@@ -1,0 +1,4 @@
+(:name color-theme-blackboard
+:auto-generated t
+:type elpa
+:description "Blackboard Colour Theme for Emacs.")

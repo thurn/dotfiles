@@ -1,0 +1,4 @@
+(:name smooth-scrolling
+:auto-generated t
+:type elpa
+:description "Make emacs scroll smoothly")

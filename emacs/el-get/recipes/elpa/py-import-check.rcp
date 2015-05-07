@@ -1,0 +1,4 @@
+(:name py-import-check
+:auto-generated t
+:type elpa
+:description "Finds the unused python imports using importchecker")

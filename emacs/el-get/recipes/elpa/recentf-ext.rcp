@@ -1,0 +1,4 @@
+(:name recentf-ext
+:auto-generated t
+:type elpa
+:description "Recentf extensions")

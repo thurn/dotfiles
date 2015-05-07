@@ -1,0 +1,4 @@
+(:name stan-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Stan files")

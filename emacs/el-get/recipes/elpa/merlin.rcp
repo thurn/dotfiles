@@ -1,0 +1,4 @@
+(:name merlin
+:auto-generated t
+:type elpa
+:description "Mode for Merlin, an assistant for OCaml.")

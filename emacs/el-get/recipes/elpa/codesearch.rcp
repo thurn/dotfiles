@@ -1,0 +1,4 @@
+(:name codesearch
+:auto-generated t
+:type elpa
+:description "Easy access to the codesearch tools")

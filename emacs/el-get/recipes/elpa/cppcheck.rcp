@@ -1,0 +1,4 @@
+(:name cppcheck
+:auto-generated t
+:type elpa
+:description "run cppcheck putting hits in a grep buffer")

@@ -1,0 +1,4 @@
+(:name muttrc-mode
+:auto-generated t
+:type elpa
+:description "Major mode to edit muttrc under Emacs")

@@ -1,0 +1,4 @@
+(:name python
+:auto-generated t
+:type elpa
+:description "Python's flying circus support for Emacs")

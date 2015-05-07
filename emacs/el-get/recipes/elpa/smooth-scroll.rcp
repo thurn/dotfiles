@@ -1,0 +1,4 @@
+(:name smooth-scroll
+:auto-generated t
+:type elpa
+:description "Minor mode for smooth scrolling and in-place scrolling.")

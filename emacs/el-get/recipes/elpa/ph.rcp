@@ -1,0 +1,4 @@
+(:name ph
+:auto-generated t
+:type elpa
+:description "A global minor mode for managing multiple projects.")

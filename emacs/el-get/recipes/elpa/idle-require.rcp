@@ -1,0 +1,4 @@
+(:name idle-require
+:auto-generated t
+:type elpa
+:description "load elisp libraries while Emacs is idle")

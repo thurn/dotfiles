@@ -1,0 +1,4 @@
+(:name orgbox
+:auto-generated t
+:type elpa
+:description "Mailbox-like task scheduling Org.")

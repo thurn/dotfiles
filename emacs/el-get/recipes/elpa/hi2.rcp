@@ -1,0 +1,4 @@
+(:name hi2
+:auto-generated t
+:type elpa
+:description "indentation module for Haskell Mode")

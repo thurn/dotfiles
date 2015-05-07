@@ -1,0 +1,4 @@
+(:name ac-js2
+:auto-generated t
+:type elpa
+:description "Auto-complete source for Js2-mode, with navigation")

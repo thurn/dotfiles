@@ -1,0 +1,4 @@
+(:name hide-region
+:auto-generated t
+:type elpa
+:description "hide regions of text using overlays")

@@ -1,0 +1,4 @@
+(:name multi
+:auto-generated t
+:type elpa
+:description "Clojure-style multi-methods for emacs lisp")

@@ -1,0 +1,4 @@
+(:name xmlunicode
+:auto-generated t
+:type elpa
+:description "Unicode support for XML")

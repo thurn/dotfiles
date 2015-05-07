@@ -1,0 +1,4 @@
+(:name apples-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing and executing AppleScript code")

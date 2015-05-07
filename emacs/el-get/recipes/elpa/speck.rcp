@@ -1,0 +1,4 @@
+(:name speck
+:auto-generated t
+:type elpa
+:description "minor mode for spell checking")

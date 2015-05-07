@@ -1,0 +1,4 @@
+(:name helm-c-yasnippet
+:auto-generated t
+:type elpa
+:description "helm source for yasnippet.el")

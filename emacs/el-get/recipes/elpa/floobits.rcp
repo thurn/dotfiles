@@ -1,0 +1,4 @@
+(:name floobits
+:auto-generated t
+:type elpa
+:description "Floobits plugin for real-time collaborative editing")

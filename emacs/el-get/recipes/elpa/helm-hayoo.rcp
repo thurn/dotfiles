@@ -1,0 +1,4 @@
+(:name helm-hayoo
+:auto-generated t
+:type elpa
+:description "Source and configured helm for searching hayoo")

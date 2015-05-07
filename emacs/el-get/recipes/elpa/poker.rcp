@@ -1,0 +1,4 @@
+(:name poker
+:auto-generated t
+:type elpa
+:description "Texas hold'em poker")

@@ -1,0 +1,4 @@
+(:name nodejs-repl
+:auto-generated t
+:type elpa
+:description "Run Node.js REPL")

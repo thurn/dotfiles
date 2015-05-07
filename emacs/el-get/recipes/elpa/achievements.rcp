@@ -1,0 +1,4 @@
+(:name achievements
+:auto-generated t
+:type elpa
+:description "Achievements for emacs usage.")

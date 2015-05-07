@@ -1,0 +1,4 @@
+(:name powerline-evil
+:auto-generated t
+:type elpa
+:description "Utilities for better Evil support for Powerline")

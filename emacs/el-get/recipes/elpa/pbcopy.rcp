@@ -1,0 +1,4 @@
+(:name pbcopy
+:auto-generated t
+:type elpa
+:description "OS X clipboard integration for Emacs")

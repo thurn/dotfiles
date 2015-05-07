@@ -1,0 +1,4 @@
+(:name slime-clj
+:auto-generated t
+:type elpa
+:description "slime extensions for swank-clj")

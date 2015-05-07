@@ -1,0 +1,4 @@
+(:name db-pg
+:auto-generated t
+:type elpa
+:description "A PostgreSQL adapter for emacs-db")

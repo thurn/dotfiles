@@ -1,0 +1,4 @@
+(:name pov-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing POV-Ray scene files.")

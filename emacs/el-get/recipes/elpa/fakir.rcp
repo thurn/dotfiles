@@ -1,0 +1,4 @@
+(:name fakir
+:auto-generated t
+:type elpa
+:description "fakeing bits of Emacs")

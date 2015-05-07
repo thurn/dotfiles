@@ -1,0 +1,4 @@
+(:name go-errcheck
+:auto-generated t
+:type elpa
+:description "errcheck integration for go-mode")

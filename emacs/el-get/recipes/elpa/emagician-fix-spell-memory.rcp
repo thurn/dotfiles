@@ -1,0 +1,4 @@
+(:name emagician-fix-spell-memory
+:auto-generated t
+:type elpa
+:description "Simple hack into ispell to fix (muscle) memory problems")

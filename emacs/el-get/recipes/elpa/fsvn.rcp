@@ -1,0 +1,4 @@
+(:name fsvn
+:auto-generated t
+:type elpa
+:description "Another frontend of subversion.")

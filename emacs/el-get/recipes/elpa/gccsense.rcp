@@ -1,0 +1,4 @@
+(:name gccsense
+:auto-generated t
+:type elpa
+:description "GCCSense client for Emacs")

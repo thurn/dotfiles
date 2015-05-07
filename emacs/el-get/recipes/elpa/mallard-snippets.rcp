@@ -1,0 +1,4 @@
+(:name mallard-snippets
+:auto-generated t
+:type elpa
+:description "Yasnippets for Mallard")

@@ -1,0 +1,4 @@
+(:name edbi-django
+:auto-generated t
+:type elpa
+:description "Run edbi with django settings")

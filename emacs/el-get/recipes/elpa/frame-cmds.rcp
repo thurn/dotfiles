@@ -1,0 +1,4 @@
+(:name frame-cmds
+:auto-generated t
+:type elpa
+:description "Frame and window commands (interactive functions).")

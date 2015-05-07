@@ -1,0 +1,4 @@
+(:name phpunit
+:auto-generated t
+:type elpa
+:description "Launch PHP unit tests using phpunit")

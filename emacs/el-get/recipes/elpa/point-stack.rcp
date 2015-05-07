@@ -1,0 +1,4 @@
+(:name point-stack
+:auto-generated t
+:type elpa
+:description "A forward/back stack for point")

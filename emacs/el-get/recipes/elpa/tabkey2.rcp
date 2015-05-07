@@ -1,0 +1,4 @@
+(:name tabkey2
+:auto-generated t
+:type elpa
+:description "Use second tab key pressed for what you want")

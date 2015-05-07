@@ -1,0 +1,4 @@
+(:name sparkline
+:auto-generated t
+:type elpa
+:description "Make sparkline images from a list of numbers")

@@ -1,0 +1,4 @@
+(:name bbdb-
+:auto-generated t
+:type elpa
+:description "provide interface for more easily search/choice than BBDB.")

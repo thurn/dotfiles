@@ -1,0 +1,4 @@
+(:name fringe-helper
+:auto-generated t
+:type elpa
+:description "helper functions for fringe bitmaps")

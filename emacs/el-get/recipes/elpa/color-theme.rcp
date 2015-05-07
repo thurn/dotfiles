@@ -1,0 +1,4 @@
+(:name color-theme
+:auto-generated t
+:type elpa
+:description "install color themes")

@@ -1,0 +1,4 @@
+(:name gedit-mode
+:auto-generated t
+:type elpa
+:description "Emulate the look & feel of GEdit in Emacs")

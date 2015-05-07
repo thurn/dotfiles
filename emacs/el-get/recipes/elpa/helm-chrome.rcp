@@ -1,0 +1,4 @@
+(:name helm-chrome
+:auto-generated t
+:type elpa
+:description "Helm interface for Chrome bookmarks")

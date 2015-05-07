@@ -1,0 +1,4 @@
+(:name key-intercept
+:auto-generated t
+:type elpa
+:description "Intercept prefix keys")

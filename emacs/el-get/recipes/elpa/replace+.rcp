@@ -1,0 +1,4 @@
+(:name replace+
+:auto-generated t
+:type elpa
+:description "Extensions to `replace.el'.")

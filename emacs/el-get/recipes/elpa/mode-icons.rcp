@@ -1,0 +1,4 @@
+(:name mode-icons
+:auto-generated t
+:type elpa
+:description "Show icons for modes")

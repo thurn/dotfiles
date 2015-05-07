@@ -1,0 +1,4 @@
+(:name org-linkany
+:auto-generated t
+:type elpa
+:description "Insert link using anything.el/helm.el on org-mode")

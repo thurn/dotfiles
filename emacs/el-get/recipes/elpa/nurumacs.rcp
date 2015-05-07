@@ -1,0 +1,4 @@
+(:name nurumacs
+:auto-generated t
+:type elpa
+:description "smooth-scrolling and minimap, like sublime editor")

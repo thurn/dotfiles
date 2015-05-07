@@ -1,0 +1,4 @@
+(:name mew
+:auto-generated t
+:type elpa
+:description "Messaging in the Emacs World")

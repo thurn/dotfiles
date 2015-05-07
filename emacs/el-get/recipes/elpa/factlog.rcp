@@ -1,0 +1,4 @@
+(:name factlog
+:auto-generated t
+:type elpa
+:description "File activity logger")

@@ -1,0 +1,4 @@
+(:name modeline-posn
+:auto-generated t
+:type elpa
+:description "Set up `mode-line-position'.")

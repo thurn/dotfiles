@@ -1,0 +1,4 @@
+(:name mongo-elnode
+:auto-generated t
+:type elpa
+:description "elnode adapter for mongo-el")

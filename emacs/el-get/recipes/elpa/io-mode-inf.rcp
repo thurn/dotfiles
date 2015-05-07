@@ -1,0 +1,4 @@
+(:name io-mode-inf
+:auto-generated t
+:type elpa
+:description "Interaction with an Io interpreter.")

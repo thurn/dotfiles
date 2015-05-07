@@ -1,0 +1,4 @@
+(:name gradle-mode
+:auto-generated t
+:type elpa
+:description "Gradle integration with Emacs' compile")

@@ -1,0 +1,4 @@
+(:name disaster
+:auto-generated t
+:type elpa
+:description "Disassemble C/C++ code under cursor in Emacs")

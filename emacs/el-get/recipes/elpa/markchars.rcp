@@ -1,0 +1,4 @@
+(:name markchars
+:auto-generated t
+:type elpa
+:description "Mark chars fitting certain characteristics")

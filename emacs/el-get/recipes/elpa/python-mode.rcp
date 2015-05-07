@@ -1,0 +1,4 @@
+(:name python-mode
+:auto-generated t
+:type elpa
+:description "An Emacs mode for editing Python code")

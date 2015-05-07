@@ -1,0 +1,4 @@
+(:name browse-kill-ring+
+:auto-generated t
+:type elpa
+:description "Extensions to `browse-kill-ring.el'.")

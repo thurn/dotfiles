@@ -1,0 +1,4 @@
+(:name gnugo
+:auto-generated t
+:type elpa
+:description "play GNU Go in a buffer")

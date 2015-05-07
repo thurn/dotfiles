@@ -1,0 +1,4 @@
+(:name insfactor
+:auto-generated t
+:type elpa
+:description "Client for a Clojure project with insfactor in it")

@@ -1,0 +1,4 @@
+(:name look-dired
+:auto-generated t
+:type elpa
+:description "Extensions to look-mode for dired buffers")

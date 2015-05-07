@@ -1,0 +1,4 @@
+(:name company-tern
+:auto-generated t
+:type elpa
+:description "Tern backend for company-mode")

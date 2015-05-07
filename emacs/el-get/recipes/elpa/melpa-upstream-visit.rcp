@@ -1,0 +1,4 @@
+(:name melpa-upstream-visit
+:auto-generated t
+:type elpa
+:description "A set of kludges to visit a melpa-hosted package's homepage")

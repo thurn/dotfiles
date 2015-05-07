@@ -1,0 +1,4 @@
+(:name quickrun
+:auto-generated t
+:type elpa
+:description "Run commands quickly")

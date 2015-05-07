@@ -1,0 +1,4 @@
+(:name peg
+:auto-generated t
+:type elpa
+:description "Parsing Expression Grammars in Emacs Lisp")

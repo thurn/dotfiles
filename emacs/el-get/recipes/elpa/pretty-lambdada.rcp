@@ -1,0 +1,4 @@
+(:name pretty-lambdada
+:auto-generated t
+:type elpa
+:description "Show the word `lambda' as the Greek letter.")

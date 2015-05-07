@@ -1,0 +1,4 @@
+(:name ess-R-data-view
+:auto-generated t
+:type elpa
+:description "Data viewer for GNU R")

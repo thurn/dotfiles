@@ -1,0 +1,4 @@
+(:name zen-mode
+:auto-generated t
+:type elpa
+:description "remove/restore Emacs distractions quickly")

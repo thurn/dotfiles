@@ -1,0 +1,4 @@
+(:name thingopt
+:auto-generated t
+:type elpa
+:description "Thing at Point optional utilities")

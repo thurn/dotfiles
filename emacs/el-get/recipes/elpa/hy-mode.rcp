@@ -1,0 +1,4 @@
+(:name hy-mode
+:auto-generated t
+:type elpa
+:description "Major mode for Hy code")

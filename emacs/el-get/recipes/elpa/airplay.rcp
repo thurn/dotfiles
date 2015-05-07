@@ -1,0 +1,4 @@
+(:name airplay
+:auto-generated t
+:type elpa
+:description "Airplay bindings to Emacs")

@@ -1,0 +1,4 @@
+(:name pinboard
+:auto-generated t
+:type elpa
+:description "get stuff from pinboard")

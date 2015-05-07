@@ -1,0 +1,4 @@
+(:name savekill
+:auto-generated t
+:type elpa
+:description "Save kill ring to disk")

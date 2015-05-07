@@ -1,0 +1,4 @@
+(:name flymake-perlcritic
+:auto-generated t
+:type elpa
+:description "Flymake handler for Perl to invoke Perl::Critic")

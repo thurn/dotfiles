@@ -1,0 +1,4 @@
+(:name egg
+:auto-generated t
+:type elpa
+:description "Emacs Got Git - Emacs interface to Git")

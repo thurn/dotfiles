@@ -1,0 +1,4 @@
+(:name rdf-prefix
+:auto-generated t
+:type elpa
+:description "Prefix lookup for RDF")

@@ -1,0 +1,4 @@
+(:name scrolloff
+:auto-generated t
+:type elpa
+:description "This mode ofers vim-like scrolloff function")

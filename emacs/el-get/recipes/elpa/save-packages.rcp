@@ -1,0 +1,4 @@
+(:name save-packages
+:auto-generated t
+:type elpa
+:description "save and restore installed packages")

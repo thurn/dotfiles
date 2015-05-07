@@ -1,0 +1,4 @@
+(:name ob-mongo
+:auto-generated t
+:type elpa
+:description "Execute mongodb queries within org-mode blocks.")

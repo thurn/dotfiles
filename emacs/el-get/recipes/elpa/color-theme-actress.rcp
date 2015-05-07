@@ -1,0 +1,4 @@
+(:name color-theme-actress
+:auto-generated t
+:type elpa
+:description "A dark color theme for GNU Emacs.")

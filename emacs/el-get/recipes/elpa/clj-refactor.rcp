@@ -1,0 +1,4 @@
+(:name clj-refactor
+:auto-generated t
+:type elpa
+:description "A collection of clojure refactoring functions")

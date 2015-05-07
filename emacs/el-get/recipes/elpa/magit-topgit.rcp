@@ -1,0 +1,4 @@
+(:name magit-topgit
+:auto-generated t
+:type elpa
+:description "topgit plug-in for Magit")

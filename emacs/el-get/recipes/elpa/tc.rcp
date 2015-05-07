@@ -1,0 +1,4 @@
+(:name tc
+:auto-generated t
+:type elpa
+:description "a Japanese input method with T-Code on Emacs")

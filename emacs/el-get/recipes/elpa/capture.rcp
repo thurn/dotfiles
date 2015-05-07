@@ -1,0 +1,4 @@
+(:name capture
+:auto-generated t
+:type elpa
+:description "screencasting with "avconv" or "ffmpeg"")

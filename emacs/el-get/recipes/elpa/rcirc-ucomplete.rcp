@@ -1,0 +1,4 @@
+(:name rcirc-ucomplete
+:auto-generated t
+:type elpa
+:description "Unambiguous non-cycling completion for rcirc")

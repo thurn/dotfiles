@@ -1,0 +1,4 @@
+(:name window-end-visible
+:auto-generated t
+:type elpa
+:description "Find the last visible point in a window")

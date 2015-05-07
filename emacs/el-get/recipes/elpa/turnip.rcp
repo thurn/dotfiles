@@ -1,0 +1,4 @@
+(:name turnip
+:auto-generated t
+:type elpa
+:description "Interacting with tmux from Emacs")

@@ -1,0 +1,4 @@
+(:name volume
+:auto-generated t
+:type elpa
+:description "tweak your sound card volume from Emacs")

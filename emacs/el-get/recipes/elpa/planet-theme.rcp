@@ -1,0 +1,4 @@
+(:name planet-theme
+:auto-generated t
+:type elpa
+:description "A dark theme inspired by Gmail's 'Planets' theme of yore")

@@ -1,0 +1,4 @@
+(:name palimpsest
+:auto-generated t
+:type elpa
+:description "Various deletion strategies when editing")

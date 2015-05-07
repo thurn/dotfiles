@@ -1,0 +1,4 @@
+(:name grin
+:auto-generated t
+:type elpa
+:description "run grin and grind (python replacements for grep and find) putting hits in a grep buffer")

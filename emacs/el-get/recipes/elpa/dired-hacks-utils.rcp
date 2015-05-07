@@ -1,0 +1,4 @@
+(:name dired-hacks-utils
+:auto-generated t
+:type elpa
+:description "Utilities and helpers for dired-hacks collection")

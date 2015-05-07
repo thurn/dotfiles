@@ -1,0 +1,4 @@
+(:name reveal-next
+:auto-generated t
+:type elpa
+:description "Progressively reveal text after the cursor.")

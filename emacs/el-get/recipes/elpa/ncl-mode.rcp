@@ -1,0 +1,4 @@
+(:name ncl-mode
+:auto-generated t
+:type elpa
+:description "Major Mode for editing NCL scripts and other goodies")

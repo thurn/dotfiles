@@ -1,0 +1,4 @@
+(:name dom
+:auto-generated t
+:type elpa
+:description "DOM implementation")

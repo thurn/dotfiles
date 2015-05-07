@@ -1,0 +1,4 @@
+(:name unison-mode
+:auto-generated t
+:type elpa
+:description "Syntax highlighting for unison file synchronization program")

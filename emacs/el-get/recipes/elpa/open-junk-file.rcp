@@ -1,0 +1,4 @@
+(:name open-junk-file
+:auto-generated t
+:type elpa
+:description "Open a junk (memo) file to try-and-error")

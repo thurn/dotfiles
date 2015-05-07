@@ -1,0 +1,4 @@
+(:name etags-select
+:auto-generated t
+:type elpa
+:description "Select from multiple tags")

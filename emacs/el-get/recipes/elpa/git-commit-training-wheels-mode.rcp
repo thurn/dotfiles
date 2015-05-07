@@ -1,0 +1,4 @@
+(:name git-commit-training-wheels-mode
+:auto-generated t
+:type elpa
+:description "Helps you craft well formed commit messages with git-commit-mode")

@@ -1,0 +1,4 @@
+(:name clojure-project
+:auto-generated t
+:type elpa
+:description "Extends project-mode for Clojure projects")

@@ -1,0 +1,4 @@
+(:name ws-trim
+:auto-generated t
+:type elpa
+:description "Tools and minor mode to trim whitespace on text lines")

@@ -1,0 +1,4 @@
+(:name fancy-narrow
+:auto-generated t
+:type elpa
+:description "narrow-to-region with more eye candy.")

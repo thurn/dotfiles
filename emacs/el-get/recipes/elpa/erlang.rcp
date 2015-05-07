@@ -1,0 +1,4 @@
+(:name erlang
+:auto-generated t
+:type elpa
+:description "Erlang major mode")

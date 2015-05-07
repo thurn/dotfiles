@@ -1,0 +1,4 @@
+(:name shorten
+:auto-generated t
+:type elpa
+:description "component-wise string shortener")

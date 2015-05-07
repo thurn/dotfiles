@@ -1,0 +1,4 @@
+(:name regex-tool
+:auto-generated t
+:type elpa
+:description "A regular expression evaluation tool for programmers")

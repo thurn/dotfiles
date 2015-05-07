@@ -1,0 +1,4 @@
+(:name enwc
+:auto-generated t
+:type elpa
+:description "The Emacs Network Client")

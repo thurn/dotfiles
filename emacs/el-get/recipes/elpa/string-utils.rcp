@@ -1,0 +1,4 @@
+(:name string-utils
+:auto-generated t
+:type elpa
+:description "String-manipulation utilities")

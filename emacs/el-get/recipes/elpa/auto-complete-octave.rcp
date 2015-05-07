@@ -1,0 +1,4 @@
+(:name auto-complete-octave
+:auto-generated t
+:type elpa
+:description "Auto-complete for Octave")

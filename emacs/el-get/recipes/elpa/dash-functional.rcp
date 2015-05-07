@@ -1,0 +1,4 @@
+(:name dash-functional
+:auto-generated t
+:type elpa
+:description "Collection of useful combinators for Emacs Lisp")

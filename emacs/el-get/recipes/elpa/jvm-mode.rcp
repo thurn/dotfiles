@@ -1,0 +1,4 @@
+(:name jvm-mode
+:auto-generated t
+:type elpa
+:description "Monitor and manage your JVMs")

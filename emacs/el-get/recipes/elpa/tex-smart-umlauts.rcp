@@ -1,0 +1,4 @@
+(:name tex-smart-umlauts
+:auto-generated t
+:type elpa
+:description "Smart umlaut conversion for TeX.")

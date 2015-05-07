@@ -1,0 +1,4 @@
+(:name erc-youtube
+:auto-generated t
+:type elpa
+:description "Show received youtube urls in the ERC buffer")

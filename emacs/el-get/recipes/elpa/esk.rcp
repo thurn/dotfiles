@@ -1,0 +1,4 @@
+(:name esk
+:auto-generated t
+:type elpa
+:description "Emacs Search Kit - An easy way to find files and/or strings in a project")

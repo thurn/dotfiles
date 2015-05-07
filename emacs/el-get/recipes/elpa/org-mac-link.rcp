@@ -1,0 +1,4 @@
+(:name org-mac-link
+:auto-generated t
+:type elpa
+:description "Grab links and url from various mac")

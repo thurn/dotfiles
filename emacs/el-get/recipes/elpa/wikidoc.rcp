@@ -1,0 +1,4 @@
+(:name wikidoc
+:auto-generated t
+:type elpa
+:description "use elisp doc strings to make other documentation")

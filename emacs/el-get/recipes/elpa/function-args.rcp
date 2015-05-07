@@ -1,0 +1,4 @@
+(:name function-args
+:auto-generated t
+:type elpa
+:description "C++ completion for GNU Emacs")

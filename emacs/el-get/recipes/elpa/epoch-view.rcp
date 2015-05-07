@@ -1,0 +1,4 @@
+(:name epoch-view
+:auto-generated t
+:type elpa
+:description "Minor mode to visualize epoch timestamps")

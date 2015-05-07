@@ -1,0 +1,4 @@
+(:name rcirc-alertify
+:auto-generated t
+:type elpa
+:description "Cross platform notifications for rcirc")

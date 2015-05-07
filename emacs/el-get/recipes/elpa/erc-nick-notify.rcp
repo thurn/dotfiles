@@ -1,0 +1,4 @@
+(:name erc-nick-notify
+:auto-generated t
+:type elpa
+:description "Notify popup for ERC")

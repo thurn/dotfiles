@@ -1,0 +1,4 @@
+(:name ace-link
+:auto-generated t
+:type elpa
+:description "Quickly follow links using `ace-jump-mode'")

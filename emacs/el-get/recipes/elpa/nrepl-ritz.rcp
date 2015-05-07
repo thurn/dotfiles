@@ -1,0 +1,4 @@
+(:name nrepl-ritz
+:auto-generated t
+:type elpa
+:description "nrepl extensions for ritz")

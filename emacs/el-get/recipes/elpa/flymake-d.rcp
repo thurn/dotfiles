@@ -1,0 +1,4 @@
+(:name flymake-d
+:auto-generated t
+:type elpa
+:description "A flymake handler for d-mode files")

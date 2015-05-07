@@ -1,0 +1,4 @@
+(:name hlinum
+:auto-generated t
+:type elpa
+:description "Extension for linum.el to highlight current line number")

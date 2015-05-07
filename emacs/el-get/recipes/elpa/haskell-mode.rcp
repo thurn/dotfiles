@@ -1,0 +1,4 @@
+(:name haskell-mode
+:auto-generated t
+:type elpa
+:description "A Haskell editing mode")

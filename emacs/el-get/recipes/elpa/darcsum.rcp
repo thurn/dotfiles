@@ -1,0 +1,4 @@
+(:name darcsum
+:auto-generated t
+:type elpa
+:description "a pcl-cvs like interface for managing darcs patches")

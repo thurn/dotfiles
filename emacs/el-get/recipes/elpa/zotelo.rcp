@@ -1,0 +1,4 @@
+(:name zotelo
+:auto-generated t
+:type elpa
+:description "Manage Zotero collections from emacs")

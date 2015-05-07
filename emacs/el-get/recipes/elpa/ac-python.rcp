@@ -1,0 +1,4 @@
+(:name ac-python
+:auto-generated t
+:type elpa
+:description "Simple Python Completion Source for Auto-Complete")

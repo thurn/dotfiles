@@ -1,0 +1,4 @@
+(:name with-namespace
+:auto-generated t
+:type elpa
+:description "interoperable elisp namespaces")

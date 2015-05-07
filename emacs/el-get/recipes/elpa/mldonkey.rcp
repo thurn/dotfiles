@@ -1,0 +1,4 @@
+(:name mldonkey
+:auto-generated t
+:type elpa
+:description "Multi-networks peer-to-peer client.")

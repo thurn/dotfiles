@@ -1,0 +1,4 @@
+(:name synonyms
+:auto-generated t
+:type elpa
+:description "Look up synonyms for a word or phrase in a thesaurus.")

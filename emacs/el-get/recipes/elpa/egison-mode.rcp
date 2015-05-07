@@ -1,0 +1,4 @@
+(:name egison-mode
+:auto-generated t
+:type elpa
+:description "Egison editing mode")

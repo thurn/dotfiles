@@ -1,0 +1,4 @@
+(:name helm-proc
+:auto-generated t
+:type elpa
+:description "Helm interface for managing system processes")

@@ -1,0 +1,4 @@
+(:name ggo-mode
+:auto-generated t
+:type elpa
+:description "Gengetopt major mode")

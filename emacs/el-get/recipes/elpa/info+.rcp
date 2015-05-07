@@ -1,0 +1,4 @@
+(:name info+
+:auto-generated t
+:type elpa
+:description "Extensions to `info.el'.")

@@ -1,0 +1,4 @@
+(:name lingr
+:auto-generated t
+:type elpa
+:description "Lingr Client for GNU Emacs")

@@ -1,0 +1,4 @@
+(:name json-snatcher
+:auto-generated t
+:type elpa
+:description "Grabs the path to JSON values in a JSON file")

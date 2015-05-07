@@ -1,0 +1,4 @@
+(:name eval-in-repl
+:auto-generated t
+:type elpa
+:description "Consistent ESS-like eval interface for various REPLs")

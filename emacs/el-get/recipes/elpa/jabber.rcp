@@ -1,0 +1,4 @@
+(:name jabber
+:auto-generated t
+:type elpa
+:description "A Jabber client for Emacs.")

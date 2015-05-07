@@ -1,0 +1,4 @@
+(:name face-remap+
+:auto-generated t
+:type elpa
+:description "Extensions to standard library `face-remap.el'.")

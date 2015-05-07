@@ -1,0 +1,4 @@
+(:name ein
+:auto-generated t
+:type elpa
+:description "Emacs IPython Notebook")

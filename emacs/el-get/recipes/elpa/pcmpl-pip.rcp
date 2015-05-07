@@ -1,0 +1,4 @@
+(:name pcmpl-pip
+:auto-generated t
+:type elpa
+:description "pcomplete for pip")

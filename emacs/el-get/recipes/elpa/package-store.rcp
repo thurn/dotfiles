@@ -1,0 +1,4 @@
+(:name package-store
+:auto-generated t
+:type elpa
+:description "a package cache")

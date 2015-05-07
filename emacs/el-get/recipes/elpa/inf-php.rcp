@@ -1,0 +1,4 @@
+(:name inf-php
+:auto-generated t
+:type elpa
+:description "Run a php interactive shell in a buffer")

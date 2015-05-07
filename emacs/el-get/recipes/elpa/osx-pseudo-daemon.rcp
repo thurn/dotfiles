@@ -1,0 +1,4 @@
+(:name osx-pseudo-daemon
+:auto-generated t
+:type elpa
+:description "Daemon mode that plays nice with OSX.")

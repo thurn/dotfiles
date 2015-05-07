@@ -1,0 +1,4 @@
+(:name anchored-transpose
+:auto-generated t
+:type elpa
+:description "Transposes a phrase around an anchor phrase")

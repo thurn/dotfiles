@@ -1,0 +1,4 @@
+(:name namespaces
+:auto-generated t
+:type elpa
+:description "An implementation of namespaces for Elisp, with an emphasis on immutabilty.")

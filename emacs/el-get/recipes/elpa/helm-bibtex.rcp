@@ -1,0 +1,4 @@
+(:name helm-bibtex
+:auto-generated t
+:type elpa
+:description "Helm source for managing BibTeX bibliographies")

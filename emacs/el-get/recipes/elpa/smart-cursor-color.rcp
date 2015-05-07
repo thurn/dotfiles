@@ -1,0 +1,4 @@
+(:name smart-cursor-color
+:auto-generated t
+:type elpa
+:description "Change cursor color dynamically")

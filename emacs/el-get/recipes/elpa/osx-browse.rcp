@@ -1,0 +1,4 @@
+(:name osx-browse
+:auto-generated t
+:type elpa
+:description "Web browsing helpers for OS X")

@@ -1,0 +1,4 @@
+(:name eldoro
+:auto-generated t
+:type elpa
+:description "A pomodoro timer/tracker that works with org-mode.")

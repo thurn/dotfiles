@@ -1,0 +1,4 @@
+(:name morlock
+:auto-generated t
+:type elpa
+:description "more font-lock keywords for elisp")

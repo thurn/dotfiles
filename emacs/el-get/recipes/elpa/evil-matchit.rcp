@@ -1,0 +1,4 @@
+(:name evil-matchit
+:auto-generated t
+:type elpa
+:description "Vim matchit ported into Emacs (requires EVIL)")

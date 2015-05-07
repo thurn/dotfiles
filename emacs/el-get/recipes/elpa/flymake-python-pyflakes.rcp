@@ -1,0 +1,4 @@
+(:name flymake-python-pyflakes
+:auto-generated t
+:type elpa
+:description "A flymake handler for python-mode files using pyflakes (or flake8)")

@@ -1,0 +1,4 @@
+(:name wwtime
+:auto-generated t
+:type elpa
+:description "Insert a time of day with appropriate world-wide localization")

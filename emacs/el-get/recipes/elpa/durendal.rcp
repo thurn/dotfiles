@@ -1,0 +1,4 @@
+(:name durendal
+:auto-generated t
+:type elpa
+:description "A bucket of tricks for Clojure and Slime.")

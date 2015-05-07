@@ -1,0 +1,4 @@
+(:name org-cua-dwim
+:auto-generated t
+:type elpa
+:description "Org-mode and Cua mode compatibility layer")

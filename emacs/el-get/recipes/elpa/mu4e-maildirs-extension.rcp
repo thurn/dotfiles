@@ -1,0 +1,4 @@
+(:name mu4e-maildirs-extension
+:auto-generated t
+:type elpa
+:description "Show mu4e maildirs summary in mu4e-main-view")

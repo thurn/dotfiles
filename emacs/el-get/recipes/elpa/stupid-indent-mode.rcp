@@ -1,0 +1,4 @@
+(:name stupid-indent-mode
+:auto-generated t
+:type elpa
+:description "Plain stupid indentation minor mode")

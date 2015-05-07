@@ -1,0 +1,4 @@
+(:name cssh
+:auto-generated t
+:type elpa
+:description "clusterssh implementation for emacs")

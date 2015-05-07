@@ -1,0 +1,4 @@
+(:name epc
+:auto-generated t
+:type elpa
+:description "A RPC stack for the Emacs Lisp")

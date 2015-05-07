@@ -1,0 +1,4 @@
+(:name malabar-mode
+:auto-generated t
+:type elpa
+:description "A better Java mode for Emacs")

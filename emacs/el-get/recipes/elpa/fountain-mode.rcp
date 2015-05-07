@@ -1,0 +1,4 @@
+(:name fountain-mode
+:auto-generated t
+:type elpa
+:description "Major mode for screenwriting in Fountain markup")

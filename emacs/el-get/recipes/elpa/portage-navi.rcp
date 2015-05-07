@@ -1,0 +1,4 @@
+(:name portage-navi
+:auto-generated t
+:type elpa
+:description "portage viewer")

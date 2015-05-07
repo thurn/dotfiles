@@ -1,0 +1,4 @@
+(:name gnusnotes
+:auto-generated t
+:type elpa
+:description "Adding per-message notes in gnus summary buffer")

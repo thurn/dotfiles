@@ -1,0 +1,4 @@
+(:name asn1-mode
+:auto-generated t
+:type elpa
+:description "ASN.1/GDMO mode for GNU Emacs")

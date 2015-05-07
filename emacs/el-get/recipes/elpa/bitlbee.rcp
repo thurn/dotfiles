@@ -1,0 +1,4 @@
+(:name bitlbee
+:auto-generated t
+:type elpa
+:description "Help get Bitlbee (http://www.bitlbee.org) up and running.")

@@ -1,0 +1,4 @@
+(:name javadoc-help
+:auto-generated t
+:type elpa
+:description "Javadoc-Help.  Look up Java class on online javadocs in browser.")

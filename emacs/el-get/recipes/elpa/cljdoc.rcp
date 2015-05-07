@@ -1,0 +1,4 @@
+(:name cljdoc
+:auto-generated t
+:type elpa
+:description "eldoc mode for clojure")

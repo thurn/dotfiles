@@ -1,0 +1,4 @@
+(:name lusty-explorer
+:auto-generated t
+:type elpa
+:description "Dynamic filesystem explorer and buffer switcher")

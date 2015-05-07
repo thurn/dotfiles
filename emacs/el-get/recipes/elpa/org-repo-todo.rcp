@@ -1,0 +1,4 @@
+(:name org-repo-todo
+:auto-generated t
+:type elpa
+:description "Simple repository todo management with org-mode")

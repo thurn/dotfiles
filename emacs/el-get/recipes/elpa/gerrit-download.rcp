@@ -1,0 +1,4 @@
+(:name gerrit-download
+:auto-generated t
+:type elpa
+:description "Show gerrit reviews in a diff buffer.")

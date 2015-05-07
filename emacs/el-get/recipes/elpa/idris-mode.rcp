@@ -1,0 +1,4 @@
+(:name idris-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Idris code")

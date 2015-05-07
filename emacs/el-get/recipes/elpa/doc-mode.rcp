@@ -1,0 +1,4 @@
+(:name doc-mode
+:auto-generated t
+:type elpa
+:description "convenient editing of in-code documentation")

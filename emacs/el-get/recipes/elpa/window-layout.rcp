@@ -1,0 +1,4 @@
+(:name window-layout
+:auto-generated t
+:type elpa
+:description "window layout manager")

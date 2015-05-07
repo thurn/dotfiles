@@ -1,0 +1,4 @@
+(:name better-defaults
+:auto-generated t
+:type elpa
+:description "Fixing weird quirks and poor defaults")

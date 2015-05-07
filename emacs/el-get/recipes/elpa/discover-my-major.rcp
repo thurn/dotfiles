@@ -1,0 +1,4 @@
+(:name discover-my-major
+:auto-generated t
+:type elpa
+:description "Discover key bindings and their meaning for the current Emacs major mode")

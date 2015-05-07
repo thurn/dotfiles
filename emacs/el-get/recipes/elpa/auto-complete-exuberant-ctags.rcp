@@ -1,0 +1,4 @@
+(:name auto-complete-exuberant-ctags
+:auto-generated t
+:type elpa
+:description "Exuberant ctags auto-complete.el source")

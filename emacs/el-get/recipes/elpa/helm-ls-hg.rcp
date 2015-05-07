@@ -1,0 +1,4 @@
+(:name helm-ls-hg
+:auto-generated t
+:type elpa
+:description "List hg files in hg project.")

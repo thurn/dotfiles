@@ -1,0 +1,4 @@
+(:name weather
+:auto-generated t
+:type elpa
+:description "Get weather reports via worldweatheronline.com")

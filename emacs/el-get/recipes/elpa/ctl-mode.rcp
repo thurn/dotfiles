@@ -1,0 +1,4 @@
+(:name ctl-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing GrADS script files")

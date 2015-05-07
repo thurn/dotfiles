@@ -1,0 +1,4 @@
+(:name color-theme-eclipse
+:auto-generated t
+:type elpa
+:description "Eclipse color theme for GNU Emacs.")

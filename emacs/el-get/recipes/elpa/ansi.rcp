@@ -1,0 +1,4 @@
+(:name ansi
+:auto-generated t
+:type elpa
+:description "Turn string into ansi strings")

@@ -1,0 +1,4 @@
+(:name helm-rubygems-local
+:auto-generated t
+:type elpa
+:description "Installed local rubygems find-file for helm")

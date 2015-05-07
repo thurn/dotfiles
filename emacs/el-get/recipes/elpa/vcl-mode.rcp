@@ -1,0 +1,4 @@
+(:name vcl-mode
+:auto-generated t
+:type elpa
+:description "Syntax highlighting for Varnish Command Language")

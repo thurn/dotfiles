@@ -1,0 +1,4 @@
+(:name pcsv
+:auto-generated t
+:type elpa
+:description "Parser of csv")

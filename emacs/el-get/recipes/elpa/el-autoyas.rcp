@@ -1,0 +1,4 @@
+(:name el-autoyas
+:auto-generated t
+:type elpa
+:description "Automatically create Emacs-Lisp Yasnippets")

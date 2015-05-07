@@ -1,0 +1,4 @@
+(:name minibuf-isearch
+:auto-generated t
+:type elpa
+:description "incremental search on minibuffer history")

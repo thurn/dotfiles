@@ -1,0 +1,4 @@
+(:name ttrss
+:auto-generated t
+:type elpa
+:description "Tiny Tiny RSS elisp bindings")

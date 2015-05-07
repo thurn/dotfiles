@@ -1,0 +1,4 @@
+(:name eprime-mode
+:auto-generated t
+:type elpa
+:description "An E-prime checking mode for Emacs")

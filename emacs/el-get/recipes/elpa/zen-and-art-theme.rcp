@@ -1,0 +1,4 @@
+(:name zen-and-art-theme
+:auto-generated t
+:type elpa
+:description "zen and art color theme for GNU Emacs 24")

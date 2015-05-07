@@ -1,0 +1,4 @@
+(:name graphviz-dot-mode
+:auto-generated t
+:type elpa
+:description "Mode for the dot-language used by graphviz (att).")

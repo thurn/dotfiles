@@ -1,0 +1,4 @@
+(:name flex-autopair
+:auto-generated t
+:type elpa
+:description "Automatically insert pair braces and quotes, insertion conditions & actions are highly customizable.")

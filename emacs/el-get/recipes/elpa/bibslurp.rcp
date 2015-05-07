@@ -1,0 +1,4 @@
+(:name bibslurp
+:auto-generated t
+:type elpa
+:description "retrieve BibTeX entries from NASA ADS")

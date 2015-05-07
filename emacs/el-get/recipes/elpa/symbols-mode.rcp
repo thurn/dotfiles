@@ -1,0 +1,4 @@
+(:name symbols-mode
+:auto-generated t
+:type elpa
+:description "List symbols of object files")

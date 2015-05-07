@@ -1,0 +1,4 @@
+(:name zotxt
+:auto-generated t
+:type elpa
+:description "Tools to integrate emacs with Zotero via the zotxt plugin.")

@@ -1,0 +1,4 @@
+(:name org-link-travis
+:auto-generated t
+:type elpa
+:description "Insert/Export the link of Travis CI on org-mode")

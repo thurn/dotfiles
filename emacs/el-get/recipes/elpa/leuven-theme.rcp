@@ -1,0 +1,4 @@
+(:name leuven-theme
+:auto-generated t
+:type elpa
+:description "Awesome Emacs color theme on white background")

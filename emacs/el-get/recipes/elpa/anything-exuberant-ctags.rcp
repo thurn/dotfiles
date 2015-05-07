@@ -1,0 +1,4 @@
+(:name anything-exuberant-ctags
+:auto-generated t
+:type elpa
+:description "Exuberant ctags anything.el interface")

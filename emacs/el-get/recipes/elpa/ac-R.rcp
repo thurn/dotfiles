@@ -1,0 +1,4 @@
+(:name ac-R
+:auto-generated t
+:type elpa
+:description "Autocompletion routines for R")

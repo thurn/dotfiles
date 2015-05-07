@@ -1,0 +1,4 @@
+(:name sql-indent
+:auto-generated t
+:type elpa
+:description "indentation of SQL statements")

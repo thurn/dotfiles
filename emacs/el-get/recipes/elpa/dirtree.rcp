@@ -1,0 +1,4 @@
+(:name dirtree
+:auto-generated t
+:type elpa
+:description "Directory tree views")

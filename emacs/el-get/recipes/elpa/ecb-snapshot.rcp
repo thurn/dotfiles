@@ -1,0 +1,4 @@
+(:name ecb-snapshot
+:auto-generated t
+:type elpa
+:description "Emacs Code Browser CVS snapshot")

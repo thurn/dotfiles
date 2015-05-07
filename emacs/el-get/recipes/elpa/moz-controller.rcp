@@ -1,0 +1,4 @@
+(:name moz-controller
+:auto-generated t
+:type elpa
+:description "Control Firefox from Emacs")

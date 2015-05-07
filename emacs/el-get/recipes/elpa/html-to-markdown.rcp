@@ -1,0 +1,4 @@
+(:name html-to-markdown
+:auto-generated t
+:type elpa
+:description "HTML to Markdown converter written in Emacs-lisp.")

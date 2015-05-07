@@ -1,0 +1,4 @@
+(:name thread-dump
+:auto-generated t
+:type elpa
+:description "Java thread dump viewer")

@@ -1,0 +1,4 @@
+(:name command-frequency
+:auto-generated t
+:type elpa
+:description "Track command frequencies")

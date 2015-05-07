@@ -1,0 +1,4 @@
+(:name org-eldoc
+:auto-generated t
+:type elpa
+:description "display org header and src block info using eldoc")

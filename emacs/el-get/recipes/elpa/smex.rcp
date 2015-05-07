@@ -1,0 +1,4 @@
+(:name smex
+:auto-generated t
+:type elpa
+:description "M-x interface with Ido-style fuzzy matching.")

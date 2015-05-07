@@ -1,0 +1,4 @@
+(:name switch-window
+:auto-generated t
+:type elpa
+:description "A *visual* way to choose a window to switch to")

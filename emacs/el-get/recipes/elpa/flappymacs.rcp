@@ -1,0 +1,4 @@
+(:name flappymacs
+:auto-generated t
+:type elpa
+:description "flappybird clone for emacs")

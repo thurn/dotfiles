@@ -1,0 +1,4 @@
+(:name sumatra-forward
+:auto-generated t
+:type elpa
+:description "Provides Sumatra Forward search")

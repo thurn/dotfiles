@@ -1,0 +1,4 @@
+(:name httprepl
+:auto-generated t
+:type elpa
+:description "An HTTP REPL")

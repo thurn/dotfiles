@@ -1,0 +1,4 @@
+(:name flymake-gjshint
+:auto-generated t
+:type elpa
+:description "A flymake handler for javascript using both jshint and gjslint")

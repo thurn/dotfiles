@@ -1,0 +1,4 @@
+(:name command-stats
+:auto-generated t
+:type elpa
+:description "Track frequency of commands executed in emacs")

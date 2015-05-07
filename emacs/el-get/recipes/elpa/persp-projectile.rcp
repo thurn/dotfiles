@@ -1,0 +1,4 @@
+(:name persp-projectile
+:auto-generated t
+:type elpa
+:description "Perspective integration with Projectile")

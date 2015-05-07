@@ -1,0 +1,4 @@
+(:name test-case-mode
+:auto-generated t
+:type elpa
+:description "unit test front-end")

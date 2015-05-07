@@ -1,0 +1,4 @@
+(:name viper-in-more-modes
+:auto-generated t
+:type elpa
+:description "vi-like keybindings for various Emacs modes")

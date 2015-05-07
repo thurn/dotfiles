@@ -1,0 +1,4 @@
+(:name color-theme-emacs-revert-theme
+:auto-generated t
+:type elpa
+:description "Color-theme revert to emacs colors")

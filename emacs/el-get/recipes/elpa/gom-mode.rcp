@@ -1,0 +1,4 @@
+(:name gom-mode
+:auto-generated t
+:type elpa
+:description "Major mode for Gomfile")

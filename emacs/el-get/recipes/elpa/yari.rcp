@@ -1,0 +1,4 @@
+(:name yari
+:auto-generated t
+:type elpa
+:description "Yet Another RI interface for Emacs")

@@ -1,0 +1,4 @@
+(:name hc-zenburn-theme
+:auto-generated t
+:type elpa
+:description "An higher contrast version of the Zenburn theme.")

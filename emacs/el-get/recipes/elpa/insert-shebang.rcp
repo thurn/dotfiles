@@ -1,0 +1,4 @@
+(:name insert-shebang
+:auto-generated t
+:type elpa
+:description "Insert shebang line automatically.")

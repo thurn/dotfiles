@@ -1,0 +1,4 @@
+(:name ir-black-theme
+:auto-generated t
+:type elpa
+:description "Port of ir-black theme")

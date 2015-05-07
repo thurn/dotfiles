@@ -1,0 +1,4 @@
+(:name fish-mode
+:auto-generated t
+:type elpa
+:description "Major mode for fish shell scripts")

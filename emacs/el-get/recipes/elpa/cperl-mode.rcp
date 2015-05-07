@@ -1,0 +1,4 @@
+(:name cperl-mode
+:auto-generated t
+:type elpa
+:description "Perl code editing commands for Emacs")

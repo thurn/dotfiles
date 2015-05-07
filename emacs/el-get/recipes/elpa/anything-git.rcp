@@ -1,0 +1,4 @@
+(:name anything-git
+:auto-generated t
+:type elpa
+:description "Show git files in anything")

@@ -1,0 +1,4 @@
+(:name brainfuck-mode
+:auto-generated t
+:type elpa
+:description "Brainfuck mode for Emacs")

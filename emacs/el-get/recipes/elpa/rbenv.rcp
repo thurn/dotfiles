@@ -1,0 +1,4 @@
+(:name rbenv
+:auto-generated t
+:type elpa
+:description "Emacs integration for rbenv")

@@ -1,0 +1,4 @@
+(:name edbi-sqlite3
+:auto-generated t
+:type elpa
+:description "Open sqlite3 files with edbi")

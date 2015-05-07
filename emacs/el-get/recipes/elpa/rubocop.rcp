@@ -1,0 +1,4 @@
+(:name rubocop
+:auto-generated t
+:type elpa
+:description "An Emacs interface for RuboCop")

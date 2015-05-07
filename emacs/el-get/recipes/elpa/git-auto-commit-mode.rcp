@@ -1,0 +1,4 @@
+(:name git-auto-commit-mode
+:auto-generated t
+:type elpa
+:description "Emacs Minor mode to automatically commit and push")

@@ -1,0 +1,4 @@
+(:name init-loader
+:auto-generated t
+:type elpa
+:description "Loader for configuration files")

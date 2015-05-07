@@ -1,0 +1,4 @@
+(:name org-blog
+:auto-generated t
+:type elpa
+:description "create and publish a blog with org-mode")

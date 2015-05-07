@@ -1,0 +1,4 @@
+(:name move-line
+:auto-generated t
+:type elpa
+:description "utilities for moving lines in file")

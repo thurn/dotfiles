@@ -1,0 +1,4 @@
+(:name cmds-menu
+:auto-generated t
+:type elpa
+:description "`Recent Commands' submenu for the menu-bar `Tools' menu.")

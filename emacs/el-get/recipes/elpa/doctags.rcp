@@ -1,0 +1,4 @@
+(:name doctags
+:auto-generated t
+:type elpa
+:description "Generation of tags documentation in Doxygen syntax")

@@ -1,0 +1,4 @@
+(:name env-var-import
+:auto-generated t
+:type elpa
+:description "Import shell environment variables in GUI Emacs")

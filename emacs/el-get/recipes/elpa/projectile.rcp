@@ -1,0 +1,4 @@
+(:name projectile
+:auto-generated t
+:type elpa
+:description "Manage and navigate projects in Emacs easily")

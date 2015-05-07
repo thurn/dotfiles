@@ -1,0 +1,4 @@
+(:name code-headers
+:auto-generated t
+:type elpa
+:description "Navigate code with headers embedded in comments.  -*- mode: Emacs-Lisp; lexical-binding: t; -*")

@@ -1,0 +1,4 @@
+(:name initsplit
+:auto-generated t
+:type elpa
+:description "code to split customizations into different files")

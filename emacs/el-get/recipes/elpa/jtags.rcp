@@ -1,0 +1,4 @@
+(:name jtags
+:auto-generated t
+:type elpa
+:description "enhanced tags functionality for Java development")

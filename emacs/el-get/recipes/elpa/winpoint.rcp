@@ -1,0 +1,4 @@
+(:name winpoint
+:auto-generated t
+:type elpa
+:description "Remember buffer positions per-window, not per buffer")

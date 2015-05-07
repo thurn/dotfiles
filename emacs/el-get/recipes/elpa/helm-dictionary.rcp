@@ -1,0 +1,4 @@
+(:name helm-dictionary
+:auto-generated t
+:type elpa
+:description "Helm source for looking up dictionaries")

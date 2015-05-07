@@ -1,0 +1,4 @@
+(:name helm-pydoc
+:auto-generated t
+:type elpa
+:description "pydoc with helm interface")

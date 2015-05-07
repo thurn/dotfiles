@@ -1,0 +1,4 @@
+(:name wgrep
+:auto-generated t
+:type elpa
+:description "Writable grep buffer and apply the changes to files")

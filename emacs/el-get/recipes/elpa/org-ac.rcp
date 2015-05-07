@@ -1,0 +1,4 @@
+(:name org-ac
+:auto-generated t
+:type elpa
+:description "Some auto-complete sources for org-mode")

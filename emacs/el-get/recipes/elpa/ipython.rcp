@@ -1,0 +1,4 @@
+(:name ipython
+:auto-generated t
+:type elpa
+:description "Adds support for IPython to python-mode.el")

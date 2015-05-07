@@ -1,0 +1,4 @@
+(:name auctex-latexmk
+:auto-generated t
+:type elpa
+:description "Add LatexMk support to AUCTeX")

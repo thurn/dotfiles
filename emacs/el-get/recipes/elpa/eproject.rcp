@@ -1,0 +1,4 @@
+(:name eproject
+:auto-generated t
+:type elpa
+:description "assign files to projects, programatically")

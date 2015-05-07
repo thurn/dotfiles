@@ -1,0 +1,4 @@
+(:name cherry-blossom-theme
+:auto-generated t
+:type elpa
+:description "a soothing color theme for Emacs24.")

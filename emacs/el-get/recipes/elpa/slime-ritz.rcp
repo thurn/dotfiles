@@ -1,0 +1,4 @@
+(:name slime-ritz
+:auto-generated t
+:type elpa
+:description "slime extensions for ritz")

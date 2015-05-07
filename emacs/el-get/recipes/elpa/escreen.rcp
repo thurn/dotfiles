@@ -1,0 +1,4 @@
+(:name escreen
+:auto-generated t
+:type elpa
+:description "emacs window session manager")

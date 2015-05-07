@@ -1,0 +1,4 @@
+(:name toml-mode
+:auto-generated t
+:type elpa
+:description "Mojor mode for editing TOML files")

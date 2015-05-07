@@ -1,0 +1,4 @@
+(:name blgrep
+:auto-generated t
+:type elpa
+:description "Block grep")

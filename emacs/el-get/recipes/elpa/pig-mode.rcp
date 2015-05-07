@@ -1,0 +1,4 @@
+(:name pig-mode
+:auto-generated t
+:type elpa
+:description "Major mode for Pig files")

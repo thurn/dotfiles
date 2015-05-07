@@ -1,0 +1,4 @@
+(:name ido-gnus
+:auto-generated t
+:type elpa
+:description "Access gnus groups or servers using ido")

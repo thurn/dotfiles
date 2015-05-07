@@ -1,0 +1,4 @@
+(:name lexbind-mode
+:auto-generated t
+:type elpa
+:description "Puts the value of lexical-binding in the mode line")

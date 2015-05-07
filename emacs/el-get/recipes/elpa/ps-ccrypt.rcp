@@ -1,0 +1,4 @@
+(:name ps-ccrypt
+:auto-generated t
+:type elpa
+:description "reading/writing/loading encrypted files")

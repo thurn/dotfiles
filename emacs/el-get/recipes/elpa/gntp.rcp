@@ -1,0 +1,4 @@
+(:name gntp
+:auto-generated t
+:type elpa
+:description "Growl Notification Protocol for Emacs")

@@ -1,0 +1,4 @@
+(:name jumblr
+:auto-generated t
+:type elpa
+:description "an anagram game for emacs")

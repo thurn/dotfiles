@@ -1,0 +1,4 @@
+(:name eieio
+:auto-generated t
+:type elpa
+:description "Enhanced Implementation of Emacs Interpreted Objects")

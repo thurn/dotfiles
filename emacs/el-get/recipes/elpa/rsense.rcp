@@ -1,0 +1,4 @@
+(:name rsense
+:auto-generated t
+:type elpa
+:description "RSense client for Emacs")

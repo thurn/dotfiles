@@ -1,0 +1,4 @@
+(:name highlight-current-line
+:auto-generated t
+:type elpa
+:description "highlight line where the cursor is.")

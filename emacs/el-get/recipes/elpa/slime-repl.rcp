@@ -1,0 +1,4 @@
+(:name slime-repl
+:auto-generated t
+:type elpa
+:description "Read-Eval-Print Loop written in Emacs Lisp")

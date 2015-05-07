@@ -1,0 +1,4 @@
+(:name org-pomodoro
+:auto-generated t
+:type elpa
+:description "Pomodoro implementation for org-mode.")

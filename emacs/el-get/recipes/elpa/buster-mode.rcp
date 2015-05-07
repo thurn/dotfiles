@@ -1,0 +1,4 @@
+(:name buster-mode
+:auto-generated t
+:type elpa
+:description "Minor mode to speed up development when writing tests with Buster.js")

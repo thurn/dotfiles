@@ -1,0 +1,4 @@
+(:name pillar
+:auto-generated t
+:type elpa
+:description "Major mode for editing Pillar files")

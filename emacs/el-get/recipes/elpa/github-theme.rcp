@@ -1,0 +1,4 @@
+(:name github-theme
+:auto-generated t
+:type elpa
+:description "Github color theme for GNU Emacs 24")

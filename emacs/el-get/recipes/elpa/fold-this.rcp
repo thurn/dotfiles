@@ -1,0 +1,4 @@
+(:name fold-this
+:auto-generated t
+:type elpa
+:description "Just fold this region please")

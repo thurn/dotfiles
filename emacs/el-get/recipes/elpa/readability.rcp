@@ -1,0 +1,4 @@
+(:name readability
+:auto-generated t
+:type elpa
+:description "Read articles from Readability in Emacs")

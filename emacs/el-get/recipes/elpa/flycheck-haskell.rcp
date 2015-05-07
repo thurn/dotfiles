@@ -1,0 +1,4 @@
+(:name flycheck-haskell
+:auto-generated t
+:type elpa
+:description "Flycheck: Cabal projects and sandboxes")

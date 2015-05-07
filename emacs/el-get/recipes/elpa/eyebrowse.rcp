@@ -1,0 +1,4 @@
+(:name eyebrowse
+:auto-generated t
+:type elpa
+:description "Easy window config switching")

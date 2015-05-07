@@ -1,0 +1,4 @@
+(:name smart-tab
+:auto-generated t
+:type elpa
+:description "Intelligent tab completion and indentation.")

@@ -1,0 +1,4 @@
+(:name helm-dash
+:auto-generated t
+:type elpa
+:description "Helm extension to search dash docsets")

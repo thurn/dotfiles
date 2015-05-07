@@ -1,0 +1,4 @@
+(:name cask
+:auto-generated t
+:type elpa
+:description "Cask: Project management for Emacs package development")

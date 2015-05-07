@@ -1,0 +1,4 @@
+(:name dash-at-point
+:auto-generated t
+:type elpa
+:description "Search the word at point with Dash")

@@ -1,0 +1,4 @@
+(:name anything-replace-string
+:auto-generated t
+:type elpa
+:description "`replace-string' and `query-replace' `anything.el' interface")

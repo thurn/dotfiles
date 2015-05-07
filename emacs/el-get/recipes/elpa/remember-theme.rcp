@@ -1,0 +1,4 @@
+(:name remember-theme
+:auto-generated t
+:type elpa
+:description "Remembers the last theme in use and re-loads for the next session.")

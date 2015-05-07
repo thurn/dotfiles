@@ -1,0 +1,4 @@
+(:name nav
+:auto-generated t
+:type elpa
+:description "Emacs mode for filesystem navigation")

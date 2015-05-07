@@ -1,0 +1,4 @@
+(:name bug-reference-github
+:auto-generated t
+:type elpa
+:description "Automatically set `bug-reference-url-format' in Github repositories.")

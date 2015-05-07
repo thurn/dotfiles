@@ -1,0 +1,4 @@
+(:name session-manager
+:auto-generated t
+:type elpa
+:description "Support for the Gnome Session Manager")

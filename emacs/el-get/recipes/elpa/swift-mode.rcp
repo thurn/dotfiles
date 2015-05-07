@@ -1,0 +1,4 @@
+(:name swift-mode
+:auto-generated t
+:type elpa
+:description "Major-mode for Apple's Swift programming language.")

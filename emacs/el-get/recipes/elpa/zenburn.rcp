@@ -1,0 +1,4 @@
+(:name zenburn
+:auto-generated t
+:type elpa
+:description "A low contrast colour theme for Emacs")

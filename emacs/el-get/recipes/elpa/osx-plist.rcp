@@ -1,0 +1,4 @@
+(:name osx-plist
+:auto-generated t
+:type elpa
+:description "Apple plist file parser")

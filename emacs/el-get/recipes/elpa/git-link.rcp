@@ -1,0 +1,4 @@
+(:name git-link
+:auto-generated t
+:type elpa
+:description "Get the GitHub/Bitbucket/Gitorious URL for a buffer location")

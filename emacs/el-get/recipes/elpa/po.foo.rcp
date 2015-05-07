@@ -1,0 +1,4 @@
+(:name po.foo
+:auto-generated t
+:type elpa
+:description "Sass major mode")

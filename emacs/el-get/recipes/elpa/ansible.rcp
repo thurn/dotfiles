@@ -1,0 +1,4 @@
+(:name ansible
+:auto-generated t
+:type elpa
+:description "Ansible minor mode")

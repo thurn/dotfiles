@@ -1,0 +1,4 @@
+(:name git-timemachine
+:auto-generated t
+:type elpa
+:description "Walk through git revisions of a file")

@@ -1,0 +1,4 @@
+(:name weather-metno
+:auto-generated t
+:type elpa
+:description "Weather data from met.no in Emacs")

@@ -1,0 +1,4 @@
+(:name bog
+:auto-generated t
+:type elpa
+:description "Extensions for research notes in Org mode")

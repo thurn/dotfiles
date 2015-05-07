@@ -1,0 +1,4 @@
+(:name enotify
+:auto-generated t
+:type elpa
+:description "A networked notification system for emacs")

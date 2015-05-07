@@ -1,0 +1,4 @@
+(:name operate-on-number
+:auto-generated t
+:type elpa
+:description "Operate on number at point with arithmetic functions")

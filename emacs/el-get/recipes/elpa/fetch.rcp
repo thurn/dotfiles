@@ -1,0 +1,4 @@
+(:name fetch
+:auto-generated t
+:type elpa
+:description "Fetch and unpack resources")

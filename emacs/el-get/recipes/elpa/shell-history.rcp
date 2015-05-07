@@ -1,0 +1,4 @@
+(:name shell-history
+:auto-generated t
+:type elpa
+:description "integration with shell history")

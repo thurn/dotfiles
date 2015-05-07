@@ -1,0 +1,4 @@
+(:name pyvirtualenv
+:auto-generated t
+:type elpa
+:description "Python Pyvirtualenv support")

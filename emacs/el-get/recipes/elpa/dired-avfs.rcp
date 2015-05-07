@@ -1,0 +1,4 @@
+(:name dired-avfs
+:auto-generated t
+:type elpa
+:description "AVFS support for dired")

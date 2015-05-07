@@ -1,0 +1,4 @@
+(:name java-file-create
+:auto-generated t
+:type elpa
+:description "automatically insert contents of empty java files")

@@ -1,0 +1,4 @@
+(:name org-jira
+:auto-generated t
+:type elpa
+:description "Syncing between Jira and Org-mode.")

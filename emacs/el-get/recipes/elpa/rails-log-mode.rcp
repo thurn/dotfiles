@@ -1,0 +1,4 @@
+(:name rails-log-mode
+:auto-generated t
+:type elpa
+:description "Major mode for viewing Rails log files")

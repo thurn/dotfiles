@@ -1,0 +1,4 @@
+(:name make-it-so
+:auto-generated t
+:type elpa
+:description "Transform files with Makefile recipes.")

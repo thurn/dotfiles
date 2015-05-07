@@ -1,0 +1,4 @@
+(:name elpakit
+:auto-generated t
+:type elpa
+:description "package archive builder")

@@ -1,0 +1,4 @@
+(:name guide-key-tip
+:auto-generated t
+:type elpa
+:description "Show guide-key.el hints using pos-tip.el")

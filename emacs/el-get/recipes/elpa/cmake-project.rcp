@@ -1,0 +1,4 @@
+(:name cmake-project
+:auto-generated t
+:type elpa
+:description "Integrates CMake build process with Emacs")

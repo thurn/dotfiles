@@ -1,0 +1,4 @@
+(:name fancy-mode
+:auto-generated t
+:type elpa
+:description "Major mode for programming with the Fancy language.")

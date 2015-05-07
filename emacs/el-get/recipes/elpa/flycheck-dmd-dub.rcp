@@ -1,0 +1,4 @@
+(:name flycheck-dmd-dub
+:auto-generated t
+:type elpa
+:description "Sets flycheck-dmd-include-paths from dub package information")

@@ -1,0 +1,4 @@
+(:name monokai-theme
+:auto-generated t
+:type elpa
+:description "A fruity color theme for Emacs.")

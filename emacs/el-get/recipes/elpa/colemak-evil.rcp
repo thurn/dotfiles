@@ -1,0 +1,4 @@
+(:name colemak-evil
+:auto-generated t
+:type elpa
+:description "Colemak-friendly keybindings for Evil.")

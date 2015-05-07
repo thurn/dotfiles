@@ -1,0 +1,4 @@
+(:name ov
+:auto-generated t
+:type elpa
+:description "Overlay library for Emacs Lisp")

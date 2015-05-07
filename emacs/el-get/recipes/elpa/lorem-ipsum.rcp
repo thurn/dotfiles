@@ -1,0 +1,4 @@
+(:name lorem-ipsum
+:auto-generated t
+:type elpa
+:description "Insert dummy pseudo Latin text.")

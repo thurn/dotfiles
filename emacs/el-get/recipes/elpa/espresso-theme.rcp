@@ -1,0 +1,4 @@
+(:name espresso-theme
+:auto-generated t
+:type elpa
+:description "Espresso Tutti Colori port for Emacs")

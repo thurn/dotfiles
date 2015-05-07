@@ -1,0 +1,4 @@
+(:name ant
+:auto-generated t
+:type elpa
+:description "helpers for compiling with ant")

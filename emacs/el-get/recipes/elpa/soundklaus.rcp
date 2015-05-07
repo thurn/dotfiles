@@ -1,0 +1,4 @@
+(:name soundklaus
+:auto-generated t
+:type elpa
+:description "Play SoundCloud music in Emacs via EMMS")

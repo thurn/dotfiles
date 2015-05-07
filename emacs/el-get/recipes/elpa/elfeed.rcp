@@ -1,0 +1,4 @@
+(:name elfeed
+:auto-generated t
+:type elpa
+:description "an Emacs Atom/RSS feed reader")

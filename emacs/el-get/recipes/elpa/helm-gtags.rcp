@@ -1,0 +1,4 @@
+(:name helm-gtags
+:auto-generated t
+:type elpa
+:description "GNU GLOBAL helm interface")

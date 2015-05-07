@@ -1,0 +1,4 @@
+(:name pony-mode
+:auto-generated t
+:type elpa
+:description "Minor mode for working with Django Projects")

@@ -1,0 +1,4 @@
+(:name pabbrev
+:auto-generated t
+:type elpa
+:description "Predictive abbreviation expansion")

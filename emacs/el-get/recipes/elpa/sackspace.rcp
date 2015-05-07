@@ -1,0 +1,4 @@
+(:name sackspace
+:auto-generated t
+:type elpa
+:description "A better backspace")

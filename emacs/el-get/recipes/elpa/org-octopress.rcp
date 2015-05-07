@@ -1,0 +1,4 @@
+(:name org-octopress
+:auto-generated t
+:type elpa
+:description "Compose octopress articles using org-mode.")

@@ -1,0 +1,4 @@
+(:name phi-autopair
+:auto-generated t
+:type elpa
+:description "another simple-minded autopair implementation")

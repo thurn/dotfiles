@@ -1,0 +1,4 @@
+(:name session
+:auto-generated t
+:type elpa
+:description "use variables, registers and buffer places across sessions")

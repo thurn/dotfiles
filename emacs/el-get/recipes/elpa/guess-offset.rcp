@@ -1,0 +1,4 @@
+(:name guess-offset
+:auto-generated t
+:type elpa
+:description "Automatically determine c-basic-offset")

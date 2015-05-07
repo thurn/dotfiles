@@ -1,0 +1,4 @@
+(:name prodigy
+:auto-generated t
+:type elpa
+:description "Manage external services from within Emacs")

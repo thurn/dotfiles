@@ -1,0 +1,4 @@
+(:name elisp-cache
+:auto-generated t
+:type elpa
+:description "Faster emacs startup through byte-compiling.")

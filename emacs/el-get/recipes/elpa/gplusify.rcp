@@ -1,0 +1,4 @@
+(:name gplusify
+:auto-generated t
+:type elpa
+:description "Add Google Plus markup to a piece of code")

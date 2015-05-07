@@ -1,0 +1,4 @@
+(:name magit-svn
+:auto-generated t
+:type elpa
+:description "git-svn plug-in for Magit")

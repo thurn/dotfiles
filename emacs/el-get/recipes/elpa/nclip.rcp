@@ -1,0 +1,4 @@
+(:name nclip
+:auto-generated t
+:type elpa
+:description "Network (HTTP) Clipboard")

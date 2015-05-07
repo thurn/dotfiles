@@ -1,0 +1,4 @@
+(:name litable
+:auto-generated t
+:type elpa
+:description "dynamic evaluation replacement with emacs")

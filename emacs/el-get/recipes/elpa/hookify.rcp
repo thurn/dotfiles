@@ -1,0 +1,4 @@
+(:name hookify
+:auto-generated t
+:type elpa
+:description "Interactive commands to create temporary hooks")

@@ -1,0 +1,4 @@
+(:name my-packages
+:auto-generated t
+:type elpa
+:description "Package Initialization.")

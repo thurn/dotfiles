@@ -1,0 +1,4 @@
+(:name extend-dnd
+:auto-generated t
+:type elpa
+:description "R drag and Drop")

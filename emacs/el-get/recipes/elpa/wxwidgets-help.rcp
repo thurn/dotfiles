@@ -1,0 +1,4 @@
+(:name wxwidgets-help
+:auto-generated t
+:type elpa
+:description "Look up wxWidgets API by using local html manual.")

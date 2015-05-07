@@ -1,0 +1,4 @@
+(:name gruvbox-theme
+:auto-generated t
+:type elpa
+:description "A retro-groove colour theme for Emacs")

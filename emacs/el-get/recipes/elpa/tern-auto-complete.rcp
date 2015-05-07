@@ -1,0 +1,4 @@
+(:name tern-auto-complete
+:auto-generated t
+:type elpa
+:description "Tern Completion by auto-complete.el")

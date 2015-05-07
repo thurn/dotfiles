@@ -1,0 +1,4 @@
+(:name cider
+:auto-generated t
+:type elpa
+:description "Clojure Integrated Development Environment and REPL")

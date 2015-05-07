@@ -1,0 +1,4 @@
+(:name flycheck-pyflakes
+:auto-generated t
+:type elpa
+:description "Support pyflakes in flycheck")

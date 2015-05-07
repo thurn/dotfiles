@@ -1,0 +1,4 @@
+(:name auto-complete-nxml
+:auto-generated t
+:type elpa
+:description "do completion by auto-complete.el on nXML-mode")

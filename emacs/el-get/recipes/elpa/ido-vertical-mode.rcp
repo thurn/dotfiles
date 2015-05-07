@@ -1,0 +1,4 @@
+(:name ido-vertical-mode
+:auto-generated t
+:type elpa
+:description "Makes ido-mode display vertically.")

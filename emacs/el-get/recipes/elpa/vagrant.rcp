@@ -1,0 +1,4 @@
+(:name vagrant
+:auto-generated t
+:type elpa
+:description "Manage a vagrant box from emacs")

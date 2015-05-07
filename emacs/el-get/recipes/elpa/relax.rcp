@@ -1,0 +1,4 @@
+(:name relax
+:auto-generated t
+:type elpa
+:description "For browsing and interacting with CouchDB")

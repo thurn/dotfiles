@@ -1,0 +1,4 @@
+(:name sphinx-doc
+:auto-generated t
+:type elpa
+:description "Sphinx friendly docstrings for Python functions")

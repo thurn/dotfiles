@@ -1,0 +1,4 @@
+(:name wonderland
+:auto-generated t
+:type elpa
+:description "declarative configuration for Emacsen")

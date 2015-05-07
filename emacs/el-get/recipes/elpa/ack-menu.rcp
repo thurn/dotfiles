@@ -1,0 +1,4 @@
+(:name ack-menu
+:auto-generated t
+:type elpa
+:description "A menu-based front-end for ack")

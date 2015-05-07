@@ -1,0 +1,4 @@
+(:name dsvn
+:auto-generated t
+:type elpa
+:description "Subversion interface")

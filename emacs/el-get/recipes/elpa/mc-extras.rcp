@@ -1,0 +1,4 @@
+(:name mc-extras
+:auto-generated t
+:type elpa
+:description "Extra functions for multiple-cursors mode.")

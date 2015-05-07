@@ -1,0 +1,4 @@
+(:name chicken-scheme
+:auto-generated t
+:type elpa
+:description "Scheme-mode extensions for Chicken Scheme")

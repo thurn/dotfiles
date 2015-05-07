@@ -1,0 +1,4 @@
+(:name zjl-hl
+:auto-generated t
+:type elpa
+:description "Highlight variable and function call and others in c/emacs, make life easy.")

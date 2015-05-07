@@ -1,0 +1,4 @@
+(:name find-file-in-git-repo
+:auto-generated t
+:type elpa
+:description "Utility to find files in a git repo")

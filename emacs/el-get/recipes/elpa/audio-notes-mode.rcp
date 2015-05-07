@@ -1,0 +1,4 @@
+(:name audio-notes-mode
+:auto-generated t
+:type elpa
+:description "Play audio notes synced from somewhere else.")

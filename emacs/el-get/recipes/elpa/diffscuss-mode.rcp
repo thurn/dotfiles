@@ -1,0 +1,4 @@
+(:name diffscuss-mode
+:auto-generated t
+:type elpa
+:description "Major mode for diffscuss files.")

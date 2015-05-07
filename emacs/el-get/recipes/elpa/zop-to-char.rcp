@@ -1,0 +1,4 @@
+(:name zop-to-char
+:auto-generated t
+:type elpa
+:description "A replacement of zap-to-char.")

@@ -1,0 +1,4 @@
+(:name alert
+:auto-generated t
+:type elpa
+:description "Growl-style notification system for Emacs")

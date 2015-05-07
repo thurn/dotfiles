@@ -1,0 +1,4 @@
+(:name go-direx
+:auto-generated t
+:type elpa
+:description "Tree style source code viewer for Go language")

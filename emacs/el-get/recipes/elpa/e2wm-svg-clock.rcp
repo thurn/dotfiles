@@ -1,0 +1,4 @@
+(:name e2wm-svg-clock
+:auto-generated t
+:type elpa
+:description "e2wm plugin for svg-clock")

@@ -1,0 +1,4 @@
+(:name scratch-persist
+:auto-generated t
+:type elpa
+:description "persist the scratch buffer across sessions")

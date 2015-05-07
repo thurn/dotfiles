@@ -1,0 +1,4 @@
+(:name ecukes
+:auto-generated t
+:type elpa
+:description "Cucumber for Emacs.")

@@ -1,0 +1,4 @@
+(:name css-eldoc
+:auto-generated t
+:type elpa
+:description "an eldoc-mode plugin for CSS source code")

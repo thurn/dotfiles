@@ -1,0 +1,4 @@
+(:name scratch
+:auto-generated t
+:type elpa
+:description "Mode-specific scratch buffers")

@@ -1,0 +1,4 @@
+(:name inf-mongo
+:auto-generated t
+:type elpa
+:description "Run a MongoDB shell process in a buffer")

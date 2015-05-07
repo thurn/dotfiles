@@ -1,0 +1,4 @@
+(:name wpuzzle
+:auto-generated t
+:type elpa
+:description "find as many word in a given time")

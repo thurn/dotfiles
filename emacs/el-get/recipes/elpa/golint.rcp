@@ -1,0 +1,4 @@
+(:name golint
+:auto-generated t
+:type elpa
+:description "lint for the Go source code")

@@ -1,0 +1,4 @@
+(:name psgml
+:auto-generated t
+:type elpa
+:description "Lennart Staflin's Psgml package, with Elisp syntax and sgml-validate fixed for Emacsen >=24.")

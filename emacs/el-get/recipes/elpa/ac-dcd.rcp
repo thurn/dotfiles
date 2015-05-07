@@ -1,0 +1,4 @@
+(:name ac-dcd
+:auto-generated t
+:type elpa
+:description "Auto Completion source for dcd for GNU Emacs")

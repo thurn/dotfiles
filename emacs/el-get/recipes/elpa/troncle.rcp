@@ -1,0 +1,4 @@
+(:name troncle
+:auto-generated t
+:type elpa
+:description "Emacs convenience functions for tracing clojure code")

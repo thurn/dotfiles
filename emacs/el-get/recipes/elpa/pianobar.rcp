@@ -1,0 +1,4 @@
+(:name pianobar
+:auto-generated t
+:type elpa
+:description "thin wrapper for Pianobar, a Pandora Radio client")

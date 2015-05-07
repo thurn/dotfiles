@@ -1,0 +1,4 @@
+(:name midje-mode
+:auto-generated t
+:type elpa
+:description "Minor mode for running Midje tests in emacs")

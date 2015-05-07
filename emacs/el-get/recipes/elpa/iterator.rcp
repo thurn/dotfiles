@@ -1,0 +1,4 @@
+(:name iterator
+:auto-generated t
+:type elpa
+:description "A library to create and use elisp iterators objects.")

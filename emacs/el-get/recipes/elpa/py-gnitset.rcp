@@ -1,0 +1,4 @@
+(:name py-gnitset
+:auto-generated t
+:type elpa
+:description "Run your Python tests any way you'd like")

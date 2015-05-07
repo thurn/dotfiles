@@ -1,0 +1,4 @@
+(:name tumblesocks
+:auto-generated t
+:type elpa
+:description "An Emacs tumblr client.")

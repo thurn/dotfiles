@@ -1,0 +1,4 @@
+(:name evil-exchange
+:auto-generated t
+:type elpa
+:description "Exchange text more easily within Evil")

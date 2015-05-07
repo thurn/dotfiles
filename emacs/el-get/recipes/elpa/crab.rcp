@@ -1,0 +1,4 @@
+(:name crab
+:auto-generated t
+:type elpa
+:description "WebSocket server to remotely control a browser")

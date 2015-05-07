@@ -1,0 +1,4 @@
+(:name rubyinterpol
+:auto-generated t
+:type elpa
+:description "Ruby-like String Interpolation for format")

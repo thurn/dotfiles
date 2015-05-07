@@ -1,0 +1,4 @@
+(:name httpcode
+:auto-generated t
+:type elpa
+:description "explains the meaning of an HTTP status code")

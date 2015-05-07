@@ -1,0 +1,4 @@
+(:name cedit
+:auto-generated t
+:type elpa
+:description "paredit-like commands for c-like languages")

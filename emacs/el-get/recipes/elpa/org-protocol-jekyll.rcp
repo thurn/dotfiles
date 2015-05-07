@@ -1,0 +1,4 @@
+(:name org-protocol-jekyll
+:auto-generated t
+:type elpa
+:description "Jekyll's handler for org-protocol")

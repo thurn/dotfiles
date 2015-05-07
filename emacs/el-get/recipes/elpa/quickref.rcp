@@ -1,0 +1,4 @@
+(:name quickref
+:auto-generated t
+:type elpa
+:description "Display relevant notes-to-self in the echo area")

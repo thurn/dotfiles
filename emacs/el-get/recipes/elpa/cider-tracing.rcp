@@ -1,0 +1,4 @@
+(:name cider-tracing
+:auto-generated t
+:type elpa
+:description "Tracing extension for CIDER")

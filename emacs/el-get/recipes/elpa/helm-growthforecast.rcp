@@ -1,0 +1,4 @@
+(:name helm-growthforecast
+:auto-generated t
+:type elpa
+:description "helm extensions for growthforecast.")

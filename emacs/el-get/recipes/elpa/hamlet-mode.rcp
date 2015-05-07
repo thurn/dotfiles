@@ -1,0 +1,4 @@
+(:name hamlet-mode
+:auto-generated t
+:type elpa
+:description "Hamlet editing mode")

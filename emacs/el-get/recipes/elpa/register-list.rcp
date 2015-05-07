@@ -1,0 +1,4 @@
+(:name register-list
+:auto-generated t
+:type elpa
+:description "Interactively list/edit registers")

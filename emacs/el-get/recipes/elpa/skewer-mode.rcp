@@ -1,0 +1,4 @@
+(:name skewer-mode
+:auto-generated t
+:type elpa
+:description "live browser JavaScript, CSS, and HTML interaction")

@@ -1,0 +1,4 @@
+(:name el-spec
+:auto-generated t
+:type elpa
+:description "ruby's rspec like syntax test frame work")

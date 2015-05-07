@@ -1,0 +1,4 @@
+(:name sudo-edit
+:auto-generated t
+:type elpa
+:description "Utilities for opening files with sudo")

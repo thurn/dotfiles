@@ -1,0 +1,4 @@
+(:name help-fns+
+:auto-generated t
+:type elpa
+:description "Extensions to `help-fns.el'.")

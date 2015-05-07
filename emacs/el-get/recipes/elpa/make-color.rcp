@@ -1,0 +1,4 @@
+(:name make-color
+:auto-generated t
+:type elpa
+:description "Alternative to picking color - update fg/bg color by pressing r/g/b/... keys")

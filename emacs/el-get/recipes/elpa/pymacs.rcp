@@ -1,0 +1,4 @@
+(:name pymacs
+:auto-generated t
+:type elpa
+:description "Interface between Emacs Lisp and Python")

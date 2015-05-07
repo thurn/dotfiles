@@ -1,0 +1,4 @@
+(:name buffer-utils
+:auto-generated t
+:type elpa
+:description "Buffer-manipulation utility functions")

@@ -1,0 +1,4 @@
+(:name request
+:auto-generated t
+:type elpa
+:description "Compatible layer for URL request in Emacs")

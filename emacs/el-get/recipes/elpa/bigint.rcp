@@ -1,0 +1,4 @@
+(:name bigint
+:auto-generated t
+:type elpa
+:description "A simple bigint package for emacs")

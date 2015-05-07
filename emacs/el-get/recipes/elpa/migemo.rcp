@@ -1,0 +1,4 @@
+(:name migemo
+:auto-generated t
+:type elpa
+:description "Japanese incremental search through dynamic pattern expansion")

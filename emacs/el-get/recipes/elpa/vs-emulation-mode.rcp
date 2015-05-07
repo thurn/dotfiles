@@ -1,0 +1,4 @@
+(:name vs-emulation-mode
+:auto-generated t
+:type elpa
+:description "Emulate a certain proprietary IDE")

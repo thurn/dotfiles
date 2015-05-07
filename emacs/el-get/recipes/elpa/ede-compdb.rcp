@@ -1,0 +1,4 @@
+(:name ede-compdb
+:auto-generated t
+:type elpa
+:description "Support for compilation database projects in EDE")

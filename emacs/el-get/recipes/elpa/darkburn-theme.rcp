@@ -1,0 +1,4 @@
+(:name darkburn-theme
+:auto-generated t
+:type elpa
+:description "A not-so-low contrast color theme for Emacs.")

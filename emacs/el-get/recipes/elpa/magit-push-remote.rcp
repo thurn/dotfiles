@@ -1,0 +1,4 @@
+(:name magit-push-remote
+:auto-generated t
+:type elpa
+:description "push remote support for Magit")

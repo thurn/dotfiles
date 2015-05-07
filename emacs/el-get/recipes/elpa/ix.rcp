@@ -1,0 +1,4 @@
+(:name ix
+:auto-generated t
+:type elpa
+:description "Emacs client for http://ix.io pastebin")

@@ -1,0 +1,4 @@
+(:name tfs
+:auto-generated t
+:type elpa
+:description "MS Team Foundation Server commands for Emacs.")

@@ -1,0 +1,4 @@
+(:name fuzzy-match
+:auto-generated t
+:type elpa
+:description "fuzzy matching")

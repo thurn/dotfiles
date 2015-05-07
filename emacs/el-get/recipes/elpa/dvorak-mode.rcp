@@ -1,0 +1,4 @@
+(:name dvorak-mode
+:auto-generated t
+:type elpa
+:description "Switch to dvorak layout easily")

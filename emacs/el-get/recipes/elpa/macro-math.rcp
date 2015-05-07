@@ -1,0 +1,4 @@
+(:name macro-math
+:auto-generated t
+:type elpa
+:description "in-buffer mathematical operations")

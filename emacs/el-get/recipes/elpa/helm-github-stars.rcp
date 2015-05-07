@@ -1,0 +1,4 @@
+(:name helm-github-stars
+:auto-generated t
+:type elpa
+:description "Helm integration for your starred repositories on github")

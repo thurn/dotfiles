@@ -1,0 +1,4 @@
+(:name emacs-cl
+:auto-generated t
+:type elpa
+:description "Emacs Common Lisp")

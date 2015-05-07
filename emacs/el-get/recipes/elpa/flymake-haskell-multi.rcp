@@ -1,0 +1,4 @@
+(:name flymake-haskell-multi
+:auto-generated t
+:type elpa
+:description "Syntax-check haskell-mode using both ghc and hlint")

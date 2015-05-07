@@ -1,0 +1,4 @@
+(:name sbt-mode
+:auto-generated t
+:type elpa
+:description "Major mode for sbt >= 0.12 with scala >= 2.9")

@@ -1,0 +1,4 @@
+(:name logalimacs
+:auto-generated t
+:type elpa
+:description "Front-end to logaling-command for Ruby gems")

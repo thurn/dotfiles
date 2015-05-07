@@ -1,0 +1,4 @@
+(:name apt-utils-ido
+:auto-generated t
+:type elpa
+:description "Ido commands for apt-utils")

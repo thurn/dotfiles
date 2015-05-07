@@ -1,0 +1,4 @@
+(:name mark-multiple
+:auto-generated t
+:type elpa
+:description "Sorta lets you mark several regions at once.")

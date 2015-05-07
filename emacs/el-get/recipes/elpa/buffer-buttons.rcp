@@ -1,0 +1,4 @@
+(:name buffer-buttons
+:auto-generated t
+:type elpa
+:description "Define, save, and load code-safe buttons in files for emacs")

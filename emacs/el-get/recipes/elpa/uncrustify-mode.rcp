@@ -1,0 +1,4 @@
+(:name uncrustify-mode
+:auto-generated t
+:type elpa
+:description "Minor mode to automatically uncrustify.")

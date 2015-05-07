@@ -1,0 +1,4 @@
+(:name diff-hl
+:auto-generated t
+:type elpa
+:description "Highlight uncommitted changes")

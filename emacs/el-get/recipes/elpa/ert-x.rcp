@@ -1,0 +1,4 @@
+(:name ert-x
+:auto-generated t
+:type elpa
+:description "Staging area for experimental extensions to ERT")

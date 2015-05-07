@@ -1,0 +1,4 @@
+(:name dpaste_de
+:auto-generated t
+:type elpa
+:description "Emacs mode to paste to dpaste.de")

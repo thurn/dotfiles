@@ -1,0 +1,4 @@
+(:name isea
+:auto-generated t
+:type elpa
+:description "interactive server eval at mode, a comint for a daemonized emacs")

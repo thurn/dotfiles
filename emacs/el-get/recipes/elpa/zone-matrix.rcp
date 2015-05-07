@@ -1,0 +1,4 @@
+(:name zone-matrix
+:auto-generated t
+:type elpa
+:description "Matrix themed Zone mode")

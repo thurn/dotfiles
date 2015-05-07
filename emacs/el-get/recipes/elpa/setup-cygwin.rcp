@@ -1,0 +1,4 @@
+(:name setup-cygwin
+:auto-generated t
+:type elpa
+:description "Set up Emacs for using Cygwin")

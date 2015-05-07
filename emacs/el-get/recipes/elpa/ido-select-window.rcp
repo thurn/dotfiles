@@ -1,0 +1,4 @@
+(:name ido-select-window
+:auto-generated t
+:type elpa
+:description "Select a window using ido and buffer names")

@@ -1,0 +1,4 @@
+(:name ido-complete-space-or-hyphen
+:auto-generated t
+:type elpa
+:description "Complete SPACE or HYPHEN when type SPACE in ido")

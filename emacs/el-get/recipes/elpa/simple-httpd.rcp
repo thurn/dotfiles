@@ -1,0 +1,4 @@
+(:name simple-httpd
+:auto-generated t
+:type elpa
+:description "pure elisp HTTP server")

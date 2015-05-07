@@ -1,0 +1,4 @@
+(:name professional-theme
+:auto-generated t
+:type elpa
+:description "Emacs port of Vim's professional theme")

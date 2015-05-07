@@ -1,0 +1,4 @@
+(:name notify
+:auto-generated t
+:type elpa
+:description "notification front-end")

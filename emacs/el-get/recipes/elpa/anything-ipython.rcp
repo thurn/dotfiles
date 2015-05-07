@@ -1,0 +1,4 @@
+(:name anything-ipython
+:auto-generated t
+:type elpa
+:description "Ipython anything")

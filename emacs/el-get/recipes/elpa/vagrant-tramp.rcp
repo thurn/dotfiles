@@ -1,0 +1,4 @@
+(:name vagrant-tramp
+:auto-generated t
+:type elpa
+:description "Vagrant method for TRAMP")

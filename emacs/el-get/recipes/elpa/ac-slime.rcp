@@ -1,0 +1,4 @@
+(:name ac-slime
+:auto-generated t
+:type elpa
+:description "An auto-complete source using slime completions")

@@ -1,0 +1,4 @@
+(:name nvm
+:auto-generated t
+:type elpa
+:description "Manage Node versions within Emacs")

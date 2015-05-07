@@ -1,0 +1,4 @@
+(:name helm
+:auto-generated t
+:type elpa
+:description "Helm is an Emacs incremental and narrowing framework")

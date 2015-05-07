@@ -1,0 +1,4 @@
+(:name helm-rb
+:auto-generated t
+:type elpa
+:description "Search Ruby's method by ag and display helm")

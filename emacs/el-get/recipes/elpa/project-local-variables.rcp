@@ -1,0 +1,4 @@
+(:name project-local-variables
+:auto-generated t
+:type elpa
+:description "Set project-local variables from a file.")

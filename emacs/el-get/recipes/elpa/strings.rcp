@@ -1,0 +1,4 @@
+(:name strings
+:auto-generated t
+:type elpa
+:description "Miscellaneous string functions.")

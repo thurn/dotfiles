@@ -1,0 +1,4 @@
+(:name ascii
+:auto-generated t
+:type elpa
+:description "ASCII code display.")

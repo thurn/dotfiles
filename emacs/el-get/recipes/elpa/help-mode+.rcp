@@ -1,0 +1,4 @@
+(:name help-mode+
+:auto-generated t
+:type elpa
+:description "Extensions to `help-mode.el'")

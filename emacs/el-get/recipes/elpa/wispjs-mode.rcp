@@ -1,0 +1,4 @@
+(:name wispjs-mode
+:auto-generated t
+:type elpa
+:description "Major mode for Wisp code.")

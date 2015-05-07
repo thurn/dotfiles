@@ -1,0 +1,4 @@
+(:name mwe-log-commands
+:auto-generated t
+:type elpa
+:description "log keyboard commands to buffer")

@@ -1,0 +1,4 @@
+(:name pastebin
+:auto-generated t
+:type elpa
+:description "A simple interface to the www.pastebin.com webservice")

@@ -1,0 +1,4 @@
+(:name packed-git
+:auto-generated t
+:type elpa
+:description "Utilities for Emacs packages living in Git repositories")

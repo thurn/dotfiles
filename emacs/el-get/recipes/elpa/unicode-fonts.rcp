@@ -1,0 +1,4 @@
+(:name unicode-fonts
+:auto-generated t
+:type elpa
+:description "Configure Unicode fonts")

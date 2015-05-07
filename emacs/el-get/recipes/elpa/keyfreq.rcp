@@ -1,0 +1,4 @@
+(:name keyfreq
+:auto-generated t
+:type elpa
+:description "track command frequencies")

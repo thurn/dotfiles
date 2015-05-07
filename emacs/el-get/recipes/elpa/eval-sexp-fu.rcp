@@ -1,0 +1,4 @@
+(:name eval-sexp-fu
+:auto-generated t
+:type elpa
+:description "Tiny functionality enhancements for evaluating sexps.")

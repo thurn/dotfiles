@@ -1,0 +1,4 @@
+(:name cdlatex
+:auto-generated t
+:type elpa
+:description "Fast input methods for LaTeX environments and math")

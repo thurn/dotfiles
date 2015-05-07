@@ -1,0 +1,4 @@
+(:name gimme
+:auto-generated t
+:type elpa
+:description "The XMMS2 interface we all love! Check out http://gimmeplayer.org for more info.")

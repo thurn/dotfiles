@@ -1,0 +1,4 @@
+(:name csv-nav
+:auto-generated t
+:type elpa
+:description "navigate and edit CSV files")

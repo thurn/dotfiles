@@ -1,0 +1,4 @@
+(:name milkode
+:auto-generated t
+:type elpa
+:description "Command line search and direct jump with Milkode")

@@ -1,0 +1,4 @@
+(:name svg-clock
+:auto-generated t
+:type elpa
+:description "Analog clock using Scalable Vector Graphics")

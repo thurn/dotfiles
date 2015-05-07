@@ -1,0 +1,4 @@
+(:name vertica
+:auto-generated t
+:type elpa
+:description "Vertica SQL mode extension")

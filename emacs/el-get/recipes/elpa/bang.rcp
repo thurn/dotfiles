@@ -1,0 +1,4 @@
+(:name bang
+:auto-generated t
+:type elpa
+:description "A modern list library for Emacs")

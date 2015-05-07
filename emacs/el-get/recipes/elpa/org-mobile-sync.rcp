@@ -1,0 +1,4 @@
+(:name org-mobile-sync
+:auto-generated t
+:type elpa
+:description "automatically sync org-mobile on changes")

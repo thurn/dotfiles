@@ -1,0 +1,4 @@
+(:name dired-sort-menu
+:auto-generated t
+:type elpa
+:description "provide menu/dialogue for dired sort options")

@@ -1,0 +1,4 @@
+(:name sqlite
+:auto-generated t
+:type elpa
+:description "use sqlite via elisp")

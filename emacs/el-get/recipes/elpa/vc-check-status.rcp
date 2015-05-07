@@ -1,0 +1,4 @@
+(:name vc-check-status
+:auto-generated t
+:type elpa
+:description "Warn you when quitting emacs and leaving repo dirty.")

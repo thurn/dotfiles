@@ -1,0 +1,4 @@
+(:name ruby-dev
+:auto-generated t
+:type elpa
+:description "Interactive developement environment for Ruby.")

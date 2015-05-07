@@ -1,0 +1,4 @@
+(:name syslog-mode
+:auto-generated t
+:type elpa
+:description "Major-mode for viewing log files")

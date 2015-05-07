@@ -1,0 +1,4 @@
+(:name scss-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing SCSS files")

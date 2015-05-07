@@ -1,0 +1,4 @@
+(:name pg
+:auto-generated t
+:type elpa
+:description "Emacs Lisp interface to the PostgreSQL RDBMS")

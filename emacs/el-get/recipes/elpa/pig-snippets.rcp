@@ -1,0 +1,4 @@
+(:name pig-snippets
+:auto-generated t
+:type elpa
+:description "Snippets for pig-mode")

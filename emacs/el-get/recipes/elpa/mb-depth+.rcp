@@ -1,0 +1,4 @@
+(:name mb-depth+
+:auto-generated t
+:type elpa
+:description "Indicate minibuffer-depth in prompt")

@@ -1,0 +1,4 @@
+(:name w32-registry
+:auto-generated t
+:type elpa
+:description "read the registry from elisp")

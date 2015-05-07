@@ -1,0 +1,4 @@
+(:name metar
+:auto-generated t
+:type elpa
+:description "Retrieve and decode METAR weather information")

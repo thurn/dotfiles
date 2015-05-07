@@ -1,0 +1,4 @@
+(:name sprintly-mode
+:auto-generated t
+:type elpa
+:description "Major mode for dealing with sprint.ly")

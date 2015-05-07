@@ -1,0 +1,4 @@
+(:name shoulda
+:auto-generated t
+:type elpa
+:description "Shoulda test support for ruby")

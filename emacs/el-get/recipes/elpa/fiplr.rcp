@@ -1,0 +1,4 @@
+(:name fiplr
+:auto-generated t
+:type elpa
+:description "Fuzzy Search for Files in Projects")

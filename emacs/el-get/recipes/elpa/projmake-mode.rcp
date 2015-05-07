@@ -1,0 +1,4 @@
+(:name projmake-mode
+:auto-generated t
+:type elpa
+:description "Project oriented automatic builder and error highlighter, flymake for projects")

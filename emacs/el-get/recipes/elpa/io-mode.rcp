@@ -1,0 +1,4 @@
+(:name io-mode
+:auto-generated t
+:type elpa
+:description "Major mode to edit Io language files in Emacs")

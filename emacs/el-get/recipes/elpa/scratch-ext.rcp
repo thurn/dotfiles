@@ -1,0 +1,4 @@
+(:name scratch-ext
+:auto-generated t
+:type elpa
+:description "Extensions for *scratch*")

@@ -1,0 +1,4 @@
+(:name auto-complete-pcmp
+:auto-generated t
+:type elpa
+:description "Provide auto-complete sources using pcomplete results")

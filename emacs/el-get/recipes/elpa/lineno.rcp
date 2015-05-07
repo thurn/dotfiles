@@ -1,0 +1,4 @@
+(:name lineno
+:auto-generated t
+:type elpa
+:description "Alternate mode to display line numbers.")

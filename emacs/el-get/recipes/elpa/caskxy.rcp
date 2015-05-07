@@ -1,0 +1,4 @@
+(:name caskxy
+:auto-generated t
+:type elpa
+:description "Control Cask in Emacs")

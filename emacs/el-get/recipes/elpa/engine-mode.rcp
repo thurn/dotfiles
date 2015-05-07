@@ -1,0 +1,4 @@
+(:name engine-mode
+:auto-generated t
+:type elpa
+:description "Define and query search engines from within Emacs.")

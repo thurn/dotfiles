@@ -1,0 +1,4 @@
+(:name eww-lnum
+:auto-generated t
+:type elpa
+:description "Operations using link numbers")

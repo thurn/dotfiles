@@ -1,0 +1,4 @@
+(:name outlined-elisp-mode
+:auto-generated t
+:type elpa
+:description "outline-minor-mode settings for emacs lisp")

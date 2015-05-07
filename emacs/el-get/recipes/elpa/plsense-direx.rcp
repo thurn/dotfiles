@@ -1,0 +1,4 @@
+(:name plsense-direx
+:auto-generated t
+:type elpa
+:description "Perl Package Explorer")

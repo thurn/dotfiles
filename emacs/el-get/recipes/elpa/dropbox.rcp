@@ -1,0 +1,4 @@
+(:name dropbox
+:auto-generated t
+:type elpa
+:description "Emacs backend for dropbox")

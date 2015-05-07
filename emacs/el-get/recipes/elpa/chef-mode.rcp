@@ -1,0 +1,4 @@
+(:name chef-mode
+:auto-generated t
+:type elpa
+:description "minor mode for editing an opscode chef repository")

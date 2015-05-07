@@ -1,0 +1,4 @@
+(:name pysmell
+:auto-generated t
+:type elpa
+:description "Complete python code using heuristic static analysis")

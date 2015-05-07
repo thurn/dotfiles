@@ -1,0 +1,4 @@
+(:name linky-client
+:auto-generated t
+:type elpa
+:description "a client for linky.elnode.org")

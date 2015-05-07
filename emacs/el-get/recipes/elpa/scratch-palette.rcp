@@ -1,0 +1,4 @@
+(:name scratch-palette
+:auto-generated t
+:type elpa
+:description "save scratch notes on each file")

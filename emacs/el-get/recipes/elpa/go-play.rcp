@@ -1,0 +1,4 @@
+(:name go-play
+:auto-generated t
+:type elpa
+:description "Paste to play.golang.org")

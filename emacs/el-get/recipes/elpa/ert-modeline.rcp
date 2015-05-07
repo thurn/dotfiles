@@ -1,0 +1,4 @@
+(:name ert-modeline
+:auto-generated t
+:type elpa
+:description "displays ert test results in the modeline.")

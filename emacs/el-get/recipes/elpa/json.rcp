@@ -1,0 +1,4 @@
+(:name json
+:auto-generated t
+:type elpa
+:description "JavaScript Object Notation parser / generator")

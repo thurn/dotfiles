@@ -1,0 +1,4 @@
+(:name orglink
+:auto-generated t
+:type elpa
+:description "use Org Mode links in other modes")

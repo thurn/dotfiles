@@ -1,0 +1,4 @@
+(:name package
+:auto-generated t
+:type elpa
+:description "Simple package system for Emacs")

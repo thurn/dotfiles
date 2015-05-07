@@ -1,0 +1,4 @@
+(:name org-trello
+:auto-generated t
+:type elpa
+:description "Minor mode to synchronize org-mode buffer and trello board")

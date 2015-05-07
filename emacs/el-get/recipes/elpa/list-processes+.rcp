@@ -1,0 +1,4 @@
+(:name list-processes+
+:auto-generated t
+:type elpa
+:description "Add process management to `list-processes'")

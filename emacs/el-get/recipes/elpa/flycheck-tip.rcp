@@ -1,0 +1,4 @@
+(:name flycheck-tip
+:auto-generated t
+:type elpa
+:description "show flycheck's error by popup-tip")

@@ -1,0 +1,4 @@
+(:name org2blog
+:auto-generated t
+:type elpa
+:description "Blog from Org mode to wordpress")

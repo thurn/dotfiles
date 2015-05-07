@@ -1,0 +1,4 @@
+(:name doremi-mac
+:auto-generated t
+:type elpa
+:description "A macro for defining Do Re Mi commands.")

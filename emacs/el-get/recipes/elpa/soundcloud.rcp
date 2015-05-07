@@ -1,0 +1,4 @@
+(:name soundcloud
+:auto-generated t
+:type elpa
+:description "a SoundCloud client for Emacs")

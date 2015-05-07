@@ -1,0 +1,4 @@
+(:name rcirc-groups
+:auto-generated t
+:type elpa
+:description "an emacs buffer in rcirc-groups major mode")

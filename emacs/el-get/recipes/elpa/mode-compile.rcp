@@ -1,0 +1,4 @@
+(:name mode-compile
+:auto-generated t
+:type elpa
+:description "Smart command for compiling files")

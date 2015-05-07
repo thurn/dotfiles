@@ -1,0 +1,4 @@
+(:name ruby-test-mode
+:auto-generated t
+:type elpa
+:description "Minor mode for Behaviour and Test Driven")

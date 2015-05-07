@@ -1,0 +1,4 @@
+(:name utop
+:auto-generated t
+:type elpa
+:description "Universal toplevel for OCaml")

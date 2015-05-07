@@ -1,0 +1,4 @@
+(:name web-beautify
+:auto-generated t
+:type elpa
+:description "Format HTML, CSS and JavaScript/JSON by js-beautify")

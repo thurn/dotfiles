@@ -1,0 +1,4 @@
+(:name helm-projectile-all
+:auto-generated t
+:type elpa
+:description "Find files in all projectile projects using helm")

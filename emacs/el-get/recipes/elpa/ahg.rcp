@@ -1,0 +1,4 @@
+(:name ahg
+:auto-generated t
+:type elpa
+:description "Alberto's Emacs interface for Mercurial (Hg)")

@@ -1,0 +1,4 @@
+(:name tintin-mode
+:auto-generated t
+:type elpa
+:description "Mayor mode for editing tintin++ scripts")

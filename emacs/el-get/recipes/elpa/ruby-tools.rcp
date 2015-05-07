@@ -1,0 +1,4 @@
+(:name ruby-tools
+:auto-generated t
+:type elpa
+:description "Collection of handy functions for ruby-mode.")

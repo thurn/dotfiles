@@ -1,0 +1,4 @@
+(:name helm-orgcard
+:auto-generated t
+:type elpa
+:description "browse the orgcard by helm")

@@ -1,0 +1,4 @@
+(:name package-utils
+:auto-generated t
+:type elpa
+:description "Extensions for package.el")

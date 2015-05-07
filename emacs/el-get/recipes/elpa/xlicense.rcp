@@ -1,0 +1,4 @@
+(:name xlicense
+:auto-generated t
+:type elpa
+:description "Insert pre-defined license text")

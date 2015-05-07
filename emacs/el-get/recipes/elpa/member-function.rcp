@@ -1,0 +1,4 @@
+(:name member-function
+:auto-generated t
+:type elpa
+:description "expand member functions for C++ classes")

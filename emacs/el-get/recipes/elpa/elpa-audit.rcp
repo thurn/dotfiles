@@ -1,0 +1,4 @@
+(:name elpa-audit
+:auto-generated t
+:type elpa
+:description "Handy functions for inspecting and comparing package archives")

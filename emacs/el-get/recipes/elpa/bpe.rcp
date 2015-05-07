@@ -1,0 +1,4 @@
+(:name bpe
+:auto-generated t
+:type elpa
+:description "Blog from Org mode to Blogger")

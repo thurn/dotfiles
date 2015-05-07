@@ -1,0 +1,4 @@
+(:name javap
+:auto-generated t
+:type elpa
+:description "Javap major mode")

@@ -1,0 +1,4 @@
+(:name sedated
+:auto-generated t
+:type elpa
+:description "A few extremely simple sed functions for familiar text manipulation")

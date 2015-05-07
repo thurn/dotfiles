@@ -1,0 +1,4 @@
+(:name wimpy-del
+:auto-generated t
+:type elpa
+:description "Require confirmation for large region deletion.")

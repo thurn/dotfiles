@@ -1,0 +1,4 @@
+(:name deft
+:auto-generated t
+:type elpa
+:description "quickly browse, filter, and edit plain text notes")

@@ -1,0 +1,4 @@
+(:name nanowrimo
+:auto-generated t
+:type elpa
+:description "Track progress for nanowrimo")

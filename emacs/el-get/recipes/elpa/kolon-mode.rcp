@@ -1,0 +1,4 @@
+(:name kolon-mode
+:auto-generated t
+:type elpa
+:description "Syntax highlighting for Text::Xslate's Kolon syntax")

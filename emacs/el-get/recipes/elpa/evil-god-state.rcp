@@ -1,0 +1,4 @@
+(:name evil-god-state
+:auto-generated t
+:type elpa
+:description "use god-mode keybindings in evil-mode")

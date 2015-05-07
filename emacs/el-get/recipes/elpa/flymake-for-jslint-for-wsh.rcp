@@ -1,0 +1,4 @@
+(:name flymake-for-jslint-for-wsh
+:auto-generated t
+:type elpa
+:description "use flymake with js code, on Windows")

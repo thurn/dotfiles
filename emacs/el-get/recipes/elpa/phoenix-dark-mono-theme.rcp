@@ -1,0 +1,4 @@
+(:name phoenix-dark-mono-theme
+:auto-generated t
+:type elpa
+:description "Monochromatic version of the Phoenix theme")

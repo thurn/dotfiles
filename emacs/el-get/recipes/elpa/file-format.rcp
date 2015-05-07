@@ -1,0 +1,4 @@
+(:name file-format
+:auto-generated t
+:type elpa
+:description "templates with files as the source")

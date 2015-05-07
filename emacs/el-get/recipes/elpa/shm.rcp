@@ -1,0 +1,4 @@
+(:name shm
+:auto-generated t
+:type elpa
+:description "Structured Haskell Mode")

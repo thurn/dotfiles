@@ -1,0 +1,4 @@
+(:name wedge-ws
+:auto-generated t
+:type elpa
+:description "Wedge whitespace between columns in text")

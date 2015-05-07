@@ -1,0 +1,4 @@
+(:name helm-delicious
+:auto-generated t
+:type elpa
+:description "helm extensions for delicious bookmarks")

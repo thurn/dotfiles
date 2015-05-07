@@ -1,0 +1,4 @@
+(:name flymake-ruby
+:auto-generated t
+:type elpa
+:description "A flymake handler for ruby-mode files")

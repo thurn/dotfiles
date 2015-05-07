@@ -1,0 +1,4 @@
+(:name rw-language-and-country-codes
+:auto-generated t
+:type elpa
+:description "Language & Country Codes")

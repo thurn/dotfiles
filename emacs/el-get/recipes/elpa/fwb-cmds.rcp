@@ -1,0 +1,4 @@
+(:name fwb-cmds
+:auto-generated t
+:type elpa
+:description "misc frame, window and buffer commands")

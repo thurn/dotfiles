@@ -1,0 +1,4 @@
+(:name auto-complete-rst
+:auto-generated t
+:type elpa
+:description "Auto-complete extension for ReST and Sphinx")

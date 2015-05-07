@@ -1,0 +1,4 @@
+(:name emmet-mode
+:auto-generated t
+:type elpa
+:description "Unofficial Emmet's support for emacs")

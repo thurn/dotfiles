@@ -1,0 +1,4 @@
+(:name bar-cursor
+:auto-generated t
+:type elpa
+:description "package used to switch block cursor to a bar")

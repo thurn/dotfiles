@@ -1,0 +1,4 @@
+(:name moz
+:auto-generated t
+:type elpa
+:description "Lets current buffer interact with inferior mozilla.")

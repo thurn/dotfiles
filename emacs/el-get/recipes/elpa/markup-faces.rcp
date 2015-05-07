@@ -1,0 +1,4 @@
+(:name markup-faces
+:auto-generated t
+:type elpa
+:description "collection of faces for markup language modes")

@@ -1,0 +1,4 @@
+(:name emr
+:auto-generated t
+:type elpa
+:description "Emacs refactoring system.")

@@ -1,0 +1,4 @@
+(:name org-toodledo
+:auto-generated t
+:type elpa
+:description "Toodledo integration for Emacs Org mode")

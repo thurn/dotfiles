@@ -1,0 +1,4 @@
+(:name ariadne
+:auto-generated t
+:type elpa
+:description "Ariadne plugin for Emacs")

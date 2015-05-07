@@ -1,0 +1,4 @@
+(:name eh-common
+:auto-generated t
+:type elpa
+:description "Tumashu's  emacs functions")

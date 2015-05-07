@@ -1,0 +1,4 @@
+(:name git-gutter-fringe+
+:auto-generated t
+:type elpa
+:description "Fringe version of git-gutter+.el")

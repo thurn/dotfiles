@@ -1,0 +1,4 @@
+(:name idomenu
+:auto-generated t
+:type elpa
+:description "imenu tag selection a la ido")

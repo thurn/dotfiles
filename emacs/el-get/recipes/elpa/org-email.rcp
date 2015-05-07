@@ -1,0 +1,4 @@
+(:name org-email
+:auto-generated t
+:type elpa
+:description "use org for an email database")

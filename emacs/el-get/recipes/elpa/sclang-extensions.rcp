@@ -1,0 +1,4 @@
+(:name sclang-extensions
+:auto-generated t
+:type elpa
+:description "Extensions for the SuperCollider Emacs mode.")

@@ -1,0 +1,4 @@
+(:name powershell-mode
+:auto-generated t
+:type elpa
+:description "Mode for editing Powershell scripts")

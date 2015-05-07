@@ -1,0 +1,4 @@
+(:name org-jekyll
+:auto-generated t
+:type elpa
+:description "Export jekyll-ready posts form org-mode entries")

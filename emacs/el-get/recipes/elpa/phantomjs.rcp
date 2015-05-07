@@ -1,0 +1,4 @@
+(:name phantomjs
+:auto-generated t
+:type elpa
+:description "Control phantomjs from Emacs			")

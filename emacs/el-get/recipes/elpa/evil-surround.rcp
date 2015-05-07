@@ -1,0 +1,4 @@
+(:name evil-surround
+:auto-generated t
+:type elpa
+:description "emulate surround.vim from Vim")

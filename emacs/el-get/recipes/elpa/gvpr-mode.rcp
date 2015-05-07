@@ -1,0 +1,4 @@
+(:name gvpr-mode
+:auto-generated t
+:type elpa
+:description "A major mode offering basic syntax coloring for gvpr scripts.")

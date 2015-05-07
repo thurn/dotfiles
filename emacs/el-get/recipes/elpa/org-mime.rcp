@@ -1,0 +1,4 @@
+(:name org-mime
+:auto-generated t
+:type elpa
+:description "org html export for text/html MIME emails")

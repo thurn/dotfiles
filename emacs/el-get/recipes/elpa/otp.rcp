@@ -1,0 +1,4 @@
+(:name otp
+:auto-generated t
+:type elpa
+:description "a one-time password creator")

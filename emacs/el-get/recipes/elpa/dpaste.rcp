@@ -1,0 +1,4 @@
+(:name dpaste
+:auto-generated t
+:type elpa
+:description "Emacs integration for dpaste.com")

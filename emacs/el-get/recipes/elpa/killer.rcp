@@ -1,0 +1,4 @@
+(:name killer
+:auto-generated t
+:type elpa
+:description "kill and delete text")

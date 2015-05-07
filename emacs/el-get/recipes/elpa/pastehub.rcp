@@ -1,0 +1,4 @@
+(:name pastehub
+:auto-generated t
+:type elpa
+:description "A client for the PasteHub cloud service")

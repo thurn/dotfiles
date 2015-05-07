@@ -1,0 +1,4 @@
+(:name lib-requires
+:auto-generated t
+:type elpa
+:description "Commands to list Emacs Lisp library dependencies.")

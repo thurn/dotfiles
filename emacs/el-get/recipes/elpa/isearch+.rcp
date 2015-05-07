@@ -1,0 +1,4 @@
+(:name isearch+
+:auto-generated t
+:type elpa
+:description "Extensions to `isearch.el' (incremental search).")

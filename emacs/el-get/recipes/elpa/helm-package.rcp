@@ -1,0 +1,4 @@
+(:name helm-package
+:auto-generated t
+:type elpa
+:description "Listing ELPA packages with helm interface")

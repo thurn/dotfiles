@@ -1,0 +1,4 @@
+(:name tool-bar+
+:auto-generated t
+:type elpa
+:description "Extensions to standard library tool-bar.el")

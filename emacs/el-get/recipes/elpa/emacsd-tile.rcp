@@ -1,0 +1,4 @@
+(:name emacsd-tile
+:auto-generated t
+:type elpa
+:description "tiling windows for emacs")

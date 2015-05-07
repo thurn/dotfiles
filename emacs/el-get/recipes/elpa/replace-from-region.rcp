@@ -1,0 +1,4 @@
+(:name replace-from-region
+:auto-generated t
+:type elpa
+:description "Replace commands whose query is from region")

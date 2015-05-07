@@ -1,0 +1,4 @@
+(:name workspaces
+:auto-generated t
+:type elpa
+:description "Workspaces for Emacsen")

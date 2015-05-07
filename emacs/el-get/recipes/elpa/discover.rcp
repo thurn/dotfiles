@@ -1,0 +1,4 @@
+(:name discover
+:auto-generated t
+:type elpa
+:description "discover more of Emacs")

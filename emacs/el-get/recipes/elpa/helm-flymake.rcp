@@ -1,0 +1,4 @@
+(:name helm-flymake
+:auto-generated t
+:type elpa
+:description "helm interface for flymake")

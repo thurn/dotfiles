@@ -1,0 +1,4 @@
+(:name naked
+:auto-generated t
+:type elpa
+:description "Provide for naked key descriptions: no angle brackets.")

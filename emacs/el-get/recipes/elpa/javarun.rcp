@@ -1,0 +1,4 @@
+(:name javarun
+:auto-generated t
+:type elpa
+:description "Minor mode for quick development of Java programs")

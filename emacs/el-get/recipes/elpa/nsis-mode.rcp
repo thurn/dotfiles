@@ -1,0 +1,4 @@
+(:name nsis-mode
+:auto-generated t
+:type elpa
+:description "NSIS-mode")

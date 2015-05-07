@@ -1,0 +1,4 @@
+(:name tuareg
+:auto-generated t
+:type elpa
+:description "OCaml mode for Emacs.")

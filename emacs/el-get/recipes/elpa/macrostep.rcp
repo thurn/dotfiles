@@ -1,0 +1,4 @@
+(:name macrostep
+:auto-generated t
+:type elpa
+:description "interactive macro stepper for Emacs Lisp")

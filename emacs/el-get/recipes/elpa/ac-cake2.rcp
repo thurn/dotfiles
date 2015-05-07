@@ -1,0 +1,4 @@
+(:name ac-cake2
+:auto-generated t
+:type elpa
+:description "CakePHP 2 Minor Mode auto-complete.el source")

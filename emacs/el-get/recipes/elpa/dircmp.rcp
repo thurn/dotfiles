@@ -1,0 +1,4 @@
+(:name dircmp
+:auto-generated t
+:type elpa
+:description "Compare and sync directories.")

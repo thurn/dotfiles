@@ -1,0 +1,4 @@
+(:name framemove
+:auto-generated t
+:type elpa
+:description "directional frame selection routines")

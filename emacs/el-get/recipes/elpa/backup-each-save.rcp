@@ -1,0 +1,4 @@
+(:name backup-each-save
+:auto-generated t
+:type elpa
+:description "backup each savepoint of a file")

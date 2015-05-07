@@ -1,0 +1,4 @@
+(:name crontab-mode
+:auto-generated t
+:type elpa
+:description "Mode for editing crontab files")

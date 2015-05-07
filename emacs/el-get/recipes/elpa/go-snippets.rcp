@@ -1,0 +1,4 @@
+(:name go-snippets
+:auto-generated t
+:type elpa
+:description "Yasnippets for go")

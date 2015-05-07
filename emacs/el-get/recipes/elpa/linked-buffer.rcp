@@ -1,0 +1,4 @@
+(:name linked-buffer
+:auto-generated t
+:type elpa
+:description "One buffer as a view of another")

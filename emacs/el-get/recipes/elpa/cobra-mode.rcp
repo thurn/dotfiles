@@ -1,0 +1,4 @@
+(:name cobra-mode
+:auto-generated t
+:type elpa
+:description "Major mode for .NET-based Cobra language")

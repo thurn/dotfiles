@@ -1,0 +1,4 @@
+(:name generate-autoloads
+:auto-generated t
+:type elpa
+:description "A package to help you lazy-load everything")

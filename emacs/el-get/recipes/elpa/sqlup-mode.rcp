@@ -1,0 +1,4 @@
+(:name sqlup-mode
+:auto-generated t
+:type elpa
+:description "Upcase SQL words for you")

@@ -1,0 +1,4 @@
+(:name org-mac-iCal
+:auto-generated t
+:type elpa
+:description "Imports events from iCal.app to the Emacs diary")

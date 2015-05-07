@@ -1,0 +1,4 @@
+(:name sml-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing (Standard) ML")

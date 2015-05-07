@@ -1,0 +1,4 @@
+(:name yandex-weather
+:auto-generated t
+:type elpa
+:description "Fetch Yandex Weather forecasts.")

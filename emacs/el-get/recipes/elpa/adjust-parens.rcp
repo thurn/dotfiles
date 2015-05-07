@@ -1,0 +1,4 @@
+(:name adjust-parens
+:auto-generated t
+:type elpa
+:description "Indent and dedent Lisp code, automatically adjust close parens")

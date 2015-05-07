@@ -1,0 +1,4 @@
+(:name visual-regexp
+:auto-generated t
+:type elpa
+:description "A regexp/replace command for Emacs with interactive visual feedback")

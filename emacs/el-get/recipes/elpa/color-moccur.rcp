@@ -1,0 +1,4 @@
+(:name color-moccur
+:auto-generated t
+:type elpa
+:description "multi-buffer occur (grep) mode")

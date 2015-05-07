@@ -1,0 +1,4 @@
+(:name x-dict
+:auto-generated t
+:type elpa
+:description "emacs interface for several online dictionaries")

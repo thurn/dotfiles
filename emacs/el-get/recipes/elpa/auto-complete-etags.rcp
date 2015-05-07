@@ -1,0 +1,4 @@
+(:name auto-complete-etags
+:auto-generated t
+:type elpa
+:description "Auto-complete etags")

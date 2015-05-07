@@ -1,0 +1,4 @@
+(:name gmail-message-mode
+:auto-generated t
+:type elpa
+:description "A major-mode for editing gmail messages using markdown syntax.")

@@ -1,0 +1,4 @@
+(:name el-spice
+:auto-generated t
+:type elpa
+:description "Extra spice for emacs lisp programming")

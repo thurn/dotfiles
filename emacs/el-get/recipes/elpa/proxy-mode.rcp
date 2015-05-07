@@ -1,0 +1,4 @@
+(:name proxy-mode
+:auto-generated t
+:type elpa
+:description "Provides proxy minor mode.")

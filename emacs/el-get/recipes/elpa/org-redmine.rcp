@@ -1,0 +1,4 @@
+(:name org-redmine
+:auto-generated t
+:type elpa
+:description "Redmine tools using Emacs OrgMode")

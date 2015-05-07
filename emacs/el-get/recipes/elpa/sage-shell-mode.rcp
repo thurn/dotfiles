@@ -1,0 +1,4 @@
+(:name sage-shell-mode
+:auto-generated t
+:type elpa
+:description "A front-end for Sage Math")

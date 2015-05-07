@@ -1,0 +1,4 @@
+(:name r-autoyas
+:auto-generated t
+:type elpa
+:description "Provides automatically created yasnippets for R function argument lists.")

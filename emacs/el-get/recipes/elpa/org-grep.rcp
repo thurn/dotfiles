@@ -1,0 +1,4 @@
+(:name org-grep
+:auto-generated t
+:type elpa
+:description "Kind of M-x rgrep adapted for Org mode.")

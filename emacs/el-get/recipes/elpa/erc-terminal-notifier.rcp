@@ -1,0 +1,4 @@
+(:name erc-terminal-notifier
+:auto-generated t
+:type elpa
+:description "OSX notifications via the terminal-notifier gem for Emacs ERC.")

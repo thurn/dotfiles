@@ -1,0 +1,4 @@
+(:name flycheck-color-mode-line
+:auto-generated t
+:type elpa
+:description "Change mode line color with Flycheck status")

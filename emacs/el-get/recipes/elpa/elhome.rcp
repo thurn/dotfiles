@@ -1,0 +1,4 @@
+(:name elhome
+:auto-generated t
+:type elpa
+:description "A framework for a "home" Emacs configuration")

@@ -1,0 +1,4 @@
+(:name org-ehtml
+:auto-generated t
+:type elpa
+:description "Export Org-mode files as editable web pages")

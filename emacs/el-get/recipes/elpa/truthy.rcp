@@ -1,0 +1,4 @@
+(:name truthy
+:auto-generated t
+:type elpa
+:description "Test the content of a value")

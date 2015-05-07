@@ -1,0 +1,4 @@
+(:name wakatime-mode
+:auto-generated t
+:type elpa
+:description "Automatic time tracking extension based on WakaTime")

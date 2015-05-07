@@ -1,0 +1,4 @@
+(:name org2nikola
+:auto-generated t
+:type elpa
+:description "export html and meta data used by static blog like nikola from org file")

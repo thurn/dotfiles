@@ -1,0 +1,4 @@
+(:name tbemail
+:auto-generated t
+:type elpa
+:description "Provide syntax highlighting for email editing via")

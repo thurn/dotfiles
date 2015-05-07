@@ -1,0 +1,4 @@
+(:name package-build
+:auto-generated t
+:type elpa
+:description "Tools for assembling a package archive")

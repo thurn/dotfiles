@@ -1,0 +1,4 @@
+(:name java-snippets
+:auto-generated t
+:type elpa
+:description "Yasnippets for Java")

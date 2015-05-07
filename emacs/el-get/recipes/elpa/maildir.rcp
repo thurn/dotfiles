@@ -1,0 +1,4 @@
+(:name maildir
+:auto-generated t
+:type elpa
+:description "Simple maildir based MUA.")

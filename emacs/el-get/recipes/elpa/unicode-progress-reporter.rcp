@@ -1,0 +1,4 @@
+(:name unicode-progress-reporter
+:auto-generated t
+:type elpa
+:description "Progress-reporter with fancy characters")

@@ -1,0 +1,4 @@
+(:name python-cell
+:auto-generated t
+:type elpa
+:description "Support for MATLAB-like cells in python mode")

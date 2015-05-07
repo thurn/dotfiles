@@ -1,0 +1,4 @@
+(:name mowedline
+:auto-generated t
+:type elpa
+:description "elisp utilities for using mowedline")

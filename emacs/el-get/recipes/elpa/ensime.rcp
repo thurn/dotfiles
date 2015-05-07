@@ -1,0 +1,4 @@
+(:name ensime
+:auto-generated t
+:type elpa
+:description "ENhanced Scala Interaction Mode for Emacs")

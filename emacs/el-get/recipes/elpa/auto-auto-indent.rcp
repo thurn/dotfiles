@@ -1,0 +1,4 @@
+(:name auto-auto-indent
+:auto-generated t
+:type elpa
+:description "Indents code as you type")

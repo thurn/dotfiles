@@ -1,0 +1,4 @@
+(:name gitconfig
+:auto-generated t
+:type elpa
+:description "Emacs lisp interface to work with git-config variables")

@@ -1,0 +1,4 @@
+(:name omn-mode
+:auto-generated t
+:type elpa
+:description "Support for OWL Manchester Notation")

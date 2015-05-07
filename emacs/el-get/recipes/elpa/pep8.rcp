@@ -1,0 +1,4 @@
+(:name pep8
+:auto-generated t
+:type elpa
+:description "run the python pep8 checker putting hits in a grep buffer")

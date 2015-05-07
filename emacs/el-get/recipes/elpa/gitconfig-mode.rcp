@@ -1,0 +1,4 @@
+(:name gitconfig-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing .gitconfig files")

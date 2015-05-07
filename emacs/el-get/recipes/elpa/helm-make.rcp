@@ -1,0 +1,4 @@
+(:name helm-make
+:auto-generated t
+:type elpa
+:description "Select makefile target with helm")

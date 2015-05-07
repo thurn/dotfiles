@@ -1,0 +1,4 @@
+(:name ctable
+:auto-generated t
+:type elpa
+:description "Table component for Emacs Lisp")

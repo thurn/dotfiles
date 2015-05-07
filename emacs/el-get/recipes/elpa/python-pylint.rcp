@@ -1,0 +1,4 @@
+(:name python-pylint
+:auto-generated t
+:type elpa
+:description "minor mode for running `pylint'")

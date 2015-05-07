@@ -1,0 +1,4 @@
+(:name plsql
+:auto-generated t
+:type elpa
+:description "Programming support for PL/SQL code")

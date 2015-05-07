@@ -1,0 +1,4 @@
+(:name centered-cursor-mode
+:auto-generated t
+:type elpa
+:description "cursor stays vertically centered")

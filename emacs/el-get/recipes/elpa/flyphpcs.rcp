@@ -1,0 +1,4 @@
+(:name flyphpcs
+:auto-generated t
+:type elpa
+:description "Flymake for PHP via PHP-CodeSniffer")

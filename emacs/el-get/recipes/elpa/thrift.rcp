@@ -1,0 +1,4 @@
+(:name thrift
+:auto-generated t
+:type elpa
+:description "Major mode for Apache Thrift files")

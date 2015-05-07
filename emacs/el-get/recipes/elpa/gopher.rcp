@@ -1,0 +1,4 @@
+(:name gopher
+:auto-generated t
+:type elpa
+:description "easily access and navigate Gopher servers")

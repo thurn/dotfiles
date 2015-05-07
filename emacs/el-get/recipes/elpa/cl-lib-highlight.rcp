@@ -1,0 +1,4 @@
+(:name cl-lib-highlight
+:auto-generated t
+:type elpa
+:description "full cl-lib font-lock highlighting")

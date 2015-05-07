@@ -1,0 +1,4 @@
+(:name apt-utils
+:auto-generated t
+:type elpa
+:description "Emacs interface to APT (Debian package management)")

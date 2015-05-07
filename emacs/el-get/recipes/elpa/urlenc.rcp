@@ -1,0 +1,4 @@
+(:name urlenc
+:auto-generated t
+:type elpa
+:description "URL encoding/decoding utility for Emacs.")

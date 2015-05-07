@@ -1,0 +1,4 @@
+(:name electric-spacing
+:auto-generated t
+:type elpa
+:description "insert spaces automatically between user-defined patterns")

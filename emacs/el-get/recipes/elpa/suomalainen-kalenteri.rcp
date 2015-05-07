@@ -1,0 +1,4 @@
+(:name suomalainen-kalenteri
+:auto-generated t
+:type elpa
+:description "Finnish national and Christian holidays for calendar")

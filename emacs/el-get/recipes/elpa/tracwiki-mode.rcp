@@ -1,0 +1,4 @@
+(:name tracwiki-mode
+:auto-generated t
+:type elpa
+:description "Emacs Major mode for working with Trac")

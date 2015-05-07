@@ -1,0 +1,4 @@
+(:name jump-dls
+:auto-generated t
+:type elpa
+:description "Jump to definition of symbol using various methods.")

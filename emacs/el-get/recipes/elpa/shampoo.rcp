@@ -1,0 +1,4 @@
+(:name shampoo
+:auto-generated t
+:type elpa
+:description "A remote Smalltalk development mode")

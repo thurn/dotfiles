@@ -1,0 +1,4 @@
+(:name mmm-mode
+:auto-generated t
+:type elpa
+:description "Allow Multiple Major Modes in a buffer")

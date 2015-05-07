@@ -1,0 +1,4 @@
+(:name evernote-mode
+:auto-generated t
+:type elpa
+:description "Evernote client for Emacs")

@@ -1,0 +1,4 @@
+(:name org-fstree
+:auto-generated t
+:type elpa
+:description "include a filesystem subtree into an org file")

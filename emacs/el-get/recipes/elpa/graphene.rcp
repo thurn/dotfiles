@@ -1,0 +1,4 @@
+(:name graphene
+:auto-generated t
+:type elpa
+:description "Friendly Emacs defaults")

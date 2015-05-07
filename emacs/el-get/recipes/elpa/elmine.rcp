@@ -1,0 +1,4 @@
+(:name elmine
+:auto-generated t
+:type elpa
+:description "Redmine API access via elisp.")

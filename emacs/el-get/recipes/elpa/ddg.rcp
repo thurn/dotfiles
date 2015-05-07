@@ -1,0 +1,4 @@
+(:name ddg
+:auto-generated t
+:type elpa
+:description "DuckDuckGo API for ELisp.")

@@ -1,0 +1,4 @@
+(:name helm-git-grep
+:auto-generated t
+:type elpa
+:description "helm for git grep, an incremental git-grep(1)")

@@ -1,0 +1,4 @@
+(:name eide
+:auto-generated t
+:type elpa
+:description "IDE interface")

@@ -1,0 +1,4 @@
+(:name crm-custom
+:auto-generated t
+:type elpa
+:description "Alternate `completing-read-multiple' that uses `completing-read'")

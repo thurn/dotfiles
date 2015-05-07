@@ -1,0 +1,4 @@
+(:name parent-mode
+:auto-generated t
+:type elpa
+:description "get major mode's parent modes")

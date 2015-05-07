@@ -1,0 +1,4 @@
+(:name scf-mode
+:auto-generated t
+:type elpa
+:description "shorten file-names in compilation type buffers")

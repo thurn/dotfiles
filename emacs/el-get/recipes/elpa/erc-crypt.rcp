@@ -1,0 +1,4 @@
+(:name erc-crypt
+:auto-generated t
+:type elpa
+:description "Symmetric Encryption for ERC")

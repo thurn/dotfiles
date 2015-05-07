@@ -1,0 +1,4 @@
+(:name persp-mode
+:auto-generated t
+:type elpa
+:description ""perspectives" + save/load + shared among frames - bugs.")

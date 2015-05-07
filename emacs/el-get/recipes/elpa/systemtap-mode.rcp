@@ -1,0 +1,4 @@
+(:name systemtap-mode
+:auto-generated t
+:type elpa
+:description "A mode for SystemTap")

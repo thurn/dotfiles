@@ -1,0 +1,4 @@
+(:name bookmark+
+:auto-generated t
+:type elpa
+:description "Bookmark+: extensions to standard library `bookmark.el'.")

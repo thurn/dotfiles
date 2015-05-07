@@ -1,0 +1,4 @@
+(:name parscope
+:auto-generated t
+:type elpa
+:description "Minor mode for showing the current scope in Lisp-like languages.")

@@ -1,0 +1,4 @@
+(:name company-anaconda
+:auto-generated t
+:type elpa
+:description "Anaconda backend for company-mode")

@@ -1,0 +1,4 @@
+(:name gruber-darker-theme
+:auto-generated t
+:type elpa
+:description "Gruber Darker color theme for Emacs 24.")

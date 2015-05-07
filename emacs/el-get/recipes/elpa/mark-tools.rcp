@@ -1,0 +1,4 @@
+(:name mark-tools
+:auto-generated t
+:type elpa
+:description "Some simple tools to access the mark-ring in Emacs")

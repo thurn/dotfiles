@@ -1,0 +1,4 @@
+(:name rect+
+:auto-generated t
+:type elpa
+:description "Extensions to rect.el")

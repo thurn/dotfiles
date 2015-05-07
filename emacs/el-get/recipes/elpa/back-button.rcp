@@ -1,0 +1,4 @@
+(:name back-button
+:auto-generated t
+:type elpa
+:description "Visual navigation through mark rings")

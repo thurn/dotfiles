@@ -1,0 +1,4 @@
+(:name makefile-runner
+:auto-generated t
+:type elpa
+:description "Searches for Makefile and fetches targets")

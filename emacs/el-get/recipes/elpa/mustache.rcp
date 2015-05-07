@@ -1,0 +1,4 @@
+(:name mustache
+:auto-generated t
+:type elpa
+:description "a mustache templating library in emacs lisp")

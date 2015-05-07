@@ -1,0 +1,4 @@
+(:name irfc
+:auto-generated t
+:type elpa
+:description "Interface for IETF RFC document.")

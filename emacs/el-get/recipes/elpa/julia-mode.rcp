@@ -1,0 +1,4 @@
+(:name julia-mode
+:auto-generated t
+:type elpa
+:description "Major mode for editing Julia source code")

@@ -1,0 +1,4 @@
+(:name inform-mode
+:auto-generated t
+:type elpa
+:description "Major mode for Inform 6 interactive fiction code")

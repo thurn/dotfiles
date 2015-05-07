@@ -1,0 +1,4 @@
+(:name occur-x
+:auto-generated t
+:type elpa
+:description "Extra functionality for occur")

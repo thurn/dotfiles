@@ -1,0 +1,4 @@
+(:name web
+:auto-generated t
+:type elpa
+:description "useful HTTP client")

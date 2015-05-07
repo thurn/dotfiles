@@ -1,0 +1,4 @@
+(:name guile-scheme
+:auto-generated t
+:type elpa
+:description "Guile Scheme editing mode")

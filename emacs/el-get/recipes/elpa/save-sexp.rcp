@@ -1,0 +1,4 @@
+(:name save-sexp
+:auto-generated t
+:type elpa
+:description "save variables in files using setter forms like `setq'")

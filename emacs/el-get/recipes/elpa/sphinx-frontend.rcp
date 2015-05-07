@@ -1,0 +1,4 @@
+(:name sphinx-frontend
+:auto-generated t
+:type elpa
+:description "Launch build process for rst documents via sphinx.")

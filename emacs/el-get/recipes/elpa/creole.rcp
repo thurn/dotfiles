@@ -1,0 +1,4 @@
+(:name creole
+:auto-generated t
+:type elpa
+:description "A parser for the Creole Wiki language")

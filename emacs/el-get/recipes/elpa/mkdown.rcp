@@ -1,0 +1,4 @@
+(:name mkdown
+:auto-generated t
+:type elpa
+:description "Pretty Markdown previews based on mkdown.com")

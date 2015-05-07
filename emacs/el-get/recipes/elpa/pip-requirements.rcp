@@ -1,0 +1,4 @@
+(:name pip-requirements
+:auto-generated t
+:type elpa
+:description "A major mode for editing pip requirements files.")

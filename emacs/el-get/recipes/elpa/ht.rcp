@@ -1,0 +1,4 @@
+(:name ht
+:auto-generated t
+:type elpa
+:description "The missing hash table library for Emacs")

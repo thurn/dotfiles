@@ -1,0 +1,4 @@
+(:name python-environment
+:auto-generated t
+:type elpa
+:description "virtualenv API for Emacs Lisp")

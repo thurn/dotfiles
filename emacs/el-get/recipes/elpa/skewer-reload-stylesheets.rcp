@@ -1,0 +1,4 @@
+(:name skewer-reload-stylesheets
+:auto-generated t
+:type elpa
+:description "live-edit CSS stylesheets.")

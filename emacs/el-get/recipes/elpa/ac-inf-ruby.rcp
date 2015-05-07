@@ -1,0 +1,4 @@
+(:name ac-inf-ruby
+:auto-generated t
+:type elpa
+:description "Enable auto-complete in inf-ruby sessions")

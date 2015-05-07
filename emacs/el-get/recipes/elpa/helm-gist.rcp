@@ -1,0 +1,4 @@
+(:name helm-gist
+:auto-generated t
+:type elpa
+:description "helm-sources and some utilities for gist.")

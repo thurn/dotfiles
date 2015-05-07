@@ -1,0 +1,4 @@
+(:name isgd
+:auto-generated t
+:type elpa
+:description "Shorten URLs using the isgd.com shortener service")

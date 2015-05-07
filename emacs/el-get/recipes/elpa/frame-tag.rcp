@@ -1,0 +1,4 @@
+(:name frame-tag
+:auto-generated t
+:type elpa
+:description "Minor mode that assigns a unique number to each frame for easy switching")

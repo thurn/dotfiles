@@ -1,0 +1,4 @@
+(:name projector
+:auto-generated t
+:type elpa
+:description "Lightweight library for managing project/repository-aware shell and command buffers")

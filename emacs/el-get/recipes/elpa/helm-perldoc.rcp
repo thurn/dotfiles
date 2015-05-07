@@ -1,0 +1,4 @@
+(:name helm-perldoc
+:auto-generated t
+:type elpa
+:description "perldoc with helm interface")
