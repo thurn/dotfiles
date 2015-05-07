@@ -17,4 +17,5 @@ el-get/.status.el
 eshell/
 el-get/*
 !el-get/init
+!el-get/el-get
 bookmarks
