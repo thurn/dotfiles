@@ -54,8 +54,6 @@
    "/.cabal/bin:"
    (getenv "PATH")))
 
-(setq exec-path (split-string (getenv "PATH") ":"))
-
 ;; Use emacs for $EDITOR
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
 

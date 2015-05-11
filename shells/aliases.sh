@@ -76,9 +76,6 @@ fi
 
 alias mt="make test"
 
-alias cdd="cd ~/Desktop"
-alias cdb="cd ~/Dropbox"
-alias cdw="cd ~/Downloads"
 alias cd1="cd .."
 alias cd2="cd ../.."
 alias cd3="cd ../../.."

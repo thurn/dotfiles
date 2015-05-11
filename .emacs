@@ -17,6 +17,15 @@
 
 (setq user-emacs-directory "~/emacs/")
 
+;; Set the load path
+(if (not (getenv "TERM_PROGRAM"))
+    (let ((path (shell-command-to-string
+            "$SHELL -cl \"printf %s \\\"\\\$PATH\\\"\"")))
+      (setenv "PATH" path)))
+(setq exec-path (split-string (getenv "PATH") ":"))
+
+(package-initialize)
+
 ;; Set up El-Get
 (add-to-list 'load-path "~/emacs/el-get/el-get")
 (require 'el-get)
@@ -32,7 +41,7 @@
 ; ido-ubiquitous?
 (setq dthurn-el-get-packages
   '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode
-    ack-and-a-half cider clojure-mode clj-refactor eval-sexp-fu
+    cider clojure-mode eval-sexp-fu
     smartparens rainbow-delimiters company))
 
 (el-get 'sync dthurn-el-get-packages)
