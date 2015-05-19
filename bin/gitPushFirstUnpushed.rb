@@ -24,6 +24,11 @@ commitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "r")
 prevCommitSha = commitFile.read.chomp
 commitFile.close()
 
+# Create backup
+puts "Creating backup"
+system "tar cvfz /tmp/backup.tgz . 2> /dev/null"
+puts "Backed up to /tmp/backup.tgz"
+
 # Get the SHA1 of the next commit to push
 commitSha = `git log #{prevCommitSha}..HEAD --format='%H' | tail -n 1`.chomp
 
