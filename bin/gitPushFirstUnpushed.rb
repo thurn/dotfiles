@@ -26,8 +26,8 @@ commitFile.close()
 
 # Create backup
 puts "Creating backup"
-system "tar cvfz /tmp/backup.tgz . 2> /dev/null"
-puts "Backed up to /tmp/backup.tgz"
+exit unless system "rsync -a . /tmp/backups"
+puts "Backed up to /tmp/backups"
 
 # Get the SHA1 of the next commit to push
 commitSha = `git log #{prevCommitSha}..HEAD --format='%H' | tail -n 1`.chomp
