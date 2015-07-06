@@ -85,3 +85,6 @@
 (server-start)
 
 (setq-default fill-column 80)
+
+;; Disable the bell
+(setq visible-bell 1)

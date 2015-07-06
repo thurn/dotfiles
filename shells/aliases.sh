@@ -32,7 +32,7 @@ alias rm='~/bin/trsh.pl'
 alias wget='wget --no-check-certificate'
 
 # Use emacs in daemon mode by default
-alias emacs='emacs_wrapper.rb'
+# alias emacs='emacs_wrapper.rb'
 alias kill-emacs='emacsclient -e "(kill-emacs)"'
 
 alias gl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"

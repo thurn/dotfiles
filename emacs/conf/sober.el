@@ -250,6 +250,9 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "TAB" 'dthurn-tab)
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
+(keyboard-translate ?\C-i ?\M-t)
+(keyboard-translate ?\C-m ?\M-y)
+
 ;; Top Row
 (sober-map-key "C-q" 'move-to-window-line)
 (sober-map-key "C-w" 'dthurn-page-up)
@@ -259,7 +262,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
-(sober-map-key "M-t" 'dthurn-page-down) ; REMAPPED AT OS LEVEL TO SEND C-i
+(sober-map-key "M-t" 'dthurn-page-down) ; Remapped from C-i above
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" 'dthurn-previous-window)
 (sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))

@@ -42,7 +42,7 @@
 
 (setq eshell-prompt-regexp "^[^$]*[$][ ]")
 
-(defun eshell/emacs (file)
+(defun eshell/e (file)
   (find-file-other-window file))
 
 (defun eshell/vim (file)
