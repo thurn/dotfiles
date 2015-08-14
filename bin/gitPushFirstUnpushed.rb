@@ -11,13 +11,13 @@ else
 end
 
 puts "switching to develop"
-system "git checkout develop"
+exit unless system "git checkout develop"
 
 puts "tracking all untracked files"
-system "git add -A"
+exit unless system "git add -A"
 
 puts "rolling local changes into last commit"
-system "git commit -a --amend -C HEAD"
+exit unless system "git commit -a --amend -C HEAD"
 
 # Get the SHA1 of the last commit
 commitFile = File.open(File.expand_path("~/Dropbox/commitSha.txt"), "r")
@@ -25,9 +25,9 @@ prevCommitSha = commitFile.read.chomp
 commitFile.close()
 
 # Create backup
-puts "Creating backup"
-exit unless system "rsync -a . /tmp/backups"
-puts "Backed up to /tmp/backups"
+puts "Creating backup at #{ENV["BACKUP"]}"
+exit unless system "rsync -a . #{ENV["BACKUP"]}"
+puts "Backed up to #{ENV["BACKUP"]}"
 
 # Get the SHA1 of the next commit to push
 commitSha = `git log #{prevCommitSha}..HEAD --format='%H' | tail -n 1`.chomp
