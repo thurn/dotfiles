@@ -41,7 +41,7 @@
 ; ido-ubiquitous?
 (setq dthurn-el-get-packages
   '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode
-    cider clojure-mode eval-sexp-fu
+    cider clojure-mode eval-sexp-fu markdown-mode
     smartparens rainbow-delimiters company))
 
 (el-get 'sync dthurn-el-get-packages)

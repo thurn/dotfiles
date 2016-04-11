@@ -143,6 +143,7 @@
         ("\\.m\\'" . objc-mode)
         ("\\.makepp\\'" . makefile-makepp-mode)
         ("\\.man\\'" . nroff-mode)
+        ("\\.md\\'" . markdown-mode)
         ("\\.mf\\'" . metafont-mode)
         ("\\.mixal\\'" . mixal-mode)
         ("\\.mk\\'" . makefile-gmake-mode)
