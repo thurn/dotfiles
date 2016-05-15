@@ -1,4 +1,0 @@
-(:name pydoc-info
-:auto-generated t
-:type elpa
-:description "Better Python support for info-lookup-symbol.")

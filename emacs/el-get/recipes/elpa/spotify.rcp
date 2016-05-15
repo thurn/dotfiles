@@ -1,4 +1,0 @@
-(:name spotify
-:auto-generated t
-:type elpa
-:description "Control the spotify application from emacs")

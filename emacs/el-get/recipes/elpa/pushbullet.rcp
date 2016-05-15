@@ -1,4 +1,0 @@
-(:name pushbullet
-:auto-generated t
-:type elpa
-:description "Emacs client for the PushBullet Android app")

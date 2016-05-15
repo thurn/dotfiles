@@ -1,4 +1,0 @@
-(:name csharp-mode
-:auto-generated t
-:type elpa
-:description "C# mode derived mode")

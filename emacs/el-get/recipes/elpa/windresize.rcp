@@ -1,4 +1,0 @@
-(:name windresize
-:auto-generated t
-:type elpa
-:description "Resize windows interactively")

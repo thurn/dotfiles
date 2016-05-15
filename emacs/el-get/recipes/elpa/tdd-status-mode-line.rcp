@@ -1,4 +1,0 @@
-(:name tdd-status-mode-line
-:auto-generated t
-:type elpa
-:description "TDD status on the mode-line")

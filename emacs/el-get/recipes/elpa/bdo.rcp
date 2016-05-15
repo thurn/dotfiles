@@ -1,4 +1,0 @@
-(:name bdo
-:auto-generated t
-:type elpa
-:description "Do things to a browser page from Emacs. BETA!")

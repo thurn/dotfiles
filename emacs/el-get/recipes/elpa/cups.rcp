@@ -1,4 +1,0 @@
-(:name cups
-:auto-generated t
-:type elpa
-:description "CUPS features for Emacs")

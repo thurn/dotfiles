@@ -1,4 +1,0 @@
-(:name nlet
-:auto-generated t
-:type elpa
-:description "schemes 'named let' for emacs.")

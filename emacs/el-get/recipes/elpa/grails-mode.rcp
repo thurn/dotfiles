@@ -1,4 +1,0 @@
-(:name grails-mode
-:auto-generated t
-:type elpa
-:description "minor-mode that adds some Grails project management to a grails project")

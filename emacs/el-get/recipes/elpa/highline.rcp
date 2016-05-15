@@ -1,4 +1,0 @@
-(:name highline
-:auto-generated t
-:type elpa
-:description "minor mode to highlight current line in buffer")

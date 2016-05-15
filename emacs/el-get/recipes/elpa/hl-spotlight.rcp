@@ -1,4 +1,0 @@
-(:name hl-spotlight
-:auto-generated t
-:type elpa
-:description "Extension of hl-line.el to spotlight current few lines.")

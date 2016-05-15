@@ -1,4 +1,0 @@
-(:name php-boris
-:auto-generated t
-:type elpa
-:description "Run boris php REPL")

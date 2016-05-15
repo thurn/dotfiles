@@ -1,4 +1,0 @@
-(:name dizzee
-:auto-generated t
-:type elpa
-:description "A more pleasant way to manage your project's subprocesses in Emacs.")

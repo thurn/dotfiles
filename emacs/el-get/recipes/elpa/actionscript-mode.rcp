@@ -1,4 +1,0 @@
-(:name actionscript-mode
-:auto-generated t
-:type elpa
-:description "A simple mode for editing Actionscript 3 files")

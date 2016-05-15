@@ -1,4 +1,0 @@
-(:name rotate
-:auto-generated t
-:type elpa
-:description "Rotate the layout of emacs")

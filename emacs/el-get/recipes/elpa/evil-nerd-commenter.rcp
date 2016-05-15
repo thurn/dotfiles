@@ -1,4 +1,0 @@
-(:name evil-nerd-commenter
-:auto-generated t
-:type elpa
-:description "Comment/uncomment lines efficiently. Like Nerd Commenter in Vim")

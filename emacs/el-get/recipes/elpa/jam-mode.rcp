@@ -1,4 +1,0 @@
-(:name jam-mode
-:auto-generated t
-:type elpa
-:description "Font-lock support for Jam files")

@@ -1,4 +1,0 @@
-(:name tagedit
-:auto-generated t
-:type elpa
-:description "Some paredit-like features for html-mode")

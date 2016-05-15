@@ -1,4 +1,0 @@
-(:name marmalade
-:auto-generated t
-:type elpa
-:description "Elisp interface for the Emacs Lisp package server.")

@@ -1,4 +1,0 @@
-(:name iedit
-:auto-generated t
-:type elpa
-:description "Edit multiple regions in the same way simultaneously.")

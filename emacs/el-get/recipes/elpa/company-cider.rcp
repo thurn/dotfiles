@@ -1,4 +1,0 @@
-(:name company-cider
-:auto-generated t
-:type elpa
-:description "company-mode completion back-end for Cider")

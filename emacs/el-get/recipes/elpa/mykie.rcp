@@ -1,4 +1,0 @@
-(:name mykie
-:auto-generated t
-:type elpa
-:description "Command multiplexer: Register multiple functions to a keybind")

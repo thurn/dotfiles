@@ -1,4 +1,0 @@
-(:name tiny
-:auto-generated t
-:type elpa
-:description "Quickly generate linear ranges in Emacs")

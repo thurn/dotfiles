@@ -1,4 +1,0 @@
-(:name mactag
-:auto-generated t
-:type elpa
-:description "Mode for automatically handle multiple tags files with Mactag rubygem")

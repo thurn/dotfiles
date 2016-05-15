@@ -1,4 +1,0 @@
-(:name object-registry
-:auto-generated t
-:type elpa
-:description "OBSOLETE track data items by various instance slots")

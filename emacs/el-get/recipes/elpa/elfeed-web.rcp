@@ -1,4 +1,0 @@
-(:name elfeed-web
-:auto-generated t
-:type elpa
-:description "web interface to Elfeed")

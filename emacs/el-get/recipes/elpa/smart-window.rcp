@@ -1,4 +1,0 @@
-(:name smart-window
-:auto-generated t
-:type elpa
-:description "vim-like window controlling plugin")

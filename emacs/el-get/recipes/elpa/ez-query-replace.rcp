@@ -1,4 +1,0 @@
-(:name ez-query-replace
-:auto-generated t
-:type elpa
-:description "a smarter context-sensitive query-replace that can be reapplied")

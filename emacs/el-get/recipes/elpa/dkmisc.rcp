@@ -1,4 +1,0 @@
-(:name dkmisc
-:auto-generated t
-:type elpa
-:description "Miscellaneous functions required by dk* packages.")

@@ -1,4 +1,0 @@
-(:name cider-decompile
-:auto-generated t
-:type elpa
-:description "decompilation extension for cider")

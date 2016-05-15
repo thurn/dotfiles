@@ -1,4 +1,0 @@
-(:name heroku
-:auto-generated t
-:type elpa
-:description "Interface to Heroku apps.")

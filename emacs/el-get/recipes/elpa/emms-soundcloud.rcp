@@ -1,4 +1,0 @@
-(:name emms-soundcloud
-:auto-generated t
-:type elpa
-:description "EMMS source for Soundcloud audio sharing platform")

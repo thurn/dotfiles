@@ -1,4 +1,0 @@
-(:name ibuffer-git
-:auto-generated t
-:type elpa
-:description "show git status in ibuffer column")

@@ -1,4 +1,0 @@
-(:name mo-git-blame
-:auto-generated t
-:type elpa
-:description "An interactive, iterative 'git blame' mode for Emacs")

@@ -1,4 +1,0 @@
-(:name flatui-theme
-:auto-generated t
-:type elpa
-:description "A color theme for Emacs based on flatuicolors.com")

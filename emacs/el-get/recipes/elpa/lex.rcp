@@ -1,4 +1,0 @@
-(:name lex
-:auto-generated t
-:type elpa
-:description "Lexical analyser construction")

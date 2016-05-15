@@ -1,4 +1,0 @@
-(:name markdown-toc
-:auto-generated t
-:type elpa
-:description "A simple TOC generator for markdown file")

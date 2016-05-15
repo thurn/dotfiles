@@ -1,4 +1,0 @@
-(:name highlight-unique-symbol
-:auto-generated t
-:type elpa
-:description "highlight symbols which not appear in the repository")

@@ -1,4 +1,0 @@
-(:name vc-osc
-:auto-generated t
-:type elpa
-:description "non-resident support for osc version-control")

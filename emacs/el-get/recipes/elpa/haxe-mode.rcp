@@ -1,4 +1,0 @@
-(:name haxe-mode
-:auto-generated t
-:type elpa
-:description "An Emacs major mode for Haxe")

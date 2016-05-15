@@ -1,4 +1,0 @@
-(:name realgud
-:auto-generated t
-:type elpa
-:description "A modular front-end for interacting with external debuggers")

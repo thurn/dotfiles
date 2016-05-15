@@ -69,9 +69,9 @@
 (defun eshell/ll ()
   (eshell/ls "-l" "-a" "-h"))
 
-(defun eshell/ack (pattern)
-  (ack pattern nil default-directory)
-  (switch-to-buffer-other-window "*Ack-and-a-half*"))
+;; (defun eshell/ack (pattern)
+;;   (ack pattern nil default-directory)
+;;   (switch-to-buffer-other-window "*Ack-and-a-half*"))
 
 (defun eshell/ackr (pattern)
   (ack pattern t default-directory)

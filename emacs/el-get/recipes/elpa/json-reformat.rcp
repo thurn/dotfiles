@@ -1,4 +1,0 @@
-(:name json-reformat
-:auto-generated t
-:type elpa
-:description "Reformatting tool for JSON")

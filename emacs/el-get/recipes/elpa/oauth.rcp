@@ -1,4 +1,0 @@
-(:name oauth
-:auto-generated t
-:type elpa
-:description "Oauth library.")

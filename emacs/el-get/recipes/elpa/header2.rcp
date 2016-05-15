@@ -1,4 +1,0 @@
-(:name header2
-:auto-generated t
-:type elpa
-:description "Support for creation and update of file headers.")

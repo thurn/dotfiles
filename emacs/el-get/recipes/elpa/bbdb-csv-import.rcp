@@ -1,4 +1,0 @@
-(:name bbdb-csv-import
-:auto-generated t
-:type elpa
-:description "import csv to bbdb version 3+")

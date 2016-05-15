@@ -1,4 +1,0 @@
-(:name octomacs
-:auto-generated t
-:type elpa
-:description "Octopress interface for Emacs")

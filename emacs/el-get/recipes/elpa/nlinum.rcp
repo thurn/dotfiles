@@ -1,4 +1,0 @@
-(:name nlinum
-:auto-generated t
-:type elpa
-:description "Show line numbers in the margin")

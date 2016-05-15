@@ -1,4 +1,0 @@
-(:name cpputils-cmake
-:auto-generated t
-:type elpa
-:description "Easy real time C++ syntax check and intellisense if you use CMake")

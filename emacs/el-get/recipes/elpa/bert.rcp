@@ -1,4 +1,0 @@
-(:name bert
-:auto-generated t
-:type elpa
-:description "BERT serialization library for Emacs")

@@ -1,4 +1,0 @@
-(:name unidecode
-:auto-generated t
-:type elpa
-:description "Convert Unicode text into safe ASCII strings")

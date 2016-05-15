@@ -1,4 +1,0 @@
-(:name column-marker
-:auto-generated t
-:type elpa
-:description "Highlight certain character columns")

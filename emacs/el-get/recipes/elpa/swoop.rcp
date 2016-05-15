@@ -1,4 +1,0 @@
-(:name swoop
-:auto-generated t
-:type elpa
-:description "Peculiar buffer navigation for Emacs")

@@ -1,4 +1,0 @@
-(:name screen-lines
-:auto-generated t
-:type elpa
-:description "a minor mode for screen-line-based point motion")

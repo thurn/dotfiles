@@ -1,4 +1,0 @@
-(:name pkg-info-dummy-package
-:auto-generated t
-:type elpa
-:description "pkg-info: Dummy package for unit tests")

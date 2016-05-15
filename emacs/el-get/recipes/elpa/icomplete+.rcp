@@ -1,4 +1,0 @@
-(:name icomplete+
-:auto-generated t
-:type elpa
-:description "Extensions to `icomplete.el'.")

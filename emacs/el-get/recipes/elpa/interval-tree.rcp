@@ -1,4 +1,0 @@
-(:name interval-tree
-:auto-generated t
-:type elpa
-:description "Interval tree data structure for 1D range queries")

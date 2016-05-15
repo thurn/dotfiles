@@ -1,4 +1,0 @@
-(:name isearch-prop
-:auto-generated t
-:type elpa
-:description "Search text-property or overlay-property contexts.")

@@ -1,4 +1,0 @@
-(:name omniref
-:auto-generated t
-:type elpa
-:description "Omniref Ruby documentation search engine interface")

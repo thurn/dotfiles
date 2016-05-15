@@ -1,4 +1,0 @@
-(:name org-gcal
-:auto-generated t
-:type elpa
-:description "Org sync with Google Calendar")

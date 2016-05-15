@@ -1,4 +1,0 @@
-(:name flymake-tuareg
-:auto-generated t
-:type elpa
-:description "A flymake handler for tuareg-mode files")

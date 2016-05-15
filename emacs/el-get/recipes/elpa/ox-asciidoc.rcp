@@ -1,4 +1,0 @@
-(:name ox-asciidoc
-:auto-generated t
-:type elpa
-:description "AsciiDoc Back-End for Org Export Engine")

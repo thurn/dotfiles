@@ -1,4 +1,0 @@
-(:name find-things-fast
-:auto-generated t
-:type elpa
-:description "Find things fast, leveraging the power of git")

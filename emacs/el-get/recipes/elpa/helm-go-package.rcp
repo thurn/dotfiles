@@ -1,4 +1,0 @@
-(:name helm-go-package
-:auto-generated t
-:type elpa
-:description "helm sources for Go programming language's package")

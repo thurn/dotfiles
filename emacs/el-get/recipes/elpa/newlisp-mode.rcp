@@ -1,4 +1,0 @@
-(:name newlisp-mode
-:auto-generated t
-:type elpa
-:description "newLISP editing mode for Emacs")

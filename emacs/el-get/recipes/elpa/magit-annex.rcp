@@ -1,4 +1,0 @@
-(:name magit-annex
-:auto-generated t
-:type elpa
-:description "Use git annex within magit")

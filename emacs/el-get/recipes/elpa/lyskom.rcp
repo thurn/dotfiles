@@ -1,4 +1,0 @@
-(:name lyskom
-:auto-generated t
-:type elpa
-:description "LysKOM elisp client.")

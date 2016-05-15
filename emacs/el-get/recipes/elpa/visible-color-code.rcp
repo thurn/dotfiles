@@ -1,4 +1,0 @@
-(:name visible-color-code
-:auto-generated t
-:type elpa
-:description "color code strings in current buffer, this elisp show you one as real color.")

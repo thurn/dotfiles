@@ -1,4 +1,0 @@
-(:name wisp-mode
-:auto-generated t
-:type elpa
-:description "Tools for wisp: the Whitespace-to-Lisp preprocessor")

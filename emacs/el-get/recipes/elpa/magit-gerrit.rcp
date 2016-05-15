@@ -1,4 +1,0 @@
-(:name magit-gerrit
-:auto-generated t
-:type elpa
-:description "Magit plugin for Gerrit Code Review")

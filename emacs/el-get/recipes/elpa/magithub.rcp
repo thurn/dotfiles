@@ -1,4 +1,0 @@
-(:name magithub
-:auto-generated t
-:type elpa
-:description "Magit extensions for using GitHub")

@@ -1,4 +1,0 @@
-(:name edit-color-stamp
-:auto-generated t
-:type elpa
-:description "Edit a hex color stamp, using a QT or the internal color picker")

@@ -1,4 +1,0 @@
-(:name screenshot
-:auto-generated t
-:type elpa
-:description "Take a screenshot in Emacs")

@@ -1,4 +1,0 @@
-(:name dired-rainbow
-:auto-generated t
-:type elpa
-:description "Extended file highlighting according to its type")

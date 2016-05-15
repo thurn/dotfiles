@@ -1,4 +1,0 @@
-(:name anzu
-:auto-generated t
-:type elpa
-:description "Show number of matches in mode-line while searching")

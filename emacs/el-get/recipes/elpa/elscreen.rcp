@@ -1,4 +1,0 @@
-(:name elscreen
-:auto-generated t
-:type elpa
-:description "Emacs window session manager")

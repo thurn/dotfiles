@@ -1,4 +1,0 @@
-(:name htmlize
-:auto-generated t
-:type elpa
-:description "Convert buffer text and decorations to HTML.")

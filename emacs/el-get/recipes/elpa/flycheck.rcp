@@ -1,4 +1,0 @@
-(:name flycheck
-:auto-generated t
-:type elpa
-:description "Modern on-the-fly syntax checking for GNU Emacs")

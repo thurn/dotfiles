@@ -1,4 +1,0 @@
-(:name regex-dsl
-:auto-generated t
-:type elpa
-:description "lisp syntax for regexps")

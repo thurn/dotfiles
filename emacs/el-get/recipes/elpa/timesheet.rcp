@@ -1,4 +1,0 @@
-(:name timesheet
-:auto-generated t
-:type elpa
-:description "Timesheet management add-on for org-mode")

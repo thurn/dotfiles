@@ -1,4 +1,0 @@
-(:name arduino-mode
-:auto-generated t
-:type elpa
-:description "Major mode for the Arduino language")

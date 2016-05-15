@@ -1,4 +1,0 @@
-(:name fill-column-indicator
-:auto-generated t
-:type elpa
-:description "Graphically indicate the fill column")

@@ -1,4 +1,0 @@
-(:name kanban
-:auto-generated t
-:type elpa
-:description "Parse org-todo headlines to use org-tables as Kanban tables")

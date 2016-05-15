@@ -1,4 +1,0 @@
-(:name lfe-mode
-:auto-generated t
-:type elpa
-:description "Lisp Flavoured Erlang mode")

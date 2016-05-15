@@ -1,4 +1,0 @@
-(:name drag-stuff
-:auto-generated t
-:type elpa
-:description "Drag stuff (lines, words, region, etc...) around")

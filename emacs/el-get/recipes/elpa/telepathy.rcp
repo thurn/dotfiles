@@ -1,4 +1,0 @@
-(:name telepathy
-:auto-generated t
-:type elpa
-:description "Access Telepathy from Emacs")

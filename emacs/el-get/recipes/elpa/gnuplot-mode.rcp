@@ -1,4 +1,0 @@
-(:name gnuplot-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing gnuplot scripts")

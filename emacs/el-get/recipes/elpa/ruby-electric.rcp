@@ -1,4 +1,0 @@
-(:name ruby-electric
-:auto-generated t
-:type elpa
-:description "Minor mode for electrically editing ruby code")

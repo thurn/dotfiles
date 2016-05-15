@@ -1,4 +1,0 @@
-(:name dix
-:auto-generated t
-:type elpa
-:description "minor mode for editing Apertium XML dictionary files")

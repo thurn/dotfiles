@@ -1,4 +1,0 @@
-(:name xquery-mode
-:auto-generated t
-:type elpa
-:description "A simple mode for editing xquery programs")

@@ -1,4 +1,0 @@
-(:name system-specific-settings
-:auto-generated t
-:type elpa
-:description "Apply settings only on certain systems")

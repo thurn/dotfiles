@@ -1,4 +1,0 @@
-(:name pomodoro
-:auto-generated t
-:type elpa
-:description "A timer for the Pomodoro Technique")

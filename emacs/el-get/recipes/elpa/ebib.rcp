@@ -1,4 +1,0 @@
-(:name ebib
-:auto-generated t
-:type elpa
-:description "a BibTeX database manager")

@@ -1,4 +1,0 @@
-(:name simp
-:auto-generated t
-:type elpa
-:description "Simple project definition, chiefly for file finding, and grepping")

@@ -1,4 +1,0 @@
-(:name otter-mode
-:auto-generated t
-:type elpa
-:description "Major mode for source files of the Otter automated theorem prover")

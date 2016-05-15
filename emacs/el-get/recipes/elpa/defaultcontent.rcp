@@ -1,4 +1,0 @@
-(:name defaultcontent
-:auto-generated t
-:type elpa
-:description "a templating tool. Fill new files with default content.")

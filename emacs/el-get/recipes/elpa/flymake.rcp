@@ -1,4 +1,0 @@
-(:name flymake
-:auto-generated t
-:type elpa
-:description "a universal on-the-fly syntax checker")

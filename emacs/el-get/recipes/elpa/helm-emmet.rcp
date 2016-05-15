@@ -1,4 +1,0 @@
-(:name helm-emmet
-:auto-generated t
-:type elpa
-:description "helm sources for emmet-mode's snippets")

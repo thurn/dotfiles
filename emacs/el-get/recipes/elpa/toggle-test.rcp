@@ -1,4 +1,0 @@
-(:name toggle-test
-:auto-generated t
-:type elpa
-:description "Toggle between source and test files in various programming languages")

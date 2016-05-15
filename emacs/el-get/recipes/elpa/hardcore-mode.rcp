@@ -1,4 +1,0 @@
-(:name hardcore-mode
-:auto-generated t
-:type elpa
-:description "Disable arrow keys + optionally backspace and return")

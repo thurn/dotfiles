@@ -1,4 +1,0 @@
-(:name weechat
-:auto-generated t
-:type elpa
-:description "Chat via WeeChat's relay protocol in Emacs")

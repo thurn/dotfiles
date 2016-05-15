@@ -1,4 +1,0 @@
-(:name ac-nrepl
-:auto-generated t
-:type elpa
-:description "auto-complete sources for Clojure using nrepl completions")

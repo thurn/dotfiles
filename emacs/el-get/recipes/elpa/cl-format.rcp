@@ -1,4 +1,0 @@
-(:name cl-format
-:auto-generated t
-:type elpa
-:description "CL format routine.")

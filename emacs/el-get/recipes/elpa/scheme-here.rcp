@@ -1,4 +1,0 @@
-(:name scheme-here
-:auto-generated t
-:type elpa
-:description "cmuscheme extension for multiple inferior processes")

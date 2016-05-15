@@ -1,4 +1,0 @@
-(:name fuzzy-format
-:auto-generated t
-:type elpa
-:description "select indent-tabs-mode and format code automatically.")

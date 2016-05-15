@@ -1,4 +1,0 @@
-(:name f90-interface-browser
-:auto-generated t
-:type elpa
-:description "Parse and browse f90 interfaces")

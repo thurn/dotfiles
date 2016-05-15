@@ -1,4 +1,0 @@
-(:name stripe-buffer
-:auto-generated t
-:type elpa
-:description "Use a different background for even and odd lines")

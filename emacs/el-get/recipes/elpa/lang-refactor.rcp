@@ -1,4 +1,0 @@
-(:name lang-refactor
-:auto-generated t
-:type elpa
-:description "Simple refactorings, primarily for Perl")

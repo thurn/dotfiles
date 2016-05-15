@@ -1,4 +1,0 @@
-(:name helm-itunes
-:auto-generated t
-:type elpa
-:description "Play local iTunes and Spotify tracks")

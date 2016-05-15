@@ -1,4 +1,0 @@
-(:name jinja2-mode
-:auto-generated t
-:type elpa
-:description "A major mode for jinja2")

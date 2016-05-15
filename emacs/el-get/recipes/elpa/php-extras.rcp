@@ -1,4 +1,0 @@
-(:name php-extras
-:auto-generated t
-:type elpa
-:description "Extra features for `php-mode'")

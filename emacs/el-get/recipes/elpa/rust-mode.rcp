@@ -1,4 +1,0 @@
-(:name rust-mode
-:auto-generated t
-:type elpa
-:description "A major emacs mode for editing Rust source code")

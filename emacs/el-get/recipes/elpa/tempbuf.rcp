@@ -1,4 +1,0 @@
-(:name tempbuf
-:auto-generated t
-:type elpa
-:description "kill unused buffers in the background")

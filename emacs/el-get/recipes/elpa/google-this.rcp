@@ -1,4 +1,0 @@
-(:name google-this
-:auto-generated t
-:type elpa
-:description "A set of functions and bindings to google under point.")

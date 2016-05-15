@@ -1,4 +1,0 @@
-(:name highlight-quoted
-:auto-generated t
-:type elpa
-:description "Highlight Lisp quotes and quoted symbols")

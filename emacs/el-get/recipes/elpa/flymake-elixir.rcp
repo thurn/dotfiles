@@ -1,4 +1,0 @@
-(:name flymake-elixir
-:auto-generated t
-:type elpa
-:description "A flymake handler for elixir-mode .ex files.")

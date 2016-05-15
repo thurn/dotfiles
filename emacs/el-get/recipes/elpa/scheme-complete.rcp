@@ -1,4 +1,0 @@
-(:name scheme-complete
-:auto-generated t
-:type elpa
-:description "Smart tab completion for Scheme in Emacs")

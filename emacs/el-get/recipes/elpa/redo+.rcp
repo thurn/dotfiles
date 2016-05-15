@@ -1,4 +1,0 @@
-(:name redo+
-:auto-generated t
-:type elpa
-:description "Redo/undo system for Emacs")

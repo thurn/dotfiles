@@ -1,4 +1,0 @@
-(:name ido-better-flex
-:auto-generated t
-:type elpa
-:description "A better flex (fuzzy) algorithm for Ido.")

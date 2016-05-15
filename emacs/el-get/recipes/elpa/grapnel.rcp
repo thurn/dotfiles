@@ -1,4 +1,0 @@
-(:name grapnel
-:auto-generated t
-:type elpa
-:description "HTTP request lib with flexible callback dispatch")

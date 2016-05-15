@@ -1,4 +1,0 @@
-(:name psession
-:auto-generated t
-:type elpa
-:description "Persistent save of elisp objects.")

@@ -1,4 +1,0 @@
-(:name term-cmd
-:auto-generated t
-:type elpa
-:description "Send commands to Emacs from programs running under term.el")

@@ -1,4 +1,0 @@
-(:name ac-anaconda
-:auto-generated t
-:type elpa
-:description "Anaconda sources for auto-complete-mode")

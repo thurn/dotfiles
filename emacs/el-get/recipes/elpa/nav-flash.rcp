@@ -1,4 +1,0 @@
-(:name nav-flash
-:auto-generated t
-:type elpa
-:description "Briefly highlight the current line")

@@ -1,4 +1,0 @@
-(:name ctags
-:auto-generated t
-:type elpa
-:description "Exuberant Ctags utilities for Emacs")

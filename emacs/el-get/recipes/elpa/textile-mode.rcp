@@ -1,4 +1,0 @@
-(:name textile-mode
-:auto-generated t
-:type elpa
-:description "Textile markup editing major mode")

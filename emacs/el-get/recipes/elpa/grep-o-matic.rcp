@@ -1,4 +1,0 @@
-(:name grep-o-matic
-:auto-generated t
-:type elpa
-:description "auto grep word under cursor")

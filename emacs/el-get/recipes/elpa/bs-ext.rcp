@@ -1,4 +1,0 @@
-(:name bs-ext
-:auto-generated t
-:type elpa
-:description "Extensions to emacs buffer-selection library (bs.el)")

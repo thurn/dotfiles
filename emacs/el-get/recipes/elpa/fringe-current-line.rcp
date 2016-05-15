@@ -1,4 +1,0 @@
-(:name fringe-current-line
-:auto-generated t
-:type elpa
-:description "show current line on the fringe.")

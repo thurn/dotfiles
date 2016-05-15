@@ -1,4 +1,0 @@
-(:name emms-mark-ext
-:auto-generated t
-:type elpa
-:description "Extra functions for emms-mark-mode and emms-tag-edit-mode")

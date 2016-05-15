@@ -1,4 +1,0 @@
-(:name charmap
-:auto-generated t
-:type elpa
-:description "Unicode table for Emacs")

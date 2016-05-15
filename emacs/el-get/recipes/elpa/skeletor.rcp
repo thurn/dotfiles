@@ -1,4 +1,0 @@
-(:name skeletor
-:auto-generated t
-:type elpa
-:description "Provides project skeletons for Emacs")

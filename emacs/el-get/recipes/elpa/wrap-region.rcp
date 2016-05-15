@@ -1,4 +1,0 @@
-(:name wrap-region
-:auto-generated t
-:type elpa
-:description "Wrap text with punctation or tag")

@@ -1,4 +1,0 @@
-(:name occur-default-current-word
-:auto-generated t
-:type elpa
-:description "Have M-x occur default to the word at point")

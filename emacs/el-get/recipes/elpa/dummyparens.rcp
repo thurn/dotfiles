@@ -1,4 +1,0 @@
-(:name dummyparens
-:auto-generated t
-:type elpa
-:description "parenthesis auto-pairing and wrapping")

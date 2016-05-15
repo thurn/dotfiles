@@ -1,4 +1,0 @@
-(:name fuel
-:auto-generated t
-:type elpa
-:description "Major mode for the Factor programming language.")

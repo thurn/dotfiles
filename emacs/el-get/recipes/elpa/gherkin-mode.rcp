@@ -1,4 +1,0 @@
-(:name gherkin-mode
-:auto-generated t
-:type elpa
-:description "An emacs major mode for editing gherkin files.")

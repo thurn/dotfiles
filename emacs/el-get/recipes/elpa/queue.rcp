@@ -1,4 +1,0 @@
-(:name queue
-:auto-generated t
-:type elpa
-:description "Queue data structure")

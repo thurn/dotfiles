@@ -1,4 +1,0 @@
-(:name plim-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Plim files")

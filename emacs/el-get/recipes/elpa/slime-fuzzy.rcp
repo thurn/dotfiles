@@ -1,4 +1,0 @@
-(:name slime-fuzzy
-:auto-generated t
-:type elpa
-:description "Fuzzy symbol completion for Slime")

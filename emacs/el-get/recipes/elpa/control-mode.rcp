@@ -1,4 +1,0 @@
-(:name control-mode
-:auto-generated t
-:type elpa
-:description "A "control" mode, similar to vim's "normal" mode")

@@ -1,4 +1,0 @@
-(:name mocker
-:auto-generated t
-:type elpa
-:description "mocking framework for emacs")

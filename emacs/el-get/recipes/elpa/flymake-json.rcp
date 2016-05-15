@@ -1,4 +1,0 @@
-(:name flymake-json
-:auto-generated t
-:type elpa
-:description "A flymake handler for json using jsonlint")

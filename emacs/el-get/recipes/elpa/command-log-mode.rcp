@@ -1,4 +1,0 @@
-(:name command-log-mode
-:auto-generated t
-:type elpa
-:description "log keyboard commands to buffer")

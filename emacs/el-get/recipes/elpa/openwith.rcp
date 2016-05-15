@@ -1,4 +1,0 @@
-(:name openwith
-:auto-generated t
-:type elpa
-:description "Open files with external programs")

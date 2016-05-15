@@ -1,4 +1,0 @@
-(:name fixmee
-:auto-generated t
-:type elpa
-:description "Quickly navigate to FIXME notices in code")

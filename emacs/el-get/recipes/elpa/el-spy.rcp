@@ -1,4 +1,0 @@
-(:name el-spy
-:auto-generated t
-:type elpa
-:description "Mocking framework for Emacs lisp. It also support spy, proxy.")

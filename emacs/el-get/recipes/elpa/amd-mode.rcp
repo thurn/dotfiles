@@ -1,4 +1,0 @@
-(:name amd-mode
-:auto-generated t
-:type elpa
-:description "Minor mode for handling JavaScript AMD module requirements.")

@@ -1,4 +1,0 @@
-(:name dylan-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Dylan programs.")

@@ -1,4 +1,0 @@
-(:name rainbow-delimiters
-:auto-generated t
-:type elpa
-:description "Highlight nested parens, brackets, braces a different color at each depth.")

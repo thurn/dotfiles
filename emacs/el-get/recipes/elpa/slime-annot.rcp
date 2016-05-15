@@ -1,4 +1,0 @@
-(:name slime-annot
-:auto-generated t
-:type elpa
-:description "cl-annot support for SLIME")

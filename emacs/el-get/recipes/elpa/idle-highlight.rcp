@@ -1,4 +1,0 @@
-(:name idle-highlight
-:auto-generated t
-:type elpa
-:description "highlight the word the point is on")

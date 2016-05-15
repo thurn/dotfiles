@@ -1,4 +1,0 @@
-(:name highlight-numbers
-:auto-generated t
-:type elpa
-:description "Highlight numbers in source code")

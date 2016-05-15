@@ -1,4 +1,0 @@
-(:name virtualenv
-:auto-generated t
-:type elpa
-:description "Virtualenv for Python")

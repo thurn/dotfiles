@@ -1,4 +1,0 @@
-(:name dired-single
-:auto-generated t
-:type elpa
-:description "Reuse the current dired buffer to visit another directory")

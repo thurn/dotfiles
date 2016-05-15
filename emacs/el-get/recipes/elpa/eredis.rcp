@@ -1,4 +1,0 @@
-(:name eredis
-:auto-generated t
-:type elpa
-:description "eredis, a Redis client in emacs lisp")

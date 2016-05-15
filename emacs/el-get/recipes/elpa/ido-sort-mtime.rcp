@@ -1,4 +1,0 @@
-(:name ido-sort-mtime
-:auto-generated t
-:type elpa
-:description "Sort Ido's file list by modification time")

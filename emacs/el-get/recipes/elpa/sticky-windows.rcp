@@ -1,4 +1,0 @@
-(:name sticky-windows
-:auto-generated t
-:type elpa
-:description "Make windows stay visible")

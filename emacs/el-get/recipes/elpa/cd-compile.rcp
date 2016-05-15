@@ -1,4 +1,0 @@
-(:name cd-compile
-:auto-generated t
-:type elpa
-:description "run compile in a specific directory")

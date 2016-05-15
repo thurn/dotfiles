@@ -1,4 +1,0 @@
-(:name php+-mode
-:auto-generated t
-:type elpa
-:description "A better PHP mode with Zend Framework 1 support.")

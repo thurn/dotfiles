@@ -1,4 +1,0 @@
-(:name tidy
-:auto-generated t
-:type elpa
-:description "Interface to the HTML Tidy program")

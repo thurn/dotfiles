@@ -1,4 +1,0 @@
-(:name esh-help
-:auto-generated t
-:type elpa
-:description "Add some help functions and support for Eshell")

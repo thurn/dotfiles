@@ -1,4 +1,0 @@
-(:name adoc-mode
-:auto-generated t
-:type elpa
-:description "a major-mode for editing AsciiDoc files in Emacs")

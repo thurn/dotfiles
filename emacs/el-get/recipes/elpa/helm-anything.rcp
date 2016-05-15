@@ -1,4 +1,0 @@
-(:name helm-anything
-:auto-generated t
-:type elpa
-:description "Bridge between anything and helm")

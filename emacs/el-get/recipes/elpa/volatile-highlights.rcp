@@ -1,4 +1,0 @@
-(:name volatile-highlights
-:auto-generated t
-:type elpa
-:description "Minor mode for visual feedback on some operations.")

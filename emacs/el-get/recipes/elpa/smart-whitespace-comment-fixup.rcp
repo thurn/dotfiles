@@ -1,4 +1,0 @@
-(:name smart-whitespace-comment-fixup
-:auto-generated t
-:type elpa
-:description "Enables advice around yanking/killing lines that auto-indents and formats properly")

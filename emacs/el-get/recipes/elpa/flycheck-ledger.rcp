@@ -1,4 +1,0 @@
-(:name flycheck-ledger
-:auto-generated t
-:type elpa
-:description "Flycheck integration for ledger files")

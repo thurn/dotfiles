@@ -1,4 +1,0 @@
-(:name github-clone
-:auto-generated t
-:type elpa
-:description "Fork and clone github repos")

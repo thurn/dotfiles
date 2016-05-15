@@ -1,4 +1,0 @@
-(:name mo-vi-ment-mode
-:auto-generated t
-:type elpa
-:description "Provide vi-like cursor movement that's easy on the fingers")

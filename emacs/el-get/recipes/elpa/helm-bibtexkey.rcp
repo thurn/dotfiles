@@ -1,4 +1,0 @@
-(:name helm-bibtexkey
-:auto-generated t
-:type elpa
-:description "Bibtexkey source for helm")

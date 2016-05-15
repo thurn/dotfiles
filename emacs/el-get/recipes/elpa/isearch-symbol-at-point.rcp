@@ -1,4 +1,0 @@
-(:name isearch-symbol-at-point
-:auto-generated t
-:type elpa
-:description "Use isearch to search for the symbol at point")

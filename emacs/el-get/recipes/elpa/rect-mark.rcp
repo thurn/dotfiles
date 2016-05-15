@@ -1,4 +1,0 @@
-(:name rect-mark
-:auto-generated t
-:type elpa
-:description "Mark a rectangle of text with highlighting.")

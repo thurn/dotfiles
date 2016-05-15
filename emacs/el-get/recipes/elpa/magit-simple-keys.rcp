@@ -1,4 +1,0 @@
-(:name magit-simple-keys
-:auto-generated t
-:type elpa
-:description "simple keybindings for Magit")

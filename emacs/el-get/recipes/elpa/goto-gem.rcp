@@ -1,4 +1,0 @@
-(:name goto-gem
-:auto-generated t
-:type elpa
-:description "Open dired in gem directory")

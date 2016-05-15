@@ -1,4 +1,0 @@
-(:name find-file-in-project
-:auto-generated t
-:type elpa
-:description "Find files in a project quickly.")

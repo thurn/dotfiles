@@ -1,4 +1,0 @@
-(:name quack
-:auto-generated t
-:type elpa
-:description "enhanced support for editing and running Scheme code")

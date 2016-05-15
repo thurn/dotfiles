@@ -1,4 +1,0 @@
-(:name flymake-sass
-:auto-generated t
-:type elpa
-:description "Flymake handler for sass and scss files")

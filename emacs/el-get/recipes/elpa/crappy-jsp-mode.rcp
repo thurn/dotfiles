@@ -1,4 +1,0 @@
-(:name crappy-jsp-mode
-:auto-generated t
-:type elpa
-:description "A pretty crappy major-mode for jsp.")

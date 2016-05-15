@@ -1,4 +1,0 @@
-(:name ace-window
-:auto-generated t
-:type elpa
-:description "Quickly switch windows using `ace-jump-mode'.")

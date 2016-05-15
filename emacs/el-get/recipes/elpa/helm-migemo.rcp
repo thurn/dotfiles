@@ -1,4 +1,0 @@
-(:name helm-migemo
-:auto-generated t
-:type elpa
-:description "Migemo plug-in for helm")

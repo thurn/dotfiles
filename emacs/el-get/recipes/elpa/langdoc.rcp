@@ -1,4 +1,0 @@
-(:name langdoc
-:auto-generated t
-:type elpa
-:description "Help to define help document mode for various languages")

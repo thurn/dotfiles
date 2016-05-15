@@ -1,4 +1,0 @@
-(:name vc-fossil
-:auto-generated t
-:type elpa
-:description "VC backend for the fossil sofware configuraiton management system")

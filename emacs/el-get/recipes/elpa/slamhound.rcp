@@ -1,4 +1,0 @@
-(:name slamhound
-:auto-generated t
-:type elpa
-:description "Rip Clojure namespaces apart and rebuild them.")

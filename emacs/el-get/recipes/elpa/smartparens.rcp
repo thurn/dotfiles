@@ -1,4 +1,0 @@
-(:name smartparens
-:auto-generated t
-:type elpa
-:description "Automatic insertion, wrapping and paredit-like navigation with user defined pairs.")

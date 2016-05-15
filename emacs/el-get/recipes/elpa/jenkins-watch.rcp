@@ -1,4 +1,0 @@
-(:name jenkins-watch
-:auto-generated t
-:type elpa
-:description "Watch continuous integration build status")

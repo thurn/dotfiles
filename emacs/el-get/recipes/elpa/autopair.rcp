@@ -1,4 +1,0 @@
-(:name autopair
-:auto-generated t
-:type elpa
-:description "Automagically pair braces and quotes like TextMate")

@@ -1,4 +1,0 @@
-(:name scala-mode2
-:auto-generated t
-:type elpa
-:description "Major mode for editing Scala >= 2.9")

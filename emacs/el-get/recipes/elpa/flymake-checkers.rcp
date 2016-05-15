@@ -1,4 +1,0 @@
-(:name flymake-checkers
-:auto-generated t
-:type elpa
-:description "Transition package to Flycheck")

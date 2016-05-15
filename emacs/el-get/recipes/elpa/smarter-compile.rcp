@@ -1,4 +1,0 @@
-(:name smarter-compile
-:auto-generated t
-:type elpa
-:description "a smarter wrapper for `compile'")

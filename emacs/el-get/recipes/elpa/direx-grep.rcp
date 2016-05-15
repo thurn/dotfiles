@@ -1,4 +1,0 @@
-(:name direx-grep
-:auto-generated t
-:type elpa
-:description "Grep node of direx.el using incremental search like anything.el/helm.el")

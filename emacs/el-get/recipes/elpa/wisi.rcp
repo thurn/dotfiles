@@ -1,4 +1,0 @@
-(:name wisi
-:auto-generated t
-:type elpa
-:description "Utilities for implementing an indentation/navigation engine using a generalized LALR parser")

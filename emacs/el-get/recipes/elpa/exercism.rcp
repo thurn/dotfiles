@@ -1,4 +1,0 @@
-(:name exercism
-:auto-generated t
-:type elpa
-:description "An Emacs mode for submitting current file to exercism.io")

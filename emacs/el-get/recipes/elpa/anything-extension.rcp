@@ -1,4 +1,0 @@
-(:name anything-extension
-:auto-generated t
-:type elpa
-:description "Extension functions for anything.el")

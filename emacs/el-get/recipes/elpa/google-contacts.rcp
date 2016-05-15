@@ -1,4 +1,0 @@
-(:name google-contacts
-:auto-generated t
-:type elpa
-:description "Support for Google Contacts in Emacs")

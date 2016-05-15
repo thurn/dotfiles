@@ -1,4 +1,0 @@
-(:name gap-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing files in the GAP programing language.")

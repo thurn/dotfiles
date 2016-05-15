@@ -1,4 +1,0 @@
-(:name wc-goal-mode
-:auto-generated t
-:type elpa
-:description "Running word count with goals (minor mode)")

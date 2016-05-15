@@ -1,4 +1,0 @@
-(:name mainline
-:auto-generated t
-:type elpa
-:description "modeline replacement forked from an early version of powerline.el")

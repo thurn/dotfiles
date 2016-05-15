@@ -1,4 +1,0 @@
-(:name ido-yes-or-no
-:auto-generated t
-:type elpa
-:description "Use Ido to answer yes-or-no questions")

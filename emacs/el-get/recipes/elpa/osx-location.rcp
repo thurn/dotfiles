@@ -1,4 +1,0 @@
-(:name osx-location
-:auto-generated t
-:type elpa
-:description "Watch and respond to changes in geographical location on OS X")

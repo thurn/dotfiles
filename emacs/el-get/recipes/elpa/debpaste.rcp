@@ -1,4 +1,0 @@
-(:name debpaste
-:auto-generated t
-:type elpa
-:description "Interface for getting/posting/deleting pastes from paste.debian.net")

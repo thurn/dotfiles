@@ -1,4 +1,0 @@
-(:name inf-ruby
-:auto-generated t
-:type elpa
-:description "Run a Ruby process in a buffer")

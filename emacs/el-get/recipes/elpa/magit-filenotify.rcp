@@ -1,4 +1,0 @@
-(:name magit-filenotify
-:auto-generated t
-:type elpa
-:description "Refresh status buffer when git tree changes")

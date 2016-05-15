@@ -1,4 +1,0 @@
-(:name dired-open
-:auto-generated t
-:type elpa
-:description "Open files from dired using using custom actions")

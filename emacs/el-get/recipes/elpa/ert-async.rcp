@@ -1,4 +1,0 @@
-(:name ert-async
-:auto-generated t
-:type elpa
-:description "Async support for ERT")

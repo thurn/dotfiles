@@ -1,4 +1,0 @@
-(:name pcache
-:auto-generated t
-:type elpa
-:description "persistent caching for Emacs")

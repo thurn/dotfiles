@@ -1,4 +1,0 @@
-(:name highlight-tail
-:auto-generated t
-:type elpa
-:description "draw a colourful "tail" while you write")

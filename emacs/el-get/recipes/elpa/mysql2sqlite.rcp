@@ -1,4 +1,0 @@
-(:name mysql2sqlite
-:auto-generated t
-:type elpa
-:description "Convert mysql databases into sqlite databases.")

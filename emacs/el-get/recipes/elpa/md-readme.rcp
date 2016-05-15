@@ -1,4 +1,0 @@
-(:name md-readme
-:auto-generated t
-:type elpa
-:description "Markdown-formatted READMEs for your ELisp")

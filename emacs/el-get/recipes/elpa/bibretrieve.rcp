@@ -1,4 +1,0 @@
-(:name bibretrieve
-:auto-generated t
-:type elpa
-:description "Retrieving BibTeX entries from the web")

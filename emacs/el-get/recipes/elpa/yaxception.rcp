@@ -1,4 +1,0 @@
-(:name yaxception
-:auto-generated t
-:type elpa
-:description "Provide framework about exception like Java for Elisp")

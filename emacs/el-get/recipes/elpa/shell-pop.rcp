@@ -1,4 +1,0 @@
-(:name shell-pop
-:auto-generated t
-:type elpa
-:description "helps you to use shell easily on Emacs. Only one key action to work.")

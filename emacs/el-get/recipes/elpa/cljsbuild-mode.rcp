@@ -1,4 +1,0 @@
-(:name cljsbuild-mode
-:auto-generated t
-:type elpa
-:description "A minor mode for the ClojureScript 'lein cljsbuild' command")

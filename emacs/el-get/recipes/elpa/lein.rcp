@@ -1,4 +1,0 @@
-(:name lein
-:auto-generated t
-:type elpa
-:description "Eshell interface to Leiningen")

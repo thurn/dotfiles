@@ -1,4 +1,0 @@
-(:name stylus-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing .jade files")

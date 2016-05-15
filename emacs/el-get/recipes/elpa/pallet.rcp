@@ -1,4 +1,0 @@
-(:name pallet
-:auto-generated t
-:type elpa
-:description "A package management tool for Emacs, using Cask.")

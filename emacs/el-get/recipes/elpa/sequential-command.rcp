@@ -1,4 +1,0 @@
-(:name sequential-command
-:auto-generated t
-:type elpa
-:description "Many commands into one command")

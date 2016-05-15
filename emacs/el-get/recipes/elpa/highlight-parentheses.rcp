@@ -1,4 +1,0 @@
-(:name highlight-parentheses
-:auto-generated t
-:type elpa
-:description "highlight surrounding parentheses")

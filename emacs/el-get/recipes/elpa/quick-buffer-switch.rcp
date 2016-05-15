@@ -1,4 +1,0 @@
-(:name quick-buffer-switch
-:auto-generated t
-:type elpa
-:description "Quick switch to file or dir buffers.")

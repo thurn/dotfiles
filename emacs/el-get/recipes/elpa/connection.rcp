@@ -1,4 +1,0 @@
-(:name connection
-:auto-generated t
-:type elpa
-:description "TCP-based client connection")

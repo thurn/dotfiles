@@ -1,4 +1,0 @@
-(:name caps-lock
-:auto-generated t
-:type elpa
-:description "Caps-lock as a minor mode")

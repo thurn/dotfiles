@@ -1,4 +1,0 @@
-(:name path-headerline-mode
-:auto-generated t
-:type elpa
-:description "Displaying file path on headerline.")

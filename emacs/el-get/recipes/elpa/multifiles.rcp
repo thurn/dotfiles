@@ -1,4 +1,0 @@
-(:name multifiles
-:auto-generated t
-:type elpa
-:description "View and edit parts of multiple files in one buffer")

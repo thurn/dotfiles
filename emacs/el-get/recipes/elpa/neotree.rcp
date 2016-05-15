@@ -1,4 +1,0 @@
-(:name neotree
-:auto-generated t
-:type elpa
-:description "A tree plugin like NerdTree for Vim")

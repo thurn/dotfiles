@@ -1,4 +1,0 @@
-(:name slovak-holidays
-:auto-generated t
-:type elpa
-:description "Adds a list of slovak holidays to Emacs calendar")

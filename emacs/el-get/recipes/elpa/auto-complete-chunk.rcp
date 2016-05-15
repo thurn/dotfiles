@@ -1,4 +1,0 @@
-(:name auto-complete-chunk
-:auto-generated t
-:type elpa
-:description "Auto-completion for dot.separated.words.")

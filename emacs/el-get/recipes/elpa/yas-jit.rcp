@@ -1,4 +1,0 @@
-(:name yas-jit
-:auto-generated t
-:type elpa
-:description "Loads Yasnippets on demand (makes start up faster)")

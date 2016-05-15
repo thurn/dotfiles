@@ -1,4 +1,0 @@
-(:name find-temp-file
-:auto-generated t
-:type elpa
-:description "Open quickly a temporary file")

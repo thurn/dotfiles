@@ -1,4 +1,0 @@
-(:name mc-jump
-:auto-generated t
-:type elpa
-:description "like "jump-char", but "multiple-cursors" friendly")

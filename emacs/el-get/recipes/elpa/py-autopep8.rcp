@@ -1,4 +1,0 @@
-(:name py-autopep8
-:auto-generated t
-:type elpa
-:description "Use autopep8 to beautify a Python buffer")

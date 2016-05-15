@@ -1,4 +1,0 @@
-(:name e2wm-direx
-:auto-generated t
-:type elpa
-:description "Plugin of e2wm.el for direx.el")

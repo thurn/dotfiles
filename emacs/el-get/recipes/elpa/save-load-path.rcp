@@ -1,4 +1,0 @@
-(:name save-load-path
-:auto-generated t
-:type elpa
-:description "save load-path and reuse it to test")

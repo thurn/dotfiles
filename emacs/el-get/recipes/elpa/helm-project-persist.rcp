@@ -1,4 +1,0 @@
-(:name helm-project-persist
-:auto-generated t
-:type elpa
-:description "Helm integration for project-persist package")

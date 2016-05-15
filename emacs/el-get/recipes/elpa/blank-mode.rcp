@@ -1,4 +1,0 @@
-(:name blank-mode
-:auto-generated t
-:type elpa
-:description "minor mode to visualize TAB, (HARD) SPACE, NEWLINE")

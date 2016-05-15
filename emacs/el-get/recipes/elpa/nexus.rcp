@@ -1,4 +1,0 @@
-(:name nexus
-:auto-generated t
-:type elpa
-:description "REST Client for Nexus Maven Repository servers")

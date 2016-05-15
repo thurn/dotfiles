@@ -1,4 +1,0 @@
-(:name helm-mode-manager
-:auto-generated t
-:type elpa
-:description "Select and toggle major and minor modes with helm")

@@ -1,4 +1,0 @@
-(:name electric-case
-:auto-generated t
-:type elpa
-:description "insert camelCase, snake_case words without "Shift"ing")

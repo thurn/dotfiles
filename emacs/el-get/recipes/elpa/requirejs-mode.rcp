@@ -1,4 +1,0 @@
-(:name requirejs-mode
-:auto-generated t
-:type elpa
-:description "Improved AMD module management")

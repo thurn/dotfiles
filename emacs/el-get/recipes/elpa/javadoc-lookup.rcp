@@ -1,4 +1,0 @@
-(:name javadoc-lookup
-:auto-generated t
-:type elpa
-:description "Javadoc Emacs integration with Maven")

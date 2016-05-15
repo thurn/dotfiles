@@ -1,4 +1,0 @@
-(:name wgrep-ag
-:auto-generated t
-:type elpa
-:description "Writable ag buffer and apply the changes to files")

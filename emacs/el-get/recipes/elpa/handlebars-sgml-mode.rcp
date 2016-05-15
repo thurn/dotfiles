@@ -1,4 +1,0 @@
-(:name handlebars-sgml-mode
-:auto-generated t
-:type elpa
-:description "Add Handlebars contextual indenting support to sgml-mode")

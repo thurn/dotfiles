@@ -1,4 +1,0 @@
-(:name pgdevenv
-:auto-generated t
-:type elpa
-:description "Manage your PostgreSQL development envs")

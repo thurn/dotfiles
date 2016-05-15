@@ -1,4 +1,0 @@
-(:name command-t
-:auto-generated t
-:type elpa
-:description "Finds file in project using fuzzy search.")

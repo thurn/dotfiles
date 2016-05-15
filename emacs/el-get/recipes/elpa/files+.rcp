@@ -1,4 +1,0 @@
-(:name files+
-:auto-generated t
-:type elpa
-:description "Enhancements of standard library `files.el'.")

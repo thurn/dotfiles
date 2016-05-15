@@ -1,4 +1,0 @@
-(:name cmake-mode
-:auto-generated t
-:type elpa
-:description "major-mode for editing CMake sources")

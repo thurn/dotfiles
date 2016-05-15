@@ -1,4 +1,0 @@
-(:name emms-info-mediainfo
-:auto-generated t
-:type elpa
-:description "Info-method for EMMS using medianfo")

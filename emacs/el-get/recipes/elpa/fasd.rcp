@@ -1,4 +1,0 @@
-(:name fasd
-:auto-generated t
-:type elpa
-:description "Emacs integration for the command-line productivity booster `fasd'")

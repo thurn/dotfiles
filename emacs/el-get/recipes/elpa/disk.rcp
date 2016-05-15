@@ -1,4 +1,0 @@
-(:name disk
-:auto-generated t
-:type elpa
-:description "simplified find-file, revert-file, save-buffer interface")

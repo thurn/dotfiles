@@ -1,4 +1,0 @@
-(:name web-server
-:auto-generated t
-:type elpa
-:description "Emacs Web Server")

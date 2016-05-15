@@ -1,4 +1,0 @@
-(:name smtpmail-multi
-:auto-generated t
-:type elpa
-:description "Use different smtp servers for sending mail")

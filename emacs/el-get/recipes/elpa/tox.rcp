@@ -1,4 +1,0 @@
-(:name tox
-:auto-generated t
-:type elpa
-:description "Launch current python test with tox")

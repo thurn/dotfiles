@@ -1,4 +1,0 @@
-(:name swank-cdt
-:auto-generated t
-:type elpa
-:description "swank-cdt helper functions")

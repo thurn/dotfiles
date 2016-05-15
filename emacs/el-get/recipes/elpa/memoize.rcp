@@ -1,4 +1,0 @@
-(:name memoize
-:auto-generated t
-:type elpa
-:description "Memoization functions")

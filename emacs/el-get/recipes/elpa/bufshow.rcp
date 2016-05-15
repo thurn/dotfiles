@@ -1,4 +1,0 @@
-(:name bufshow
-:auto-generated t
-:type elpa
-:description "A simple presentation tool for Emacs.")

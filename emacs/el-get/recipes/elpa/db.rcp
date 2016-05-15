@@ -1,4 +1,0 @@
-(:name db
-:auto-generated t
-:type elpa
-:description "A database for EmacsLisp")

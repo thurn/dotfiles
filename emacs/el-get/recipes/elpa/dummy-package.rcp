@@ -1,4 +1,0 @@
-(:name dummy-package
-:auto-generated t
-:type elpa
-:description "a fake package for the marmalade test suite")

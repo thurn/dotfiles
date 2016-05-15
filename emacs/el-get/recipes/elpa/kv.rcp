@@ -1,4 +1,0 @@
-(:name kv
-:auto-generated t
-:type elpa
-:description "key/value data structure functions")

@@ -1,4 +1,0 @@
-(:name slime-company
-:auto-generated t
-:type elpa
-:description "slime completion backend for company mode")

@@ -1,4 +1,0 @@
-(:name dedicated
-:auto-generated t
-:type elpa
-:description "A very simple minor mode for dedicated buffers")

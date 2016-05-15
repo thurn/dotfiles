@@ -1,4 +1,0 @@
-(:name linear-undo
-:auto-generated t
-:type elpa
-:description "Intuitive undo/redo.")

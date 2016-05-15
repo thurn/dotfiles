@@ -1,4 +1,0 @@
-(:name dired-efap
-:auto-generated t
-:type elpa
-:description "Edit Filename At Point in a dired buffer")

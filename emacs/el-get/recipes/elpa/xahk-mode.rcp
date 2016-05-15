@@ -1,4 +1,0 @@
-(:name xahk-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing AutoHotkey scripts.")

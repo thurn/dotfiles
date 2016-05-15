@@ -1,4 +1,0 @@
-(:name esqlite-helm
-:auto-generated t
-:type elpa
-:description "Define helm source for sqlite database")

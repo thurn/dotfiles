@@ -1,4 +1,0 @@
-(:name num3-mode
-:auto-generated t
-:type elpa
-:description "highlight groups of digits in long numbers")

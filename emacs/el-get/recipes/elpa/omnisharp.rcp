@@ -1,4 +1,0 @@
-(:name omnisharp
-:auto-generated t
-:type elpa
-:description "Omnicompletion (intellisense) and more for C#")

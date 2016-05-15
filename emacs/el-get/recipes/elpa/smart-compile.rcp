@@ -1,4 +1,0 @@
-(:name smart-compile
-:auto-generated t
-:type elpa
-:description "an interface to `compile'")

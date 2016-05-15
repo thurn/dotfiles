@@ -1,4 +1,0 @@
-(:name writeroom-mode
-:auto-generated t
-:type elpa
-:description "Minor mode for distraction-free writing")

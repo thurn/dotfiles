@@ -1,4 +1,0 @@
-(:name django-theme
-:auto-generated t
-:type elpa
-:description "Custom face theme for Emacs")

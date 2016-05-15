@@ -1,4 +1,0 @@
-(:name gnus-desktop-notify
-:auto-generated t
-:type elpa
-:description "Gnus Desktop Notification global minor mode")

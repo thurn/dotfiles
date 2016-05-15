@@ -1,4 +1,0 @@
-(:name minimal-session-saver
-:auto-generated t
-:type elpa
-:description "Very lean session saver")
