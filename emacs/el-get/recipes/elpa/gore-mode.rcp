@@ -1,4 +1,0 @@
-(:name gore-mode
-:auto-generated t
-:type elpa
-:description "Simple mode for gore, a command-line evaluator for golang.")

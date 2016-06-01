@@ -1,4 +1,0 @@
-(:name load-dir
-:auto-generated t
-:type elpa
-:description "Load all Emacs Lisp files in a given directory")

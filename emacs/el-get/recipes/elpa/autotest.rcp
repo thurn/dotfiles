@@ -1,4 +1,0 @@
-(:name autotest
-:auto-generated t
-:type elpa
-:description "ZenTest's autotest integration with emacs.")

@@ -1,4 +1,0 @@
-(:name dockerfile-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Docker's Dockerfiles")

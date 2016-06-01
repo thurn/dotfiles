@@ -1,4 +1,0 @@
-(:name helm-backup
-:auto-generated t
-:type elpa
-:description "Backup each file change using git")

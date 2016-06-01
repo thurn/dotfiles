@@ -1,4 +1,0 @@
-(:name expectations-mode
-:auto-generated t
-:type elpa
-:description "Minor mode for expectations tests")

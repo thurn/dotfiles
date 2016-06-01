@@ -1,4 +1,0 @@
-(:name xterm-color
-:auto-generated t
-:type elpa
-:description "ANSI & XTERM 256 color support")

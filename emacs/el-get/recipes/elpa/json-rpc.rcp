@@ -1,4 +1,0 @@
-(:name json-rpc
-:auto-generated t
-:type elpa
-:description "JSON-RPC library")

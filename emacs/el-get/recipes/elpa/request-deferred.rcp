@@ -1,4 +1,0 @@
-(:name request-deferred
-:auto-generated t
-:type elpa
-:description "Wrap request.el by deferred")

@@ -1,4 +1,0 @@
-(:name ac-haskell-process
-:auto-generated t
-:type elpa
-:description "Haskell auto-complete source which uses the current haskell process")

@@ -1,4 +1,0 @@
-(:name smart-tabs-mode
-:auto-generated t
-:type elpa
-:description "Intelligently indent with tabs, align with spaces!")

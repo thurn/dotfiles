@@ -1,4 +1,0 @@
-(:name ac-geiser
-:auto-generated t
-:type elpa
-:description "Auto-complete backend for geiser")

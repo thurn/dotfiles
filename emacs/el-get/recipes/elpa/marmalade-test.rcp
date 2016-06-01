@@ -1,4 +1,0 @@
-(:name marmalade-test
-:auto-generated t
-:type elpa
-:description "A test tarball package.")

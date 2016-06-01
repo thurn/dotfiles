@@ -1,4 +1,0 @@
-(:name how-many-lines-in-project
-:auto-generated t
-:type elpa
-:description "Calculate how many lines are there in your project.")

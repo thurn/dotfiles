@@ -1,4 +1,0 @@
-(:name packed
-:auto-generated t
-:type elpa
-:description "package manager agnostic Emacs Lisp package utilities")

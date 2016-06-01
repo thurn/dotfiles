@@ -1,4 +1,0 @@
-(:name git-messenger
-:auto-generated t
-:type elpa
-:description "Pop up last commit information of current line")

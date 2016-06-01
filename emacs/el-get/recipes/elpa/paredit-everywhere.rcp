@@ -1,4 +1,0 @@
-(:name paredit-everywhere
-:auto-generated t
-:type elpa
-:description "Enable some paredit features in non-lisp buffers")

@@ -1,4 +1,0 @@
-(:name eyedropper
-:auto-generated t
-:type elpa
-:description "Pick foreground and background colors at cursor or pointer.")

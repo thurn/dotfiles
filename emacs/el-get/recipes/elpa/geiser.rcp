@@ -1,4 +1,0 @@
-(:name geiser
-:auto-generated t
-:type elpa
-:description "GNU Emacs and Scheme talk to each other")

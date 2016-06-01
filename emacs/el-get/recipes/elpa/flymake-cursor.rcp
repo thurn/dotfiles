@@ -1,4 +1,0 @@
-(:name flymake-cursor
-:auto-generated t
-:type elpa
-:description "displays flymake error msg in minibuffer after delay")

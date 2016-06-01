@@ -1,4 +1,0 @@
-(:name git
-:auto-generated t
-:type elpa
-:description "An Elisp API for programmatically using Git")

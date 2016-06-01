@@ -1,4 +1,0 @@
-(:name hide-comnt
-:auto-generated t
-:type elpa
-:description "Hide/show comments in code.")

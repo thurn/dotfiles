@@ -1,4 +1,0 @@
-(:name mustang-theme
-:auto-generated t
-:type elpa
-:description "port of vim's mustang theme")

@@ -1,4 +1,0 @@
-(:name pointback
-:auto-generated t
-:type elpa
-:description "Restore window points when returning to buffers")

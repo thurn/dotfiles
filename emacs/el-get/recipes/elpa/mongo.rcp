@@ -1,4 +1,0 @@
-(:name mongo
-:auto-generated t
-:type elpa
-:description "MongoDB driver for Emacs Lisp")

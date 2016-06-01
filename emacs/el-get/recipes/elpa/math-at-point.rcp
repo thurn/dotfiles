@@ -1,4 +1,0 @@
-(:name math-at-point
-:auto-generated t
-:type elpa
-:description "Utilities for modifying numbers at point")

@@ -1,4 +1,0 @@
-(:name anything-config
-:auto-generated t
-:type elpa
-:description "Predefined configurations for `anything.el'")

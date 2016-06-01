@@ -1,4 +1,0 @@
-(:name highlight-blocks
-:auto-generated t
-:type elpa
-:description "Highlight the blocks point is in")

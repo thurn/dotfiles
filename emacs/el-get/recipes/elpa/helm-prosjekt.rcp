@@ -1,4 +1,0 @@
-(:name helm-prosjekt
-:auto-generated t
-:type elpa
-:description "Helm integration for prosjekt.")

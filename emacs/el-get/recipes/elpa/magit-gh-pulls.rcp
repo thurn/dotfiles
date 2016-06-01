@@ -1,4 +1,0 @@
-(:name magit-gh-pulls
-:auto-generated t
-:type elpa
-:description "GitHub pull requests extension for Magit")

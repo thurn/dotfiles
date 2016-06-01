@@ -1,4 +1,0 @@
-(:name rich-minority
-:auto-generated t
-:type elpa
-:description "Clean-up and Beautify the list of minor-modes.")

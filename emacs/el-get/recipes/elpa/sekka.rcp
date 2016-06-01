@@ -1,4 +1,0 @@
-(:name sekka
-:auto-generated t
-:type elpa
-:description "A client for Sekka IME server")

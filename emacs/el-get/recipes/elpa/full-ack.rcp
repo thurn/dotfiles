@@ -1,4 +1,0 @@
-(:name full-ack
-:auto-generated t
-:type elpa
-:description "a front-end for ack")

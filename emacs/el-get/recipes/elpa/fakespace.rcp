@@ -1,4 +1,0 @@
-(:name fakespace
-:auto-generated t
-:type elpa
-:description "fake namespaces with defpackage")

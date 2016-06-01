@@ -1,4 +1,0 @@
-(:name nhexl-mode
-:auto-generated t
-:type elpa
-:description "Minor mode to edit files via hex-dump format")

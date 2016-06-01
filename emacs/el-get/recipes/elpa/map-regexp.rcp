@@ -1,4 +1,0 @@
-(:name map-regexp
-:auto-generated t
-:type elpa
-:description "map over matches of a regular expression")

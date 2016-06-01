@@ -1,4 +1,0 @@
-(:name parse-csv
-:auto-generated t
-:type elpa
-:description "Parse strings with CSV fields into s-expressions")

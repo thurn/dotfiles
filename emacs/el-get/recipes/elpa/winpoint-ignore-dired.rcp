@@ -1,4 +1,0 @@
-(:name winpoint-ignore-dired
-:auto-generated t
-:type elpa
-:description "Have winpoint ignore dired-mode buffers")

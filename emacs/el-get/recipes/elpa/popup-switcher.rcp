@@ -1,4 +1,0 @@
-(:name popup-switcher
-:auto-generated t
-:type elpa
-:description "switch to other buffers and files via popup.")

@@ -1,4 +1,0 @@
-(:name kmacro-decision
-:auto-generated t
-:type elpa
-:description "Add conditional branching to keyboard macros")

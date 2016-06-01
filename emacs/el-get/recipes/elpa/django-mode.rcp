@@ -1,4 +1,0 @@
-(:name django-mode
-:auto-generated t
-:type elpa
-:description "Major mode for Django web framework.")

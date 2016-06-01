@@ -1,4 +1,0 @@
-(:name wgrep-ack
-:auto-generated t
-:type elpa
-:description "Writable ack-and-a-half buffer and apply the changes to files")

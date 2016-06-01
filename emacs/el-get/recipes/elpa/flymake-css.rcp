@@ -1,4 +1,0 @@
-(:name flymake-css
-:auto-generated t
-:type elpa
-:description "Flymake support for css using csslint")

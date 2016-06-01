@@ -1,4 +1,0 @@
-(:name pretty-mode-plus
-:auto-generated t
-:type elpa
-:description "Redisplay parts of the buffer as pretty symbols.")

@@ -1,4 +1,0 @@
-(:name fic-mode
-:auto-generated t
-:type elpa
-:description "Show FIXME/TODO/BUG/KLUDGE in special face only in comments and strings")

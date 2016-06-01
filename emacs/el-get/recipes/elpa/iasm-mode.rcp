@@ -1,4 +1,0 @@
-(:name iasm-mode
-:auto-generated t
-:type elpa
-:description "interactive assembly major mode.")

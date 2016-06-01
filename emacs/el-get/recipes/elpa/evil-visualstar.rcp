@@ -1,4 +1,0 @@
-(:name evil-visualstar
-:auto-generated t
-:type elpa
-:description "Starts a * or # search from the visual selection")

@@ -1,4 +1,0 @@
-(:name pungi
-:auto-generated t
-:type elpa
-:description "Integrates jedi with virtualenv and buildout python environments")

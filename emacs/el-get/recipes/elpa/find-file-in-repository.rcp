@@ -1,4 +1,0 @@
-(:name find-file-in-repository
-:auto-generated t
-:type elpa
-:description "Quickly find files in a git, mercurial or other repository")

@@ -1,4 +1,0 @@
-(:name bash-completion
-:auto-generated t
-:type elpa
-:description "BASH completion for the shell buffer")

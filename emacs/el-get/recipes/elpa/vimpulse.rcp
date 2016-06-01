@@ -1,4 +1,0 @@
-(:name vimpulse
-:auto-generated t
-:type elpa
-:description "emulates Vim's most useful features")

@@ -1,4 +1,0 @@
-(:name project-persist
-:auto-generated t
-:type elpa
-:description "A minor mode to allow loading and saving of project settings.")

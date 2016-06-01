@@ -1,4 +1,0 @@
-(:name flycheck-cask
-:auto-generated t
-:type elpa
-:description "Cask support in Flycheck")

@@ -1,4 +1,0 @@
-(:name frame-restore
-:auto-generated t
-:type elpa
-:description "Restore Emacs frame")

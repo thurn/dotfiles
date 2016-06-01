@@ -1,4 +1,0 @@
-(:name header-button
-:auto-generated t
-:type elpa
-:description "clickable buttons in header lines")

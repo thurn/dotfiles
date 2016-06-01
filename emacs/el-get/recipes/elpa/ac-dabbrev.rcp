@@ -1,4 +1,0 @@
-(:name ac-dabbrev
-:auto-generated t
-:type elpa
-:description "auto-complete.el source for dabbrev")

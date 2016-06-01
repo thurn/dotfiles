@@ -1,4 +1,0 @@
-(:name ac-octave
-:auto-generated t
-:type elpa
-:description "An auto-complete source for Octave")

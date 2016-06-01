@@ -1,4 +1,0 @@
-(:name git-commit
-:auto-generated t
-:type elpa
-:description "Major mode for editing git commit messages")

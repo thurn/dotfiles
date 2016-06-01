@@ -1,4 +1,0 @@
-(:name cache
-:auto-generated t
-:type elpa
-:description "implementation of a hash table whose key-value pairs expire")

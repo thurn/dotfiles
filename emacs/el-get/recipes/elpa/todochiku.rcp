@@ -1,4 +1,0 @@
-(:name todochiku
-:auto-generated t
-:type elpa
-:description "A mode for interfacing with Growl, Snarl, and the like.")

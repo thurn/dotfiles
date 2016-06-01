@@ -1,4 +1,0 @@
-(:name shell-command
-:auto-generated t
-:type elpa
-:description "enables tab-completion for `shell-command'")

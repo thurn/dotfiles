@@ -1,4 +1,0 @@
-(:name unicode-whitespace
-:auto-generated t
-:type elpa
-:description "teach whitespace-mode about fancy characters")

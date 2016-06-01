@@ -1,4 +1,0 @@
-(:name anything-show-completion
-:auto-generated t
-:type elpa
-:description "Show selection in buffer for anything completion")

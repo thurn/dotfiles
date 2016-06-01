@@ -1,4 +1,0 @@
-(:name paste-kde
-:auto-generated t
-:type elpa
-:description "paste text to KDE's pastebin service")

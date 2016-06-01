@@ -1,4 +1,0 @@
-(:name know-your-http-well
-:auto-generated t
-:type elpa
-:description "Look up the meaning of HTTP headers, methods, relations, status codes")

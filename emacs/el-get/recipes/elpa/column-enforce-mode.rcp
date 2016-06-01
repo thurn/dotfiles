@@ -1,4 +1,0 @@
-(:name column-enforce-mode
-:auto-generated t
-:type elpa
-:description "Highlight text that extends beyond a  column")

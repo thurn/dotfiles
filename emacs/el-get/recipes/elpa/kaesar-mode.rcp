@@ -1,4 +1,0 @@
-(:name kaesar-mode
-:auto-generated t
-:type elpa
-:description "Encrypt/Decrypt buffer by AES with password.")

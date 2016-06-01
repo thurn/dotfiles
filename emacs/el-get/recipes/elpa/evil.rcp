@@ -1,4 +1,0 @@
-(:name evil
-:auto-generated t
-:type elpa
-:description "Extensible Vi layer for Emacs.")

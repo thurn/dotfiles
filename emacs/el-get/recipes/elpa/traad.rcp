@@ -1,4 +1,0 @@
-(:name traad
-:auto-generated t
-:type elpa
-:description "emacs interface to the traad refactoring server.")

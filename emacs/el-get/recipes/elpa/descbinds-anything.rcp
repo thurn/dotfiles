@@ -1,4 +1,0 @@
-(:name descbinds-anything
-:auto-generated t
-:type elpa
-:description "Yet Another `describe-bindings' with `anything'.")

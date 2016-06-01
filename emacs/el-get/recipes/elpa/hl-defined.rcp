@@ -1,4 +1,0 @@
-(:name hl-defined
-:auto-generated t
-:type elpa
-:description "Highlight defined or undefined symbols in Emacs-Lisp.")

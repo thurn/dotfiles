@@ -1,4 +1,0 @@
-(:name flymake-jslint
-:auto-generated t
-:type elpa
-:description "A flymake handler for javascript using jslint")

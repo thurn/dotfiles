@@ -1,4 +1,0 @@
-(:name jira
-:auto-generated t
-:type elpa
-:description "Connect to JIRA issue tracking software")

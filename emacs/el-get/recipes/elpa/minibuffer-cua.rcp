@@ -1,4 +1,0 @@
-(:name minibuffer-cua
-:auto-generated t
-:type elpa
-:description "Make CUA mode's S-up/S-down work in minibuffer")

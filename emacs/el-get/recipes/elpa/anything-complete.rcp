@@ -1,4 +1,0 @@
-(:name anything-complete
-:auto-generated t
-:type elpa
-:description "completion with anything")

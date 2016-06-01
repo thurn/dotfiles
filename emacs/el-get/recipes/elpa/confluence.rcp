@@ -1,4 +1,0 @@
-(:name confluence
-:auto-generated t
-:type elpa
-:description "Emacs mode for interacting with confluence wikis")

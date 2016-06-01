@@ -1,4 +1,0 @@
-(:name rw-ispell
-:auto-generated t
-:type elpa
-:description "additional functions for ispell.el")

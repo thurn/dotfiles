@@ -1,4 +1,0 @@
-(:name palimpsest-mode
-:auto-generated t
-:type elpa
-:description "Various deletion strategies when editing")

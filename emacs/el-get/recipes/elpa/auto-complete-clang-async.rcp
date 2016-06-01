@@ -1,4 +1,0 @@
-(:name auto-complete-clang-async
-:auto-generated t
-:type elpa
-:description "Auto Completion source for clang for GNU Emacs")

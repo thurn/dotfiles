@@ -1,4 +1,0 @@
-(:name elisp-slime-nav
-:auto-generated t
-:type elpa
-:description "Make M-. and M-, work in elisp like they do in slime")

@@ -1,4 +1,0 @@
-(:name dired-imenu
-:auto-generated t
-:type elpa
-:description "imenu binding for dired mode")

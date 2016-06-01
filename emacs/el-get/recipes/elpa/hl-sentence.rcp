@@ -1,4 +1,0 @@
-(:name hl-sentence
-:auto-generated t
-:type elpa
-:description "highlight a sentence based on customizable face")

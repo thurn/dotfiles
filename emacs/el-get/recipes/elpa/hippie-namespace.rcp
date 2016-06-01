@@ -1,4 +1,0 @@
-(:name hippie-namespace
-:auto-generated t
-:type elpa
-:description "Special treatment for namespace prefixes in hippie-expand")

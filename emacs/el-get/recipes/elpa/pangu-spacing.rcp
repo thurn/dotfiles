@@ -1,4 +1,0 @@
-(:name pangu-spacing
-:auto-generated t
-:type elpa
-:description "Minor-mode to add space between Chinese and English characters.")

@@ -1,4 +1,0 @@
-(:name jump-to-line
-:auto-generated t
-:type elpa
-:description "Jump to line number at point.")

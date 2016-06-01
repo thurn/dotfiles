@@ -1,4 +1,0 @@
-(:name uci-mode
-:auto-generated t
-:type elpa
-:description "Major mode for UCI configuration files")

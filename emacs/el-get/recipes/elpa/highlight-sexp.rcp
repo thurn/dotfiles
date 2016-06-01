@@ -1,4 +1,0 @@
-(:name highlight-sexp
-:auto-generated t
-:type elpa
-:description "highlight current zone according to its context")

@@ -1,4 +1,0 @@
-(:name whole-line-or-region
-:auto-generated t
-:type elpa
-:description "operate on current line if region undefined")

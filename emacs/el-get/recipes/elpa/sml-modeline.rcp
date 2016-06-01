@@ -1,4 +1,0 @@
-(:name sml-modeline
-:auto-generated t
-:type elpa
-:description "Show position in a scrollbar like way in mode-line")

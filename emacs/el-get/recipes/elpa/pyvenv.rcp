@@ -1,4 +1,0 @@
-(:name pyvenv
-:auto-generated t
-:type elpa
-:description "Python virtual environment interface")

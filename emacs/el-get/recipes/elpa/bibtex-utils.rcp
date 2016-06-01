@@ -1,4 +1,0 @@
-(:name bibtex-utils
-:auto-generated t
-:type elpa
-:description "Provides utilities for extending BibTeX mode")

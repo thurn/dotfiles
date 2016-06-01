@@ -1,4 +1,0 @@
-(:name desktop
-:auto-generated t
-:type elpa
-:description "save partial status of Emacs when killed")

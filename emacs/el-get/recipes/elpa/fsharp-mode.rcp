@@ -1,4 +1,0 @@
-(:name fsharp-mode
-:auto-generated t
-:type elpa
-:description "F# mode for Emacs")

@@ -44,8 +44,6 @@ character of the current line."
   (interactive)
   (cond ((eq major-mode 'eshell-mode)
          (call-interactively 'eshell-bol))
-        ((eq major-mode 'cider-repl-mode)
-          (call-interactively 'cider-repl-bol))
         ((eq major-mode 'haskell-interactive-mode)
          (call-interactively 'haskell-interactive-mode-beginning))
         (t
@@ -180,10 +178,13 @@ If N is negative, search forwards for the -Nth following match."
          (haskell-interactive-mode-history-toggle -1))))
 
 (defun dthurn-eval-buffer ()
-  "Evaluate current emacs elisp buffer"
+  "Evaluate current buffer"
   (interactive)
   (save-buffer)
-  (eval-buffer))
+  (cond ((eq major-mode 'clojure-mode)
+         (call-interactively 'cider-load-buffer))
+        (t
+         (call-interactively 'eval-buffer))))
 
 (defun dthurn-save-buffer ()
   "Saves the buffer"
@@ -191,26 +192,38 @@ If N is negative, search forwards for the -Nth following match."
   (cond
    (t (save-buffer))))
 
-(defun dthurn-tab (&rest args)
+;; (defun dthurn-tab (&rest args)
+;;   (interactive)
+;;   (cond
+;;     ((minibufferp)
+;;       (unless (minibuffer-complete)
+;;         (dabbrev-expand nil)))
+;;     ((member major-mode '(eshell-mode))
+;;       (pcomplete))
+;;     ((member major-mode '(shell-mode))
+;;       (completion-at-point))
+;;     (mark-active
+;;       (let ((deactivate-mark nil))
+;;         (indent-rigidly (region-beginning) (region-end) 2)))
+;;     ((member (char-before) '(nil ?\ ?\n ?\t))
+;;       (let ((old (point)))
+;;         (beginning-of-line)
+;;         (insert-tab)
+;;         (goto-char (+ old 2))))
+;;     (t
+;;       (company-complete-common))))
+
+(defun dthurn-tab ()
   (interactive)
   (cond
-    ((minibufferp)
-      (unless (minibuffer-complete)
-        (dabbrev-expand nil)))
-    ((member major-mode '(eshell-mode))
-      (pcomplete))
-    ((member major-mode '(shell-mode))
-      (completion-at-point))
-    (mark-active
-      (let ((deactivate-mark nil))
-        (indent-rigidly (region-beginning) (region-end) 2)))
-    ((member (char-before) '(nil ?\ ?\n ?\t))
-      (let ((old (point)))
-        (beginning-of-line)
-        (insert-tab)
-        (goto-char (+ old 2))))
-    (t
-      (company-complete-common))))
+   ((minibufferp)
+    (unless (minibuffer-complete)
+      (dabbrev-expand nil)))
+   ((member major-mode '(clojure-mode cider-repl-mode))
+    (if (looking-at "\\_>")
+        (company-complete-common)
+      (indent-according-to-mode)))
+   (t (call-interactively 'indent-for-tab-command))))
 
 (defun dthurn-backward-tab (&rest args)
   (interactive)
@@ -246,7 +259,7 @@ If N is negative, search forwards for the -Nth following match."
      (global-set-key (kbd ,key) ,command)
      (define-key sober-mode-map (kbd ,key) ,command)))
 
-(sober-map-key "C-SPC" 'ace-jump-mode)
+;(sober-map-key "C-SPC" 'ace-jump-mode)
 (sober-map-key "TAB" 'dthurn-tab)
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
@@ -300,6 +313,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-u" 'beginning-of-buffer)
 (sober-map-key "s-u" 'beginning-of-buffer)
+(sober-map-key "M-o" 'cider-doc) ; Override as a doc command
+(sober-map-key "s-o" 'cider-doc) ; Override as a doc command
 (sober-map-key "M-i" 'dthurn-eval-buffer) ; Override as a compile command
 (sober-map-key "s-i" 'dthurn-eval-buffer) ; Override as a compile command
 (sober-map-key "M-p" 'dthurn-goto-symbol)

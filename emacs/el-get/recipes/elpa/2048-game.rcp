@@ -1,4 +1,0 @@
-(:name 2048-game
-:auto-generated t
-:type elpa
-:description "play 2048 in Emacs")

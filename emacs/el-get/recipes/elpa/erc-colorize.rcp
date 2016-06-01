@@ -1,4 +1,0 @@
-(:name erc-colorize
-:auto-generated t
-:type elpa
-:description "Per user colorization of whole message")

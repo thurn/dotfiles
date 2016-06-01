@@ -1,4 +1,0 @@
-(:name elixir-mix
-:auto-generated t
-:type elpa
-:description "Emacs integration for Elixir's mix")

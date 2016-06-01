@@ -1,4 +1,0 @@
-(:name cake-inflector
-:auto-generated t
-:type elpa
-:description "Lazy porting CakePHP infrector.php to el")

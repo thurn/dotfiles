@@ -1,4 +1,0 @@
-(:name download-region
-:auto-generated t
-:type elpa
-:description "Simple in-buffer download manager")

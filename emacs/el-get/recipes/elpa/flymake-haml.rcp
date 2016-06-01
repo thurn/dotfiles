@@ -1,4 +1,0 @@
-(:name flymake-haml
-:auto-generated t
-:type elpa
-:description "A flymake handler for haml files")

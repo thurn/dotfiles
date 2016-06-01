@@ -1,4 +1,0 @@
-(:name journal
-:auto-generated t
-:type elpa
-:description "a simple org-mode based journaling mode")

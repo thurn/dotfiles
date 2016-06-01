@@ -1,4 +1,0 @@
-(:name anaphora
-:auto-generated t
-:type elpa
-:description "anaphoric macros providing implicit temp variables")

@@ -1,4 +1,0 @@
-(:name slime-scratch
-:auto-generated t
-:type elpa
-:description "Imitate Emacs' *scratch* buffer")

@@ -1,4 +1,0 @@
-(:name string-inflection
-:auto-generated t
-:type elpa
-:description "underscore -> UPCASE -> CamelCase -> lowerCamelCase conversion of names")

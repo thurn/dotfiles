@@ -1,4 +1,0 @@
-(:name ack
-:auto-generated t
-:type elpa
-:description "Interface to ack-like source code search tools")

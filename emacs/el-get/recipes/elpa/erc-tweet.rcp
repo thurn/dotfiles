@@ -1,4 +1,0 @@
-(:name erc-tweet
-:auto-generated t
-:type elpa
-:description "shows text of a tweet when an url is posted in erc buffers")

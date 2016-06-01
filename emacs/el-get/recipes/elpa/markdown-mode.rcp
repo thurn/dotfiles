@@ -1,4 +1,0 @@
-(:name markdown-mode
-:auto-generated t
-:type elpa
-:description "Emacs Major mode for Markdown-formatted text files")

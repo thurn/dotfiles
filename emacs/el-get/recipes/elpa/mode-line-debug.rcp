@@ -1,4 +1,0 @@
-(:name mode-line-debug
-:auto-generated t
-:type elpa
-:description "show status of `debug-on-error' in the mode-line")

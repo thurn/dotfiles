@@ -1,4 +1,0 @@
-(:name ob-translate
-:auto-generated t
-:type elpa
-:description "Translation of text blocks in org-mode.")

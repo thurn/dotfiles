@@ -1,4 +1,0 @@
-(:name tNFA
-:auto-generated t
-:type elpa
-:description "Tagged non-deterministic finite-state automata")

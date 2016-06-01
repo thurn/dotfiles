@@ -1,4 +1,0 @@
-(:name string-edit
-:auto-generated t
-:type elpa
-:description "Avoid escape nightmares by editing string in separate buffer")

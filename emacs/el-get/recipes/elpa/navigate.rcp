@@ -1,4 +1,0 @@
-(:name navigate
-:auto-generated t
-:type elpa
-:description "Seamlessly navigate between Emacs and tmux")

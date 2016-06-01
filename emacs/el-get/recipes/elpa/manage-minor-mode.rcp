@@ -1,4 +1,0 @@
-(:name manage-minor-mode
-:auto-generated t
-:type elpa
-:description "Manage your minor-modes easily")

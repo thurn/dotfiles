@@ -1,4 +1,0 @@
-(:name wget
-:auto-generated t
-:type elpa
-:description "Emacs-wget is an interface program of GNU wget on Emacs.")

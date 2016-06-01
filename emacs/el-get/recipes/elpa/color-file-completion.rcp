@@ -1,4 +1,0 @@
-(:name color-file-completion
-:auto-generated t
-:type elpa
-:description "add colors to file completion")

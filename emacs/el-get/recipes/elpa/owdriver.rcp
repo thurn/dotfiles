@@ -1,4 +1,0 @@
-(:name owdriver
-:auto-generated t
-:type elpa
-:description "Quickly perform various actions on other windows")

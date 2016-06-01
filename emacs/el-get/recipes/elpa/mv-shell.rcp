@@ -1,4 +1,0 @@
-(:name mv-shell
-:auto-generated t
-:type elpa
-:description "keep buffers in sync with filename throughout 'mv'commands in shell-mode.")

@@ -1,4 +1,0 @@
-(:name paredit
-:auto-generated t
-:type elpa
-:description "minor mode for editing parentheses")

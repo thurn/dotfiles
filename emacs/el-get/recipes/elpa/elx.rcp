@@ -1,4 +1,0 @@
-(:name elx
-:auto-generated t
-:type elpa
-:description "extract information from Emacs Lisp libraries")

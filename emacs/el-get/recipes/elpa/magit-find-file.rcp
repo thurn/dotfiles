@@ -1,4 +1,0 @@
-(:name magit-find-file
-:auto-generated t
-:type elpa
-:description "completing-read over all files in Git")

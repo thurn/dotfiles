@@ -1,4 +1,0 @@
-(:name nrepl
-:auto-generated t
-:type elpa
-:description "Client for Clojure nREPL")

@@ -1,4 +1,0 @@
-(:name magit-stgit
-:auto-generated t
-:type elpa
-:description "StGit plug-in for Magit")

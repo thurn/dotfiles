@@ -1,4 +1,0 @@
-(:name smartscan
-:auto-generated t
-:type elpa
-:description "Jumps between other symbols found at point")

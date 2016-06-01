@@ -1,4 +1,0 @@
-(:name rw-hunspell
-:auto-generated t
-:type elpa
-:description "special functions for Hunspell in ispell.el")

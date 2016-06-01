@@ -1,4 +1,0 @@
-(:name aurora-config-mode
-:auto-generated t
-:type elpa
-:description "Major mode for Apache Aurora configuration files")

@@ -1,4 +1,0 @@
-(:name typed-clojure-mode
-:auto-generated t
-:type elpa
-:description "Typed Clojure minor mode for Emacs")

@@ -1,4 +1,0 @@
-(:name eldoc-extension
-:auto-generated t
-:type elpa
-:description "Some extension for eldoc")

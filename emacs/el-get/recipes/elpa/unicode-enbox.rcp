@@ -1,4 +1,0 @@
-(:name unicode-enbox
-:auto-generated t
-:type elpa
-:description "Surround a string with box-drawing characters")

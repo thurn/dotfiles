@@ -1,4 +1,0 @@
-(:name irony
-:auto-generated t
-:type elpa
-:description "C/C++ minor mode powered by libclang")

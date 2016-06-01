@@ -1,4 +1,0 @@
-(:name wgrep-pt
-:auto-generated t
-:type elpa
-:description "Writable pt buffer and apply the changes to files")

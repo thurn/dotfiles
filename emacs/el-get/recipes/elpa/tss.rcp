@@ -1,4 +1,0 @@
-(:name tss
-:auto-generated t
-:type elpa
-:description "provide a interface for auto-complete.el/flymake.el on typescript-mode.")

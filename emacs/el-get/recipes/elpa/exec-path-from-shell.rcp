@@ -1,4 +1,0 @@
-(:name exec-path-from-shell
-:auto-generated t
-:type elpa
-:description "Get environment variables such as $PATH from the shell")

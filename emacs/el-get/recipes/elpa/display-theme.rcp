@@ -1,4 +1,0 @@
-(:name display-theme
-:auto-generated t
-:type elpa
-:description "display current theme(s) at mode-line")

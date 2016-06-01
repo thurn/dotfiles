@@ -1,4 +1,0 @@
-(:name flymake-cppcheck
-:auto-generated t
-:type elpa
-:description "Flymake work with Cppcheck for C/C++")

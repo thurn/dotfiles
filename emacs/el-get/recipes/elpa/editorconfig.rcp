@@ -1,4 +1,0 @@
-(:name editorconfig
-:auto-generated t
-:type elpa
-:description "EditorConfig Emacs extension")

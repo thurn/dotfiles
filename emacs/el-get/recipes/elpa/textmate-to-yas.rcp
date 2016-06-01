@@ -1,4 +1,0 @@
-(:name textmate-to-yas
-:auto-generated t
-:type elpa
-:description "Import Textmate macros into yasnippet syntax")

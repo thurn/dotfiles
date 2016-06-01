@@ -1,4 +1,0 @@
-(:name jsshell
-:auto-generated t
-:type elpa
-:description "Run a javascript command interpreter in emacs on Windows.")

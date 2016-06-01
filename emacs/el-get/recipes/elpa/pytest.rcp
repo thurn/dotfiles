@@ -1,4 +1,0 @@
-(:name pytest
-:auto-generated t
-:type elpa
-:description "Easy Python test running in Emacs")

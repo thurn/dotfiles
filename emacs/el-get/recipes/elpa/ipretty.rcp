@@ -1,4 +1,0 @@
-(:name ipretty
-:auto-generated t
-:type elpa
-:description "Interactive Emacs Lisp pretty-printing")

@@ -1,4 +1,0 @@
-(:name ox-html5slide
-:auto-generated t
-:type elpa
-:description "Export org-mode to HTML5 slide.")

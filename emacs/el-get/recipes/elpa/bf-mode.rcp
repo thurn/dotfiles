@@ -1,4 +1,0 @@
-(:name bf-mode
-:auto-generated t
-:type elpa
-:description "Browse file persistently on dired")

@@ -1,4 +1,0 @@
-(:name scpaste
-:auto-generated t
-:type elpa
-:description "Paste to the web via scp.")

@@ -1,4 +1,0 @@
-(:name chess
-:auto-generated t
-:type elpa
-:description "Play chess in GNU Emacs")

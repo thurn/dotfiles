@@ -1,4 +1,0 @@
-(:name helm-git
-:auto-generated t
-:type elpa
-:description "Helm extension for Git.")

@@ -1,4 +1,0 @@
-(:name marmalade-demo
-:auto-generated t
-:type elpa
-:description "a demonstration elpa package")

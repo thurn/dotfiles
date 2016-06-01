@@ -1,4 +1,0 @@
-(:name ocp-indent
-:auto-generated t
-:type elpa
-:description "automatic indentation with ocp-indent")

@@ -1,4 +1,0 @@
-(:name ibuffer-vc
-:auto-generated t
-:type elpa
-:description "Group ibuffer's list by VC project, or show VC status")

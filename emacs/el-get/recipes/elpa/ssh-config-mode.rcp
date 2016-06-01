@@ -1,4 +1,0 @@
-(:name ssh-config-mode
-:auto-generated t
-:type elpa
-:description "Mode for fontification of ~/.ssh/config")

@@ -1,4 +1,0 @@
-(:name linum-off
-:auto-generated t
-:type elpa
-:description "Provides an interface for turning line-numbering off")

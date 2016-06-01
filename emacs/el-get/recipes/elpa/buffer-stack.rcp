@@ -1,4 +1,0 @@
-(:name buffer-stack
-:auto-generated t
-:type elpa
-:description "Enhanced intelligent switch-to-other-buffer replacement.")

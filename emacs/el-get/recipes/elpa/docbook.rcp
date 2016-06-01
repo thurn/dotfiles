@@ -1,4 +1,0 @@
-(:name docbook
-:auto-generated t
-:type elpa
-:description "Info-like viewer for DocBook")

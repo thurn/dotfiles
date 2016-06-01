@@ -1,4 +1,0 @@
-(:name phi-search
-:auto-generated t
-:type elpa
-:description "another incremental search command, compatible with "multiple-cursors"")

@@ -1,4 +1,0 @@
-(:name iy-go-to-char
-:auto-generated t
-:type elpa
-:description "Go to next CHAR which is similar to "f" and "t" in vim")

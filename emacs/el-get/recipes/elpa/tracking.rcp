@@ -1,4 +1,0 @@
-(:name tracking
-:auto-generated t
-:type elpa
-:description "Buffer modification tracking")

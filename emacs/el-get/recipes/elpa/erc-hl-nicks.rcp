@@ -1,4 +1,0 @@
-(:name erc-hl-nicks
-:auto-generated t
-:type elpa
-:description "ERC nick highlighter that ignores uniquifying chars when colorizing")

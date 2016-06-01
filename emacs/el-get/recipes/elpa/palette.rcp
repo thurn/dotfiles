@@ -1,4 +1,0 @@
-(:name palette
-:auto-generated t
-:type elpa
-:description "Color palette useful with RGB, HSV, and color names")

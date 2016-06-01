@@ -1,4 +1,0 @@
-(:name js2-refactor
-:auto-generated t
-:type elpa
-:description "A JavaScript refactoring library for emacs.")

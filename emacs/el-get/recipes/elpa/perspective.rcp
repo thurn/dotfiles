@@ -1,4 +1,0 @@
-(:name perspective
-:auto-generated t
-:type elpa
-:description "switch between named "perspectives" of the editor")

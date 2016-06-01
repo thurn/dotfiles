@@ -1,4 +1,0 @@
-(:name real-auto-save
-:auto-generated t
-:type elpa
-:description "enable real auto save")

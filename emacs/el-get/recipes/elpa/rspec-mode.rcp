@@ -1,4 +1,0 @@
-(:name rspec-mode
-:auto-generated t
-:type elpa
-:description "Enhance ruby-mode for RSpec")

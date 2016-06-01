@@ -1,4 +1,0 @@
-(:name evil-tabs
-:auto-generated t
-:type elpa
-:description "Integrating Vim-style tabs for Evil mode users.")

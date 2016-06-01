@@ -1,4 +1,0 @@
-(:name helm-ghq
-:auto-generated t
-:type elpa
-:description "ghq with helm interface")

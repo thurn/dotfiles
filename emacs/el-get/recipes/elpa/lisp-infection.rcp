@@ -1,4 +1,0 @@
-(:name lisp-infection
-:auto-generated t
-:type elpa
-:description "Commands to *enhance* S-exp editing")

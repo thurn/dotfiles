@@ -1,4 +1,0 @@
-(:name anything-match-plugin
-:auto-generated t
-:type elpa
-:description "Humane match plug-in for anything")

@@ -1,4 +1,0 @@
-(:name google-translate
-:auto-generated t
-:type elpa
-:description "Emacs interface to Google Translate.")

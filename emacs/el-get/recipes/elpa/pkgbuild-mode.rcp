@@ -1,4 +1,0 @@
-(:name pkgbuild-mode
-:auto-generated t
-:type elpa
-:description "Interface to the ArchLinux package manager")

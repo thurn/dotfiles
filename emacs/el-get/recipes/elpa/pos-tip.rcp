@@ -1,4 +1,0 @@
-(:name pos-tip
-:auto-generated t
-:type elpa
-:description "Show tooltip at point")

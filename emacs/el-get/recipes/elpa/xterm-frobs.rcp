@@ -1,4 +1,0 @@
-(:name xterm-frobs
-:auto-generated t
-:type elpa
-:description "manipulate xterm when running emacs in tty mode")

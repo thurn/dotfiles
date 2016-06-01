@@ -1,4 +1,0 @@
-(:name grass-mode
-:auto-generated t
-:type elpa
-:description "Provides Emacs modes for interacting with the GRASS GIS program")

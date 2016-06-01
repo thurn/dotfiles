@@ -1,4 +1,0 @@
-(:name imenu-anywhere
-:auto-generated t
-:type elpa
-:description "ido/helm imenu tag selection across all buffers with the same mode")

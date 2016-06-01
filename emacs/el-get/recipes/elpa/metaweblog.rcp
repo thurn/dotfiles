@@ -1,4 +1,0 @@
-(:name metaweblog
-:auto-generated t
-:type elpa
-:description "An emacs library to access metaweblog based weblogs")

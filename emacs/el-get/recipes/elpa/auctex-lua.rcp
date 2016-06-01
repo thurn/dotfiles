@@ -1,4 +1,0 @@
-(:name auctex-lua
-:auto-generated t
-:type elpa
-:description "Lua editing support for AUCTeX")

@@ -1,4 +1,0 @@
-(:name rfringe
-:auto-generated t
-:type elpa
-:description "display the relative location of the region, in the fringe.")

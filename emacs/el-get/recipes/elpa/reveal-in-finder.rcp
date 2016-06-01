@@ -1,4 +1,0 @@
-(:name reveal-in-finder
-:auto-generated t
-:type elpa
-:description "Reveal file associated with buffer in OS X Finder")

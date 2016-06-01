@@ -1,4 +1,0 @@
-(:name color-theme-github
-:auto-generated t
-:type elpa
-:description "Github color theme for GNU Emacs.")

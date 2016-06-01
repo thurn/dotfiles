@@ -1,4 +1,0 @@
-(:name uuid
-:auto-generated t
-:type elpa
-:description "UUID's for EmacsLisp")

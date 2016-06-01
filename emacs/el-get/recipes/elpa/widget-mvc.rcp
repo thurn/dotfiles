@@ -1,4 +1,0 @@
-(:name widget-mvc
-:auto-generated t
-:type elpa
-:description "MVC framework for the emacs widgets")

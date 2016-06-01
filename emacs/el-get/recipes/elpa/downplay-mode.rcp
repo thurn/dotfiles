@@ -1,4 +1,0 @@
-(:name downplay-mode
-:auto-generated t
-:type elpa
-:description "focus attention on a region of the buffer")

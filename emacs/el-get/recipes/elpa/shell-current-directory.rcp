@@ -1,4 +1,0 @@
-(:name shell-current-directory
-:auto-generated t
-:type elpa
-:description "create new shell based on buffer directory")

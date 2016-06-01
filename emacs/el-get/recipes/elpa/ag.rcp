@@ -1,4 +1,0 @@
-(:name ag
-:auto-generated t
-:type elpa
-:description "A front-end for ag ('the silver searcher'), the C ack replacement.")

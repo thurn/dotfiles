@@ -1,4 +1,0 @@
-(:name multi-term
-:auto-generated t
-:type elpa
-:description "Managing multiple terminal buffers in Emacs.")

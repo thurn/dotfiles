@@ -1,4 +1,0 @@
-(:name js-doc
-:auto-generated t
-:type elpa
-:description "Insert JsDoc style comment easily")

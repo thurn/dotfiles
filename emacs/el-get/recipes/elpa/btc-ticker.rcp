@@ -1,4 +1,0 @@
-(:name btc-ticker
-:auto-generated t
-:type elpa
-:description "Shows latest bitcoin price")

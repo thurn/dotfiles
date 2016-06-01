@@ -1,4 +1,0 @@
-(:name howdoi
-:auto-generated t
-:type elpa
-:description "Instant coding answers via Emacs.")

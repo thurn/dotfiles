@@ -1,4 +1,0 @@
-(:name flex-isearch
-:auto-generated t
-:type elpa
-:description "Flex matching (like ido) in isearch.")

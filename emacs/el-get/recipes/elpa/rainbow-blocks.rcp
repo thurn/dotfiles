@@ -1,4 +1,0 @@
-(:name rainbow-blocks
-:auto-generated t
-:type elpa
-:description "Block syntax highlighting for lisp code")

@@ -1,4 +1,0 @@
-(:name dired-subtree
-:auto-generated t
-:type elpa
-:description "Insert subdirectories in a tree-like fashion")

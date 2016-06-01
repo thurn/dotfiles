@@ -1,4 +1,0 @@
-(:name term-alert
-:auto-generated t
-:type elpa
-:description "Get notifications when commands complete in the Emacs terminal emulator")

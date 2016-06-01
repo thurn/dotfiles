@@ -1,4 +1,0 @@
-(:name rcirc-alert
-:auto-generated t
-:type elpa
-:description "Configurable alert messages on top of RCIRC")

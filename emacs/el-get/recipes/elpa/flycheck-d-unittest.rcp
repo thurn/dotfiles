@@ -1,4 +1,0 @@
-(:name flycheck-d-unittest
-:auto-generated t
-:type elpa
-:description "Add D unittest support to flycheck")

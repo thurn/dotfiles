@@ -1,4 +1,0 @@
-(:name edit-server-htmlize
-:auto-generated t
-:type elpa
-:description "(de)HTMLization hooks for edit-server.el")

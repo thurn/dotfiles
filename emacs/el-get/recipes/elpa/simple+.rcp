@@ -1,4 +1,0 @@
-(:name simple+
-:auto-generated t
-:type elpa
-:description "Extensions to standard library `simple.el'.")

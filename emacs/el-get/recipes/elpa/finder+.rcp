@@ -1,4 +1,0 @@
-(:name finder+
-:auto-generated t
-:type elpa
-:description "Extensions to standard library finder.el")

@@ -1,4 +1,0 @@
-(:name icicles
-:auto-generated t
-:type elpa
-:description "Minibuffer input completion and cycling.")

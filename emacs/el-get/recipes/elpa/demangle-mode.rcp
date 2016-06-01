@@ -1,4 +1,0 @@
-(:name demangle-mode
-:auto-generated t
-:type elpa
-:description "Automatically demangle C++ symbols")

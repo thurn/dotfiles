@@ -1,4 +1,0 @@
-(:name paren-face
-:auto-generated t
-:type elpa
-:description "a face for parentheses in lisp modes")

@@ -1,4 +1,0 @@
-(:name esh-buf-stack
-:auto-generated t
-:type elpa
-:description "Add a buffer stack feature to Eshell")

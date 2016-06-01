@@ -1,4 +1,0 @@
-(:name cl-lib
-:auto-generated t
-:type elpa
-:description "Properly prefixed CL functions and macros")

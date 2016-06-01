@@ -1,4 +1,0 @@
-(:name e2wm
-:auto-generated t
-:type elpa
-:description "simple window manager for emacs")

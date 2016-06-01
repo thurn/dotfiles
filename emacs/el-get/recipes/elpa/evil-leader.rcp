@@ -1,4 +1,0 @@
-(:name evil-leader
-:auto-generated t
-:type elpa
-:description "let there be <leader>")

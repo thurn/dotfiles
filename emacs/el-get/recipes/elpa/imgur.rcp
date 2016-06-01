@@ -1,4 +1,0 @@
-(:name imgur
-:auto-generated t
-:type elpa
-:description "imgur client for Emacs")

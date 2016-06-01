@@ -1,4 +1,0 @@
-(:name closure-template-html-mode
-:auto-generated t
-:type elpa
-:description "highlighting for google closure templates")

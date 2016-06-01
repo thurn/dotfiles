@@ -1,4 +1,0 @@
-(:name google-c-style
-:auto-generated t
-:type elpa
-:description "Google's C/C++ style for c-mode")

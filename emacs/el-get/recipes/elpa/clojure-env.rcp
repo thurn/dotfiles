@@ -1,4 +1,0 @@
-(:name clojure-env
-:auto-generated t
-:type elpa
-:description "manage clojure environments with Emacs")

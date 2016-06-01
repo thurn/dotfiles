@@ -1,4 +1,0 @@
-(:name sass-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Sass files")

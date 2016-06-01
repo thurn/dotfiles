@@ -1,4 +1,0 @@
-(:name htmlfontify
-:auto-generated t
-:type elpa
-:description "htmlise a buffer/source tree with optional hyperlinks")

@@ -1,4 +1,0 @@
-(:name evil-terminal-cursor-changer
-:auto-generated t
-:type elpa
-:description "Change cursor by evil state on terminal.")

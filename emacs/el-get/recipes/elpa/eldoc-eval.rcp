@@ -1,4 +1,0 @@
-(:name eldoc-eval
-:auto-generated t
-:type elpa
-:description "Enable eldoc support when minibuffer is in use.")

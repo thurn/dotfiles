@@ -1,4 +1,0 @@
-(:name syntactic-sugar
-:auto-generated t
-:type elpa
-:description "Effect-free forms such as if/then/else")

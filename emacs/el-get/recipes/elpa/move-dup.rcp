@@ -1,4 +1,0 @@
-(:name move-dup
-:auto-generated t
-:type elpa
-:description "Eclipse-like moving and duplicating lines or rectangles.")

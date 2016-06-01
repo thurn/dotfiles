@@ -1,4 +1,0 @@
-(:name margo
-:auto-generated t
-:type elpa
-:description "Client for MarGo, providing Go utilities")

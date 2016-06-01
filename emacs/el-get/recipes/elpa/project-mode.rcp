@@ -1,4 +1,0 @@
-(:name project-mode
-:auto-generated t
-:type elpa
-:description "Define code projects. Full-text search, etc.")

@@ -1,4 +1,0 @@
-(:name magit-log-edit
-:auto-generated t
-:type elpa
-:description "[SEMI-OBSOLETE] major mode for editing Git commit messages")

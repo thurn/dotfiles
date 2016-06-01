@@ -1,4 +1,0 @@
-(:name groovy-mode
-:auto-generated t
-:type elpa
-:description "Groovy mode derived mode")

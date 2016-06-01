@@ -1,4 +1,0 @@
-(:name concurrent
-:auto-generated t
-:type elpa
-:description "Concurrent utility functions for emacs lisp")

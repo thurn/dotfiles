@@ -1,4 +1,0 @@
-(:name org-caldav
-:auto-generated t
-:type elpa
-:description "Sync org files with external calendar through CalDAV")

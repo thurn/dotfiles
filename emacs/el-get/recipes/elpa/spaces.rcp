@@ -1,4 +1,0 @@
-(:name spaces
-:auto-generated t
-:type elpa
-:description "Create and switch between named window configurations.")

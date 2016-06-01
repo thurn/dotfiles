@@ -1,4 +1,0 @@
-(:name cider-spy
-:auto-generated t
-:type elpa
-:description "Spy on CIDER to get info")

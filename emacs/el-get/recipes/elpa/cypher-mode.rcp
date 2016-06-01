@@ -1,4 +1,0 @@
-(:name cypher-mode
-:auto-generated t
-:type elpa
-:description "major mode for editing cypher scripts")

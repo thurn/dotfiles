@@ -1,4 +1,0 @@
-(:name visual-regexp-steroids
-:auto-generated t
-:type elpa
-:description "Extends visual-regexp to support other regexp engines")

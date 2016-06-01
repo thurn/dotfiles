@@ -1,4 +1,0 @@
-(:name miniedit
-:auto-generated t
-:type elpa
-:description "Enhanced editing for minibuffer fields.")

@@ -1,4 +1,0 @@
-(:name ace-jump-buffer
-:auto-generated t
-:type elpa
-:description "fast buffer switching extension to `ace-jump-mode'")

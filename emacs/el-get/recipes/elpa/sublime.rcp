@@ -1,4 +1,0 @@
-(:name sublime
-:auto-generated t
-:type elpa
-:description "REQUIRES EMACS 24 - Sublime Text 2 Emulation for Emacs")

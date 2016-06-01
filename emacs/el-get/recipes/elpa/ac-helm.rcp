@@ -1,4 +1,0 @@
-(:name ac-helm
-:auto-generated t
-:type elpa
-:description "Helm interface for auto-complete")

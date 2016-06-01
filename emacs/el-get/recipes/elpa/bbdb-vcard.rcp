@@ -1,4 +1,0 @@
-(:name bbdb-vcard
-:auto-generated t
-:type elpa
-:description "vCard import/export for BBDB")

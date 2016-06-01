@@ -24,27 +24,43 @@
       (setenv "PATH" path)))
 (setq exec-path (split-string (getenv "PATH") ":"))
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 ;; Set up El-Get
-(add-to-list 'load-path "~/emacs/el-get/el-get")
-(require 'el-get)
+;; (add-to-list 'load-path "~/emacs/el-get/el-get")
+;; (require 'el-get)
 
-(if (boundp 'el-get-recipe-path)
-  (add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes"))
-(if (boundp 'package-archives)
-  (add-to-list 'package-archives
-    '("melpa" . "http://melpa.milkbox.net/packages/")
-    '("marmalade" . "http://marmalade-repo.org/packages/")))
-(setq el-get-user-package-directory "~/emacs/el-get/init")
+;; (if (boundp 'el-get-recipe-path)
+;;   (add-to-list 'el-get-recipe-path "~/emacs/el-get/recipes"))
+;; (if (boundp 'package-archives)
+;;   (add-to-list 'package-archives
+;;     '("melpa" . "http://melpa.milkbox.net/packages/")
+;;     '("marmalade" . "http://marmalade-repo.org/packages/")))
+;; (setq el-get-user-package-directory "~/emacs/el-get/init")
 
 ; ido-ubiquitous?
-(setq dthurn-el-get-packages
-  '(command-frequency textmate undo-tree hungry-delete groovy-emacs-mode
-    cider clojure-mode eval-sexp-fu
-    smartparens rainbow-delimiters company))
+;; (setq dthurn-el-get-packages
+;;       '(command-frequency
+;;         textmate
+;;         undo-tree
+;;         hungry-delete
+;;         groovy-emacs-mode
+;;         ; cider
+;;         clojure-mode
+;;         eval-sexp-fu
+;;         markdown-mode
+;;         smartparens
+;;         rainbow-delimiters
+;;         company
+;;         ))
 
-(el-get 'sync dthurn-el-get-packages)
+;; (el-get 'sync dthurn-el-get-packages)
 
 ;; Set load path to be the site-lisp directory and all of its subdirectories.
 ;; This directory holds all of my emacs libraries.

@@ -1,4 +1,0 @@
-(:name auto-save-buffers-enhanced
-:auto-generated t
-:type elpa
-:description "Automatically save buffers in a decent way")

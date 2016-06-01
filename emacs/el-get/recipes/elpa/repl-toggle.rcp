@@ -1,4 +1,0 @@
-(:name repl-toggle
-:auto-generated t
-:type elpa
-:description "Switch to/from repl buffer for current major-mode")

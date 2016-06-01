@@ -1,4 +1,0 @@
-(:name highlight-chars
-:auto-generated t
-:type elpa
-:description "Highlight specified sets of characters, including whitespace.")

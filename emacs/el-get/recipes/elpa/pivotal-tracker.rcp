@@ -1,4 +1,0 @@
-(:name pivotal-tracker
-:auto-generated t
-:type elpa
-:description "Interact with Pivotal Tracker through its API")

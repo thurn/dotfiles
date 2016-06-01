@@ -1,4 +1,0 @@
-(:name timestamper
-:auto-generated t
-:type elpa
-:description "A minor mode for easy timelogging")

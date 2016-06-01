@@ -1,4 +1,0 @@
-(:name git-dwim
-:auto-generated t
-:type elpa
-:description "Context-aware git commands such as branch handling")

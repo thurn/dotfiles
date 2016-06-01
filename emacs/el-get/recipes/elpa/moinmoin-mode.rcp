@@ -1,4 +1,0 @@
-(:name moinmoin-mode
-:auto-generated t
-:type elpa
-:description "a major mode to edit MoinMoin wiki pages")

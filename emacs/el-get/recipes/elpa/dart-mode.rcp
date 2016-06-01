@@ -1,4 +1,0 @@
-(:name dart-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Dart files")

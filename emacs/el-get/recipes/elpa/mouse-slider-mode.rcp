@@ -1,4 +1,0 @@
-(:name mouse-slider-mode
-:auto-generated t
-:type elpa
-:description "scale numbers dragged under the mouse")

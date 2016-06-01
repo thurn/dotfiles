@@ -1,4 +1,0 @@
-(:name buster-snippets
-:auto-generated t
-:type elpa
-:description "Yasnippets for the Buster javascript testing framework")

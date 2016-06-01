@@ -1,4 +1,0 @@
-(:name jump-char
-:auto-generated t
-:type elpa
-:description "navigation by char")

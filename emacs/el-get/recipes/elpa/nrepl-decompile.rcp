@@ -1,4 +1,0 @@
-(:name nrepl-decompile
-:auto-generated t
-:type elpa
-:description "decompilation extension for nrepl.el")

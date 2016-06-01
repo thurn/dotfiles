@@ -1,4 +1,0 @@
-(:name c-eldoc
-:auto-generated t
-:type elpa
-:description "helpful description of the arguments to C functions")

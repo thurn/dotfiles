@@ -1,4 +1,0 @@
-(:name helm-robe
-:auto-generated t
-:type elpa
-:description "completing read function for robe")

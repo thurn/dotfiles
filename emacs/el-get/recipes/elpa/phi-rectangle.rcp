@@ -1,4 +1,0 @@
-(:name phi-rectangle
-:auto-generated t
-:type elpa
-:description "another rectangle-mark command (rewrite of rect-mark)")

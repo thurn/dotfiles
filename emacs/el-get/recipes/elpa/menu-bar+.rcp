@@ -1,4 +1,0 @@
-(:name menu-bar+
-:auto-generated t
-:type elpa
-:description "Extensions to `menu-bar.el'.")

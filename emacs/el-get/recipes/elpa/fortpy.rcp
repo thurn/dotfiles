@@ -1,4 +1,0 @@
-(:name fortpy
-:auto-generated t
-:type elpa
-:description "a Fortran auto-completion for Emacs")

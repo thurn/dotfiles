@@ -1,4 +1,0 @@
-(:name repository-root
-:auto-generated t
-:type elpa
-:description "deduce the repository root directory for a given file")

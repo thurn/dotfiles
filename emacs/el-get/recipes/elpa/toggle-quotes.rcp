@@ -1,4 +1,0 @@
-(:name toggle-quotes
-:auto-generated t
-:type elpa
-:description "Toggle between single and double quoted string")

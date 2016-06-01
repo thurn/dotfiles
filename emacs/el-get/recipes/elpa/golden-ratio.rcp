@@ -1,4 +1,0 @@
-(:name golden-ratio
-:auto-generated t
-:type elpa
-:description "Automatic resizing of Emacs windows to the golden ratio")

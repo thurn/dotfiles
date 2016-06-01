@@ -1,4 +1,0 @@
-(:name evil-org
-:auto-generated t
-:type elpa
-:description "evil keybindings for org-mode")

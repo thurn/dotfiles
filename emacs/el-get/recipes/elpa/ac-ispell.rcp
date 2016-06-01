@@ -1,4 +1,0 @@
-(:name ac-ispell
-:auto-generated t
-:type elpa
-:description "ispell completion source for auto-complete")

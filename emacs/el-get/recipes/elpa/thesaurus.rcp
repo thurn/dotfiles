@@ -1,4 +1,0 @@
-(:name thesaurus
-:auto-generated t
-:type elpa
-:description "replace a word with a synonym looked up in a web service.")

@@ -1,4 +1,0 @@
-(:name helm-swoop
-:auto-generated t
-:type elpa
-:description "Efficiently hopping squeezed lines powered by helm interface")

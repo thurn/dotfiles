@@ -1,4 +1,0 @@
-(:name nyan-mode
-:auto-generated t
-:type elpa
-:description "Nyan Cat shows position in current buffer in mode-line.")

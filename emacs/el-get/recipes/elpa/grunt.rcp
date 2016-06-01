@@ -1,4 +1,0 @@
-(:name grunt
-:auto-generated t
-:type elpa
-:description "Some glue to stick Emacs and Gruntfiles together")

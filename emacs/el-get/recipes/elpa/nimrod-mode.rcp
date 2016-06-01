@@ -1,4 +1,0 @@
-(:name nimrod-mode
-:auto-generated t
-:type elpa
-:description "A major mode for the Nimrod programming language")

@@ -1,4 +1,0 @@
-(:name git-rebase-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing git rebase files")

@@ -1,4 +1,0 @@
-(:name latex-extra
-:auto-generated t
-:type elpa
-:description "Adds several useful functionalities to LaTeX-mode.")

@@ -1,4 +1,0 @@
-(:name w32browser-dlgopen
-:auto-generated t
-:type elpa
-:description "Use w32browser with standard Windows Open File box.")

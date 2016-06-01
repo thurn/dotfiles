@@ -1,4 +1,0 @@
-(:name identica-mode
-:auto-generated t
-:type elpa
-:description "Major mode API client for status.net open microblogging")

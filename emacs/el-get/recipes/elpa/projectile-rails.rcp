@@ -1,4 +1,0 @@
-(:name projectile-rails
-:auto-generated t
-:type elpa
-:description "Minor mode for Rails projects based on projectile-mode")

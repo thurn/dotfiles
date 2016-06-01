@@ -1,4 +1,0 @@
-(:name js2-closure
-:auto-generated t
-:type elpa
-:description "Google Closure dependency manager")

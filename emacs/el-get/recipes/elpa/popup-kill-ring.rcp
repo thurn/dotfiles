@@ -1,4 +1,0 @@
-(:name popup-kill-ring
-:auto-generated t
-:type elpa
-:description "interactively insert item from kill-ring")

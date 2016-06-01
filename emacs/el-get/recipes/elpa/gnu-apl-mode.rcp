@@ -1,4 +1,0 @@
-(:name gnu-apl-mode
-:auto-generated t
-:type elpa
-:description "Integrate GNU APL with Emacs")

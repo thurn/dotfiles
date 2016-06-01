@@ -1,4 +1,0 @@
-(:name button-lock
-:auto-generated t
-:type elpa
-:description "Clickable text defined by regular expression")

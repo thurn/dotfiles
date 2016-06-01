@@ -1,4 +1,0 @@
-(:name wolfram-mode
-:auto-generated t
-:type elpa
-:description "Mathematica editing and inferior mode.")

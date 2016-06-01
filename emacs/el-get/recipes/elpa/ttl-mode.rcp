@@ -1,4 +1,0 @@
-(:name ttl-mode
-:auto-generated t
-:type elpa
-:description "mode for Turtle(RDF)")

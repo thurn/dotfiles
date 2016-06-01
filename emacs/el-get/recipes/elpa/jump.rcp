@@ -1,4 +1,0 @@
-(:name jump
-:auto-generated t
-:type elpa
-:description "build functions which contextually jump between files")

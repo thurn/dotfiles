@@ -1,4 +1,0 @@
-(:name genrnc
-:auto-generated t
-:type elpa
-:description "generate RELAX NG Compact Schema from RELAX NG Schema, XML Schema and DTD.")

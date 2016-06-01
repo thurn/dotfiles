@@ -1,4 +1,0 @@
-(:name import-popwin
-:auto-generated t
-:type elpa
-:description "popwin buffer near by import statements with popwin")

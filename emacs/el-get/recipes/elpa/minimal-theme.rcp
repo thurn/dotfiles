@@ -1,4 +1,0 @@
-(:name minimal-theme
-:auto-generated t
-:type elpa
-:description "A light/dark minimalistic Emacs 24 theme.")

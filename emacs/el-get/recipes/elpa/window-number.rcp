@@ -1,4 +1,0 @@
-(:name window-number
-:auto-generated t
-:type elpa
-:description "Select windows by numbers.")

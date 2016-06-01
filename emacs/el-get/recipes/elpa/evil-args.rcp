@@ -1,4 +1,0 @@
-(:name evil-args
-:auto-generated t
-:type elpa
-:description "Motions and text objects for delimited arguments in Evil.")

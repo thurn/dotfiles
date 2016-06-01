@@ -1,4 +1,0 @@
-(:name relative-line-numbers
-:auto-generated t
-:type elpa
-:description "Display relative line numbers on the margin")

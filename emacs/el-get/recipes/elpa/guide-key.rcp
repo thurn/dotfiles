@@ -1,4 +1,0 @@
-(:name guide-key
-:auto-generated t
-:type elpa
-:description "Guide the following key bindings automatically and dynamically")

@@ -1,4 +1,4 @@
-;; Customizations that are not specific to any particular Emacs module.
+/; Customizations that are not specific to any particular Emacs module.
 
 ;; Inhibit the creation of new frames.
 (setq pop-up-frames nil)
@@ -95,3 +95,4 @@
 
 ;; Disable the bell
 (setq ring-bell-function 'ignore)
+(setq visible-bell 1)

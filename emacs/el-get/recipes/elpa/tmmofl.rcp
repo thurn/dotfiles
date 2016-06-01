@@ -1,4 +1,0 @@
-(:name tmmofl
-:auto-generated t
-:type elpa
-:description "Calls functions dependant on font lock highlighting at point")

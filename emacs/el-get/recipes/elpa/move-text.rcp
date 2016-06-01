@@ -1,4 +1,0 @@
-(:name move-text
-:auto-generated t
-:type elpa
-:description "Move current line or region with M-up or M-down.")

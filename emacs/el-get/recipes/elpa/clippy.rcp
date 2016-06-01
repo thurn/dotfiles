@@ -1,4 +1,0 @@
-(:name clippy
-:auto-generated t
-:type elpa
-:description "Show tooltip with function documentation at point")

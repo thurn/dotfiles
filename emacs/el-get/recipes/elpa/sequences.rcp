@@ -1,4 +1,0 @@
-(:name sequences
-:auto-generated t
-:type elpa
-:description "Ports of some Clojure sequence functions.")

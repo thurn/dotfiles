@@ -1,4 +1,0 @@
-(:name vline
-:auto-generated t
-:type elpa
-:description "show vertical line (column highlighting) mode.")

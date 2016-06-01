@@ -1,4 +1,0 @@
-(:name benchmark-init
-:auto-generated t
-:type elpa
-:description "Benchmarks Emacs require and load calls")

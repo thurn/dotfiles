@@ -1,4 +1,0 @@
-(:name aumix-mode
-:auto-generated t
-:type elpa
-:description "run the aumix program in a buffer")

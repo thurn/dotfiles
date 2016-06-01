@@ -1,4 +1,0 @@
-(:name rnc-mode
-:auto-generated t
-:type elpa
-:description "A major mode for editing RELAX NG Compact syntax.")

@@ -1,4 +1,0 @@
-(:name fabric
-:auto-generated t
-:type elpa
-:description "Launch Fabric using Emacs")

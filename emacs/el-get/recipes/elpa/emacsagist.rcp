@@ -1,4 +1,0 @@
-(:name emacsagist
-:auto-generated t
-:type elpa
-:description "Search Packagist.org packages without leaving Emacs")

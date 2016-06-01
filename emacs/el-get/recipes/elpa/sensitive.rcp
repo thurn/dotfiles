@@ -1,4 +1,0 @@
-(:name sensitive
-:auto-generated t
-:type elpa
-:description "A dead simple way to load sensitive information")

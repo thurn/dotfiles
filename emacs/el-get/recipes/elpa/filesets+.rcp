@@ -1,4 +1,0 @@
-(:name filesets+
-:auto-generated t
-:type elpa
-:description "Extensions to `filesets.el'.")

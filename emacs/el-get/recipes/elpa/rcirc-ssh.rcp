@@ -1,4 +1,0 @@
-(:name rcirc-ssh
-:auto-generated t
-:type elpa
-:description "do irc over ssh sessions")

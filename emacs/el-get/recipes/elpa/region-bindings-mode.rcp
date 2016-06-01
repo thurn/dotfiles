@@ -1,4 +1,0 @@
-(:name region-bindings-mode
-:auto-generated t
-:type elpa
-:description "Enable custom bindings when mark is active.")

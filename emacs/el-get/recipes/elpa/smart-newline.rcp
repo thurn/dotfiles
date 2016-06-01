@@ -1,4 +1,0 @@
-(:name smart-newline
-:auto-generated t
-:type elpa
-:description "Provide smart newline for one keybind.")

@@ -1,4 +1,0 @@
-(:name feature-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Gherkin (i.e. Cucumber) user stories")

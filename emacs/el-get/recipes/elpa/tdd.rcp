@@ -1,4 +1,0 @@
-(:name tdd
-:auto-generated t
-:type elpa
-:description "recompile on save and indicate success in the mode line")

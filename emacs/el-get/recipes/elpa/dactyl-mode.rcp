@@ -1,4 +1,0 @@
-(:name dactyl-mode
-:auto-generated t
-:type elpa
-:description "Major mode for editing Pentadactyl config files")

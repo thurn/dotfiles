@@ -1,4 +1,0 @@
-(:name ob-sml
-:auto-generated t
-:type elpa
-:description "org-babel functions for template evaluation")

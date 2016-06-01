@@ -1,4 +1,0 @@
-(:name tt-mode
-:auto-generated t
-:type elpa
-:description "Emacs major mode for editing Template Toolkit files.")

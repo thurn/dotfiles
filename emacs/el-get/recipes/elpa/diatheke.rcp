@@ -1,4 +1,0 @@
-(:name diatheke
-:auto-generated t
-:type elpa
-:description "A minor mode using the diatheke command-line Bible tool")

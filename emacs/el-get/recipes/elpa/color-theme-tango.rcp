@@ -1,4 +1,0 @@
-(:name color-theme-tango
-:auto-generated t
-:type elpa
-:description "Tango palette color theme for GNU Emacs.")

@@ -1,4 +1,0 @@
-(:name helm-ad
-:auto-generated t
-:type elpa
-:description "helm source for Active Directory")

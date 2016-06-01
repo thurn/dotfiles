@@ -1,4 +1,0 @@
-(:name debbugs
-:auto-generated t
-:type elpa
-:description "SOAP library to access debbugs servers")

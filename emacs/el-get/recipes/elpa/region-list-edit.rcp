@@ -1,4 +1,0 @@
-(:name region-list-edit
-:auto-generated t
-:type elpa
-:description "Add/delete a region into/from a region list, such as ((4 . 7) (11 . 15) (17 . 17) (20 . 25)).")

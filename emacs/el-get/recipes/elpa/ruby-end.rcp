@@ -1,4 +1,0 @@
-(:name ruby-end
-:auto-generated t
-:type elpa
-:description "Automatic insertion of end blocks for Ruby")

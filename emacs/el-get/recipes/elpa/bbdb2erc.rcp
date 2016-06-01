@@ -1,4 +1,0 @@
-(:name bbdb2erc
-:auto-generated t
-:type elpa
-:description "make bbdb show if pal is online with ERC, click i to chat")

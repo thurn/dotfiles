@@ -1,4 +1,0 @@
-(:name hideshow-org
-:auto-generated t
-:type elpa
-:description "Provides org-mode like hide and show for hideshow.el")

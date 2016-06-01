@@ -1,4 +1,0 @@
-(:name centimacro
-:auto-generated t
-:type elpa
-:description "Assign multiple macros as global key bindings")

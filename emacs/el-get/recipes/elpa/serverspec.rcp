@@ -1,4 +1,0 @@
-(:name serverspec
-:auto-generated t
-:type elpa
-:description "Serverspec minor mode")

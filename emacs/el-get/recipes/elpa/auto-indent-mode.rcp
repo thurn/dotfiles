@@ -1,4 +1,0 @@
-(:name auto-indent-mode
-:auto-generated t
-:type elpa
-:description "Auto indent Minor mode")

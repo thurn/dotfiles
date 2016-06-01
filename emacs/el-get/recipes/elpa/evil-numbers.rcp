@@ -1,4 +1,0 @@
-(:name evil-numbers
-:auto-generated t
-:type elpa
-:description "increment/decrement numbers like in vim")

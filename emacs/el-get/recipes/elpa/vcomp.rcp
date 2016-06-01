@@ -1,4 +1,0 @@
-(:name vcomp
-:auto-generated t
-:type elpa
-:description "compare version strings")

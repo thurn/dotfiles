@@ -1,4 +1,0 @@
-(:name helm-google
-:auto-generated t
-:type elpa
-:description "Emacs Helm Interface for quick Google searches")

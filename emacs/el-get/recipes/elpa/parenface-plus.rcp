@@ -1,4 +1,0 @@
-(:name parenface-plus
-:auto-generated t
-:type elpa
-:description "Provide a face for parens in lispy modes.")

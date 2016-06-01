@@ -1,4 +1,0 @@
-(:name pyenv-mode
-:auto-generated t
-:type elpa
-:description "Integrate pyenv with python-mode")

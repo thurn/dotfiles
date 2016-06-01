@@ -1,4 +1,0 @@
-(:name auto-dictionary
-:auto-generated t
-:type elpa
-:description "automatic dictionary switcher for flyspell")

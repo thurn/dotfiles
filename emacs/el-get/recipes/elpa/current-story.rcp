@@ -1,4 +1,0 @@
-(:name current-story
-:auto-generated t
-:type elpa
-:description "Track and insert current Pivotal Tracker")

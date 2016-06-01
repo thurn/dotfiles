@@ -1,4 +1,0 @@
-(:name hexrgb
-:auto-generated t
-:type elpa
-:description "Functions to manipulate colors, including RGB hex strings.")

@@ -1,4 +1,0 @@
-(:name indicators
-:auto-generated t
-:type elpa
-:description "Display the buffer relative location of line in the fringe.")

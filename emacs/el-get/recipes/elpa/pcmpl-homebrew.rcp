@@ -1,4 +1,0 @@
-(:name pcmpl-homebrew
-:auto-generated t
-:type elpa
-:description "pcomplete for homebrew")

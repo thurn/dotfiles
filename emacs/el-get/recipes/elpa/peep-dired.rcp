@@ -1,4 +1,0 @@
-(:name peep-dired
-:auto-generated t
-:type elpa
-:description "Peep at files in another window from dired buffers")

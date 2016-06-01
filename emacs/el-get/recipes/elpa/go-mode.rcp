@@ -1,4 +1,0 @@
-(:name go-mode
-:auto-generated t
-:type elpa
-:description "Major mode for the Go programming language")

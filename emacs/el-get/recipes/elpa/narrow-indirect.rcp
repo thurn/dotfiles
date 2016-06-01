@@ -1,4 +1,0 @@
-(:name narrow-indirect
-:auto-generated t
-:type elpa
-:description "Narrow using an indirect buffer that is a clone")

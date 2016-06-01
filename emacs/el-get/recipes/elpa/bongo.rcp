@@ -1,4 +1,0 @@
-(:name bongo
-:auto-generated t
-:type elpa
-:description "play music with Emacs")
