@@ -251,6 +251,16 @@ If N is negative, search forwards for the -Nth following match."
   (while (member (buffer-name) skip-windows)
     (other-window -1)))
 
+(defun dthurn-run-tests ()
+  (interactive)
+  (save-buffer)
+  (cond ((eq major-mode 'clojure-mode)
+         (progn
+           (call-interactively 'cider-load-buffer)
+           (call-interactively 'cider-test-run-ns-tests))
+        (t
+         (call-interactively 'eval-buffer)))))
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -263,7 +273,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "TAB" 'dthurn-tab)
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
-(keyboard-translate ?\C-i ?\M-t)
+(keyboard-translate ?\C-i ?\M-])
 (keyboard-translate ?\C-m ?\M-y)
 
 ;; Top Row
@@ -275,7 +285,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
-(sober-map-key "M-t" 'dthurn-page-down) ; Remapped from C-i above
+(sober-map-key "M-]" 'dthurn-page-down) ; Remapped from C-i above
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" 'dthurn-previous-window)
 (sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))
@@ -311,6 +321,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "s-e" 'indent-sexp) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
 (sober-map-key "s-r" 'forward-paragraph)
+(sober-map-key "M-t" 'dthurn-run-tests)
+(sober-map-key "s-t" 'dthurn-run-tests)
 (sober-map-key "M-u" 'beginning-of-buffer)
 (sober-map-key "s-u" 'beginning-of-buffer)
 (sober-map-key "M-o" 'cider-doc) ; Override as a doc command

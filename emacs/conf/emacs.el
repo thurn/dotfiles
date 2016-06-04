@@ -54,6 +54,8 @@
    "/.cabal/bin:"
    (getenv "PATH")))
 
+(add-to-list 'exec-path (concat (getenv "HOME") "/bin"))
+
 ;; Use emacs for $EDITOR
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
 
