@@ -257,9 +257,9 @@ If N is negative, search forwards for the -Nth following match."
   (cond ((eq major-mode 'clojure-mode)
          (progn
            (call-interactively 'cider-load-buffer)
-           (call-interactively 'cider-test-run-ns-tests))
+           (call-interactively 'cider-test-run-ns-tests)))
         (t
-         (call-interactively 'eval-buffer)))))
+         (call-interactively 'eval-buffer))))
 
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")

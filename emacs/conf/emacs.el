@@ -1,4 +1,4 @@
-/; Customizations that are not specific to any particular Emacs module.
+; Customizations that are not specific to any particular Emacs module.
 
 ;; Inhibit the creation of new frames.
 (setq pop-up-frames nil)
