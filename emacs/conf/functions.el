@@ -109,3 +109,12 @@
             (goto-char start)
             (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
         (replace-match "\\1\n\\2")))))
+
+(defun dthurn-linebreak-sexps ()
+  "Inserts newline characters before every [ character"
+  (interactive)
+  (dotimes (i 1000) (progn
+    (search-forward "[")
+    (search-forward "[")
+    (backward-char)
+    (call-interactively 'newline))))
