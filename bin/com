@@ -1,11 +1,3 @@
 #!/usr/bin/env ruby
 
-glh = `git log | head | grep "wip"`
-
-if glh.length > 1
-  puts "ammending"
-  exec "git commit -a --amend -C HEAD #{ARGV.join(' ')}"
-else
-  puts "new commit"
-  exec "git commit -a --allow-empty -m wip #{ARGV.join(' ')}"
-end
+exec "git commit -a -m 'wip' #{ARGV.join(' ')}"

@@ -1,4 +1,4 @@
-;; Customizations that are not specific to any particular Emacs module.
+; Customizations that are not specific to any particular Emacs module.
 
 ;; Inhibit the creation of new frames.
 (setq pop-up-frames nil)
@@ -54,7 +54,12 @@
    "/.cabal/bin:"
    (getenv "PATH")))
 
+;; Set exec-path based on $PATH
 (setq exec-path (split-string (getenv "PATH") ":"))
+(delete-dups exec-path)
+
+;; Set eshell-path-env based on exec-path
+(setq eshell-path-env (mapconcat 'identity exec-path ":"))
 
 ;; Use emacs for $EDITOR
 (setenv "EDITOR" (concat (getenv "HOME") "/bin/emacs_wrapper.rb"))
@@ -87,3 +92,7 @@
 (server-start)
 
 (setq-default fill-column 80)
+
+;; Disable the bell
+(setq ring-bell-function 'ignore)
+(setq visible-bell 1)

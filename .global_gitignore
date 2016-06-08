@@ -9,6 +9,3 @@ tags
 TAGS
 ETAGS
 kill-tempfiles.sh
-.oz_jvm_args
-.oz_server_args
-.citc_workspace_id_cache/

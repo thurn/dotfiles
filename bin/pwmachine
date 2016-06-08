@@ -1,2 +1,3 @@
 #!/bin/sh
-java -cp $HOME/bin/password_machine/bin/ ca.thurn.passwordmachine.Main $@
+cd ~/bin/password_machine/bin
+java -cp . ca.thurn.passwordmachine.Main $@
