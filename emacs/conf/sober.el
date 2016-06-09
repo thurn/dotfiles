@@ -216,14 +216,20 @@ If N is negative, search forwards for the -Nth following match."
 (defun dthurn-tab ()
   (interactive)
   (cond
+   ((eq major-mode 'eshell-mode)
+    (call-interactively 'eshell-pcomplete))
+
    ((minibufferp)
     (unless (minibuffer-complete)
       (dabbrev-expand nil)))
+
    ((member major-mode '(clojure-mode cider-repl-mode))
     (if (looking-at "\\_>")
         (company-complete-common)
       (indent-according-to-mode)))
-   (t (call-interactively 'indent-for-tab-command))))
+
+   (t
+    (call-interactively 'indent-for-tab-command))))
 
 (defun dthurn-backward-tab (&rest args)
   (interactive)
@@ -273,9 +279,6 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "TAB" 'dthurn-tab)
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
-(keyboard-translate ?\C-i ?\M-])
-(keyboard-translate ?\C-m ?\M-y)
-
 ;; Top Row
 (sober-map-key "C-q" 'move-to-window-line)
 (sober-map-key "C-w" 'dthurn-page-up)
@@ -285,7 +288,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
-(sober-map-key "M-]" 'dthurn-page-down) ; Remapped from C-i above
+(sober-map-key "M-\\" 'dthurn-page-down) ; Remapped from C-i above
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" 'dthurn-previous-window)
 (sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))
@@ -309,7 +312,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
 (sober-map-key "C-," 'smex)
-(sober-map-key "M-[ a" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
+(sober-map-key "M--" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
 (sober-map-key "C-/" 'undo)
 
 ;; Top Row (Meta)

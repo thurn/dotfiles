@@ -1,7 +1,7 @@
 ;; Hard-set the auto-mode-alist and magic-mode-alist variables.
 ;; I prefer things to be explicit!
 
-(setq auto-mode-alist
+(setq dthurn-auto-mode-alist
       '(("#\\*mail\\*" . mail-mode)
         ("/Message[0-9]*\\'" . text-mode)
         ("/X11.+app-defaults/" . conf-xdefaults-mode)
@@ -77,6 +77,7 @@
         ("\\.bst\\'" . bibtex-style-mode)
         ("\\.by$" . bovine-grammar-mode)
         ("\\.bz2\\(~\\|\\.~[0-9]+~\\)?\\'" nil jka-compr)
+        ("\\.bzl\\'" . google3-build-mode)
         ("\\.cabal\\'" . haskell-cabal-mode)
         ("\\.cconf" . python-mode)
         ("\\.cgr\\'" . cogre-mode)
@@ -209,3 +210,8 @@
         ("configure\\.\\(ac\\|in\\)\\'" . autoconf-mode)
         ("java.+\\.conf\\'" . conf-javaprop-mode)
         ("svn-commit" . svncommit-mode)))
+
+(if (boundp 'dthurn-additional-auto-modes)
+    (setq auto-mode-alist
+          (append dthurn-auto-mode-alist dthurn-additional-auto-modes))
+    (setq auto-mode-alist dthurn-auto-mode-alist))
