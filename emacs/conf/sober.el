@@ -90,16 +90,6 @@ region) apply comment-or-uncomment to the current line"
   (if (not (eq nil (get-buffer name)))
       (kill-buffer  name)))
 
-(defun sober-map-ci (command)
-  """Maps C-i to a specific command via some trickery."""
-  ;; Don't translate tab into C-i.
-  (define-key function-key-map [tab] nil)
-  ;; Swap the meanings of tab and C-i.
-  (define-key key-translation-map [9] [tab])
-  (define-key key-translation-map [tab] [9])
-  ;; Bind tab (which is now actually C-i)
-  (global-set-key [tab] 'comand))
-
 (defun dthurn-kill-starred-buffers ()
   "Kill some buffers that annoy me"
   (interactive)
@@ -119,17 +109,6 @@ region) apply comment-or-uncomment to the current line"
   (cond
    ((eq major-mode 'python-mode) (rope-code-assist nil))
    (t (indent-for-tab-command))))
-
-;; (defun dthurn-eshell-previous-matching-input ()
-;;   "Completes to the previous matching input in *eshell*, allows multiple calls
-;;   to move through previous matching inputs."
-;;   (interactive)
-;;   (if (eq last-command 'dthurn-previous-input)
-;;     (incf dthurn-previous-matching-input-prefix)
-;;     (setq dthurn-previous-matching-input-prefix 1))
-;;   (dlog dthurn-previous-matching-input-prefix)
-;;   (let ((current-prefix-arg dthurn-previous-matching-input-prefix))
-;;     (call-interactively 'eshell-previous-matching-input-from-input)))
 
 (defun dthurn-eshell-previous-matching-input-from-input (arg)
   "Search backwards through input history for match for current input.
@@ -192,27 +171,6 @@ If N is negative, search forwards for the -Nth following match."
   (cond
    (t (save-buffer))))
 
-;; (defun dthurn-tab (&rest args)
-;;   (interactive)
-;;   (cond
-;;     ((minibufferp)
-;;       (unless (minibuffer-complete)
-;;         (dabbrev-expand nil)))
-;;     ((member major-mode '(eshell-mode))
-;;       (pcomplete))
-;;     ((member major-mode '(shell-mode))
-;;       (completion-at-point))
-;;     (mark-active
-;;       (let ((deactivate-mark nil))
-;;         (indent-rigidly (region-beginning) (region-end) 2)))
-;;     ((member (char-before) '(nil ?\ ?\n ?\t))
-;;       (let ((old (point)))
-;;         (beginning-of-line)
-;;         (insert-tab)
-;;         (goto-char (+ old 2))))
-;;     (t
-;;       (company-complete-common))))
-
 (defun dthurn-tab ()
   (interactive)
   (cond
@@ -267,6 +225,13 @@ If N is negative, search forwards for the -Nth following match."
         (t
          (call-interactively 'eval-buffer))))
 
+(defun dthurn-format-buffer ()
+  (interactive)
+    (let ((pos (point)))
+    (cond ((eq major-mode 'clojure-mode)
+           (call-interactively 'cider-format-buffer)))
+    (goto-char pos)))
+
 (defvar sober-mode-map (make-keymap)
   "Keymap for sober-mode.")
 
@@ -275,7 +240,6 @@ If N is negative, search forwards for the -Nth following match."
      (global-set-key (kbd ,key) ,command)
      (define-key sober-mode-map (kbd ,key) ,command)))
 
-;(sober-map-key "C-SPC" 'ace-jump-mode)
 (sober-map-key "TAB" 'dthurn-tab)
 (sober-map-key "<backtab>" 'dthurn-backward-tab)
 
@@ -288,7 +252,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-S-t" 'other-window)
 (sober-map-key "C-y" 'goto-line)
 (sober-map-key "C-u" 'yank)
-(sober-map-key "M-\\" 'dthurn-page-down) ; Remapped from C-i above
+(sober-map-key "M-\\" 'dthurn-page-down) ; Remapped from C-i
+(sober-map-key "s-\\" 'dthurn-page-down) ; Remapped from C-i
 (sober-map-key "C-o" 'dthurn-open)
 (sober-map-key "C-p" 'dthurn-previous-window)
 (sober-map-key "C-S-p" (lambda () (interactive) (other-window -1)))
@@ -320,8 +285,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "s-q" 'save-buffers-kill-terminal)
 (sober-map-key "M-w" 'dthurn-kill-starred-buffers)
 (sober-map-key "s-w" 'dthurn-kill-starred-buffers)
-(sober-map-key "M-e" 'indent-sexp) ; Override as a formatting command
-(sober-map-key "s-e" 'indent-sexp) ; Override as a formatting command
+(sober-map-key "M-e" 'dthurn-format-buffer) ; Override as a formatting command
+(sober-map-key "s-e" 'dthurn-format-buffer) ; Override as a formatting command
 (sober-map-key "M-r" 'forward-paragraph)
 (sober-map-key "s-r" 'forward-paragraph)
 (sober-map-key "M-t" 'dthurn-run-tests)
