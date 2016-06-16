@@ -161,7 +161,10 @@ If N is negative, search forwards for the -Nth following match."
   (interactive)
   (save-buffer)
   (cond ((eq major-mode 'clojure-mode)
-         (call-interactively 'cider-load-buffer))
+         (progn
+           (cider-load-buffer)
+           (cider-switch-to-repl-buffer t)))
+
         (t
          (call-interactively 'eval-buffer))))
 
