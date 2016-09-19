@@ -70,3 +70,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'ido-exit-minibuffer 'disabled nil)
+(put 'downcase-region 'disabled nil)

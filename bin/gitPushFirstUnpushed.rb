@@ -25,6 +25,12 @@ prevCommitSha = commitFile.read.chomp
 commitFile.close()
 
 # Create backup
+backup_number = Random.rand(3)
+puts "rm -r -f /tmp/backup#{backup_number}"
+exit unless system "rm -r -f /tmp/backup#{backup_number}"
+puts "cp -r #{ENV["BACKUP"]} /tmp/backup#{backup_number}"
+exit unless system "cp -r #{ENV["BACKUP"]} /tmp/backup#{backup_number}"
+
 puts "Creating backup at #{ENV["BACKUP"]}"
 exit unless system "rsync -a . #{ENV["BACKUP"]}"
 puts "Backed up to #{ENV["BACKUP"]}"

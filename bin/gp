@@ -1,0 +1,39 @@
+#!/bin/sh
+set -e
+
+status=$(git status)
+if [[ $status != *"nothing to commit, working directory clean"* ]]
+then
+  echo "Commit first!"
+  echo $status
+  exit
+fi
+
+branch=$(git branch)
+if [[ $branch != *"master"* ]]
+then
+  echo "Not on master!"
+  echo $branch
+  exit
+fi
+
+if [[ $status == *"Your branch is up-to-date with 'origin/master'"* ]]
+then
+  echo "Up to date!"
+  echo $status
+  exit
+fi
+
+backup1=~/backup/backup$(date "+%w")
+backup2=~/backup/backupMonth$(date "+%m")
+
+echo "Copying ~/backup/backup to $backup1"
+rsync -a ~/backup/backup $backup1
+echo "Copying ~/backup/backup to backup2"
+rsync -a ~/backup/backup $backup2
+
+echo "Syncing to ~/backup/backup"
+rsync -a . ~/backup/backup
+
+echo "Pushing master to origin"
+git push origin master
