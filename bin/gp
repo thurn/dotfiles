@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+./checksums/updateAllChecksums.py
+
 status=$(git status)
 if [[ $status != *"nothing to commit, working directory clean"* ]]
 then
