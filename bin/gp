@@ -27,19 +27,19 @@ fi
 backupMonth=~/backup/backupMonth$(date "+%m")/
 
 echo "Copying ~/backup/backup1 to ~/backup/backup2"
-rsync -a ~/backup/backup1/ ~/backup/backup2/
+rsync -a -L ~/backup/backup1/ ~/backup/backup2/
 
 echo "Copying ~/backup/backup0 to ~/backup/backup1"
-rsync -a ~/backup/backup0/ ~/backup/backup1/
+rsync -a -L ~/backup/backup0/ ~/backup/backup1/
 
 echo "Copying ~/backup/backup to ~/backup/backup0"
-rsync -a ~/backup/backup/ ~/backup/backup0/
+rsync -a -L ~/backup/backup/ ~/backup/backup0/
 
 echo "Copying ~/backup/backup to $backupMonth"
-rsync -a ~/backup/backup/ $backupMonth
+rsync -a -L ~/backup/backup/ $backupMonth
 
 echo "Syncing to ~/backup/backup"
-rsync -a . ~/backup/backup/
+rsync -a -L . ~/backup/backup/
 
 echo "Pushing master to origin"
 git push origin master
