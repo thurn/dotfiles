@@ -29,10 +29,6 @@
       `((".*" ,dthurn-backup-file-directory t)))
 (setq backup-by-copying t)
 
-;; Define the emacs font
-(if (member "Inconsolata-dz" (font-family-list))
-    (set-face-attribute 'default nil :font "Inconsolata-dz" :height 120))
-
 ;; Don't show startup screen
 (defun display-startup-screen (&optional concise))
 
@@ -47,6 +43,8 @@
   (concat
    (getenv "HOME")
    "/bin:"
+   (getenv "HOME")
+   "/.npm-global/bin:"
    (getenv "HOME")
    "/haskell/bin:"
    "/usr/local/bin:"
