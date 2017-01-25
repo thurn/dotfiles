@@ -63,7 +63,7 @@
  '(haskell-tags-on-save t)
  '(package-selected-packages
    (quote
-    (rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
+    (flycheck-pos-tip flycheck-clojure parinfer dash rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
  '(python-indent-offset 2)
  '(safe-local-variable-values
    (quote
