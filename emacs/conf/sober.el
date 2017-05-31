@@ -162,9 +162,8 @@ If N is negative, search forwards for the -Nth following match."
   (save-buffer)
   (cond ((eq major-mode 'clojure-mode)
          (progn
-           (cider-load-buffer)
-           (cider-switch-to-repl-buffer t)))
-
+           (call-interactively 'cider-repl-set-ns)
+           (cider-refresh)))
         (t
          (call-interactively 'eval-buffer))))
 

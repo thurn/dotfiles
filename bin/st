@@ -1,4 +1,2 @@
 #!/bin/sh
-hg log -r . -T 'On boomark: {activebookmark}'
-hg status
-#git status -uno $@
+git status $@

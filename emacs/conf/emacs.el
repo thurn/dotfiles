@@ -94,3 +94,6 @@
 ;; Disable the bell
 (setq ring-bell-function 'ignore)
 (setq visible-bell 1)
+
+;; Set the default font
+(set-frame-font "iosevka" nil t)

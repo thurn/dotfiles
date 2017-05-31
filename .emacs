@@ -26,7 +26,7 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -58,12 +58,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   (vector "#4d4d4c" "#c82829" "#718c00" "#eab700" "#4271ae" "#8959a8" "#3e999f" "#d6d6d6"))
+ '(custom-safe-themes
+   (quote
+    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "ad9747dc51ca23d1c1382fa9bd5d76e958a5bfe179784989a6a666fe801aadf2" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" default)))
+ '(fci-rule-color "#d6d6d6")
  '(haskell-process-type (quote ghci))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
+ '(hl-sexp-background-color "#efebe9")
  '(package-selected-packages
    (quote
-    (flycheck-pos-tip flycheck-clojure parinfer dash rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
+    (leuven-theme color-theme-sanityinc-tomorrow flycheck-pos-tip flycheck-clojure parinfer dash rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
  '(python-indent-offset 2)
  '(safe-local-variable-values
    (quote
@@ -80,7 +89,29 @@
            (whitespace-mode 1))
      (whitespace-line-column . 80)
      (whitespace-style face trailing lines-tail)
-     (require-final-newline . t)))))
+     (require-final-newline . t))))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#c82829")
+     (40 . "#f5871f")
+     (60 . "#eab700")
+     (80 . "#718c00")
+     (100 . "#3e999f")
+     (120 . "#4271ae")
+     (140 . "#8959a8")
+     (160 . "#c82829")
+     (180 . "#f5871f")
+     (200 . "#eab700")
+     (220 . "#718c00")
+     (240 . "#3e999f")
+     (260 . "#4271ae")
+     (280 . "#8959a8")
+     (300 . "#c82829")
+     (320 . "#f5871f")
+     (340 . "#eab700")
+     (360 . "#718c00"))))
+ '(vc-annotate-very-old-color nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
