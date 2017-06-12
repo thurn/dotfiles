@@ -1,8 +1,4 @@
 ;; Configuration for color-theme, emacs syntax highlighting.
 
-(require 'color-theme)
-(require 'color-theme-zenburn)
-(require 'color-theme-solarized)
-
-(color-theme-initialize)
-(color-theme-echo-glossy)
+(load-theme 'leuven t)
+(enable-theme 'leuven)
