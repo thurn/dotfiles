@@ -164,7 +164,6 @@ If N is negative, search forwards for the -Nth following match."
          (progn
            (cider-load-buffer)
            (cider-switch-to-repl-buffer t)))
-
         (t
          (call-interactively 'eval-buffer))))
 

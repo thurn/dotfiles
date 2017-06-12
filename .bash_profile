@@ -30,3 +30,5 @@ for config_file in ~/shells/*.sh
 do
   source $config_file
 done
+
+#CHEF.NO.SOURCE

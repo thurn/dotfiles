@@ -7,3 +7,5 @@
       "(do (use 'figwheel-sidecar.repl-api)
            (start-figwheel! \"main\" \"ui\")
            (cljs-repl \"ui\"))")
+(setq cider-refresh-before-fn "cider/stop!")
+(setq cider-refresh-after-fn "cider/start!")

@@ -1,4 +1,13 @@
-#!/bin/sh
-hg log -r . -T 'On boomark: {activebookmark}'
-hg status
-#git status -uno $@
+#!/usr/bin/env python2.7
+
+import os
+import subprocess
+
+cwd = os.getcwd()
+
+if cwd.startswith("/Users/dthurn/Dropbox"):
+  subprocess.check_call(["git", "status"])
+else:
+  subprocess.check_call(["hg", "log", "-r", ".", "-T",
+                         "On boomark: {activebookmark}"])
+  subprocess.check_call(["hg", "status"])
