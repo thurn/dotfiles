@@ -25,8 +25,10 @@
 (setq exec-path (split-string (getenv "PATH") ":"))
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+(setq package-archives
+       '(("melpa" . "https://melpa.org/packages/")
+         ("gnu" . "https://elpa.gnu.org/packages/")
+         ("org" . "http://orgmode.org/elpa/")))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -72,7 +74,7 @@
  '(hl-sexp-background-color "#efebe9")
  '(package-selected-packages
    (quote
-    (leuven-theme color-theme-sanityinc-tomorrow flycheck-pos-tip flycheck-clojure parinfer dash rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
+    (org counsel ivy diminish use-package leuven-theme color-theme-sanityinc-tomorrow flycheck-pos-tip flycheck-clojure parinfer dash rainbow-delimiters protobuf-mode magit csharp-mode company cider)))
  '(python-indent-offset 2)
  '(safe-local-variable-values
    (quote
