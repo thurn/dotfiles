@@ -6,6 +6,8 @@ then
 else
   bindkey '^k' history-search-backward
   bindkey '^j' history-search-forward
+  bindkey '\e[A' history-search-backward
+  bindkey '\e[B' history-search-forward
   bindkey '^f' forward-word
   bindkey '^d' forward-char
   bindkey '^l' backward-word
