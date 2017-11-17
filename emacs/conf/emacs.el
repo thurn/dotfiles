@@ -35,8 +35,9 @@
 ;; Fix org-mode bug
 (setq calendar-mode-map '(keymap nil))
 
-;; Maximize vertical space
+;; Maximize split space
 (setq split-height-threshold nil)
+(setq split-width-threshold nil)
 
 ;; Set my local path
 (setenv "PATH"

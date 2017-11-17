@@ -37,8 +37,8 @@ character of the current line."
 (defun dthurn-open (&rest args)
   (interactive)
   (if (or (eq major-mode 'eshell-mode) (eq major-mode 'shell-mode))
-      (call-interactively 'ido-find-file-other-window)
-    (call-interactively 'ido-find-file)))
+      (call-interactively 'counsel-find-file-other-window)
+    (call-interactively 'counsel-find-file)))
 
 (defun dthurn-bol (&rest args)
   (interactive)
@@ -59,7 +59,10 @@ character of the current line."
 
 (defun dthurn-goto-symbol (&rest args)
   (interactive)
-  (call-interactively 'textmate-goto-symbol)
+  (cond ((eq major-mode 'org-mode)
+         (call-interactively 'org-goto))
+        (t
+         (call-interactively 'imenu)))
   (call-interactively 'recenter))
 
 (defun dthurn-page-down (&rest args)
@@ -222,7 +225,8 @@ If N is negative, search forwards for the -Nth following match."
   (save-buffer)
   (cond ((eq major-mode 'clojure-mode)
          (progn
-           (call-interactively 'cider-load-buffer)
+           (call-interactively 'cider-refresh)
+           (sit-for 0.2)
            (call-interactively 'cider-test-run-ns-tests)))
         (t
          (call-interactively 'eval-buffer))))
@@ -287,6 +291,7 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "<up>" 'previous-line)
 (sober-map-key "C-l" 'backward-word)
 (sober-map-key "C-;" 'backward-char)
+(sober-map-key "C-'" 'join-line)
 
 ;; Bottom Row
 (sober-map-key "C-z" 'dthurn-next-input)
@@ -294,8 +299,8 @@ If N is negative, search forwards for the -Nth following match."
 (sober-map-key "C-b" 'dthurn-previous-input)
 (sober-map-key "C-n" 'kill-line)
 (sober-map-key "M-y" 'delete-char) ; REMAPPED AT OS LEVEL TO SEND C-m
-(sober-map-key "C-," 'smex)
-(sober-map-key "M--" 'smex) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
+(sober-map-key "C-," 'counsel-M-x)
+(sober-map-key "M--" 'counsel-M-x) ; REMAPPED AT OS LEVEL TO SEND C-, in TERMINAL
 (sober-map-key "C-/" 'undo)
 
 ;; Top Row (Meta)

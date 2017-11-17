@@ -21,6 +21,6 @@
 (setq x-select-enable-clipboard t)
 
 ;; Make keyboard-escape-quit not kill all windows
-(defadvice keyboard-escape-quit
-  (around my-keyboard-escape-quit activate)
-  (flet ((one-window-p (&optional nomini all-frames) t)) ad-do-it))
+;; (defadvice keyboard-escape-quit
+;;   (around my-keyboard-escape-quit activate)
+;;   (flet ((one-window-p (&optional nomini all-frames) t)) ad-do-it))
