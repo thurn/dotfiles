@@ -1,5 +1,5 @@
 (
- (:id "sha1:6d4eb958390599243ba9f5035cb671fa8dd6a93a" :fingerprint "sha1:51:ff:47:c1:75:6e:f4:71:ca:24:51:d4:ec:d1:15:b1:a7:b7:90:a2" :host "elpa.gnu.org:443" :conditions (:insecure :unknown-ca :invalid))
- (:id "sha1:85b31c268009209a8d3c5387033b219264f7e62b" :fingerprint "sha1:1e:cd:2c:2d:db:40:37:11:a1:0b:8f:5f:a9:98:cf:3b:72:a9:61:b6" :host "melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:6d4eb958390599243ba9f5035cb671fa8dd6a93a" :fingerprint "sha1:46:cc:ea:ab:17:18:b3:1a:22:52:6e:c5:bd:bc:82:12:8e:ea:5a:19" :host "elpa.gnu.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:85b31c268009209a8d3c5387033b219264f7e62b" :fingerprint "sha1:f8:e1:fc:e4:34:8e:19:e8:48:c1:61:fe:3d:09:dd:d4:d2:7a:cb:db" :host "melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
  (:id "sha1:101d09b40e8c6cc1f2fb4e23df3bb401fc520bf2" :fingerprint "sha1:2a:32:66:4c:60:6d:6e:c9:fc:29:89:22:85:97:ae:d2:1e:93:eb:ff" :host "www.conj.io:443" :conditions (:insecure :unknown-ca :invalid))
 )

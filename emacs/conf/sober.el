@@ -138,6 +138,8 @@ If N is negative, search forwards for the -Nth following match."
          (call-interactively 'slime-repl-backward-input))
         ((eq major-mode 'eshell-mode)
          (call-interactively 'dthurn-eshell-previous-matching-input-from-input))
+        ((eq major-mode 'org-mode)
+         (call-interactively 'org-mark-ring-goto))
         ((eq major-mode 'haskell-interactive-mode)
          (haskell-interactive-mode-history-toggle 1))
         ((eq major-mode 'cider-repl-mode)
