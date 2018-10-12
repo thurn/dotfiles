@@ -57,3 +57,5 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 zstyle '*' single-ignored show
 
 setopt NO_ALWAYS_LAST_PROMPT
+
+source ~/shells/zsh-autosuggestions/zsh-autosuggestions.zsh
