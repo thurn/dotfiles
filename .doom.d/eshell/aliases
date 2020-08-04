@@ -1,0 +1,7 @@
+alias e find-file-other-window $1
+alias cdn cd ~/Dropbox/nighthollow
+alias cda cd ~/Dropbox/nighthollow/Assets
+alias cdt cd ~/Dropbox/nighthollow/Assets/ThirdParty
+alias cds cd ~/Dropbox/nighthollow/Assets/src
+alias cdsn cd ~/Dropbox/nighthollow/Assets/src/nighthollow
+alias cdns cd ~/Dropbox/nighthollow/Assets/src/nighthollow
