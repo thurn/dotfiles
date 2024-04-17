@@ -65,6 +65,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Disable line wrap
+tput rmam
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -95,3 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.shell_config.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dthurn/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dthurn/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dthurn/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dthurn/bin/google-cloud-sdk/completion.zsh.inc'; fi

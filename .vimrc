@@ -23,8 +23,6 @@ set history=10000
 set maxmemtot=2000000
 " LOTS of RAM
 set maxmem=2000000   
-" Whitespace insensitive diff
-set diffopt+=iwhite  
 " Don't jump to start of line on page up/dwn
 set nostartofline    
 " Allow cursor where there's no character
@@ -69,8 +67,6 @@ set directory=~/.vim
 set viminfo='20,<50,s10,h,%
 " Disable bell
 set noerrorbells
-" Whitespace insensitive diff
-set diffopt+=iwhite
 " Disable scroll bars in gvim
 set guioptions-=r
 " Keep going until you find a tags file

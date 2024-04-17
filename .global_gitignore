@@ -4,7 +4,6 @@
 *.cache.html
 *.cache.png
 \#*#
-.idea/
 tags
 TAGS
 ETAGS
