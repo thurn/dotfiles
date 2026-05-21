@@ -1,0 +1,44 @@
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+plan_mode_reasoning_effort = "xhigh"
+
+[projects."/Users/dthurn/dreamtides"]
+trust_level = "trusted"
+
+[projects."/Users/dthurn"]
+trust_level = "trusted"
+
+[projects."/Users/dthurn/ranker"]
+trust_level = "trusted"
+
+[projects."/Users/dthurn/enact-old"]
+trust_level = "trusted"
+
+[projects."/Users/dthurn/journeys"]
+trust_level = "trusted"
+
+[projects."/Users/dthurn/quest_prototype"]
+trust_level = "trusted"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui]
+notifications = true
+notification_method = "osc9"
+notification_condition = "always"
+status_line = ["model-with-reasoning", "current-dir", "context-used"]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[agents]
+max_threads = 20
+max_depth = 3
+
+[features]
+goals = true
+
+[notice]
+hide_rate_limit_model_nudge = true
+fast_default_opt_out = true

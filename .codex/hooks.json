@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/dthurn/.codex/hooks/codex-work-complete-notify.sh",
+            "timeout": 5,
+            "statusMessage": "Sending completion notification"
+          }
+        ]
+      }
+    ]
+  }
+}
