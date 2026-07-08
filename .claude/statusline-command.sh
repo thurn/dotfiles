@@ -17,5 +17,17 @@ else
   context_info=""
 fi
 
+# Calculate git branch + dirty/clean indicator
+branch=$(git -C "$cwd" branch --show-current 2>/dev/null)
+if [ -n "$branch" ]; then
+  if [ -n "$(git -C "$cwd" status --porcelain 2>/dev/null)" ]; then
+    git_info=$(printf ' \033[1;35m[%s*]\033[0m' "$branch")
+  else
+    git_info=$(printf ' \033[1;35m[%s]\033[0m' "$branch")
+  fi
+else
+  git_info=""
+fi
+
 # Print status line
-printf '\033[1;31m%s@%s\033[0m \033[1;32m%s\033[0m \033[1;34m[%s]\033[0m%s' "$(whoami)" "$(hostname -s)" "$cwd" "$model" "$context_info"
+printf '\033[1;31m%s@%s\033[0m \033[1;32m%s\033[0m \033[1;34m[%s]\033[0m%s%s' "$(whoami)" "$(hostname -s)" "$cwd" "$model" "$context_info" "$git_info"

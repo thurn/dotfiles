@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scenario Design Docs"
+  short_description: "Interview-led scenario-tested design docs"
+  default_prompt: "Use $scenario-design-docs to turn this idea into a standalone technical design document and QA scenario appendix."

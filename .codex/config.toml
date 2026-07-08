@@ -2,6 +2,8 @@ model = "gpt-5.5"
 model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "xhigh"
 
+notify = ["/Users/dthurn/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
 [projects."/Users/dthurn/dreamtides"]
 trust_level = "trusted"
 
@@ -23,6 +25,24 @@ trust_level = "trusted"
 [plugins."github@openai-curated"]
 enabled = true
 
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
 [tui]
 notifications = true
 notification_method = "osc9"
@@ -38,7 +58,43 @@ max_depth = 3
 
 [features]
 goals = true
+js_repl = false
 
 [notice]
 hide_rate_limit_model_nudge = true
 fast_default_opt_out = true
+
+[hooks.state]
+
+[hooks.state."/Users/dthurn/.codex/hooks.json:stop:0:0"]
+enabled = true
+trusted_hash = "sha256:6e9dcb9fe000882389744743ae477f38002bf6bf3910b9edb05147304fb49802"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-07-08T03:17:57Z"
+source_type = "local"
+source = "/Users/dthurn/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-07-08T03:18:33Z"
+source_type = "local"
+source = "/Users/dthurn/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/dthurn/.codex"
+CODEX_HOME = "/Users/dthurn/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "97669f77b3ca7114a2df05d55646416ea34b28100c07213ef9f643803449ef2f"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.623.141536"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"

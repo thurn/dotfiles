@@ -4,9 +4,10 @@ description: Write standalone technical design documents, RFCs, decision docs,
   and architecture proposals. Use when the user wants a substantial technical
   spec or design write-up. This skill gathers enough scope to understand the
   problem, then writes the full document in one pass, with prominent links to
-  related information, strong context for readers, and careful tradeoff
-  framing. Avoid code blocks, pseudocode, diagrams, and unnecessary
+  related information, strong context for readers, and concrete validation
+  guidance. Avoid code blocks, pseudocode, diagrams, and unnecessary
   implementation detail.
+disable-model-invocation: true
 ---
 
 # Technical Design Docs
@@ -17,12 +18,13 @@ technical write-up.
 
 The default output is a complete standalone markdown document. The document
 should help a reader understand the problem, goals, constraints, proposed
-direction, tradeoffs, and rollout implications without needing the original
-prompt or surrounding conversation.
+direction, validation approach, and required behavior without needing the
+original prompt or surrounding conversation. It specifies what to build, not how
+to schedule or sequence the work.
 
 ## Core Requirements
 
-Follow these rules unless the user explicitly asks for something different:
+Follow these rules for all documents generated with this skill:
 
 - Default to roughly 500 lines, hard-wrapped at 80 characters. If the scope is
   genuinely smaller, keep the document complete rather than padding it.
@@ -32,16 +34,25 @@ Follow these rules unless the user explicitly asks for something different:
   conversation, chat history, or unstated local context.
 - Link to all other relevant information very prominently near the top of the
   document.
-- Emphasize goals, constraints, decisions, risks, and acceptance criteria more
-  than detailed implementation mechanics.
+- Emphasize goals, constraints, decisions, acceptance criteria, and manual
+  validation more than detailed implementation mechanics.
+- Fully specify the agreed target behavior, including requirements that might be
+  deferred by a later implementation plan. Do not omit behavior because it seems
+  outside a theoretical minimum viable product.
+- Do not break the task into milestones, phases, implementation steps, roadmap
+  stages, MVP slices, or later-enhancement buckets.
 - Do not include diagrams.
 - Do not include code blocks or pseudocode blocks.
 - Do not specify file or directory structure in the design document.
+- Do not include `Open Questions`, `Risks and Tradeoffs`, or `Non-Goals`
+  sections.
+- Always include a short `Manual QA` section as the final section of the
+  document.
 - Trust the implementation team to choose specific algorithms, data
   structures, helper abstractions, and internal organization details.
 
 Critical API surfaces are allowed when they matter to interoperability,
-ownership boundaries, rollout safety, or external contracts. Specify them in
+ownership boundaries, migration safety, or external contracts. Specify them in
 prose or compact bullets, not as code or pseudocode blocks.
 
 ## Workflow
@@ -57,19 +68,21 @@ Gather only the context needed to write a strong document:
 - What outcome or decision the document should drive
 
 Read any referenced files, docs, tickets, or notes that directly affect the
-problem statement, constraints, prior decisions, interfaces, or rollout plan.
+problem statement, constraints, prior decisions, interfaces, or migration
+requirements.
 Do not broaden this into open-ended research unless the user asks for that.
 
-Ask clarifying questions only when a missing answer would materially change the
-document or create a serious risk of misunderstanding. A question is material
-when its answer would change the goals, scope, constraints, rollout, or
-acceptance criteria. Keep those questions short and front-loaded. Do not turn
-the process into section-by-section approval or collaborative outlining unless
-the user explicitly asks for that.
+Ask clarifying questions before writing when a missing answer would materially
+change the document or create a serious misunderstanding. A question is material
+when its answer would change the goals, scope, constraints, migration or
+compatibility requirements, or acceptance criteria. Keep those questions short
+and front-loaded. Do not turn the process into section-by-section approval or
+collaborative outlining unless the user explicitly asks for that.
 
 If required context remains unavailable after concise clarification, continue
-with explicit assumptions and call them out in the document's summary, risks,
-or open questions as appropriate.
+only when the remaining assumptions are narrow enough that they do not change
+the direction. Call those assumptions out in the summary or relevant body
+section. Do not include an open-questions section in the final document.
 
 ### 2. Decide the output target
 
@@ -97,9 +110,10 @@ sub-agent that has no access to the earlier conversation context.
 Give the sub-agent only the document and a short task such as:
 
 - Summarize the problem, proposal, and expected benefits
-- List the major constraints and risks
+- List the major constraints and validation expectations
 - Identify any knowledge the document assumes but does not explain
-- Identify ambiguous terms, unclear decisions, or missing rollout details
+- Identify ambiguous terms, unclear decisions, or missing migration or
+  compatibility requirements
 - State whether the document is understandable as a standalone artifact
 
 Treat the result as a reader-comprehension test, not as a co-authoring pass.
@@ -120,19 +134,19 @@ contain some version of these sections:
 - Related Information
 - Problem and Context
 - Goals
-- Non-Goals
 - Constraints and Requirements
 - Proposed Design
 - Critical Interfaces or API Surfaces, if relevant
 - Alternatives Considered
-- Risks and Tradeoffs
-- Rollout and Migration
+- Migration or Compatibility Requirements
 - Operational Considerations
-- Open Questions
+- Manual QA
 
 Do not force every section into every document. If a section adds no value,
 omit it. If the user provided a required template, follow it while preserving
-the rest of this skill's guidance.
+the rest of this skill's guidance. `Manual QA` is required and must be the final
+section. `Open Questions`, `Risks and Tradeoffs`, and `Non-Goals` must be
+omitted even if they would normally appear in a generic design-doc template.
 
 ## Writing Guidance
 
@@ -175,13 +189,15 @@ Bias toward describing:
 - Required behaviors and invariants
 - Safety properties
 - Compatibility expectations
-- Rollout gates
+- Migration constraints or compatibility gates
 - Testing expectations
 - Observability needs
 - Failure modes
+- Manual validation flows and any debug surfaces needed to exercise them
 
 Avoid over-specifying:
 
+- Milestones, phases, MVP slices, delivery order, or implementation-plan steps
 - Exact algorithms unless they are the point of the decision
 - Internal helper structure
 - Any file or directory structure
@@ -192,6 +208,10 @@ Avoid over-specifying:
 
 Trust implementation teams to make sound local choices within the stated
 constraints.
+
+Do not use the document to decide what can be cut from a minimum viable product.
+If a behavior has been agreed, include it in the target design even when a later
+implementation plan may choose to deliver it after other work.
 
 ### No code or diagrams
 
@@ -205,11 +225,29 @@ Do not include:
 
 If an interface contract is important, describe it in prose or concise bullets.
 
+### End with manual QA
+
+Every document must end with a short `Manual QA` section. This section explains
+how a reviewer, implementer, or QA partner should interactively validate that
+the completed work is correct.
+
+Include:
+
+- The main end-to-end flows to exercise manually
+- Important edge cases, compatibility checks, or failure states to trigger
+- Expected visible behavior, system state changes, or observable signals
+- Any debug surfaces, fixtures, toggles, seed data, admin actions, or inspection
+  views needed to put the system into the required initial states
+
+Design those debug surfaces as part of the proposed work when they are needed
+for reliable QA. Keep this section practical and focused on interactive
+validation, not automated test implementation.
+
 ### Keep the writing concrete
 
 Avoid generic filler. Every section should help a reader decide, implement,
 review, or operate the change. Prefer concrete constraints and explicit
-tradeoffs over vague optimism.
+behavior over vague optimism.
 
 ## Editing Existing Documents
 
@@ -219,8 +257,10 @@ intent while applying this skill's standards:
 - Fill in missing standalone context
 - Promote related links near the top
 - Remove code, pseudocode, or diagrams if the user wants this style
+- Remove `Open Questions`, `Risks and Tradeoffs`, and `Non-Goals` sections
 - Reduce unnecessary implementation prescription
-- Tighten goals, constraints, rollout, and risk framing
+- Tighten goals, constraints, migration requirements, and acceptance criteria
+- Add or revise the final `Manual QA` section
 
 ## Completion
 
@@ -230,7 +270,10 @@ Before finishing:
 - Confirm related links are prominent
 - Confirm there are no code or pseudocode blocks
 - Confirm there are no diagrams
+- Confirm there are no `Open Questions`, `Risks and Tradeoffs`, or `Non-Goals`
+  sections
+- Confirm the final section is `Manual QA`
 - Run the fresh-reader test and fix any comprehension gaps
 
-Then return the document path and a brief note about any important unresolved
-questions that remain in the document.
+Then return the document path and a brief note about the final validation
+coverage.

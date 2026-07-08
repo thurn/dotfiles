@@ -98,3 +98,7 @@ tput rmam
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.shell_config.sh
+
+# iTerm2 shell integration — enables cmd+click on file paths, cwd tracking, etc.
+# Wraps OSC escapes in tmux passthrough format when $TMUX is set.
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

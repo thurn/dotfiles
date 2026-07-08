@@ -1,0 +1,230 @@
+---
+name: wt
+description: Implement a task in an isolated git worktree, then optionally replay its commits onto master as linear history. Use when explicitly requested by name for sandboxed task work that may be promoted to master.
+disable-model-invocation: true
+---
+
+# Worktree Task
+
+Implement the requested task inside a standalone git worktree, then offer to
+replay the resulting commits onto `master`.
+
+## 1. Create the worktree first — before any analysis
+
+This is the very first thing to do on startup, **before** reading code,
+searching the repository, or otherwise analyzing the task. The user's primary
+working tree may be modified while you work, so anything you read from it can
+become stale or invalid. Create the worktree immediately and perform *all*
+code-based analysis — reading files, searching, running tools — against the
+worktree, never the primary tree.
+
+From the current repository root, create an isolated worktree under
+`.worktrees/`:
+
+```bash
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+SLUG="<short-kebab-case-name-for-the-task>"
+BRANCH="wt/$SLUG"
+WORKTREE="$REPO_ROOT/.worktrees/$SLUG"
+git -C "$REPO_ROOT" worktree add -b "$BRANCH" "$WORKTREE" master
+```
+
+Pick `SLUG` from the task description. If `.worktrees/` is not already
+git-ignored, that is fine — the worktree directory itself is registered with git
+and not treated as untracked content.
+
+## 2. Implement the task
+
+`cd` into `$WORKTREE` and do all work there, including all analysis and
+investigation. Follow the repository's own conventions and verification steps
+(lint, typecheck, tests). Commit your work with detailed commit messages, using
+separate commits where it makes sense — the commit boundaries are preserved when
+promoting to master.
+
+Do not read from, analyze, or touch the user's primary working tree or its
+checked-out branch — it may change underneath you and give invalid information.
+
+## 3. Prompt before promoting
+
+When the task is complete, stop and ask the user whether to move the commits
+from this worktree's branch onto `master`. Ask using the `AskUserQuestion` tool
+with two explicit options: "Yes" (promote the commits onto `master`) and "No"
+(leave them on the worktree branch). Do not proceed without explicit approval.
+
+If you were working on a visual change, provide the complete file paths to one
+or more screenshots showing your work.
+
+### Leave a running demo server so the user can interact with the work
+
+In addition to the screenshots, before you prompt for promotion, start the
+project's dev/demo server **from inside `$WORKTREE`** and leave it running so the
+user can click through the change themselves. The screenshots show a frozen
+moment; the live server lets the user exercise the actual behaviour.
+
+- Run the server as a **background** process so it keeps running across turns —
+  it must stay up while the user reviews and until they answer the promotion
+  prompt. Do not block the session waiting on it.
+- Start it on a **non-default port** so it never collides with a server the user
+  is already running in their primary tree (for example, if the project's
+  default dev port is `5173`, start the demo on `5174` or another free port).
+- Serve from the worktree, not the primary tree, so the running instance
+  reflects the code under review.
+- Once it is up, verify it actually responds (e.g. curl the URL or hit it with
+  the browser tool) before telling the user it is ready — do not hand over a URL
+  you have not confirmed loads.
+
+Then, in the same plain-text message that carries the screenshot paths, give the
+user the **demo URL** on its own line (e.g. `http://localhost:5174/`), along with
+any `?goto=`/route hint needed to land directly on the changed screen. Keep the
+`AskUserQuestion` prompt itself concise and refer to "the demo URL and
+screenshots above." Note the demo server will be shut down when the change is
+promoted (or if promotion is declined and the user is done reviewing).
+
+**Crop every screenshot to the region that actually changed — do not send a
+full-screen or full-page capture.** A whole-screen shot forces the user to hunt
+for the change and renders it too small to read; the changed element (and just
+enough surrounding context to locate it) must fill the frame. This is a hard
+requirement: a full-screen screenshot is unacceptable and must be recaptured
+cropped. If a single change spans separated areas of the screen, send one
+cropped shot per area rather than one wide shot covering both.
+
+To crop, target the specific element/region rather than the full page. With
+`agent-browser`, clip to the element's bounding box instead of using `--full`:
+
+```bash
+agent-browser screenshot --selector '<css-selector-for-changed-element>' /path/to/shot.png
+```
+
+If no clean selector exists, capture and then crop to the changed region before
+presenting it (e.g. with `sips`/an image tool), or set a viewport sized close to
+the changed area. Either way, what you hand the user must be tightly framed on
+the change.
+
+**Capture the cropped region at high pixel density so it stays legible.** Set a
+**2× device scale** *before* taking the screenshot so the cropped output has
+enough detail to read during QA. With `agent-browser` the device-scale argument
+is the third value of the viewport command — do not omit it:
+
+```bash
+agent-browser set viewport 1920 1080 2   # the trailing "2" is the 2x scale — required
+```
+
+**Always verify the result after capturing** — do not assume the viewport
+setting or crop took effect. Run `file <path>` to confirm the dimensions are
+tight around the change (not the full 3840-wide canvas) and that the 2× scale
+produced a crisp, readable image. If it is full-screen or low-detail, recrop and
+recapture before presenting the screenshot to the user.
+
+The client renders a local screenshot inline **only when its path appears as
+bare plain text** in a normal assistant message. Two things break that
+rendering, so avoid both:
+
+- **Do not put the paths inside the `AskUserQuestion` call.** That tool renders
+  its `question` and option text as plain text and never renders images, so a
+  path placed there shows as a literal string the user cannot view. Keep the
+  question concise and just refer to "the screenshots above."
+- **Do not wrap the path in any formatting.** No backticks/inline code, no
+  fenced code block, no markdown link (`[...](...)`) or image (`![...]`)
+  syntax, no surrounding quotes. Any of these suppress the inline render and
+  leave the user with unclickable text. Write the path on its own line as
+  raw text, nothing else — e.g. an `open ...` command in a code block will NOT
+  render; the bare path on its own line WILL.
+
+So: in the normal assistant message you send *before* calling
+`AskUserQuestion`, put each screenshot path on its own line as bare plain text.
+Save the screenshots to a stable, easy-to-reach location rather than a scratch
+temp dir — a good default is a `screenshots/` folder inside the worktree (e.g.
+`$WORKTREE/screenshots/`), which is removed with the worktree on cleanup; offer
+to copy them to the user's Desktop if they prefer.
+
+## 4. Replay commits onto master (only after approval)
+
+**Never delete, `git clean`, `git checkout --`, or `git stash` untracked or
+modified files in the primary working tree.** Promotion runs against the user's
+primary checkout, which may contain files created or changed by running
+processes while you work — for example runtime data such as player saves under
+`saved-quests/`, local config, or scratch output. These are not build junk and
+are not yours to remove. If `git status` shows untracked or modified files
+before or after `checkout`/`merge`/`cherry-pick`, leave them exactly as they
+are. A spotless working tree is **not** a goal of promotion; preserving the
+user's files is. Only ever `cherry-pick`/`merge` the worktree branch's commits —
+do not "tidy up" anything else in the primary tree to make `git status` clean.
+
+Take the commits unique to the worktree's branch and replay them on top of
+`master`, preserving commit order and keeping them as separate commits. The
+final result is that `master` points to the new linear history: the old master
+commits followed by these worktree commits. Do not merge, do not squash, and do
+not leave the result on a feature branch.
+
+**Reconcile in the worktree first, so the primary tree only ever
+fast-forwards.** All conflict resolution must happen on the worktree branch,
+inside the sandbox — never on `master` in the primary checkout. With the branch
+checked out in the worktree, rebase it onto the current `master`:
+
+```bash
+git -C "$WORKTREE" rebase master
+```
+
+This replays *the branch's* own commits on top of `master`, resolving any
+conflicts here in the isolated worktree. It rewrites only the branch commits
+(throwaway anyway); `master`'s commits are untouched and keep their original
+hashes. If `master` has not moved since the worktree was created, this is a
+no-op. Resolve any conflicts as they arise, keeping each commit separate.
+
+Do NOT instead run `git rebase "$BRANCH"` while `master` is checked out in the
+primary tree. That is the dangerous inverse: it replays *master's* own commits
+on top of the branch — silently reordering and rewriting already-published
+commits, which then diverge from `origin/master` and require a history-rewriting
+force-push. The safe command above (`git -C "$WORKTREE" rebase master`, run with
+the *branch* checked out) rebases the branch onto master, which is what we want.
+
+Once the branch sits cleanly on top of `master`, fast-forward `master` onto it
+in the primary tree. Because the branch is already based on the current master,
+this can only fast-forward — it can never produce a conflict on `master`:
+
+```bash
+# From the repo root (primary working tree), with master checked out there:
+git -C "$REPO_ROOT" checkout master
+git -C "$REPO_ROOT" merge --ff-only "$BRANCH"
+```
+
+If this `--ff-only` merge fails, `master` advanced again between the rebase and
+the merge. Do not fall back to resolving conflicts on `master`; re-run the
+worktree rebase (`git -C "$WORKTREE" rebase master`) and retry the fast-forward.
+
+After the merge, confirm `master` is a linear history of the old master commits
+followed by the worktree commits (`git log --oneline`), and that it has not
+diverged from `origin/master` (the existing master commits keep their original
+hashes).
+
+## 5. Clean up (only after a successful promotion)
+
+First, **shut down the demo server** you started in step 3. Kill only that
+process — target it by its specific port or PID, never with a broad pattern that
+could also kill a server the user is running in their primary tree. Confirm the
+port is free (nothing still listening) before continuing.
+
+Then remove the worktree and delete its now-redundant branch:
+
+```bash
+git -C "$REPO_ROOT" worktree remove "$WORKTREE"
+git -C "$REPO_ROOT" branch -D "$BRANCH"
+```
+
+Because the demo server was serving out of `$WORKTREE`, it must be stopped before
+`worktree remove` so the directory can be cleanly removed.
+
+Do not delete the worktree or branch if promotion was declined or did not
+complete cleanly. If promotion was declined, leave the demo server running so the
+user can keep interacting with the work, and only tear it down once they confirm
+they are finished reviewing.
+
+## 6. Follow-up requests stay in a worktree
+
+Any follow-up request that builds on a `/wt` task — refinements, fixes,
+adjustments to what was just implemented — is itself worktree work. Do **not**
+implement it directly on the primary tree's `master`. Start a fresh worktree
+(go back to step 1 with a new slug) and run the same isolate → implement →
+prompt → promote → clean-up cycle. This holds even after a prior promotion has
+already landed on `master`: the next change gets its own worktree, not an
+in-place edit of the primary checkout.

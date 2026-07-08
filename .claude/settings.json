@@ -17,13 +17,20 @@
     "command": "/bin/bash /Users/dthurn/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
+  "effortLevel": "medium",
   "autoUpdatesChannel": "latest",
-  "voiceEnabled": true,
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true,
   "thinkingBudget": "high",
   "feedbackSurveyState": {
     "lastShownTime": 1754106712799
-  }
+  },
+  "model": "opus[1m]"
 }
