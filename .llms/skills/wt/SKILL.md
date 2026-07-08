@@ -44,6 +44,14 @@ promoting to master.
 Do not read from, analyze, or touch the user's primary working tree or its
 checked-out branch — it may change underneath you and give invalid information.
 
+Keep a small runtime ledger for every long-lived process or session you start
+while working: dev/demo servers, emulators, browser automation controllers, and
+headless browser sessions. For each item record what it is, where it was started
+from, its port or session name, and its PID or process group when available.
+Anything added to this ledger must have an explicit cleanup step before the task
+is considered finished, unless the user has deliberately asked to keep it
+running.
+
 ## 3. Prompt before promoting
 
 When the task is complete, stop and ask the user whether to move the commits
@@ -64,6 +72,10 @@ moment; the live server lets the user exercise the actual behaviour.
 - Run the server as a **background** process so it keeps running across turns —
   it must stay up while the user reviews and until they answer the promotion
   prompt. Do not block the session waiting on it.
+- Record the exact server command, port, PID, and process group in the runtime
+  ledger when starting it. If the server command spawns children, such as Vite,
+  Firebase emulators, Java processes, or other watchers, the cleanup step must
+  account for the whole process tree rather than only the first PID.
 - Start it on a **non-default port** so it never collides with a server the user
   is already running in their primary tree (for example, if the project's
   default dev port is `5173`, start the demo on `5174` or another free port).
@@ -94,6 +106,13 @@ To crop, target the specific element/region rather than the full page. With
 ```bash
 agent-browser screenshot --selector '<css-selector-for-changed-element>' /path/to/shot.png
 ```
+
+Every `agent-browser` run must use a unique session name for this task, and that
+session name must be recorded in the runtime ledger. Reuse the same session for
+all screenshots and browser QA for this task. When browser QA is complete, close
+or stop that exact session and verify its controller and headless Chrome
+processes are gone. Do not leave `agent-browser` controllers or
+`agent-browser-chrome-*` profiles running after the task is complete.
 
 If no clean selector exists, capture and then crop to the changed region before
 presenting it (e.g. with `sips`/an image tool), or set a viewport sized close to
@@ -199,10 +218,12 @@ hashes).
 
 ## 5. Clean up (only after a successful promotion)
 
-First, **shut down the demo server** you started in step 3. Kill only that
-process — target it by its specific port or PID, never with a broad pattern that
-could also kill a server the user is running in their primary tree. Confirm the
-port is free (nothing still listening) before continuing.
+First, clean up every item in the runtime ledger. Shut down the demo server you
+started in step 3 and any related child processes. Kill only the recorded
+processes, process group, session, or specific port for this task — never with a
+broad pattern that could also kill a server the user is running in their primary
+tree. Confirm the demo port is free, browser automation sessions are closed, and
+no worktree-rooted emulator or watcher processes remain before continuing.
 
 Then remove the worktree and delete its now-redundant branch:
 
@@ -215,9 +236,18 @@ Because the demo server was serving out of `$WORKTREE`, it must be stopped befor
 `worktree remove` so the directory can be cleanly removed.
 
 Do not delete the worktree or branch if promotion was declined or did not
-complete cleanly. If promotion was declined, leave the demo server running so the
-user can keep interacting with the work, and only tear it down once they confirm
-they are finished reviewing.
+complete cleanly. If promotion was declined, leave the worktree and branch in
+place, then ask whether the user wants to keep the demo server running. If they
+are done reviewing, or if they ask to stop, clean up the runtime ledger even
+though the branch remains. If they deliberately keep the demo server running,
+state exactly which URL/port is still live and remind them that it should be
+stopped when review is finished.
+
+Before ending the task, run a final resource check scoped to the recorded
+ledger: verify the demo port, browser session, and worktree-rooted server or
+emulator processes are either stopped or explicitly being left alive at the
+user's request. Report any intentionally retained runtime resources in the final
+message.
 
 ## 6. Follow-up requests stay in a worktree
 
