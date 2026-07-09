@@ -92,20 +92,10 @@ any `?goto=`/route hint needed to land directly on the changed screen. Keep the
 screenshots above." Note the demo server will be shut down when the change is
 promoted (or if promotion is declined and the user is done reviewing).
 
-**Crop every screenshot to the region that actually changed — do not send a
-full-screen or full-page capture.** A whole-screen shot forces the user to hunt
-for the change and renders it too small to read; the changed element (and just
-enough surrounding context to locate it) must fill the frame. This is a hard
-requirement: a full-screen screenshot is unacceptable and must be recaptured
-cropped. If a single change spans separated areas of the screen, send one
-cropped shot per area rather than one wide shot covering both.
-
-To crop, target the specific element/region rather than the full page. With
-`agent-browser`, clip to the element's bounding box instead of using `--full`:
-
-```bash
-agent-browser screenshot --selector '<css-selector-for-changed-element>' /path/to/shot.png
-```
+**Prefer full-screen screenshots.** Capture the full browser viewport so the
+user can evaluate the changed UI in its real page context, including nearby
+layout, spacing, and controls. If multiple viewport sizes matter, provide one
+full-screen screenshot per viewport.
 
 Every `agent-browser` run must use a unique session name for this task, and that
 session name must be recorded in the runtime ledger. Reuse the same session for
@@ -114,25 +104,20 @@ or stop that exact session and verify its controller and headless Chrome
 processes are gone. Do not leave `agent-browser` controllers or
 `agent-browser-chrome-*` profiles running after the task is complete.
 
-If no clean selector exists, capture and then crop to the changed region before
-presenting it (e.g. with `sips`/an image tool), or set a viewport sized close to
-the changed area. Either way, what you hand the user must be tightly framed on
-the change.
-
-**Capture the cropped region at high pixel density so it stays legible.** Set a
-**2× device scale** *before* taking the screenshot so the cropped output has
-enough detail to read during QA. With `agent-browser` the device-scale argument
-is the third value of the viewport command — do not omit it:
+**Capture screenshots at high pixel density so they stay legible.** Set a
+**2× device scale** *before* taking each screenshot so the output has enough
+detail to read during QA. With `agent-browser` the device-scale argument is the
+third value of the viewport command — do not omit it:
 
 ```bash
 agent-browser set viewport 1920 1080 2   # the trailing "2" is the 2x scale — required
 ```
 
 **Always verify the result after capturing** — do not assume the viewport
-setting or crop took effect. Run `file <path>` to confirm the dimensions are
-tight around the change (not the full 3840-wide canvas) and that the 2× scale
-produced a crisp, readable image. If it is full-screen or low-detail, recrop and
-recapture before presenting the screenshot to the user.
+setting took effect. Run `file <path>` to confirm the dimensions match the full
+viewport at the intended device scale and that the image is crisp and readable.
+If it is low-detail or the wrong viewport size, recapture before presenting the
+screenshot to the user.
 
 The client renders a local screenshot inline **only when its path appears as
 bare plain text** in a normal assistant message. Two things break that
