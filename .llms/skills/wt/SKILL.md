@@ -92,6 +92,16 @@ any `?goto=`/route hint needed to land directly on the changed screen. Keep the
 screenshots above." Note the demo server will be shut down when the change is
 promoted (or if promotion is declined and the user is done reviewing).
 
+When providing a mobile demo URL intended for Safari in an iOS Simulator, also
+put a directly copyable command immediately after the URL, using the same exact
+verified review URL:
+
+```bash
+xcrun simctl openurl booted 'http://localhost:5174/path/to/review?goto=scene'
+```
+
+Keep the URL shell-quoted so query parameters are passed intact.
+
 **Prefer full-screen screenshots.** Capture the full browser viewport so the
 user can evaluate the changed UI in its real page context, including nearby
 layout, spacing, and controls. If multiple viewport sizes matter, provide one
