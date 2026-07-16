@@ -60,7 +60,12 @@ with two explicit options: "Yes" (promote the commits onto `master`) and "No"
 (leave them on the worktree branch). Do not proceed without explicit approval.
 
 If you were working on a visual change, provide the complete file paths to one
-or more screenshots showing your work.
+or more screenshots showing your work. Use the smallest evidence set that
+demonstrates the distinct visual risks: normally one representative desktop,
+one representative mobile, and one changed interaction state when each is
+relevant. Add a viewport or state only when it exercises a different layout,
+safe-area, or rendering risk. Before running an expensive final matrix, inspect
+one representative capture early enough to correct the visual direction.
 
 ### Leave a running demo server so the user can interact with the work
 
@@ -104,8 +109,11 @@ Keep the URL shell-quoted so query parameters are passed intact.
 
 **Prefer full-screen screenshots.** Capture the full browser viewport so the
 user can evaluate the changed UI in its real page context, including nearby
-layout, spacing, and controls. If multiple viewport sizes matter, provide one
-full-screen screenshot per viewport.
+layout, spacing, and controls. The default evidence budget is one desktop, one
+mobile, and one changed interaction state when relevant; it is a maximum, not a
+quota. Add a full-screen viewport only when it demonstrates a distinct risk.
+Use DOM geometry and state assertions for objective behavioral or layout claims
+rather than multiplying screenshots.
 
 Every `agent-browser` run must use a unique session name for this task, and that
 session name must be recorded in the runtime ledger. Reuse the same session for

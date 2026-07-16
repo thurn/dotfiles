@@ -1,7 +1,6 @@
 ---
 name: wtbatch
 description: Take a batch of work items (bugs, features, chores — related or not), analyze their size and interdependencies, plan an execution strategy, run subagents in isolated git worktrees to complete them, and end with one consolidated promote prompt covering all items. Use when explicitly requested by name with a list of tasks.
-disable-model-invocation: true
 ---
 
 # Worktree Batch
@@ -110,13 +109,19 @@ context. Include:
 4. **Commit contract:** commit per item (or finer), detailed messages, each
    message naming the item ID it completes. Do **not** push, do not touch
    `master`, do not create extra branches.
-5. **Evidence contract:** for any visual change, capture screenshots into
-   `$WORKTREE/screenshots/`, **cropped tightly to the changed region** (never
-   full-screen) at **2× device scale**, and verify the file dimensions with
-   `file` after capture. With `agent-browser`: `set viewport W H 2`, then
-   `screenshot --selector '<selector>' path.png`; use a unique
+5. **Evidence contract:** match evidence to risk. Behavioral claims require
+   interactions, state or log assertions, DOM measurements, and captured error
+   buffers. Visual changes require screenshots in `$WORKTREE/screenshots/` at
+   **2× device scale**. Use at most one representative desktop, one mobile, and
+   one changed interaction state by default; add captures only for distinct
+   responsive, safe-area, or rendering risks. Use a full-screen image for
+   holistic composition and a tight selector crop only when the localized
+   detail would otherwise be unreadable. Verify file dimensions with `file`
+   after capture. With `agent-browser`: `set viewport W H 2`; use a unique
    `--session <group-slug>` and a unique dev-server port per group, and kill
-   only its own server (by port/PID) when done.
+   only its own server (by port/PID) when done. Capture and inspect one
+   representative state before an expensive final matrix so a wrong visual
+   direction is corrected early.
 6. **Report contract:** the final message must be a structured report — per
    item: `DONE`/`BLOCKED` + one-line summary + commit hashes + screenshot
    paths (absolute); then overall verification results (commands run and
