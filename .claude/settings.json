@@ -32,5 +32,5 @@
   "feedbackSurveyState": {
     "lastShownTime": 1754106712799
   },
-  "model": "opus[1m]"
+  "model": "claude-fable-5[1m]"
 }

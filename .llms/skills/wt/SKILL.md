@@ -1,7 +1,6 @@
 ---
 name: wt
 description: Implement a task in an isolated git worktree, then optionally replay its commits onto master as linear history. Use when explicitly requested by name for sandboxed task work that may be promoted to master.
-disable-model-invocation: true
 ---
 
 # Worktree Task
@@ -17,6 +16,23 @@ working tree may be modified while you work, so anything you read from it can
 become stale or invalid. Create the worktree immediately and perform *all*
 code-based analysis — reading files, searching, running tools — against the
 worktree, never the primary tree.
+
+**Always create a fresh worktree for a new task.** An existing worktree with a
+similar name, branch, subject, or apparent prior progress is not an invitation
+to reuse it. Do not inspect that worktree's status, log, diff, or files to decide
+whether it is relevant; it may belong to the user or another agent. Finding an
+existing worktree and continuing there is prohibited.
+
+The only exceptions are:
+
+- the user explicitly tells you in the current request to continue in a
+  specific existing worktree or branch; or
+- this task is a follow-up to an unpromoted worktree that you created earlier
+  in the same conversation, as defined in section 6.
+
+Filesystem discovery alone never establishes either exception. If your chosen
+slug or branch already exists, choose a new slug and create a new worktree; do
+not open or reuse the existing one.
 
 From the current repository root, create an isolated worktree under
 `.worktrees/`:
@@ -90,10 +106,24 @@ moment; the live server lets the user exercise the actual behaviour.
   the browser tool) before telling the user it is ready — do not hand over a URL
   you have not confirmed loads.
 
-Then, in the same plain-text message that carries the screenshot paths, give the
-user the **demo URL** on its own line (e.g. `http://localhost:5174/`), along with
-any `?goto=`/route hint needed to land directly on the changed screen. Keep the
-`AskUserQuestion` prompt itself concise and refer to "the demo URL and
+Then, in the same normal assistant message that carries the screenshots, give
+the user the **demo URL** on its own line. The demo URL must be a review URL, not
+merely the server root. It must land directly on the changed screen/state with
+the changed UI visible, using the real route plus any required query parameters
+(`?goto=...`, `?game=...`, feature flags, seed values, etc.). A URL such as
+`http://localhost:5174/` is acceptable only when the changed UI is visible at
+that exact URL after a fresh open. For stateful apps, create or preserve the
+local state needed for review (for example a QA room in the local emulator) and
+include that direct URL, such as
+`http://localhost:5174/dreamscape/0-firstlight-meadow?game=<roomId>`.
+
+Before handing over the demo URL, open that exact URL in a fresh browser tab or
+isolated browser session and assert both:
+
+- `location.href` is the URL you will give the user.
+- A selector/text assertion proves the changed UI is visible immediately.
+
+Keep the `AskUserQuestion` prompt itself concise and refer to "the demo URL and
 screenshots above." Note the demo server will be shut down when the change is
 promoted (or if promotion is declined and the user is done reviewing).
 
@@ -137,27 +167,71 @@ viewport at the intended device scale and that the image is crisp and readable.
 If it is low-detail or the wrong viewport size, recapture before presenting the
 screenshot to the user.
 
-The client renders a local screenshot inline **only when its path appears as
-bare plain text** in a normal assistant message. Two things break that
-rendering, so avoid both:
+### Codex app review artifacts: inline images and real demo URLs
 
-- **Do not put the paths inside the `AskUserQuestion` call.** That tool renders
-  its `question` and option text as plain text and never renders images, so a
-  path placed there shows as a literal string the user cannot view. Keep the
-  question concise and just refer to "the screenshots above."
-- **Do not wrap the path in any formatting.** No backticks/inline code, no
-  fenced code block, no markdown link (`[...](...)`) or image (`![...]`)
-  syntax, no surrounding quotes. Any of these suppress the inline render and
-  leave the user with unclickable text. Write the path on its own line as
-  raw text, nothing else — e.g. an `open ...` command in a code block will NOT
-  render; the bare path on its own line WILL.
+When running in the Codex desktop app, local screenshots must be displayed
+inline as part of the promotion request turn itself. Do not send the demo URL
+and screenshots in an earlier progress update and then ask for promotion later;
+the user must receive the review artifacts and the promote/leave-on-branch
+choice together. Use Markdown image syntax with an absolute filesystem path:
 
-So: in the normal assistant message you send *before* calling
-`AskUserQuestion`, put each screenshot path on its own line as bare plain text.
-Save the screenshots to a stable, easy-to-reach location rather than a scratch
-temp dir — a good default is a `screenshots/` folder inside the worktree (e.g.
-`$WORKTREE/screenshots/`), which is removed with the worktree on cleanup; offer
-to copy them to the user's Desktop if they prefer.
+```md
+![Short description](/absolute/path/to/worktree/screenshots/changed-region.png)
+```
+
+Rules for Codex app screenshot delivery:
+
+- Use absolute filesystem paths only. Relative paths do not render reliably.
+- Put each screenshot image on its own line or paragraph so the app has room to
+  render it.
+- Do not put screenshot paths or Markdown images inside `AskUserQuestion`; that
+  tool renders plain text and will not display images inline. Instead, send the
+  Codex app artifact message and the `AskUserQuestion` call as one immediate
+  review/promotion handoff, with no intervening work or status update.
+- Do not provide only file paths when the environment supports inline images.
+  The user should see the screenshots in the conversation without asking for a
+  second message.
+- Keep the local image files in a stable worktree path, preferably
+  `$WORKTREE/screenshots/`, until promotion/cleanup is complete.
+
+The Codex app review/promotion handoff should include, in this order:
+
+1. The direct demo URL on its own line.
+2. Any short note needed to explain the state it opens, such as the viewport or
+   persisted local room.
+3. Each screenshot rendered inline using Markdown image syntax.
+4. A brief note that the server will remain running until the user answers.
+5. The promotion question with explicit "Yes" and "No" options, either via
+   `AskUserQuestion` immediately after the artifact message or, when that tool
+   is unavailable, in the same assistant message.
+
+Example:
+
+```md
+Demo URL:
+
+http://localhost:5174/dreamscape/0-firstlight-meadow?game=abc123
+
+This opens directly on the changed starting deck modal in the local emulator
+room used for QA.
+
+![Starting deck modal](/Users/name/repo/.worktrees/task/screenshots/modal.png)
+
+![Hover info cards](/Users/name/repo/.worktrees/task/screenshots/hover-info.png)
+
+The demo server is still running from the worktree on port 5174 while you
+review.
+
+Promote the committed worktree changes onto master?
+
+- Yes: replay the worktree commit onto master, then clean up the demo server,
+  worktree, local branch, and pushed review branch.
+- No: leave the commit on the worktree branch and keep master unchanged.
+```
+
+If `AskUserQuestion` is not available in the current Codex mode, ask the same
+promotion question as plain assistant text in the same message as the artifacts,
+with explicit "Yes" and "No" options, and do not promote until the user answers.
 
 ## 4. Replay commits onto master (only after approval)
 
@@ -228,7 +302,7 @@ broad pattern that could also kill a server the user is running in their primary
 tree. Confirm the demo port is free, browser automation sessions are closed, and
 no worktree-rooted emulator or watcher processes remain before continuing.
 
-Then remove the worktree and delete its now-redundant branch:
+Then remove the worktree and delete its now-redundant local branch:
 
 ```bash
 git -C "$REPO_ROOT" worktree remove "$WORKTREE"
@@ -238,26 +312,61 @@ git -C "$REPO_ROOT" branch -D "$BRANCH"
 Because the demo server was serving out of `$WORKTREE`, it must be stopped before
 `worktree remove` so the directory can be cleanly removed.
 
-Do not delete the worktree or branch if promotion was declined or did not
-complete cleanly. If promotion was declined, leave the worktree and branch in
-place, then ask whether the user wants to keep the demo server running. If they
-are done reviewing, or if they ask to stop, clean up the runtime ledger even
-though the branch remains. If they deliberately keep the demo server running,
-state exactly which URL/port is still live and remind them that it should be
-stopped when review is finished.
+If the review branch was pushed to a remote, delete that remote branch too after
+`master` has been pushed successfully. The remote review branch is a promotion
+artifact, not a retained archive, once its commits are on `master`:
+
+```bash
+git -C "$REPO_ROOT" push origin --delete "$BRANCH"
+```
+
+If the remote branch does not exist, note that and continue. Do not let a
+missing remote branch turn a successful promotion into a failure.
+
+Do not delete the worktree, local branch, or remote branch if promotion was
+declined or did not complete cleanly. If promotion was declined, leave the
+worktree and branch in place, then ask whether the user wants to keep the demo
+server running. If they are done reviewing, or if they ask to stop, clean up the
+runtime ledger even though the branch remains. If they deliberately keep the
+demo server running, state exactly which URL/port is still live and remind them
+that it should be stopped when review is finished.
 
 Before ending the task, run a final resource check scoped to the recorded
 ledger: verify the demo port, browser session, and worktree-rooted server or
 emulator processes are either stopped or explicitly being left alive at the
-user's request. Report any intentionally retained runtime resources in the final
-message.
+user's request. Also verify the worktree path, local branch, and pushed review
+branch are gone after a successful promotion. Report any intentionally retained
+runtime resources or retained review branches in the final message.
 
-## 6. Follow-up requests stay in a worktree
+## 6. Follow-up requests stay with the active review worktree
 
-Any follow-up request that builds on a `/wt` task — refinements, fixes,
-adjustments to what was just implemented — is itself worktree work. Do **not**
-implement it directly on the primary tree's `master`. Start a fresh worktree
-(go back to step 1 with a new slug) and run the same isolate → implement →
-prompt → promote → clean-up cycle. This holds even after a prior promotion has
-already landed on `master`: the next change gets its own worktree, not an
-in-place edit of the primary checkout.
+Any follow-up request that builds on an unpromoted `/wt` task — refinements,
+fixes, adjustments to what was just implemented, or feedback from the live demo
+and screenshots — must continue in the **same existing worktree and branch**
+until the user either approves promotion or declines it. Do **not** create a new
+worktree while the previous `/wt` review is still active. The user is reviewing
+one coherent branch; keep subsequent commits on that branch, update the running
+demo from that same worktree, recapture screenshots, push the branch again, and
+then ask the promote/leave-on-branch question again with the updated artifacts.
+
+An "active review worktree" exists only when you created it earlier in this
+same conversation and handed its artifacts to the user for review, or when the
+user explicitly identifies the worktree or branch to continue. A matching entry
+from `git worktree list`, a suggestive branch name, nearby commits, or
+uncommitted changes does not make a worktree active for your task. Never infer
+ownership or continuity from repository state.
+
+Do **not** implement the follow-up directly on the primary tree's `master`.
+The active review worktree remains the isolation boundary until promotion is
+resolved.
+
+Start a fresh worktree only when there is no active unpromoted review worktree
+for the task, for example:
+
+- the previous `/wt` task was already promoted and cleaned up;
+- promotion was declined and the user is asking for a new, separate attempt;
+- the follow-up is unrelated to the active review branch.
+
+After a prior promotion has landed on `master` and cleanup is complete, the next
+change gets its own worktree rather than an in-place edit of the primary
+checkout.
