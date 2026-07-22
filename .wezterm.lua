@@ -5,8 +5,11 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.font = wezterm.font 'Iosevka Term'
-config.font_size = 16
+config.font_size = 13
 config.hide_tab_bar_if_only_one_tab = true
+
+
+config.color_scheme = 'Catppuccin Latte'
 
 -- Don't prompt for confirmation when closing a window (migrated from iTerm2).
 config.window_close_confirmation = 'NeverPrompt'

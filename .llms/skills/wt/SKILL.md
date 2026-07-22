@@ -90,13 +90,63 @@ project's dev/demo server **from inside `$WORKTREE`** and leave it running so th
 user can click through the change themselves. The screenshots show a frozen
 moment; the live server lets the user exercise the actual behaviour.
 
-- Run the server as a **background** process so it keeps running across turns —
-  it must stay up while the user reviews and until they answer the promotion
-  prompt. Do not block the session waiting on it.
-- Record the exact server command, port, PID, and process group in the runtime
-  ledger when starting it. If the server command spawns children, such as Vite,
-  Firebase emulators, Java processes, or other watchers, the cleanup step must
-  account for the whole process tree rather than only the first PID.
+Do not use a long-lived `exec_command` PTY, its returned session id, a trailing
+`&`, or `nohup` alone as the server's lifetime boundary. Those processes can
+remain children of Codex's turn-scoped command runner and be reaped after the
+final response. Hand the server to an operating-system service manager, close
+the launching command, and use the service identity as the cleanup handle.
+
+On macOS in the Codex desktop app, use a transient `launchd` service. Choose a
+free non-default port, then run:
+
+```bash
+DEMO_PORT=5174
+DEMO_LABEL="codex.wt.$SLUG.$DEMO_PORT"
+DEMO_LOG="/tmp/$DEMO_LABEL.log"
+
+lsof -iTCP:"$DEMO_PORT" -sTCP:LISTEN -n -P
+
+launchctl submit -l "$DEMO_LABEL" -o "$DEMO_LOG" -e "$DEMO_LOG" -- \
+  /bin/zsh -lc 'cd "$1" && shift && exec "$@"' demo-server \
+  "$WORKTREE" npm run dev -- --port "$DEMO_PORT"
+```
+
+The preflight `lsof` output must be empty; otherwise choose another port rather
+than stopping a process that is not in this task's runtime ledger.
+
+This transfers ownership to `launchd`; the command used to submit it should
+return immediately. Record `DEMO_LABEL`, `DEMO_LOG`, `DEMO_PORT`, `$WORKTREE`,
+and the exact server command in the runtime ledger. Treat the label—not a Codex
+tool session id—as the primary lifecycle handle. Inspect startup and verify both
+the service and review URL before handoff:
+
+```bash
+launchctl print "gui/$(id -u)/$DEMO_LABEL"
+tail -n 80 "$DEMO_LOG"
+curl -fsS "http://localhost:$DEMO_PORT/path/to/review" >/dev/null
+```
+
+If startup is still in progress, poll the URL in bounded intervals while
+continuing to communicate; do not assume a successful `launchctl submit` means
+the application is ready. To restart the demo, unload the exact label, confirm
+the port is free, and submit the same service again. To stop it during cleanup:
+
+```bash
+launchctl bootout "gui/$(id -u)/$DEMO_LABEL"
+lsof -iTCP:"$DEMO_PORT" -sTCP:LISTEN -n -P
+```
+
+The final `lsof` output must be empty. If the project spawns children such as
+Vite, Firebase emulators, Java processes, or other watchers, also verify no
+process rooted in `$WORKTREE` remains. Never use a broad `pkill` pattern.
+
+When `launchctl` is unavailable, use the host's actual user service manager
+(for example, a named `systemd-run --user` unit) with the same properties: a
+stable unit identity, detached logs, bounded readiness checks, and exact-unit
+cleanup. If no service manager is available, state that persistence across
+turns cannot be guaranteed; do not describe `&`, `nohup`, or an exec session as
+a durable demo server.
+
 - Start it on a **non-default port** so it never collides with a server the user
   is already running in their primary tree (for example, if the project's
   default dev port is `5173`, start the demo on `5174` or another free port).

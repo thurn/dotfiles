@@ -125,7 +125,7 @@ autocmd FileType c,cabal,cpp,haskell,javascript,php,python,readme,text
 set t_Co=256
 
 " Default vim colorscheme
-colorscheme desert256
+colorscheme simple256
 
 source ~/.vim_mappings.vim
 
