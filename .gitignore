@@ -4,5 +4,11 @@
 !.llms/
 !.vim/
 !zsh/
+!/.codex/
+/.codex/*
+!/.codex/config.shared.toml
+!/bin/
+/bin/*
+!/bin/merge-codex-config
 /.vim/.netrwhist
 *.swp

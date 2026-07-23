@@ -1,0 +1,70 @@
+# Portable preferences. Run ~/bin/merge-codex-config to apply them locally.
+
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+plan_mode_reasoning_effort = "xhigh"
+service_tier = "default"
+personality = "pragmatic"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[tui]
+notifications = true
+notification_method = "osc9"
+notification_condition = "always"
+status_line = ["model-with-reasoning", "current-dir", "context-used"]
+
+[agents]
+max_threads = 20
+max_depth = 3
+
+[features]
+goals = true
+js_repl = false
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+sansFontSize = 14
+codeFontSize = 13
+ambient-suggestions-enabled = false
+mac-menu-bar-enabled = false
+selected-avatar-id = "null-signal"
+followUpQueueMode = "steer"
+dock-icon-preference = "app-default"
+open-local-url-in-target-preference = "external-browser"
+show-context-window-usage = true
+appearanceTheme = "light"
+keepRemoteControlAwakeWhilePluggedIn = false

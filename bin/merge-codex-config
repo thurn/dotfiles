@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""Overlay shared Codex preferences onto the machine-local config."""
+
+import argparse
+import difflib
+import os
+from pathlib import Path
+import shutil
+import stat
+import tempfile
+
+
+def parse_args():
+    home = Path.home()
+    parser = argparse.ArgumentParser(
+        description=(
+            "Merge shared Codex settings into the live config while preserving "
+            "machine-local settings."
+        )
+    )
+    parser.add_argument(
+        "--source",
+        type=Path,
+        default=home / ".codex" / "config.shared.toml",
+        help="shared TOML file (default: ~/.codex/config.shared.toml)",
+    )
+    parser.add_argument(
+        "--target",
+        type=Path,
+        default=home / ".codex" / "config.toml",
+        help="live TOML file (default: ~/.codex/config.toml)",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="show the prospective diff without changing the target",
+    )
+    return parser.parse_args()
+
+
+def header(line):
+    stripped = line.strip()
+    if stripped.startswith("[["):
+        raise ValueError("array-of-table headers are not supported")
+    if stripped.startswith("[") and stripped.endswith("]"):
+        return stripped
+    return None
+
+
+def assignment_key(line):
+    stripped = line.strip()
+    if not stripped or stripped.startswith("#") or "=" not in stripped:
+        return None
+    return stripped.split("=", 1)[0].strip()
+
+
+def shared_assignments(lines):
+    section = None
+    assignments = []
+    for number, line in enumerate(lines, start=1):
+        found_header = header(line)
+        if found_header is not None:
+            section = found_header
+            continue
+        key = assignment_key(line)
+        if key is not None:
+            assignments.append((section, key, line))
+            continue
+        if line.strip() and not line.lstrip().startswith("#"):
+            raise ValueError(
+                f"unsupported multiline or non-assignment syntax on source line {number}"
+            )
+    return assignments
+
+
+def section_bounds(lines, wanted):
+    current = None
+    start = 0
+    for index, line in enumerate(lines):
+        found_header = header(line)
+        if found_header is None:
+            continue
+        if current == wanted:
+            return start, index
+        current = found_header
+        start = index + 1
+    if current == wanted:
+        return start, len(lines)
+    if wanted is None:
+        first_header = next(
+            (index for index, line in enumerate(lines) if header(line) is not None),
+            len(lines),
+        )
+        return 0, first_header
+    return None
+
+
+def overlay(target_lines, source_lines):
+    result = list(target_lines)
+    for section, key, source_line in shared_assignments(source_lines):
+        bounds = section_bounds(result, section)
+        if bounds is None:
+            if result and result[-1].strip():
+                result.append("\n")
+            result.append(f"{section}\n")
+            result.append(source_line)
+            continue
+
+        start, end = bounds
+        matches = [
+            index
+            for index in range(start, end)
+            if assignment_key(result[index]) == key
+        ]
+        if len(matches) > 1:
+            raise ValueError(f"duplicate key {key!r} in section {section or '<root>'}")
+        if matches:
+            result[matches[0]] = source_line
+            continue
+
+        insertion = end
+        while insertion > start and not result[insertion - 1].strip():
+            insertion -= 1
+        result.insert(insertion, source_line)
+    return result
+
+
+def atomic_write(path, text, original_mode):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{path.name}.", dir=str(path.parent), text=True
+    )
+    try:
+        with os.fdopen(descriptor, "w") as temporary:
+            temporary.write(text)
+            temporary.flush()
+            os.fsync(temporary.fileno())
+        os.chmod(temporary_name, stat.S_IMODE(original_mode))
+        os.replace(temporary_name, path)
+    finally:
+        if os.path.exists(temporary_name):
+            os.unlink(temporary_name)
+
+
+def main():
+    args = parse_args()
+    source_text = args.source.read_text()
+    target_text = args.target.read_text() if args.target.exists() else ""
+    merged_text = "".join(
+        overlay(target_text.splitlines(keepends=True), source_text.splitlines(keepends=True))
+    )
+
+    if merged_text == target_text:
+        print(f"{args.target} is already up to date")
+        return
+
+    if args.dry_run:
+        print(
+            "".join(
+                difflib.unified_diff(
+                    target_text.splitlines(keepends=True),
+                    merged_text.splitlines(keepends=True),
+                    fromfile=str(args.target),
+                    tofile=f"{args.target} (merged)",
+                )
+            ),
+            end="",
+        )
+        return
+
+    if args.target.exists():
+        backup = args.target.with_name(f"{args.target.name}.bak")
+        shutil.copy2(str(args.target), str(backup))
+        original_mode = args.target.stat().st_mode
+    else:
+        backup = None
+        original_mode = 0o600
+
+    atomic_write(args.target, merged_text, original_mode)
+    print(f"Merged {args.source} into {args.target}")
+    if backup is not None:
+        print(f"Previous config saved to {backup}")
+
+
+if __name__ == "__main__":
+    main()
