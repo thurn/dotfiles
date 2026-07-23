@@ -127,6 +127,7 @@ followUpQueueMode = "steer"
 dock-icon-preference = "app-default"
 open-local-url-in-target-preference = "external-browser"
 show-context-window-usage = true
+appearanceTheme = "light"
 
 [shell_environment_policy.set]
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"

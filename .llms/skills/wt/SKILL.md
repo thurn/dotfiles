@@ -302,41 +302,59 @@ final result is that `master` points to the new linear history: the old master
 commits followed by these worktree commits. Do not merge, do not squash, and do
 not leave the result on a feature branch.
 
-**Reconcile in the worktree first, so the primary tree only ever
-fast-forwards.** All conflict resolution must happen on the worktree branch,
-inside the sandbox — never on `master` in the primary checkout. With the branch
-checked out in the worktree, rebase it onto the current `master`:
+**Serialize every promotion with the repository-wide operating-system lock.**
+Multiple worktree agents may receive approval at the same time. They must all
+wait on the same lock rather than racing to rebase, update the primary
+checkout, or push `master`. The lock path lives in Git's common directory, so
+every worktree for the repository derives the same path. The operating system
+releases the lock if the promoting process exits; the retained lock file is
+not itself a held lock.
 
 ```bash
-git -C "$WORKTREE" rebase master
+"$HOME/.llms/skills/wt/scripts/promote.sh" \
+  "$WORKTREE" "$REPO_ROOT" "$BRANCH"
 ```
 
-This replays *the branch's* own commits on top of `master`, resolving any
-conflicts here in the isolated worktree. It rewrites only the branch commits
-(throwaway anyway); `master`'s commits are untouched and keep their original
-hashes. If `master` has not moved since the worktree was created, this is a
-no-op. Resolve any conflicts as they arise, keeping each commit separate.
+Do not reproduce the promotion commands outside the lock. The helper waits
+indefinitely and then, while holding the lock:
+
+1. rebases the worktree branch onto the current local `master`;
+2. checks out `master` in the primary tree;
+3. fast-forwards `master` to the branch with `merge --ff-only`; and
+4. pushes `master` to `origin` before releasing the lock.
+
+This makes concurrent approved promotions sequential. Each waiting agent
+rebases onto the result of the preceding promotion. Use `lockf -k` when
+available and `flock` otherwise. If neither command exists, stop and report
+that promotion cannot be safely serialized; do not improvise a polling lock.
+
+**Reconcile in the worktree first, so the primary tree only ever
+fast-forwards.** All conflict resolution must happen on the worktree branch,
+inside the sandbox — never on `master` in the primary checkout. The helper's
+rebase replays *the branch's* own commits on top of `master`. It rewrites only
+the branch commits; `master`'s commits remain untouched. If `master` has not
+moved since the worktree was created, the rebase is a no-op.
+
+If the rebase reports a conflict, the helper exits and the operating system
+releases the promotion lock. Resolve the conflict in `$WORKTREE`, keep the
+commits separate, and finish with `git -C "$WORKTREE" rebase --continue`.
+Then run the helper again. Another promotion may have advanced `master` while
+the conflict was being resolved, so only the new locked attempt may update
+`master`.
 
 Do NOT instead run `git rebase "$BRANCH"` while `master` is checked out in the
 primary tree. That is the dangerous inverse: it replays *master's* own commits
 on top of the branch — silently reordering and rewriting already-published
 commits, which then diverge from `origin/master` and require a history-rewriting
-force-push. The safe command above (`git -C "$WORKTREE" rebase master`, run with
-the *branch* checked out) rebases the branch onto master, which is what we want.
+force-push. The helper runs the safe direction with the worktree branch checked
+out.
 
-Once the branch sits cleanly on top of `master`, fast-forward `master` onto it
-in the primary tree. Because the branch is already based on the current master,
-this can only fast-forward — it can never produce a conflict on `master`:
-
-```bash
-# From the repo root (primary working tree), with master checked out there:
-git -C "$REPO_ROOT" checkout master
-git -C "$REPO_ROOT" merge --ff-only "$BRANCH"
-```
-
-If this `--ff-only` merge fails, `master` advanced again between the rebase and
-the merge. Do not fall back to resolving conflicts on `master`; re-run the
-worktree rebase (`git -C "$WORKTREE" rebase master`) and retry the fast-forward.
+If checkout, fast-forward, or push fails, do not fall back to resolving
+anything on `master`, do not clean up the worktree, and do not bypass the lock.
+Inspect the failure, restore a safe retry state without deleting or stashing
+the user's primary-tree files, then rerun the helper. An unrelated actor on
+another machine can still advance `origin/master`; the local lock only
+serializes agents sharing this repository.
 
 After the merge, confirm `master` is a linear history of the old master commits
 followed by the worktree commits (`git log --oneline`), and that it has not
