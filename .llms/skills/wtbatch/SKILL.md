@@ -17,6 +17,12 @@ collect → one consolidated promote prompt → serial promotion → cleanup.
 
 ## 1. Triage the batch (before touching any code)
 
+Triage from the user's request only. Do not read, search, or inspect code in
+the primary working tree or in any existing worktree. The user's primary
+working tree may be modified while you work, so anything read from it can
+become stale or invalid. Code-based investigation belongs inside the fresh
+group worktrees created in step 3.
+
 Parse the user's list into discrete work items. For each item record:
 
 - **A stable ID** (`item-1`, `item-2`, …) and a short kebab-case slug.
@@ -27,9 +33,9 @@ Parse the user's list into discrete work items. For each item record:
     needs verification.
   - **L** — open-ended, multi-file, needs design judgment, or the description
     is vague enough that discovery is most of the work.
-- **Touched area** — best guess at the subsystem/files involved. A quick
-  `grep`/`glob` against the repo is fine for this; deep code reading is not —
-  that's the subagents' job, done inside their worktrees.
+- **Touched area** — best guess from the user's description at the
+  subsystem/files involved. Code searching is the subagents' job, done inside
+  their fresh worktrees.
 - **Dependencies** — does this item build on, conflict with, or share files
   with another item in the batch?
 
@@ -79,6 +85,23 @@ sequential chain, a pipeline, a single group), use it — the rules above are
 defaults, not law.
 
 ## 3. Create worktrees and dispatch subagents
+
+**Always create a fresh worktree for every new group.** An existing worktree
+with a similar name, branch, subject, or apparent prior progress is not an
+invitation to reuse it. Do not inspect that worktree's status, log, diff, or
+files to decide whether it is relevant; it may belong to the user or another
+agent. Finding an existing worktree and continuing there is prohibited.
+
+The only exceptions are:
+
+- the user explicitly tells you in the current request to continue in a
+  specific existing worktree or branch; or
+- this task is a follow-up to an unpromoted worktree that you created earlier
+  in the same conversation, as defined in section 8.
+
+Filesystem discovery alone never establishes either exception. If the chosen
+slug, branch, or path already exists, choose a new slug and create a new
+worktree; do not open, inspect, or reuse the existing one.
 
 **You** create each group's worktree (so slugs and branches stay coordinated),
 then hand the path to the subagent. From the repo root:
@@ -222,17 +245,34 @@ server until the user says they're done reviewing. Blocked items' worktrees
 also stay, so their partial work is recoverable. Remove the ledger file only
 when every group is either promoted-and-cleaned or explicitly abandoned.
 
-## 8. Follow-ups stay in worktrees
+## 8. Follow-up ownership
 
-Any follow-up — a fix to a promoted item, a retry of a blocked one, a new
-item the review surfaced — is itself worktree work. Re-enter this cycle (or
-plain `wt` for a single item) with a fresh worktree; never edit the primary
+A follow-up to an **unpromoted** group that you created earlier in the same
+conversation stays in that group's active review worktree and branch. The user
+is reviewing one coherent branch; keep refinements there until the user
+approves or declines promotion.
+
+An active review worktree exists only when you created it earlier in the same
+conversation and handed its artifacts to the user for review, or when the user
+explicitly identifies the worktree or branch in the current request. A matching
+entry from `git worktree list`, a suggestive branch name, nearby commits, dirty
+files, or apparent prior progress does not establish ownership or continuity.
+Never inspect or reuse a discovered worktree to decide whether it belongs to
+the task.
+
+After a group's work is promoted and cleaned up, any later follow-up gets a
+fresh worktree. A retry of a blocked group stays in its retained worktree only
+when that worktree satisfies the ownership rule above. Never edit the primary
 tree's `master` in place.
 
 ## Red flags
 
 - Implementing anything yourself in the planner context, or reading deeply
   into the codebase before worktrees exist.
+- Inspecting or reusing an existing worktree that the user did not explicitly
+  identify and that you did not create earlier in the same conversation.
+- Inferring worktree ownership from its name, branch, status, files, commits,
+  or apparent relevance. This is prohibited.
 - Two parallel worktrees whose items touch the same files.
 - A dependency chain split across parallel groups.
 - Dispatching a subagent without an explicit model, or without the report
