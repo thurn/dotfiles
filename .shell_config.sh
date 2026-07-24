@@ -17,5 +17,5 @@ alias ne="npm run editor2"
 alias nr="npm run qai"
 
 com() {
-  ~/quest_prototype/scripts/regenerate-assets.sh && git add -A && git commit -a -m "$*" && git push
+  ~/quest_prototype/scripts/regenerate-assets.sh --fast && git add -A && git commit -a -m "$*" && git push
 }
