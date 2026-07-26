@@ -184,9 +184,10 @@ actually responds before handing it over.
 Then send a plain-text message organized by item:
 
 - Item ID and title, one-line summary of what was done, which branch holds it.
-- Each screenshot path on its own line as **bare plain text** — no backticks,
-  no markdown links or image syntax, no quotes; anything else suppresses the
-  inline render.
+- Render each screenshot inline with Markdown image syntax and an absolute
+  filesystem path: `![concise description](/absolute/path/to/screenshot.png)`.
+  Bare paths, relative paths, and ordinary Markdown links do not render local
+  images inline in the Codex app.
 - The group's demo URL on its own line, with any route/`?goto=` hint needed
   to land on the changed screen.
 - Blocked items listed last with the reason.
@@ -279,7 +280,8 @@ tree's `master` in place.
   contract.
 - Accepting DONE without verification evidence.
 - Per-group promote prompts instead of one consolidated prompt.
-- Screenshot paths wrapped in backticks/markdown, or full-screen captures.
+- Screenshots emitted as bare paths, relative paths, or ordinary links instead
+  of inline Markdown images.
 - Parallel promotion, conflict resolution on `master`, or any cleanup of the
   primary tree's untracked/modified files.
 - Re-dispatching a group the ledger already marks complete.
