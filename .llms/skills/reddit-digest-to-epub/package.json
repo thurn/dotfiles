@@ -1,0 +1,12 @@
+{
+  "name": "reddit-digest-to-epub-skill",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "jszip": "3.10.1",
+    "playwright-core": "1.61.1"
+  }
+}

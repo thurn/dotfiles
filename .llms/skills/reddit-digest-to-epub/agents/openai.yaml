@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reddit Digest to EPUB"
+  short_description: "Turn AskHistorians digests into offline EPUBs"
+  default_prompt: "Use $reddit-digest-to-epub to turn this AskHistorians Sunday Digest URL into an offline EPUB."
