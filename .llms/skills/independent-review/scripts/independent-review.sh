@@ -9,7 +9,7 @@
 set -eu
 
 REVIEWS_DIR=${REVIEW_OUTPUT_DIR:-/tmp/reviews}
-MODEL=${REVIEW_MODEL:-opus}
+MODEL=${REVIEW_MODEL:-claude-sonnet-5}
 EFFORT=${REVIEW_EFFORT:-high}
 MAX_DIFF_BYTES=${REVIEW_MAX_DIFF_BYTES:-400000}
 
@@ -43,7 +43,8 @@ Options:
   --base BRANCH        Base branch for the default/branch comparison.
                        Default: origin/HEAD, else main, else master.
   --repo DIR           Repository to review. Default: current directory.
-  --model MODEL        Review model. Default: opus (env REVIEW_MODEL).
+  --model MODEL        Review model. Default: claude-sonnet-5
+                       (env REVIEW_MODEL).
   --effort LEVEL       low|medium|high|xhigh|max. Default: high.
   --out FILE           Write the review here instead of a generated path.
   --print-prompt       Print the assembled review prompt and exit without
