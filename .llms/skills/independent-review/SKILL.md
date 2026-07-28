@@ -1,6 +1,6 @@
 ---
 name: independent-review
-description: Get a second opinion on a nontrivial code change by running Claude Code as an independent single-pass reviewer, then verify each finding against the real code and fix only what is confirmed. Use after finishing an implementation and before declaring it done, or when explicitly asked for an independent review. Triggers on independent review, second opinion, review my change, review this branch, have Claude review, /independent-review.
+description: Get one second opinion on a nontrivial code change by running Claude Code as an independent reviewer, then verify each finding against the real code and fix only what is confirmed. Run at most one review per session unless the user explicitly requests additional reviews. Use after finishing an implementation and before declaring it done, or when explicitly asked for an independent review. Triggers on independent review, second opinion, review my change, review this branch, have Claude review, /independent-review.
 ---
 
 # Independent Review
@@ -29,6 +29,13 @@ comment edits, pure data/config tweaks, and mechanical renames.
 
 Do these in order. Do not skip step 1 — sending a change with failing tests to
 review wastes the review on problems your own tooling already knows about.
+
+Run this workflow at most once per session, including follow-up tasks in the
+same session. Findings, fixes made in response to findings, later user
+corrections, and substantial follow-up changes do not trigger another review.
+Run an additional review only when the user explicitly requests another pass.
+A run that fails before producing a review may be retried after its failure is
+resolved.
 
 ### 1. Get the change green first
 
@@ -73,11 +80,13 @@ else:
 | `abc123..def456` | that git ref range |
 | `123` or `#123` | that GitHub pull request (needs `gh`) |
 
-For an incremental follow-up, use `--since REF`. It reviews committed, staged,
-and unstaged changes since that ref, plus every current untracked file in full.
-Git cannot determine when an untracked file was created, so commit the
+Use `--since REF` to scope the one review to an incremental delta, or when the
+user explicitly requests an additional incremental pass. It reviews committed,
+staged, and unstaged changes since that ref, plus every current untracked file
+in full. Git cannot determine when an untracked file was created, so commit the
 previously reviewed state before relying on this as a strict delta. `--since`
-and `--target` are mutually exclusive.
+and `--target` are mutually exclusive. The existence of `--since` does not
+authorize another review.
 
 Other options: `--base BRANCH` when the base branch is not `origin/HEAD`/
 `main`/`master`, `--repo DIR` to review a different checkout (a worktree, for
@@ -151,9 +160,8 @@ path so the user can read the raw output themselves.
   you have verified them.
 - Never suppress a confirmed finding because it is inconvenient or because the
   fix is annoying. Report it as unresolved instead.
-- Run one review pass per logical change. Small reviewer fixes and user
-  corrections do not require another pass. If substantial fixes materially
-  change behavior or architecture and warrant a second opinion, review only the
-  incremental delta with `--since REF` when the previously reviewed state is
-  committed and therefore has a stable ref. Do not loop to chase an empty
-  finding list.
+- Run at most one completed review per session unless the user explicitly
+  requests more. Follow-up tasks in the same session, reviewer fixes, user
+  corrections, substantial follow-up changes, and an empty finding list do not
+  justify another pass. `--since REF` changes review scope; it does not justify
+  another review.
