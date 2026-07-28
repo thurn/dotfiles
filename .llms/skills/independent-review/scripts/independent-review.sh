@@ -12,11 +12,13 @@ REVIEWS_DIR=${REVIEW_OUTPUT_DIR:-/tmp/reviews}
 MODEL=${REVIEW_MODEL:-claude-sonnet-5}
 EFFORT=${REVIEW_EFFORT:-high}
 MAX_DIFF_BYTES=${REVIEW_MAX_DIFF_BYTES:-400000}
+TIMEOUT_SECONDS=${REVIEW_TIMEOUT_SECONDS:-1800}
 
 EX_USAGE=64
 EX_DATAERR=65
 EX_UNAVAILABLE=69
 EX_SOFTWARE=70
+EX_TEMPFAIL=75
 
 usage() {
   cat >&2 <<'EOF'
@@ -46,13 +48,16 @@ Options:
   --model MODEL        Review model. Default: claude-sonnet-5
                        (env REVIEW_MODEL).
   --effort LEVEL       low|medium|high|xhigh|max. Default: high.
+  --timeout SECONDS    Stop Claude after this many seconds. Default: 1800
+                       (env REVIEW_TIMEOUT_SECONDS).
   --out FILE           Write the review here instead of a generated path.
   --print-prompt       Print the assembled review prompt and exit without
                        calling Claude. For checking what would be reviewed.
   -h, --help           Show this help.
 
 Exit codes: 0 ok, 64 usage, 65 nothing to review, 69 claude unavailable or
-unauthenticated, 70 the review run failed, 130 interrupted, 143 terminated.
+unauthenticated, 70 the review run failed, 75 Claude temporarily unavailable
+(usage-limited or timed out), 130 interrupted, 143 terminated.
 EOF
   exit $EX_USAGE
 }
@@ -119,6 +124,11 @@ while [ $# -gt 0 ]; do
       EFFORT=$2
       shift 2
       ;;
+    --timeout)
+      [ $# -ge 2 ] || usage
+      TIMEOUT_SECONDS=$2
+      shift 2
+      ;;
     --out)
       [ $# -ge 2 ] || usage
       out=$2
@@ -151,6 +161,11 @@ fi
 [ -n "$prompt_text" ] || usage
 [ -z "$target" ] || [ -z "$since" ] ||
   die $EX_USAGE "pass only one of --target / --since"
+case $TIMEOUT_SECONDS in
+  "" | *[!0-9]* | 0)
+    die $EX_USAGE "timeout must be a positive integer number of seconds"
+    ;;
+esac
 
 # --- environment checks ------------------------------------------------------
 
@@ -491,8 +506,28 @@ review_pid=$!
 
 # A blocking `wait` can defer signal traps in some non-interactive shells.
 # Check process liveness in the shell so cancellation is handled promptly
-# without returning control to the calling agent.
+# without returning control to the calling agent. Enforce a deadline because
+# Claude Code has sometimes stayed alive instead of returning a usage-limit
+# error to non-interactive callers.
+review_deadline=$(($(date +%s) + TIMEOUT_SECONDS))
+timed_out=no
 while kill -0 "$review_pid" 2>/dev/null; do
+  if [ "$(date +%s)" -ge "$review_deadline" ]; then
+    timed_out=yes
+    note "review exceeded ${TIMEOUT_SECONDS}s; terminating Claude"
+    kill -TERM "$review_pid" 2>/dev/null || true
+
+    kill_deadline=$(($(date +%s) + 5))
+    while kill -0 "$review_pid" 2>/dev/null &&
+      [ "$(date +%s)" -lt "$kill_deadline" ]; do
+      sleep 1
+    done
+    if kill -0 "$review_pid" 2>/dev/null; then
+      note "Claude did not stop after 5s; killing it"
+      kill -KILL "$review_pid" 2>/dev/null || true
+    fi
+    break
+  fi
   sleep 1
 done
 
@@ -502,6 +537,10 @@ status=$?
 set -e
 review_pid=
 
+if [ "$timed_out" = yes ]; then
+  die $EX_TEMPFAIL "Claude review timed out after ${TIMEOUT_SECONDS}s; retry when scripted Claude usage is available or raise --timeout if the service is merely slow."
+fi
+
 case $status in
   130 | 143)
     note "review cancelled"
@@ -509,13 +548,24 @@ case $status in
     ;;
 esac
 
+first_line=$(head -n 1 "$work/review.txt" 2>/dev/null || true)
+claude_diagnostic=$(cat "$work/claude.err" "$work/review.txt" 2>/dev/null | head -c 4000 || true)
+if { [ "$status" -ne 0 ] || ! printf '%s\n' "$first_line" | grep -Eq '^VERDICT: '; } &&
+  printf '%s\n' "$claude_diagnostic" |
+    grep -Eqi "you.ve hit your .*(session|weekly|monthly|usage|opus).*limit|usage limit (reached|exceeded)|rate.?limit (reached|exceeded)|monthly Agent SDK credit|Agent SDK credit.*(exhausted|limit)|credit balance is too low"; then
+  if [ -n "$claude_diagnostic" ]; then
+    note "claude output was:"
+    printf '%s\n' "$claude_diagnostic" >&2
+  fi
+  die $EX_TEMPFAIL "Claude scripted usage is currently limited; retry after the reset shown by Claude or use API billing."
+fi
+
 if [ "$status" -ne 0 ] || [ ! -s "$work/review.txt" ]; then
   # Claude Code reports some failures (notably "Not logged in") on stdout, so
   # diagnose against both streams.
-  diagnostic=$(cat "$work/claude.err" "$work/review.txt" 2>/dev/null | head -c 4000 || true)
-  if [ -n "$diagnostic" ]; then
+  if [ -n "$claude_diagnostic" ]; then
     note "claude output was:"
-    printf '%s\n' "$diagnostic" >&2
+    printf '%s\n' "$claude_diagnostic" >&2
   fi
   auth_diagnostic=$(cat "$work/claude.err" 2>/dev/null || true)
   review_error_bytes=$(wc -c <"$work/review.txt" | tr -d ' ')
