@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+"""Renumber ordered lists in Markdown files."""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+
+LIST_ITEM = re.compile(r"^(?P<indent>[ \t]*)(?P<number>\d+)(?P<marker>[.)])(?P<space>[ \t]+)")
+FENCE = re.compile(r"^ {0,3}(?P<fence>`{3,}|~{3,})")
+
+
+def indentation_width(value: str) -> int:
+    """Return a stable indentation width for spaces and tabs."""
+    return len(value.expandtabs(4))
+
+
+def renumber(text: str, start: int) -> tuple[str, int]:
+    """Return renumbered Markdown and the number of changed markers."""
+    counters: dict[int, tuple[str, int]] = {}
+    changed = 0
+    output: list[str] = []
+    fence_character: str | None = None
+    fence_length = 0
+
+    for line in text.splitlines(keepends=True):
+        fence_match = FENCE.match(line)
+        if fence_match:
+            fence = fence_match.group("fence")
+            if fence_character is None:
+                fence_character = fence[0]
+                fence_length = len(fence)
+            elif fence[0] == fence_character and len(fence) >= fence_length:
+                fence_character = None
+                fence_length = 0
+            counters.clear()
+            output.append(line)
+            continue
+
+        if fence_character is not None:
+            output.append(line)
+            continue
+
+        item = LIST_ITEM.match(line)
+        if item:
+            indent = indentation_width(item.group("indent"))
+            marker = item.group("marker")
+
+            for old_indent in [value for value in counters if value > indent]:
+                del counters[old_indent]
+
+            previous = counters.get(indent)
+            number = previous[1] + 1 if previous and previous[0] == marker else start
+            counters[indent] = (marker, number)
+
+            old_number = item.group("number")
+            new_number = str(number)
+            if old_number != new_number:
+                changed += 1
+                line = line[: item.start("number")] + new_number + line[item.end("number") :]
+
+            output.append(line)
+            continue
+
+        if line.strip():
+            indent_match = re.match(r"^[ \t]*", line)
+            indent = indentation_width(indent_match.group(0) if indent_match else "")
+            for old_indent in [value for value in counters if value >= indent]:
+                del counters[old_indent]
+
+        output.append(line)
+
+    return "".join(output), changed
+
+
+def read_file(path: Path) -> str:
+    try:
+        with path.open("r", encoding="utf-8", newline="") as source:
+            return source.read()
+    except (OSError, UnicodeError) as error:
+        raise ValueError(f"cannot read {path}: {error}") from error
+
+
+def write_file(path: Path, text: str) -> None:
+    try:
+        with path.open("w", encoding="utf-8", newline="") as destination:
+            destination.write(text)
+    except (OSError, UnicodeError) as error:
+        raise ValueError(f"cannot write {path}: {error}") from error
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="renumber-markdown-list",
+        description=(
+            "Renumber ordered Markdown lists in place. Each top-level or nested "
+            "list starts at 1 by default; fenced code blocks are left unchanged."
+        ),
+        epilog=(
+            "examples:\n"
+            "  renumber-markdown-list README.md\n"
+            "  renumber-markdown-list docs/*.md\n"
+            "  renumber-markdown-list --check README.md\n"
+            "  renumber-markdown-list --stdout README.md > README.renumbered.md\n"
+            "  renumber-markdown-list --start 3 notes.md"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "files",
+        metavar="FILE",
+        nargs="*",
+        type=Path,
+        help="Markdown file to process; multiple files are accepted",
+    )
+    parser.add_argument(
+        "--start",
+        metavar="NUMBER",
+        type=int,
+        default=1,
+        help="number at which each list begins (default: 1)",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="report files needing changes without modifying them; exit 1 if any do",
+    )
+    parser.add_argument(
+        "--stdout",
+        action="store_true",
+        help="write the result to standard output instead of modifying the file",
+    )
+    parser.add_argument(
+        "-q",
+        "--quiet",
+        action="store_true",
+        help="suppress status messages (errors are still shown)",
+    )
+    return parser
+
+
+def main(argv: list[str]) -> int:
+    parser = build_parser()
+    if not argv:
+        parser.print_help()
+        return 0
+
+    args = parser.parse_args(argv)
+    if not args.files:
+        parser.error("at least one FILE is required")
+    if args.start < 0:
+        parser.error("--start must be zero or greater")
+    if args.stdout and len(args.files) != 1:
+        parser.error("--stdout accepts exactly one FILE")
+    if args.stdout and args.check:
+        parser.error("--stdout and --check cannot be used together")
+
+    needs_changes = False
+    had_error = False
+
+    for path in args.files:
+        try:
+            original = read_file(path)
+            result, changed = renumber(original, args.start)
+            needs_changes = needs_changes or changed > 0
+
+            if args.stdout:
+                sys.stdout.write(result)
+            elif args.check:
+                if not args.quiet:
+                    if changed:
+                        suffix = "s" if changed != 1 else ""
+                        status = f"needs renumbering ({changed} item{suffix})"
+                    else:
+                        status = "already numbered"
+                    print(f"{path}: {status}")
+            elif changed:
+                write_file(path, result)
+                if not args.quiet:
+                    print(f"{path}: renumbered {changed} item{'s' if changed != 1 else ''}")
+            elif not args.quiet:
+                print(f"{path}: already numbered")
+        except ValueError as error:
+            print(f"renumber-markdown-list: error: {error}", file=sys.stderr)
+            had_error = True
+
+    if had_error:
+        return 2
+    if args.check and needs_changes:
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))
