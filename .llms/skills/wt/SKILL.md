@@ -159,19 +159,33 @@ a durable demo server.
 Then, in the same normal assistant message that carries the screenshots, give
 the user the **demo URL** on its own line. The demo URL must be a review URL, not
 merely the server root. It must land directly on the changed screen/state with
-the changed UI visible, using the real route plus any required query parameters
-(`?goto=...`, `?game=...`, feature flags, seed values, etc.). A URL such as
-`http://localhost:5174/` is acceptable only when the changed UI is visible at
-that exact URL after a fresh open. For stateful apps, create or preserve the
-local state needed for review (for example a QA room in the local emulator) and
-include that direct URL, such as
+the relevant review context visible, using the real route plus any required
+query parameters (`?goto=...`, `?game=...`, feature flags, seed values, etc.). A
+URL such as `http://localhost:5174/` is acceptable only when the relevant review
+context is visible at that exact URL after a fresh open. For stateful apps,
+create or preserve the local state needed for review (for example a QA room in
+the local emulator) and include that direct URL, such as
 `http://localhost:5174/dreamscape/0-firstlight-meadow?game=<roomId>`.
 
 Before handing over the demo URL, open that exact URL in a fresh browser tab or
 isolated browser session and assert both:
 
 - `location.href` is the URL you will give the user.
-- A selector/text assertion proves the changed UI is visible immediately.
+- A selector/text assertion proves the intended starting context and the first
+  documented control are visible immediately.
+
+### Present each demo as a reproducible walkthrough
+
+Take the extra effort to prepare a clean, deterministic demo environment that
+shows the change in its natural context. With every demo, give the user short
+numbered instructions that say how to reproduce the visual result, including
+what to open, what to do, and what to observe.
+
+For animations and transitions, stage the review URL one or two interactions
+before the changed effect and make the triggering interaction part of the
+numbered walkthrough. Prefer “Open this link, then click **Delve** to see the
+animation” over a link that immediately autoplays the animation. Verify the
+entire walkthrough from a fresh browser session before handing it over.
 
 Keep the `AskUserQuestion` prompt itself concise and refer to "the demo URL and
 screenshots above." Note the demo server will be shut down when the change is
@@ -247,11 +261,13 @@ Rules for Codex app screenshot delivery:
 The Codex app review/promotion handoff should include, in this order:
 
 1. The direct demo URL on its own line.
-2. Any short note needed to explain the state it opens, such as the viewport or
+2. Numbered instructions for reproducing the visual result from the clean state
+   opened by that URL.
+3. Any short note needed to explain the state it opens, such as the viewport or
    persisted local room.
-3. Each screenshot rendered inline using Markdown image syntax.
-4. A brief note that the server will remain running until the user answers.
-5. The promotion question with explicit "Yes" and "No" options, either via
+4. Each screenshot rendered inline using Markdown image syntax.
+5. A brief note that the server will remain running until the user answers.
+6. The promotion question with explicit "Yes" and "No" options, either via
    `AskUserQuestion` immediately after the artifact message or, when that tool
    is unavailable, in the same assistant message.
 
@@ -262,8 +278,12 @@ Demo URL:
 
 http://localhost:5174/dreamscape/0-firstlight-meadow?game=abc123
 
-This opens directly on the changed starting deck modal in the local emulator
-room used for QA.
+This opens a clean local-emulator room one step before the changed Delve
+animation.
+
+1. Open the demo URL above.
+2. Click **Delve**.
+3. Observe the new transition into the starting deck modal.
 
 ![Starting deck modal](/Users/name/repo/.worktrees/task/screenshots/modal.png)
 
@@ -274,14 +294,14 @@ review.
 
 Promote the committed worktree changes onto master?
 
-- Yes: replay the worktree commit onto master, then clean up the demo server,
+- Y: replay the worktree commit onto master, then clean up the demo server,
   worktree, local branch, and pushed review branch.
-- No: leave the commit on the worktree branch and keep master unchanged.
+- N: leave the commit on the worktree branch and keep master unchanged.
 ```
 
 If `AskUserQuestion` is not available in the current Codex mode, ask the same
 promotion question as plain assistant text in the same message as the artifacts,
-with explicit "Yes" and "No" options, and do not promote until the user answers.
+with explicit "Y" and "N" options, and do not promote until the user answers.
 
 ## 4. Replay commits onto master (only after approval)
 

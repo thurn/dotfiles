@@ -52,7 +52,7 @@ aggregate check, run that. Fix what they report before continuing.
 The script prints one line on stdout: the path to the review file under
 `/tmp/reviews/`. Read that file.
 
-The review can take several minutes and intentionally emits no partial
+The review takes between 10 and 20 minutes and intentionally emits no partial
 findings. Treat it as one blocking operation. When the command runner yields a
 process or session handle, use the longest supported waits and, when available,
 keep those waits inside one tool-orchestration call so unchanged polls do not

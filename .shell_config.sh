@@ -17,5 +17,22 @@ alias ne="npm run editor2"
 alias nr="npm run qai"
 
 com() {
-  ~/quest_prototype/scripts/regenerate-assets.sh --fast && git add -A && git commit -a -m "$*" && git push
+  local message
+
+  ~/quest_prototype/scripts/regenerate-assets.sh --fast && git add -A || return
+
+  if [ "$#" -eq 0 ]; then
+    message=$(git-commit-message) || return
+  else
+    message="$*"
+  fi
+
+  git commit -a -m "$message" && git push
 }
+
+# iTerm2 shell integration — enables cmd+click on file paths, cwd tracking, etc.
+# Wraps OSC escapes in tmux passthrough format when $TMUX is set.
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Unity CLI
+. "/Users/dthurn/.unity/env"
