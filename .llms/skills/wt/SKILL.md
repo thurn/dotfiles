@@ -1,12 +1,12 @@
 ---
 name: wt
-description: Implement a task in an isolated git worktree, then optionally replay its commits onto master as linear history. Use when explicitly requested by name for sandboxed task work that may be promoted to master.
+description: Implement and stage a task in an isolated git worktree, then optionally commit and promote it to master after explicit approval. Use when explicitly requested by name for sandboxed task work that may be promoted to master.
 ---
 
 # Worktree Task
 
-Implement the requested task inside a standalone git worktree, then offer to
-replay the resulting commits onto `master`.
+Implement and stage the requested task inside a standalone git worktree, then
+offer to commit and promote the staged changes onto `master`.
 
 ## 1. Create the worktree first — before any analysis
 
@@ -53,9 +53,10 @@ and not treated as untracked content.
 
 `cd` into `$WORKTREE` and do all work there, including all analysis and
 investigation. Follow the repository's own conventions and verification steps
-(lint, typecheck, tests). Commit your work with detailed commit messages, using
-separate commits where it makes sense — the commit boundaries are preserved when
-promoting to master.
+(lint, typecheck, tests). Stage every intended deliverable with `git add` so the
+index is the exact artifact offered for review. Do **not** commit before the user
+approves promotion, and do **not** push the worktree branch. Worktree branches
+are local-only throughout their lifetime.
 
 Do not read from, analyze, or touch the user's primary working tree or its
 checked-out branch — it may change underneath you and give invalid information.
@@ -70,10 +71,11 @@ running.
 
 ## 3. Prompt before promoting
 
-When the task is complete, stop and ask the user whether to move the commits
-from this worktree's branch onto `master`. Ask using the `AskUserQuestion` tool
-with two explicit options: "Yes" (promote the commits onto `master`) and "No"
-(leave them on the worktree branch). Do not proceed without explicit approval.
+When the task is complete and all intended changes are staged, stop and ask the
+user whether to commit and move those staged changes onto `master`. Ask using
+the `AskUserQuestion` tool with two explicit options: "Yes" (commit and promote
+the staged changes onto `master`) and "No" (leave them staged in the worktree).
+Do not proceed without explicit approval.
 
 If you were working on a visual change, provide the complete file paths to one
 or more screenshots showing your work. Use the smallest evidence set that
@@ -292,18 +294,18 @@ animation.
 The demo server is still running from the worktree on port 5174 while you
 review.
 
-Promote the committed worktree changes onto master?
+Commit and promote the staged worktree changes onto master?
 
-- Y: replay the worktree commit onto master, then clean up the demo server,
-  worktree, local branch, and pushed review branch.
-- N: leave the commit on the worktree branch and keep master unchanged.
+- Y: commit the staged changes, fast-forward master to that commit, push master,
+  then clean up the demo server, worktree, and local branch.
+- N: leave the changes staged in the worktree and keep master unchanged.
 ```
 
 If `AskUserQuestion` is not available in the current Codex mode, ask the same
 promotion question as plain assistant text in the same message as the artifacts,
 with explicit "Y" and "N" options, and do not promote until the user answers.
 
-## 4. Replay commits onto master (only after approval)
+## 4. Commit and promote onto master (only after approval)
 
 **Never delete, `git clean`, `git checkout --`, or `git stash` untracked or
 modified files in the primary working tree.** Promotion runs against the user's
@@ -313,14 +315,26 @@ processes while you work — for example runtime data such as player saves under
 are not yours to remove. If `git status` shows untracked or modified files
 before or after `checkout`/`merge`/`cherry-pick`, leave them exactly as they
 are. A spotless working tree is **not** a goal of promotion; preserving the
-user's files is. Only ever `cherry-pick`/`merge` the worktree branch's commits —
-do not "tidy up" anything else in the primary tree to make `git status` clean.
+user's files is. Only ever fast-forward `master` to the approved worktree
+commit — do not "tidy up" anything else in the primary tree to make `git status`
+clean.
 
-Take the commits unique to the worktree's branch and replay them on top of
-`master`, preserving commit order and keeping them as separate commits. The
-final result is that `master` points to the new linear history: the old master
-commits followed by these worktree commits. Do not merge, do not squash, and do
-not leave the result on a feature branch.
+First inspect the staged diff and confirm it is the exact reviewed deliverable.
+Run `git diff --cached --check`, then create one commit with a detailed message.
+This is the first point in the workflow where committing is allowed. If the
+commit fails, fix the cause in the worktree, stage the corrected deliverable,
+and retry; do not begin promotion with uncommitted approved changes.
+
+```bash
+git -C "$WORKTREE" diff --cached --check
+git -C "$WORKTREE" commit -m "<detailed description>"
+```
+
+Then replay the new worktree commit on top of `master`. The final result is that
+`master` points to the new linear history: the old master commits followed by
+the approved worktree commit. Do not merge with a merge commit, do not squash,
+and do not leave the result on a feature branch. Never push the worktree branch;
+the only push in this workflow is the final push of `master` after promotion.
 
 **Serialize every promotion with the repository-wide operating-system lock.**
 Multiple worktree agents may receive approval at the same time. They must all
@@ -344,20 +358,21 @@ indefinitely and then, while holding the lock:
 4. pushes `master` to `origin` before releasing the lock.
 
 This makes concurrent approved promotions sequential. Each waiting agent
-rebases onto the result of the preceding promotion. Use `lockf -k` when
-available and `flock` otherwise. If neither command exists, stop and report
-that promotion cannot be safely serialized; do not improvise a polling lock.
+rebases its approved commit onto the result of the preceding promotion. Use
+`lockf -k` when available and `flock` otherwise. If neither command exists,
+stop and report that promotion cannot be safely serialized; do not improvise a
+polling lock.
 
 **Reconcile in the worktree first, so the primary tree only ever
 fast-forwards.** All conflict resolution must happen on the worktree branch,
 inside the sandbox — never on `master` in the primary checkout. The helper's
-rebase replays *the branch's* own commits on top of `master`. It rewrites only
-the branch commits; `master`'s commits remain untouched. If `master` has not
+rebase replays *the branch's* approved commit on top of `master`. It rewrites
+only the worktree commit; `master`'s commits remain untouched. If `master` has not
 moved since the worktree was created, the rebase is a no-op.
 
 If the rebase reports a conflict, the helper exits and the operating system
-releases the promotion lock. Resolve the conflict in `$WORKTREE`, keep the
-commits separate, and finish with `git -C "$WORKTREE" rebase --continue`.
+releases the promotion lock. Resolve the conflict in `$WORKTREE` and finish
+with `git -C "$WORKTREE" rebase --continue`.
 Then run the helper again. Another promotion may have advanced `master` while
 the conflict was being resolved, so only the new locked attempt may update
 `master`.
@@ -377,9 +392,9 @@ another machine can still advance `origin/master`; the local lock only
 serializes agents sharing this repository.
 
 After the merge, confirm `master` is a linear history of the old master commits
-followed by the worktree commits (`git log --oneline`), and that it has not
-diverged from `origin/master` (the existing master commits keep their original
-hashes).
+followed by the approved worktree commit (`git log --oneline`), and that it has
+not diverged from `origin/master` (the existing master commits keep their
+original hashes).
 
 ## 5. Clean up (only after a successful promotion)
 
@@ -400,20 +415,9 @@ git -C "$REPO_ROOT" branch -D "$BRANCH"
 Because the demo server was serving out of `$WORKTREE`, it must be stopped before
 `worktree remove` so the directory can be cleanly removed.
 
-If the review branch was pushed to a remote, delete that remote branch too after
-`master` has been pushed successfully. The remote review branch is a promotion
-artifact, not a retained archive, once its commits are on `master`:
-
-```bash
-git -C "$REPO_ROOT" push origin --delete "$BRANCH"
-```
-
-If the remote branch does not exist, note that and continue. Do not let a
-missing remote branch turn a successful promotion into a failure.
-
-Do not delete the worktree, local branch, or remote branch if promotion was
-declined or did not complete cleanly. If promotion was declined, leave the
-worktree and branch in place, then ask whether the user wants to keep the demo
+Do not delete the worktree or local branch if promotion was declined or did not
+complete cleanly. If promotion was declined, leave the staged changes,
+worktree, and branch in place, then ask whether the user wants to keep the demo
 server running. If they are done reviewing, or if they ask to stop, clean up the
 runtime ledger even though the branch remains. If they deliberately keep the
 demo server running, state exactly which URL/port is still live and remind them
@@ -422,9 +426,9 @@ that it should be stopped when review is finished.
 Before ending the task, run a final resource check scoped to the recorded
 ledger: verify the demo port, browser session, and worktree-rooted server or
 emulator processes are either stopped or explicitly being left alive at the
-user's request. Also verify the worktree path, local branch, and pushed review
-branch are gone after a successful promotion. Report any intentionally retained
-runtime resources or retained review branches in the final message.
+user's request. Also verify the worktree path and local branch are gone after a
+successful promotion. Report any intentionally retained runtime resources or
+worktrees in the final message.
 
 ## 6. Follow-up requests stay with the active review worktree
 
@@ -433,9 +437,11 @@ fixes, adjustments to what was just implemented, or feedback from the live demo
 and screenshots — must continue in the **same existing worktree and branch**
 until the user either approves promotion or declines it. Do **not** create a new
 worktree while the previous `/wt` review is still active. The user is reviewing
-one coherent branch; keep subsequent commits on that branch, update the running
-demo from that same worktree, recapture screenshots, push the branch again, and
-then ask the promote/leave-on-branch question again with the updated artifacts.
+one coherent branch; keep subsequent changes on that branch, update the running
+demo from that same worktree, stage the revised deliverable, recapture
+screenshots, and then ask the commit-and-promote/leave-staged question again
+with the updated artifacts. Do not commit or push the branch during follow-up
+review.
 
 An "active review worktree" exists only when you created it earlier in this
 same conversation and handed its artifacts to the user for review, or when the
