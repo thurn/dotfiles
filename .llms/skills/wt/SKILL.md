@@ -23,6 +23,9 @@ to reuse it. Do not inspect that worktree's status, log, diff, or files to decid
 whether it is relevant; it may belong to the user or another agent. Finding an
 existing worktree and continuing there is prohibited.
 
+Please finish every turn during this session by stating the worktree name
+in bold.
+
 The only exceptions are:
 
 - the user explicitly tells you in the current request to continue in a
