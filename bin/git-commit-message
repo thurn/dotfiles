@@ -1,0 +1,79 @@
+#!/bin/sh
+
+set -eu
+
+codex_bin=$(command -v codex 2>/dev/null) || {
+  echo "git-commit-message: codex is not installed or not on PATH" >&2
+  exit 127
+}
+
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+  echo "git-commit-message: run this inside a Git repository" >&2
+  exit 2
+}
+
+if test -z "$(git -C "$repo_root" status --porcelain=v1)"; then
+  echo "git-commit-message: the working tree has no changes" >&2
+  exit 1
+fi
+
+output_file=$(mktemp "${TMPDIR:-/tmp}/git-commit-message.XXXXXX")
+error_file=$(mktemp "${TMPDIR:-/tmp}/git-commit-message-error.XXXXXX")
+trap 'rm -f "$output_file" "$error_file"' EXIT HUP INT TERM
+
+prompt='Inspect the complete current Git working tree: staged, unstaged, and untracked changes. Write one commit subject that accurately summarizes the changes as a whole.
+
+Output exactly one plain-text line containing only the commit subject.
+Use imperative mood and 10 to 20 whitespace-separated words.
+Do not use Markdown, quotation marks, a bullet, a conventional-commit prefix, or a trailing period.
+Do not modify any files.'
+
+run_codex() {
+  "$1" \
+    --model gpt-5.6-luna \
+    --config model_reasoning_effort=low \
+    --sandbox read-only \
+    --ask-for-approval never \
+    --cd "$repo_root" \
+    exec \
+    --ephemeral \
+    --color never \
+    --output-last-message "$output_file" \
+    "$prompt" \
+    >/dev/null 2>"$error_file"
+}
+
+if ! run_codex "$codex_bin"; then
+  bundled_codex=/Applications/ChatGPT.app/Contents/Resources/codex
+  if grep -q "requires a newer version of Codex" "$error_file" &&
+    test -x "$bundled_codex" &&
+    test "$codex_bin" != "$bundled_codex"
+  then
+    if run_codex "$bundled_codex"; then
+      :
+    else
+      cat "$error_file" >&2
+      exit 1
+    fi
+  else
+    cat "$error_file" >&2
+    exit 1
+  fi
+fi
+
+if test ! -s "$output_file"; then
+  cat "$error_file" >&2
+  echo "git-commit-message: Codex returned no commit message" >&2
+  exit 1
+fi
+
+message=$(tr '\r\n' '  ' <"$output_file" | awk '{$1=$1; print}')
+word_count=$(printf '%s\n' "$message" | awk '{print NF}')
+
+if test "$word_count" -lt 10 || test "$word_count" -gt 20; then
+  printf 'git-commit-message: Codex returned %s words instead of 10-20:\n%s\n' \
+    "$word_count" "$message" >&2
+  exit 1
+fi
+
+printf '%s\n' "$message"
