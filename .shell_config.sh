@@ -19,7 +19,7 @@ alias nr="npm run qai"
 com() {
   local message
 
-  ~/quest_prototype/scripts/regenerate-assets.sh --fast && git add -A || return
+  git add -A
 
   if [ "$#" -eq 0 ]; then
     message=$(git-commit-message) || return
@@ -27,7 +27,8 @@ com() {
     message="$*"
   fi
 
-  git commit -a -m "$message" && git push
+  git commit -a -m "$message"
+  tg push-master
 }
 
 # iTerm2 shell integration — enables cmd+click on file paths, cwd tracking, etc.

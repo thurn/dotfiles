@@ -21,11 +21,16 @@ output_file=$(mktemp "${TMPDIR:-/tmp}/git-commit-message.XXXXXX")
 error_file=$(mktemp "${TMPDIR:-/tmp}/git-commit-message-error.XXXXXX")
 trap 'rm -f "$output_file" "$error_file"' EXIT HUP INT TERM
 
-prompt='Inspect the complete current Git working tree: staged, unstaged, and untracked changes. Write one commit subject that accurately summarizes the changes as a whole.
+prompt='Inspect the complete current Git working tree: staged, unstaged, and untracked changes.
 
-Output exactly one plain-text line containing only the commit subject.
-Use imperative mood and 10 to 20 whitespace-separated words.
-Do not use Markdown, quotation marks, a bullet, a conventional-commit prefix, or a trailing period.
+Use the Conventional Commits format `<type>(optional-scope): <description>`,
+with a short imperative description; common types are `feat` (new feature),
+`fix` (bug fix), `docs` (documentation), `refactor` (code change without
+behavior change), `test` (tests), `chore` (maintenance/tooling), `style`
+(formatting only), `perf` (performance), `build` (build/dependencies), and `ci`
+(CI configuration). Include a body only for large changes (hundreds of lines of
+non-test code) or very non-obvious bugfixes.
+
 Do not modify any files.'
 
 run_codex() {

@@ -1,30 +1,45 @@
 ---
 name: wt
-description: Implement and stage a task in an isolated git worktree, then optionally commit and promote it to master after explicit approval. Use when explicitly requested by name for sandboxed task work that may be promoted to master.
+description: Implement and commit a task in an isolated git worktree based on Tollgate's local release branch, immediately submit it as a non-promotable candidate, then obtain one explicit promotion mandate and drive in-scope CI repairs, certified promotion, and remote synchronization to completion without repeated approval prompts.
 ---
 
 # Worktree Task
 
-Implement and stage the requested task inside a standalone git worktree, then
-offer to commit and promote the staged changes onto `master`.
+Implement and commit the requested task inside a standalone git worktree,
+immediately submit the immutable commit to Tollgate for speculative validation,
+then offer one scope-bound promotion mandate. After approval, authorize exact
+Tollgate candidates and keep repairing and resubmitting in-scope CI failures
+until certified promotion onto local `release` and, when configured, remote
+`master` succeeds. The user's local
+`master` branch remains an ordinary user-owned checkout and is never Tollgate's
+promotion target.
 
-## 1. Create the worktree first — before any analysis
+## 1. Create the worktree before writing code
 
-This is the very first thing to do on startup, **before** reading code,
-searching the repository, or otherwise analyzing the task. The user's primary
-working tree may be modified while you work, so anything you read from it can
-become stale or invalid. Create the worktree immediately and perform *all*
-code-based analysis — reading files, searching, running tools — against the
-worktree, never the primary tree.
+It is fine to begin with a research, discussion, or planning phase without
+creating a worktree. During that phase, read-only repository inspection may be
+performed in the user's primary working tree. If the task remains advisory and
+no repository files need to change, no worktree is required at all.
 
-**Always create a fresh worktree for a new task.** An existing worktree with a
-similar name, branch, subject, or apparent prior progress is not an invitation
-to reuse it. Do not inspect that worktree's status, log, diff, or files to decide
-whether it is relevant; it may belong to the user or another agent. Finding an
-existing worktree and continuing there is prohibited.
+Treat findings from the primary tree as provisional because the user may
+modify it while the discussion is in progress. As soon as implementation is
+about to begin, create a fresh worktree **before the first repository
+modification** and revalidate any repository-specific assumptions that matter
+to the implementation there. Do not edit files, run generators or dependency
+operations that mutate the checkout, or start task-specific runtime processes
+in the primary tree. Once the worktree exists, perform all implementation,
+code-based investigation, and verification against the worktree.
 
-Please finish every turn during this session by stating the worktree name
-in bold.
+**When implementation begins, always create a fresh worktree for a new task.**
+An existing worktree with a similar name, branch, subject, or apparent prior
+progress is not an invitation to reuse it. Do not inspect that worktree's
+status, log, diff, or files to decide whether it is relevant; it may belong to
+the user or another agent. Finding an existing worktree and continuing there is
+prohibited.
+
+Do not append the worktree name to routine progress updates or every turn. State
+the worktree name in bold in the review/promotion handoff that asks the user the
+explicit Yes/No promotion question.
 
 The only exceptions are:
 
@@ -45,24 +60,41 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 SLUG="<short-kebab-case-name-for-the-task>"
 BRANCH="wt/$SLUG"
 WORKTREE="$REPO_ROOT/.worktrees/$SLUG"
-git -C "$REPO_ROOT" worktree add -b "$BRANCH" "$WORKTREE" master
+git -C "$REPO_ROOT" worktree add -b "$BRANCH" "$WORKTREE" release
 ```
 
 Pick `SLUG` from the task description. If `.worktrees/` is not already
 git-ignored, that is fine — the worktree directory itself is registered with git
 and not treated as untracked content.
 
+After creating the worktree, confirm that `tg` is installed, the repository is
+registered, and Tollgate is healthy. Run these checks from `$WORKTREE` so
+repository auto-selection uses the task's own checkout:
+
+```bash
+command -v tg
+tg --no-launch status
+tg --no-launch doctor
+```
+
+If Tollgate is unavailable, the repository is not registered, or the doctor
+reports a blocking problem, stop and report the setup problem. Do not silently
+fall back to direct Git promotion: that would discard the speculative evidence
+and exact-promotion guarantees this workflow exists to provide.
+
 ## 2. Implement the task
 
-`cd` into `$WORKTREE` and do all work there, including all analysis and
+Before making the first repository change, `cd` into `$WORKTREE` and do all
+implementation work there, including implementation-time analysis and
 investigation. Follow the repository's own conventions and verification steps
 (lint, typecheck, tests). Stage every intended deliverable with `git add` so the
-index is the exact artifact offered for review. Do **not** commit before the user
-approves promotion, and do **not** push the worktree branch. Worktree branches
-are local-only throughout their lifetime.
+index is the exact artifact being frozen for review. Do not push the worktree
+branch. Worktree branches are local-only throughout their lifetime.
 
-Do not read from, analyze, or touch the user's primary working tree or its
-checked-out branch — it may change underneath you and give invalid information.
+Once implementation begins, do not read from, analyze, or touch the user's
+primary working tree or its checked-out branch — it may change underneath you
+and give invalid information. Recheck any relevant conclusions from the earlier
+read-only research phase inside the worktree before relying on them.
 
 Keep a small runtime ledger for every long-lived process or session you start
 while working: dev/demo servers, emulators, browser automation controllers, and
@@ -72,13 +104,79 @@ Anything added to this ledger must have an explicit cleanup step before the task
 is considered finished, unless the user has deliberately asked to keep it
 running.
 
-## 3. Prompt before promoting
+### Finish local review evidence before freezing the candidate
 
-When the task is complete and all intended changes are staged, stop and ask the
-user whether to commit and move those staged changes onto `master`. Ask using
-the `AskUserQuestion` tool with two explicit options: "Yes" (commit and promote
-the staged changes onto `master`) and "No" (leave them staged in the worktree).
-Do not proceed without explicit approval.
+Complete all proportionate local verification, browser QA, screenshots, and
+demo preparation before freezing the source commit. The candidate submission
+is deliberately the final work action before the review/promotion handoff; do
+not leave screenshots, browser walkthroughs, documentation checks, or other
+ordinary task work until after submission.
+
+### Freeze, schedule, and hand off immediately
+
+As soon as implementation and proportionate local verification are complete,
+inspect the staged diff, confirm it is the exact intended deliverable, and
+create one detailed local commit. This commit is not promotion: it is the
+immutable source object Tollgate needs in order to run useful speculative CI.
+
+```bash
+git -C "$WORKTREE" diff --cached --check
+git -C "$WORKTREE" commit -m "<detailed description>"
+git -C "$WORKTREE" status --short
+```
+
+The worktree must be clean after the commit. Immediately submit it without
+promotion authority; do not wait until the user answers the promotion prompt:
+
+```bash
+tg --no-launch --json candidate HEAD
+```
+
+Record the returned candidate ID, source OID, tested OID, and queue revision as
+part of the task state. Confirm that the returned source OID is exactly
+`git -C "$WORKTREE" rev-parse HEAD`. The candidate ID, rather than a mutable
+branch name, is the handle for status, logs, cancellation, and later approval.
+Submission must not move local `release`, local `master`, or remote `master`.
+
+After successful submission, immediately send the review artifacts and ask the
+promotion question. Do **not** run `tg wait`, poll `tg status`, inspect candidate
+logs, or delay the handoff to see whether speculative CI passes. The expected
+handoff state is commonly `queued`, `preparing`, or `running`; report it as
+"Tollgate validation scheduled" rather than waiting to report a certificate.
+The whole point of speculative submission is to overlap CI with the user's
+review time.
+
+Do not run `tg check` for this purpose: independent-check evidence has no
+promotion authority and cannot be reused by a later approval. Only a
+synchronous candidate-submission error blocks the initial handoff. An
+asynchronous validation result is handled when the user answers: approval waits
+for valid evidence and promotion, while a declined candidate is canceled.
+
+## 3. Prompt before authorizing promotion
+
+When the task is complete, the review artifacts are ready, and the exact
+reviewed commit has just been submitted as a non-promotable candidate, stop and
+ask the user whether to grant a promotion mandate for the reviewed task onto
+local `release` and, under the repository's push policy, remote `master`.
+There must be no candidate-status polling or unrelated work between successful
+submission and this handoff. Ask using the `AskUserQuestion` tool with two
+explicit options:
+
+- "Yes" — grant a promotion mandate for the reviewed task. Authorize the
+  displayed exact candidate, and if CI exposes failures within the approved
+  scope, repair them in the same worktree, submit and authorize exact replacement
+  candidates, and continue until Tollgate certifies, promotes, and pushes the
+  result. Do not ask again merely because CI required another repair iteration.
+- "No" — cancel and dequeue the non-promotable candidate while leaving its
+  local commit and worktree intact.
+
+Do not authorize promotion without explicit approval. Include the candidate ID
+and full source OID in the review handoff so the mandate starts from a clearly
+identified reviewed artifact. Describe validation as scheduled; do not wait to
+learn or report its later state. The user may approve while it runs, and
+Tollgate will promote only an exact candidate after it earns valid evidence.
+Also state the worktree name in bold in this handoff. This is the required
+worktree-name disclosure; it does not need to be repeated in other turns.
 
 If you were working on a visual change, provide the complete file paths to one
 or more screenshots showing your work. Use the smallest evidence set that
@@ -193,8 +291,9 @@ animation” over a link that immediately autoplays the animation. Verify the
 entire walkthrough from a fresh browser session before handing it over.
 
 Keep the `AskUserQuestion` prompt itself concise and refer to "the demo URL and
-screenshots above." Note the demo server will be shut down when the change is
-promoted (or if promotion is declined and the user is done reviewing).
+screenshots above." Note the demo server will be shut down before promotion is
+authorized so Tollgate can safely clean up the worktree (or, if promotion is
+declined, when the user is done reviewing).
 
 When providing a mobile demo URL intended for Safari in an iOS Simulator, also
 put a directly copyable command immediately after the URL, using the same exact
@@ -272,7 +371,8 @@ The Codex app review/promotion handoff should include, in this order:
    persisted local room.
 4. Each screenshot rendered inline using Markdown image syntax.
 5. A brief note that the server will remain running until the user answers.
-6. The promotion question with explicit "Yes" and "No" options, either via
+6. The worktree name in bold.
+7. The authorization question with explicit "Yes" and "No" options, either via
    `AskUserQuestion` immediately after the artifact message or, when that tool
    is unavailable, in the same assistant message.
 
@@ -297,163 +397,226 @@ animation.
 The demo server is still running from the worktree on port 5174 while you
 review.
 
-Commit and promote the staged worktree changes onto master?
+Candidate `019…` for source commit `012345…` has been scheduled for speculative
+validation without promotion authority. Tollgate may still be running.
 
-- Y: commit the staged changes, fast-forward master to that commit, push master,
-  then clean up the demo server, worktree, and local branch.
-- N: leave the changes staged in the worktree and keep master unchanged.
+**Worktree: `task`**
+
+Grant a promotion mandate for this reviewed task through local release to remote master?
+
+- Y: stop the demo, authorize exact candidate `019…`, repair and resubmit any
+  in-scope CI failures without another approval prompt, promote local release,
+  push certified remote master, then clean up the worktree and local branch.
+- N: cancel candidate `019…` and leave its local commit in the worktree with
+  release and master unchanged.
 ```
 
 If `AskUserQuestion` is not available in the current Codex mode, ask the same
-promotion question as plain assistant text in the same message as the artifacts,
-with explicit "Y" and "N" options, and do not promote until the user answers.
+authorization question as plain assistant text in the same message as the
+artifacts, with explicit "Y" and "N" options, and do not authorize promotion
+until the user answers.
 
-## 4. Commit and promote onto master (only after approval)
+## 4. Authorize Tollgate promotion (only after approval)
 
-**Never delete, `git clean`, `git checkout --`, or `git stash` untracked or
-modified files in the primary working tree.** Promotion runs against the user's
-primary checkout, which may contain files created or changed by running
-processes while you work — for example runtime data such as player saves under
-`saved-quests/`, local config, or scratch output. These are not build junk and
-are not yours to remove. If `git status` shows untracked or modified files
-before or after `checkout`/`merge`/`cherry-pick`, leave them exactly as they
-are. A spotless working tree is **not** a goal of promotion; preserving the
-user's files is. Only ever fast-forward `master` to the approved worktree
-commit — do not "tidy up" anything else in the primary tree to make `git status`
-clean.
+The user's approval grants a durable promotion mandate for the reviewed task,
+initially anchored to the displayed candidate and source OID. Each Tollgate
+authorization remains bound to one exact candidate and source OID, but the
+user's mandate persists across replacement candidates created solely to repair
+CI failures within the approved task scope. Do not ask for approval again for
+those repair iterations.
 
-First inspect the staged diff and confirm it is the exact reviewed deliverable.
-Run `git diff --cached --check`, then create one commit with a detailed message.
-This is the first point in the workflow where committing is allowed. If the
-commit fails, fix the cause in the worktree, stage the corrected deliverable,
-and retry; do not begin promotion with uncommitted approved changes.
+The mandate does not authorize unrelated work, a material change to the
+reviewed behavior or user-visible intent, a new product or design decision, or
+bypassing Tollgate when evidence is stale. Stop and request renewed review and
+approval only when a repair would cross one of those boundaries, or when the
+user declines or revokes the mandate.
+
+Before authorization, re-read the candidate and worktree state:
 
 ```bash
-git -C "$WORKTREE" diff --cached --check
-git -C "$WORKTREE" commit -m "<detailed description>"
+tg --no-launch --json status <candidate-id>
+git -C "$WORKTREE" status --short
+git -C "$WORKTREE" rev-parse HEAD
 ```
 
-Then replay the new worktree commit on top of `master`. The final result is that
-`master` points to the new linear history: the old master commits followed by
-the approved worktree commit. Do not merge with a merge commit, do not squash,
-and do not leave the result on a feature branch. Never push the worktree branch;
-the only push in this workflow is the final push of `master` after promotion.
+Require all of the following:
 
-**Serialize every promotion with the repository-wide operating-system lock.**
-Multiple worktree agents may receive approval at the same time. They must all
-wait on the same lock rather than racing to rebase, update the primary
-checkout, or push `master`. The lock path lives in Git's common directory, so
-every worktree for the repository derives the same path. The operating system
-releases the lock if the promoting process exits; the retained lock file is
-not itself a held lock.
+- the candidate is still active and lacks promotion authority;
+- its retained source OID equals the exact clean worktree `HEAD` submitted for
+  this iteration (and, for the initial candidate, the commit shown to the user);
+- `$WORKTREE` is still clean and `HEAD` equals that source OID; and
+- no edit has occurred since this exact candidate was submitted.
+
+This is the first time after initial submission that the workflow should poll
+or wait for candidate state. If validation is still queued or running, that is
+normal: authorization grants authority immediately and the `--wait` below then
+waits for Tollgate to finish validation and promotion. If validation already
+finished, Tollgate reuses its sealed evidence when the generation is still
+exact.
+
+Stop the task's demo server and any other worktree-rooted runtime processes
+before authorizing. Tollgate may automatically remove the clean source worktree
+and branch immediately after successful promotion and push; no process should
+still depend on that directory.
+
+Then authorize the candidate and wait for the complete result:
 
 ```bash
-"$HOME/.llms/skills/wt/scripts/promote.sh" \
-  "$WORKTREE" "$REPO_ROOT" "$BRANCH"
+tg --no-launch approve <candidate-id> --wait
 ```
 
-Do not reproduce the promotion commands outside the lock. The helper waits
-indefinitely and then, while holding the lock:
+Candidate authorization is also a scheduling-priority decision. Tollgate keeps
+already-authorized work in order, moves this exact candidate and its active hard
+dependencies ahead of unrelated candidates that are still awaiting promotion
+authority, and automatically rebuilds only the speculative suffix whose prefix
+changed. A later candidate must therefore not remain blocked merely because an
+earlier independent review has not received a user decision. Do not run
+`tg reorder` merely to bypass unrelated unauthorized candidates; reserve manual
+reordering for an explicit user-requested order that differs from authorization
+order.
 
-1. rebases the worktree branch onto the current local `master`;
-2. checks out `master` in the primary tree;
-3. fast-forwards `master` to the branch with `merge --ff-only`; and
-4. pushes `master` to `origin` before releasing the lock.
+Tollgate owns queue serialization, speculative-prefix reconstruction, evidence
+reuse, exact-parent verification, local `release` compare-and-swap, and any
+configured leased push. Do not run the legacy `promote.sh`, manually rebase the
+candidate, check out or move `release`, fast-forward it yourself, cherry-pick the source,
+or push the feature branch. Those operations would replace the exact tested
+object or race Tollgate's authoritative state.
 
-This makes concurrent approved promotions sequential. Each waiting agent
-rebases its approved commit onto the result of the preceding promotion. Use
-`lockf -k` when available and `flock` otherwise. If neither command exists,
-stop and report that promotion cannot be safely serialized; do not improvise a
-polling lock.
+### Queue-revision conflicts are refreshed, not bypassed
 
-**Reconcile in the worktree first, so the primary tree only ever
-fast-forwards.** All conflict resolution must happen on the worktree branch,
-inside the sandbox — never on `master` in the primary checkout. The helper's
-rebase replays *the branch's* approved commit on top of `master`. It rewrites
-only the worktree commit; `master`'s commits remain untouched. If `master` has not
-moved since the worktree was created, the rebase is a no-op.
+Authorization uses a queue-revision compare-and-swap. If it loses a race to
+another queue mutation, fetch fresh candidate and queue state. The existing
+user mandate may be retried against the new revision only when the candidate ID
+remains active, its retained source OID still equals the worktree's exact
+submitted commit, the worktree remains unchanged, and the candidate has not
+already gained promotion authority. This retry is transparent because each
+authorization is bound to the immutable source, while Tollgate decides whether
+the current validation generation can reuse evidence or must rerun.
 
-If the rebase reports a conflict, the helper exits and the operating system
-releases the promotion lock. Resolve the conflict in `$WORKTREE` and finish
-with `git -C "$WORKTREE" rebase --continue`.
-Then run the helper again. Another promotion may have advanced `master` while
-the conflict was being resolved, so only the new locked attempt may update
-`master`.
+Do not retry blindly when the candidate is canceled, superseded, terminal for a
+source failure, or refers to a different source OID. Resolve the state explicitly.
+If CI requires editing the source commit, use the repair loop below.
 
-Do NOT instead run `git rebase "$BRANCH"` while `master` is checked out in the
-primary tree. That is the dangerous inverse: it replays *master's* own commits
-on top of the branch — silently reordering and rewriting already-published
-commits, which then diverge from `origin/master` and require a history-rewriting
-force-push. The helper runs the safe direction with the worktree branch checked
-out.
+### Continue through in-scope CI repair iterations
 
-If checkout, fast-forward, or push fails, do not fall back to resolving
-anything on `master`, do not clean up the worktree, and do not bypass the lock.
-Inspect the failure, restore a safe retry state without deleting or stashing
-the user's primary-tree files, then rerun the helper. An unrelated actor on
-another machine can still advance `origin/master`; the local lock only
-serializes agents sharing this repository.
+Approval means keep going until CI passes and Tollgate completes promotion; it
+is not a prompt to request approval after every failed candidate. When CI fails:
 
-After the merge, confirm `master` is a linear history of the old master commits
-followed by the approved worktree commit (`git log --oneline`), and that it has
-not diverged from `origin/master` (the existing master commits keep their
-original hashes).
+Run `tg --no-launch diagnose <candidate-id>` first to replay exact evidence and attribute the failure, adding `--verify-repair` when Tollgate reports one unambiguous structured repair worth validating.
+
+1. Inspect the failed checks and logs and determine whether the necessary repair
+   stays within the reviewed task scope and intent.
+2. In the same worktree, cancel or supersede the failed candidate as Tollgate
+   requires, make the repair, rerun proportionate local verification, and amend
+   the single task commit.
+3. Submit the amended `HEAD` as a new immutable candidate. Verify that the new
+   candidate's retained source OID exactly equals the clean worktree `HEAD`.
+4. Under the still-active user mandate, authorize that exact replacement and
+   wait for validation and promotion. Do not ask the user to approve it again.
+5. Repeat for further in-scope CI failures until a candidate passes and is
+   promoted, or until an external blocker or a scope boundary genuinely requires
+   user input.
+
+An amended source always requires a new exact Tollgate candidate. It requires
+renewed user approval only when the amendment materially changes the approved
+scope, behavior, review artifact, or intent rather than merely repairing CI.
+
+### Completion and push
+
+If repository policy enables remote push, wait for Tollgate to finish both
+local promotion and its exact leased push. If automatic push is disabled, run
+`tg --no-launch push` after local promotion so only Tollgate-certified contiguous
+commits are sent. Never substitute a raw `git push` for this step.
+
+Finally confirm:
+
+- Tollgate reports the candidate promoted and the repository healthy;
+- local `release` contains the promoted tested OID;
+- configured remote `master` equals local `release`; and
+- no unrelated commit was rewritten or reordered.
+
+Do not update the user's local `master` checkout as part of this workflow. It
+may remain behind after certified promotion and can later be synchronized by
+the user with an ordinary `git pull --ff-only` in the primary checkout. Report
+that state when relevant; never treat a stale user-owned `master` as failed
+promotion.
+
+If validation, promotion, or push fails, do not bypass the gate or clean up the
+worktree. Inspect the candidate status and logs, preserve all evidence, and
+repair only within the task worktree when the source itself must change.
 
 ## 5. Clean up (only after a successful promotion)
 
-First, clean up every item in the runtime ledger. Shut down the demo server you
-started in step 3 and any related child processes. Kill only the recorded
-processes, process group, session, or specific port for this task — never with a
-broad pattern that could also kill a server the user is running in their primary
-tree. Confirm the demo port is free, browser automation sessions are closed, and
-no worktree-rooted emulator or watcher processes remain before continuing.
+Runtime-ledger cleanup should already have happened immediately before
+authorization. Recheck it after promotion: kill only the recorded processes,
+process group, browser session, or exact task port — never with a broad pattern
+that could stop another worktree's server. Confirm the demo port is free,
+browser automation sessions are closed, and no worktree-rooted emulator or
+watcher remains.
 
-Then remove the worktree and delete its now-redundant local branch:
+Tollgate normally removes an eligible clean source worktree and its branch after
+successful promotion and remote synchronization. Verify whether `$WORKTREE` and
+`$BRANCH` still exist. If Tollgate reports cleanup `needs-attention`, inspect the
+exact reason and use `tg worktree remove "$WORKTREE"` when it is safe. Do not
+silently force-remove a worktree whose identity, cleanliness, or source OID no
+longer matches the captured candidate.
 
-```bash
-git -C "$REPO_ROOT" worktree remove "$WORKTREE"
-git -C "$REPO_ROOT" branch -D "$BRANCH"
-```
-
-Because the demo server was serving out of `$WORKTREE`, it must be stopped before
-`worktree remove` so the directory can be cleanly removed.
-
-Do not delete the worktree or local branch if promotion was declined or did not
-complete cleanly. If promotion was declined, leave the staged changes,
-worktree, and branch in place, then ask whether the user wants to keep the demo
-server running. If they are done reviewing, or if they ask to stop, clean up the
-runtime ledger even though the branch remains. If they deliberately keep the
-demo server running, state exactly which URL/port is still live and remind them
-that it should be stopped when review is finished.
+Do not delete the worktree or branch if promotion did not complete cleanly.
+If promotion is explicitly declined, cancel the unauthorized candidate with
+`tg cancel <candidate-id>` so it cannot block later queue promotion, leave the
+local commit and worktree intact, and ask whether the user wants to keep the
+demo server running. If they are done reviewing, or if they ask to stop, clean
+up the runtime ledger even though the committed branch remains. A future attempt
+may resubmit that same clean commit as a new candidate.
 
 Before ending the task, run a final resource check scoped to the recorded
 ledger: verify the demo port, browser session, and worktree-rooted server or
 emulator processes are either stopped or explicitly being left alive at the
-user's request. Also verify the worktree path and local branch are gone after a
-successful promotion. Report any intentionally retained runtime resources or
-worktrees in the final message.
+user's request. Also verify the candidate's terminal state and that the
+worktree path and local branch are gone after successful promotion. Report any
+intentionally retained runtime resources or worktrees in the final message.
 
 ## 6. Follow-up requests stay with the active review worktree
 
 Any follow-up request that builds on an unpromoted `/wt` task — refinements,
 fixes, adjustments to what was just implemented, or feedback from the live demo
-and screenshots — must continue in the **same existing worktree and branch**
-until the user either approves promotion or declines it. Do **not** create a new
-worktree while the previous `/wt` review is still active. The user is reviewing
-one coherent branch; keep subsequent changes on that branch, update the running
-demo from that same worktree, stage the revised deliverable, recapture
-screenshots, and then ask the commit-and-promote/leave-staged question again
-with the updated artifacts. Do not commit or push the branch during follow-up
-review.
+and screenshots — must continue in the **same existing worktree and branch**.
+Do **not** create a new worktree while the previous `/wt` review is still active
+or while an approved promotion mandate is being completed. The user is
+reviewing and promoting one coherent branch.
+
+Before editing a candidate already submitted to Tollgate, cancel its exact
+candidate ID and confirm it has left the active queue. Then make the follow-up
+changes in the same worktree, stage them, and amend the single local source
+commit rather than stacking another task commit:
+
+```bash
+tg --no-launch cancel <old-candidate-id>
+git -C "$WORKTREE" commit --amend
+tg --no-launch --json candidate HEAD
+```
+
+Run the appropriate focused verification again, update the running demo from
+that worktree, recapture only affected screenshots, and record the replacement
+candidate ID and source OID. Before the user has granted a promotion mandate, a
+user-requested refinement changes the review artifact and the replacement needs
+explicit approval. After the user has granted the mandate, an in-scope CI repair
+inherits that mandate and its exact replacement candidate should be authorized
+without another prompt. A material change to approved scope, behavior, or
+user-visible intent still requires renewed review and approval. Do not push the
+worktree branch.
 
 An "active review worktree" exists only when you created it earlier in this
 same conversation and handed its artifacts to the user for review, or when the
 user explicitly identifies the worktree or branch to continue. A matching entry
 from `git worktree list`, a suggestive branch name, nearby commits, or
 uncommitted changes does not make a worktree active for your task. Never infer
-ownership or continuity from repository state.
+ownership or continuity from repository state. Track the active Tollgate
+candidate ID alongside the worktree identity; filesystem discovery alone is
+not enough to rediscover promotion authority.
 
-Do **not** implement the follow-up directly on the primary tree's `master`.
+Do **not** implement the follow-up directly on the primary tree's user-owned
+`master`.
 The active review worktree remains the isolation boundary until promotion is
 resolved.
 
@@ -464,6 +627,7 @@ for the task, for example:
 - promotion was declined and the user is asking for a new, separate attempt;
 - the follow-up is unrelated to the active review branch.
 
-After a prior promotion has landed on `master` and cleanup is complete, the next
+After a prior promotion has landed on local `release` (and remote `master` when
+configured) and cleanup is complete, the next
 change gets its own worktree rather than an in-place edit of the primary
 checkout.
