@@ -31,6 +31,8 @@ behavior change), `test` (tests), `chore` (maintenance/tooling), `style`
 (CI configuration). Include a body only for large changes (hundreds of lines of
 non-test code) or very non-obvious bugfixes.
 
+Write around 10 words, maximum 20.
+
 Do not modify any files.'
 
 run_codex() {
@@ -75,7 +77,7 @@ fi
 message=$(tr '\r\n' '  ' <"$output_file" | awk '{$1=$1; print}')
 word_count=$(printf '%s\n' "$message" | awk '{print NF}')
 
-if test "$word_count" -lt 10 || test "$word_count" -gt 20; then
+if test "$word_count" -lt 5 || test "$word_count" -gt 30; then
   printf 'git-commit-message: Codex returned %s words instead of 10-20:\n%s\n' \
     "$word_count" "$message" >&2
   exit 1

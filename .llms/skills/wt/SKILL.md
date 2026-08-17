@@ -152,6 +152,37 @@ synchronous candidate-submission error blocks the initial handoff. An
 asynchronous validation result is handled when the user answers: approval waits
 for valid evidence and promotion, while a declined candidate is canceled.
 
+### Generate a clickable worktree review link
+
+After submitting the candidate and before presenting the review/promotion
+handoff, construct a link that opens this exact worktree in the Worktree Review
+VS Code extension. The direct extension URI is:
+
+```text
+vscode://dthurn.worktree-review/review?worktree=<URL-encoded-absolute-worktree-path>&base=release
+```
+
+Do not present that custom-scheme URI directly in ChatGPT or Codex. The desktop
+app does not open it reliably. URL-encode the complete extension URI again as
+the `url` parameter of the VS Code HTTPS redirector:
+
+```text
+https://vscode.dev/redirect?url=<URL-encoded-complete-vscode-URI>
+```
+
+Present the result as a Markdown link named **Open worktree review**. Always use
+the captured absolute `$WORKTREE` path and `base=release`; do not substitute the
+worktree slug, branch name, a relative path, or `master`. Preserve both encoding
+layers: the worktree path and base belong to the inner URI, while the entire
+inner URI belongs to the outer redirect URL.
+
+Include this link in the initial review/promotion handoff for every implemented
+task, whether or not the task has visual artifacts. Put it in a normal Codex app
+message where Markdown links are clickable, not only inside `AskUserQuestion`.
+The link is a review artifact and must appear before the explicit Yes/No
+promotion choice. Do not repeat it after successful promotion and cleanup,
+because Tollgate may have removed the worktree by then.
+
 ## 3. Prompt before authorizing promotion
 
 When the task is complete, the review artifacts are ready, and the exact
@@ -364,21 +395,27 @@ Rules for Codex app screenshot delivery:
 
 The Codex app review/promotion handoff should include, in this order:
 
-1. The direct demo URL on its own line.
-2. Numbered instructions for reproducing the visual result from the clean state
+1. The **Open worktree review** Markdown link generated from the absolute
+   worktree path.
+2. The direct demo URL on its own line.
+3. Numbered instructions for reproducing the visual result from the clean state
    opened by that URL.
-3. Any short note needed to explain the state it opens, such as the viewport or
+4. Any short note needed to explain the state it opens, such as the viewport or
    persisted local room.
-4. Each screenshot rendered inline using Markdown image syntax.
-5. A brief note that the server will remain running until the user answers.
-6. The worktree name in bold.
-7. The authorization question with explicit "Yes" and "No" options, either via
+5. Each screenshot rendered inline using Markdown image syntax.
+6. A brief note that the server will remain running until the user answers.
+7. The worktree name in bold.
+8. The authorization question with explicit "Yes" and "No" options, either via
    `AskUserQuestion` immediately after the artifact message or, when that tool
    is unavailable, in the same assistant message.
 
 Example:
 
 ```md
+Worktree review:
+
+[Open worktree review](https://vscode.dev/redirect?url=<encoded-vscode-URI>)
+
 Demo URL:
 
 http://localhost:5174/dreamscape/0-firstlight-meadow?game=abc123
