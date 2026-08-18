@@ -2,10 +2,16 @@
 
 set -eu
 
-codex_bin=$(command -v codex 2>/dev/null) || {
+bundled_codex=/Applications/ChatGPT.app/Contents/Resources/codex
+
+if codex_bin=$(command -v codex 2>/dev/null); then
+  :
+elif test -x "$bundled_codex"; then
+  codex_bin=$bundled_codex
+else
   echo "git-commit-message: codex is not installed or not on PATH" >&2
   exit 127
-}
+fi
 
 repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
   echo "git-commit-message: run this inside a Git repository" >&2
@@ -51,7 +57,6 @@ run_codex() {
 }
 
 if ! run_codex "$codex_bin"; then
-  bundled_codex=/Applications/ChatGPT.app/Contents/Resources/codex
   if grep -q "requires a newer version of Codex" "$error_file" &&
     test -x "$bundled_codex" &&
     test "$codex_bin" != "$bundled_codex"
