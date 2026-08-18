@@ -140,9 +140,11 @@ context. Include:
    responsive, safe-area, or rendering risks. Use a full-screen image for
    holistic composition and a tight selector crop only when the localized
    detail would otherwise be unreadable. Verify file dimensions with `file`
-   after capture. With `agent-browser`: `set viewport W H 2`; use a unique
-   `--session <group-slug>` and a unique dev-server port per group, and kill
-   only its own server (by port/PID) when done. Capture and inspect one
+   after capture. Use the globally configured Playwright MCP tools; each group
+   receives an isolated BrowserContext from the singleton service. Resize to
+   the intended CSS viewport before capture, close only the group's MCP browser
+   context afterward, use a unique dev-server port per group, and kill only
+   its own server (by port/PID) when done. Capture and inspect one
    representative state before an expensive final matrix so a wrong visual
    direction is corrected early.
 6. **Report contract:** the final message must be a structured report — per

@@ -12,6 +12,7 @@ alias claude="claude --dangerously-skip-permissions --remote-control"
 alias abu="just abu"
 alias codex="codex --dangerously-bypass-approvals-and-sandbox"
 alias fd="fd -I"
+alias sg='git -C "$HOME" --git-dir="$HOME/shadowverse" --work-tree="$HOME"'
 
 alias ne="npm run editor2"
 alias nr="npm run qai"

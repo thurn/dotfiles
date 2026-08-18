@@ -1,0 +1,4 @@
+interface:
+  display_name: "Worktree Sequence"
+  short_description: "Pipeline plan tasks through review and Tollgate"
+  default_prompt: "Use $wt-sequence to implement this discrete task plan with one task under review and one task executing speculatively."

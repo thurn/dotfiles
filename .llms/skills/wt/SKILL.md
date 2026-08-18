@@ -344,21 +344,16 @@ quota. Add a full-screen viewport only when it demonstrates a distinct risk.
 Use DOM geometry and state assertions for objective behavioral or layout claims
 rather than multiplying screenshots.
 
-Every `agent-browser` run must use a unique session name for this task, and that
-session name must be recorded in the runtime ledger. Reuse the same session for
-all screenshots and browser QA for this task. When browser QA is complete, close
-or stop that exact session and verify its controller and headless Chrome
-processes are gone. Do not leave `agent-browser` controllers or
-`agent-browser-chrome-*` profiles running after the task is complete.
+Use the globally configured Playwright MCP tools for screenshots and browser
+QA. Each MCP client receives its own isolated BrowserContext from the singleton
+HTTP service, so reuse this task's MCP client for the full walkthrough. Record
+the browser context in the runtime ledger and close it with the MCP browser
+close tool when QA is complete. Leave the shared Playwright MCP launchd service
+running for other tasks; it owns the single shared Chromium process.
 
-**Capture screenshots at high pixel density so they stay legible.** Set a
-**2× device scale** *before* taking each screenshot so the output has enough
-detail to read during QA. With `agent-browser` the device-scale argument is the
-third value of the viewport command — do not omit it:
-
-```bash
-agent-browser set viewport 1920 1080 2   # the trailing "2" is the 2x scale — required
-```
+**Capture screenshots at high pixel density so they stay legible.** The shared
+Playwright MCP service creates contexts at 2× device scale. Set the CSS viewport
+with the MCP browser resize tool before each screenshot.
 
 **Always verify the result after capturing** — do not assume the viewport
 setting took effect. Run `file <path>` to confirm the dimensions match the full
