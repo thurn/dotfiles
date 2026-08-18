@@ -1,0 +1,4 @@
+interface:
+  display_name: "QQ"
+  short_description: "Answer questions before implementing changes"
+  default_prompt: "Use $qq to address every question and instruction, then wait for my approval before implementing."
