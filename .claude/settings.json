@@ -11,6 +11,7 @@
     "deny": [],
     "defaultMode": "dontAsk"
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {},
   "statusLine": {
     "type": "command",
@@ -26,11 +27,11 @@
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
+  "theme": "light",
   "agentPushNotifEnabled": true,
   "voiceEnabled": true,
   "thinkingBudget": "high",
   "feedbackSurveyState": {
     "lastShownTime": 1754106712799
-  },
-  "model": "claude-fable-5[1m]"
+  }
 }
