@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adversarial Test Validation"
+  short_description: "Mutation-based validation of test coverage"
+  default_prompt: "Use $adversarial-test-validation to challenge this project’s tests with five realistic bugs."

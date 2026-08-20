@@ -154,6 +154,12 @@ for valid evidence and promotion, while a declined candidate is canceled.
 
 ### Generate a clickable worktree review link
 
+An implemented task is not complete at the review-handoff stage until the
+user-facing completion message provides a clickable **Open worktree review**
+link for the exact task worktree. This applies to every implemented task,
+including nonvisual changes and tasks that do not need a demo server. Treat an
+omitted link as an incomplete handoff and provide it before asking for promotion.
+
 After submitting the candidate and before presenting the review/promotion
 handoff, construct a link that opens this exact worktree in the Worktree Review
 VS Code extension. The direct extension URI is:
