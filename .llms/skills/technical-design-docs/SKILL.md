@@ -32,6 +32,14 @@ Follow these rules for all documents generated with this skill:
 - Do not ask for approval of the outline, individual sections, or final draft.
 - Make the document standalone. Do not assume access to the prompt,
   conversation, chat history, or unstated local context.
+- Use plain, established language. Do not invent jargon, branded labels, or new
+  names for concepts when ordinary words communicate the same meaning.
+- Reject unexplained terminology. On first use, write any term whose meaning
+  may not be obvious to the intended reader in bold and define it briefly in
+  the same sentence or paragraph. Do not add a glossary.
+- When a concept needs more than a short inline definition, give the simple
+  definition first and add a forward link such as "see the
+  [Request Routing](#request-routing) section below" to the fuller explanation.
 - Link to all other relevant information very prominently near the top of the
   document.
 - Emphasize goals, constraints, decisions, acceptance criteria, and manual
@@ -105,20 +113,31 @@ the design document.
 ### 4. Reader-test the document with a fresh sub-agent
 
 If the environment supports sub-agents, validate the document with a fresh
-sub-agent that has no access to the earlier conversation context.
+sub-agent that has no access to the earlier conversation context. This
+**cold reader** is a reader who sees only the document and brings no context
+from its creation.
 
 Give the sub-agent only the document and a short task such as:
 
 - Summarize the problem, proposal, and expected benefits
 - List the major constraints and validation expectations
 - Identify any knowledge the document assumes but does not explain
-- Identify ambiguous terms, unclear decisions, or missing migration or
-  compatibility requirements
+- Perform a "what the fuck are you talking about" pass: flag jargon, invented
+  terms, ambiguous labels, acronyms, and domain-specific language that a cold
+  reader may not understand immediately
+- Read from top to bottom and flag every place where understanding depends on a
+  definition, fact, or concept that appears only later or never appears
+- Identify unclear decisions or missing migration or compatibility requirements
 - State whether the document is understandable as a standalone artifact
 
 Treat the result as a reader-comprehension test, not as a co-authoring pass.
-Fix any gaps the sub-agent finds. If the first pass finds meaningful issues,
-run one more fresh-reader pass after revising.
+Replace unnecessary jargon with plain language. For an unfamiliar term that
+must remain, bold and define it inline on first use. If it needs a fuller
+explanation, add a simple definition followed by a forward link to the relevant
+section below. Reorder the document whenever a reader needs information before
+the document supplies it. Fix every comprehension gap before finishing. If the
+first pass finds meaningful issues, run one more fresh-reader pass after
+revising.
 
 If sub-agents are unavailable, do the same check yourself by pretending you
 only have the document and none of the conversation context. Use the same
@@ -172,8 +191,22 @@ its own.
 
 Write for a reader who has not seen the original request.
 
-- Expand or define unfamiliar acronyms on first use
-- Explain system-specific terminology when it first appears
+- Prefer familiar words over coined names, internal shorthand, or jargon. Do
+  not give an ordinary concept a special name merely to make the proposal sound
+  more formal or distinctive.
+- Expand unfamiliar acronyms on first use. If the expanded phrase may still be
+  unfamiliar, treat it as an unfamiliar term and define it.
+- On first use, bold every term whose meaning may not be obvious to the intended
+  reader and supply a short inline definition. A useful form is: "**Term** means
+  ..." The definition must appear in the same sentence or paragraph.
+- Do not add a glossary. A reader must not need to leave the point of first use
+  to understand a term.
+- If a concept requires more detail, start with a simple inline definition and
+  then link forward by section name, for example: "see the
+  [Request Routing](#request-routing) section below."
+- Introduce information in dependency order. Explain the problem and the
+  concepts needed to understand a decision before presenting that decision.
+  Do not rely on a later section to make an earlier section intelligible.
 - Pull critical assumptions into the document itself
 - Include enough background for a reader to understand why the change exists
 - Never refer to "the prompt", "the request above", "the discussion", or
@@ -255,6 +288,11 @@ If the user asks to revise an existing design doc, preserve the author's
 intent while applying this skill's standards:
 
 - Fill in missing standalone context
+- Replace invented jargon and unnecessary terminology with plain language
+- Bold and define unavoidable unfamiliar terms inline on first use; never add a
+  glossary
+- Reorder content when a section depends on concepts that have not yet been
+  introduced
 - Promote related links near the top
 - Remove code, pseudocode, or diagrams if the user wants this style
 - Remove `Open Questions`, `Risks and Tradeoffs`, and `Non-Goals` sections
@@ -267,6 +305,13 @@ intent while applying this skill's standards:
 Before finishing:
 
 - Confirm the document is complete and self-contained
+- Confirm no invented jargon or unnecessary terminology remains
+- Confirm every unavoidable unfamiliar term is bold and defined inline on first
+  use, with no glossary
+- Confirm concepts needing more explanation have a simple definition followed
+  by a forward link to the relevant section below
+- Confirm the document reads coherently from top to bottom without relying on
+  definitions or context introduced later
 - Confirm related links are prominent
 - Confirm there are no code or pseudocode blocks
 - Confirm there are no diagrams
