@@ -520,6 +520,9 @@ candidate, check out or move `release`, fast-forward it yourself, cherry-pick th
 or push the feature branch. Those operations would replace the exact tested
 object or race Tollgate's authoritative state.
 
+When promoting via `tg`, please report whether a new CI run is needed or if
+tollgate was apple to use a prior run for immediate promotion.
+
 ### Queue-revision conflicts are refreshed, not bypassed
 
 Authorization uses a queue-revision compare-and-swap. If it loses a race to
