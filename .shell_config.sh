@@ -4,7 +4,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 alias cdd="cd ~/dreamtides"
 alias cdq="cd ~/quest_prototype"
-alias cdm="cd ~/masonry"
+alias cdb="cd ~/battlement"
 alias cdj="cd ~/journeys"
 alias st="git status"
 alias am="git commit -a --amend -C HEAD"

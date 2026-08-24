@@ -34,9 +34,13 @@ Follow these rules for all documents generated with this skill:
   conversation, chat history, or unstated local context.
 - Use plain, established language. Do not invent jargon, branded labels, or new
   names for concepts when ordinary words communicate the same meaning.
-- Reject unexplained terminology. On first use, write any term whose meaning
-  may not be obvious to the intended reader in bold and define it briefly in
-  the same sentence or paragraph. Do not add a glossary.
+- Assume the intended reader has the knowledge expected of a computer science
+  graduate with basic familiarity with the problem domain. Do not define
+  standard languages, formats, frameworks, protocols, identifiers, or domain
+  concepts that such a reader would know, including terms such as C#, JSON,
+  UUID, and UI Toolkit. Define only project-specific, newly introduced, or
+  genuinely ambiguous terminology. Put each necessary definition in the same
+  sentence or paragraph as its first use, and do not add a glossary.
 - When a concept needs more than a short inline definition, give the simple
   definition first and add a forward link such as "see the
   [Request Routing](#request-routing) section below" to the fuller explanation.
@@ -121,23 +125,25 @@ Give the sub-agent only the document and a short task such as:
 
 - Summarize the problem, proposal, and expected benefits
 - List the major constraints and validation expectations
-- Identify any knowledge the document assumes but does not explain
-- Perform a "what the fuck are you talking about" pass: flag jargon, invented
-  terms, ambiguous labels, acronyms, and domain-specific language that a cold
-  reader may not understand immediately
+- Identify any knowledge the document assumes beyond a computer science
+  graduate's basic familiarity with the problem domain
+- Perform a "what the fuck are you talking about" pass: flag invented terms,
+  ambiguous labels, internal shorthand, and specialized language that exceeds
+  that baseline. Do not flag standard technical or domain terminology merely
+  because it is not defined.
 - Read from top to bottom and flag every place where understanding depends on a
   definition, fact, or concept that appears only later or never appears
 - Identify unclear decisions or missing migration or compatibility requirements
 - State whether the document is understandable as a standalone artifact
 
 Treat the result as a reader-comprehension test, not as a co-authoring pass.
-Replace unnecessary jargon with plain language. For an unfamiliar term that
-must remain, bold and define it inline on first use. If it needs a fuller
-explanation, add a simple definition followed by a forward link to the relevant
-section below. Reorder the document whenever a reader needs information before
-the document supplies it. Fix every comprehension gap before finishing. If the
-first pass finds meaningful issues, run one more fresh-reader pass after
-revising.
+Replace unnecessary jargon with plain language. Define only project-specific,
+newly introduced, or genuinely ambiguous terms that a reader with the expected
+background would not know. If such a term needs a fuller explanation, add a
+simple definition followed by a forward link to the relevant section below.
+Reorder the document whenever a reader needs information before the document
+supplies it. Fix every comprehension gap before finishing. If the first pass
+finds meaningful issues, run one more fresh-reader pass after revising.
 
 If sub-agents are unavailable, do the same check yourself by pretending you
 only have the document and none of the conversation context. Use the same
@@ -194,11 +200,13 @@ Write for a reader who has not seen the original request.
 - Prefer familiar words over coined names, internal shorthand, or jargon. Do
   not give an ordinary concept a special name merely to make the proposal sound
   more formal or distinctive.
-- Expand unfamiliar acronyms on first use. If the expanded phrase may still be
-  unfamiliar, treat it as an unfamiliar term and define it.
-- On first use, bold every term whose meaning may not be obvious to the intended
-  reader and supply a short inline definition. A useful form is: "**Term** means
-  ..." The definition must appear in the same sentence or paragraph.
+- Assume readers have the knowledge expected of a computer science graduate
+  with basic familiarity with the problem domain. Do not expand or define
+  standard terms and acronyms that audience would know, such as C#, JSON, UUID,
+  HTTP, API, or the names of the domain's established frameworks and systems.
+- On first use, bold and briefly define only project-specific, newly introduced,
+  or genuinely ambiguous terms. The definition must appear in the same sentence
+  or paragraph.
 - Do not add a glossary. A reader must not need to leave the point of first use
   to understand a term.
 - If a concept requires more detail, start with a simple inline definition and
@@ -289,8 +297,9 @@ intent while applying this skill's standards:
 
 - Fill in missing standalone context
 - Replace invented jargon and unnecessary terminology with plain language
-- Bold and define unavoidable unfamiliar terms inline on first use; never add a
-  glossary
+- Bold and define unavoidable project-specific or genuinely ambiguous terms
+  inline on first use; never add a glossary or definitions of baseline
+  technical and domain terminology
 - Reorder content when a section depends on concepts that have not yet been
   introduced
 - Promote related links near the top
@@ -306,8 +315,9 @@ Before finishing:
 
 - Confirm the document is complete and self-contained
 - Confirm no invented jargon or unnecessary terminology remains
-- Confirm every unavoidable unfamiliar term is bold and defined inline on first
-  use, with no glossary
+- Confirm every unavoidable project-specific or genuinely ambiguous term is
+  bold and defined inline on first use, with no glossary and no definitions of
+  terminology covered by the expected reader baseline
 - Confirm concepts needing more explanation have a simple definition followed
   by a forward link to the relevant section below
 - Confirm the document reads coherently from top to bottom without relying on

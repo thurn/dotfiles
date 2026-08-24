@@ -1,11 +1,11 @@
 ---
 name: wt
-description: Implement and commit a task in an isolated git worktree based on Tollgate's local release branch, immediately submit it as a non-promotable candidate, then obtain one explicit promotion mandate and drive in-scope CI repairs, certified promotion, and remote synchronization to completion without repeated approval prompts.
+description: Implement and commit a task in an isolated, Tollgate-created git worktree based on the local release branch, immediately submit it as a non-promotable candidate, then obtain one explicit promotion mandate and drive in-scope CI repairs, certified promotion, and remote synchronization to completion without repeated approval prompts.
 ---
 
 # Worktree Task
 
-Implement and commit the requested task inside a standalone git worktree,
+Implement and commit the requested task inside a standalone Tollgate-created git worktree,
 immediately submit the immutable commit to Tollgate for speculative validation,
 then offer one scope-bound promotion mandate. After approval, authorize exact
 Tollgate candidates and keep repairing and resubmitting in-scope CI failures
@@ -31,56 +31,74 @@ in the primary tree. Once the worktree exists, perform all implementation,
 code-based investigation, and verification against the worktree.
 
 **When implementation begins, always create a fresh worktree for a new task.**
-An existing worktree with a similar name, branch, subject, or apparent prior
-progress is not an invitation to reuse it. Do not inspect that worktree's
-status, log, diff, or files to decide whether it is relevant; it may belong to
-the user or another agent. Finding an existing worktree and continuing there is
-prohibited.
+Worktree ownership is categorical: if you did not create a worktree earlier in
+this same conversation, you must not inspect, modify, run commands in, commit,
+submit, clean up, or otherwise use it. An existing worktree with a similar name,
+branch, subject, or apparent prior progress belongs to another owner. Finding it
+or being told that it exists never transfers ownership.
+
+If the user asks you to continue, reuse, repair, or otherwise work in a
+worktree that you did not create, stop before inspecting it or making any
+changes and ask for explicit clarification. Explain that this skill does not
+permit cross-owner worktree modification, and ask whether the user wants you to
+create a fresh Tollgate worktree or have the original owner continue the
+existing worktree. Repeating or confirming the request does not transfer
+ownership; do not enter the existing worktree.
 
 Do not append the worktree name to routine progress updates or every turn. State
 the worktree name in bold in the review/promotion handoff that asks the user the
 explicit Yes/No promotion question.
 
-The only exceptions are:
+The only exception is a follow-up to an unpromoted worktree that you created
+earlier in this same conversation, as defined in section 6. If your chosen slug
+or branch already exists and you did not create it, choose a new slug and create
+a new worktree; do not open or reuse the existing one.
 
-- the user explicitly tells you in the current request to continue in a
-  specific existing worktree or branch; or
-- this task is a follow-up to an unpromoted worktree that you created earlier
-  in the same conversation, as defined in section 6.
-
-Filesystem discovery alone never establishes either exception. If your chosen
-slug or branch already exists, choose a new slug and create a new worktree; do
-not open or reuse the existing one.
-
-From the current repository root, create an isolated worktree under
-`.worktrees/`:
+From the current repository root, choose the task branch name and capture the
+current certified release OID:
 
 ```bash
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 SLUG="<short-kebab-case-name-for-the-task>"
 BRANCH="wt/$SLUG"
-WORKTREE="$REPO_ROOT/.worktrees/$SLUG"
-git -C "$REPO_ROOT" worktree add -b "$BRANCH" "$WORKTREE" release
+RELEASE_OID="$(git -C "$REPO_ROOT" rev-parse release)"
 ```
 
-Pick `SLUG` from the task description. If `.worktrees/` is not already
-git-ignored, that is fine — the worktree directory itself is registered with git
-and not treated as untracked content.
-
-After creating the worktree, confirm that `tg` is installed, the repository is
-registered, and Tollgate is healthy. Run these checks from `$WORKTREE` so
-repository auto-selection uses the task's own checkout:
+Pick `SLUG` from the task description. Before creation, confirm that `tg` is
+installed, the repository is registered, and Tollgate is healthy:
 
 ```bash
 command -v tg
-tg --no-launch status
-tg --no-launch doctor
+git -C "$REPO_ROOT" status --short
+(cd "$REPO_ROOT" && tg --no-launch status)
+(cd "$REPO_ROOT" && tg --no-launch doctor)
 ```
 
 If Tollgate is unavailable, the repository is not registered, or the doctor
 reports a blocking problem, stop and report the setup problem. Do not silently
 fall back to direct Git promotion: that would discard the speculative evidence
 and exact-promotion guarantees this workflow exists to provide.
+
+Create every fresh task worktree through Tollgate:
+
+```bash
+cd "$REPO_ROOT"
+tg --no-launch worktree create "$BRANCH"
+```
+
+Never replace this command with raw `git worktree add`. Record the absolute path
+printed by Tollgate as `$WORKTREE`; Tollgate owns the placement policy, so do not
+assume the path is beneath the primary checkout. Confirm that the reported branch
+is exactly `$BRANCH` and the worktree `HEAD` equals the captured `$RELEASE_OID`.
+
+After creation, rerun repository selection and health checks from `$WORKTREE`
+so they use the task's own checkout:
+
+```bash
+cd "$WORKTREE"
+tg --no-launch status
+tg --no-launch doctor
+```
 
 ## 2. Implement the task
 
@@ -181,6 +199,12 @@ the captured absolute `$WORKTREE` path and `base=release`; do not substitute the
 worktree slug, branch name, a relative path, or `master`. Preserve both encoding
 layers: the worktree path and base belong to the inner URI, while the entire
 inner URI belongs to the outer redirect URL.
+
+The Markdown link's actual destination must begin with
+`https://vscode.dev/redirect?url=` and its decoded `url` parameter must begin
+with `vscode://dthurn.worktree-review/review?`. Do not link the filesystem path
+directly and do not use `vscode://file/...`; those only open the folder and never
+invoke Worktree Review.
 
 Include this link in the initial review/promotion handoff for every implemented
 task, whether or not the task has visual artifacts. Put it in a normal Codex app
@@ -648,13 +672,12 @@ user-visible intent still requires renewed review and approval. Do not push the
 worktree branch.
 
 An "active review worktree" exists only when you created it earlier in this
-same conversation and handed its artifacts to the user for review, or when the
-user explicitly identifies the worktree or branch to continue. A matching entry
-from `git worktree list`, a suggestive branch name, nearby commits, or
-uncommitted changes does not make a worktree active for your task. Never infer
-ownership or continuity from repository state. Track the active Tollgate
-candidate ID alongside the worktree identity; filesystem discovery alone is
-not enough to rediscover promotion authority.
+same conversation and handed its artifacts to the user for review. A user naming
+another worktree or branch, a matching entry from `git worktree list`, a
+suggestive branch name, nearby commits, or uncommitted changes does not make that
+worktree active for your task. Never infer or accept ownership or continuity
+from repository state or a cross-owner handoff request. Track the active
+Tollgate candidate ID alongside the worktree identity.
 
 Do **not** implement the follow-up directly on the primary tree's user-owned
 `master`.
@@ -662,11 +685,12 @@ The active review worktree remains the isolation boundary until promotion is
 resolved.
 
 Start a fresh worktree only when there is no active unpromoted review worktree
-for the task, for example:
+that you own for the task, for example:
 
 - the previous `/wt` task was already promoted and cleaned up;
 - promotion was declined and the user is asking for a new, separate attempt;
-- the follow-up is unrelated to the active review branch.
+- the follow-up is unrelated to the active review branch; or
+- the relevant existing worktree was created by another agent or conversation.
 
 After a prior promotion has landed on local `release` (and remote `master` when
 configured) and cleanup is complete, the next
