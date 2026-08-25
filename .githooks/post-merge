@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+readonly repo_root="$(git rev-parse --show-toplevel)"
+
+[[ "$(git config --local --get btt.syncEnabled || true)" == "true" ]] || exit 0
+
+exec "${repo_root}/.config/bettertouchtool/sync.sh" import

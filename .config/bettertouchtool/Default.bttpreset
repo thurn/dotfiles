@@ -1,0 +1,398 @@
+{
+  "BTTPresetCreatorNotes" : "Portable keybindings managed in thurn/dotfiles",
+  "BTTPresetName" : "Default",
+  "BTTPresetColor" : "144.154560, 223.380000, 98.287200, 255.000000",
+  "BTTPresetUUID" : "66291D50-BB12-48AB-9881-13CA48803E43",
+  "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+        "BTTDisableGlobalTriggers" : false
+      },
+      "BTTTriggers" : [
+        {
+          "BTTLastUpdatedAt" : 1774130653.251653,
+          "BTTTriggerType" : 116,
+          "BTTTriggerTypeDescriptionReadOnly" : "Pinch Out",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "0A447F7D-70BF-4F72-B901-ADCA7751F614",
+          "BTTOrder" : 4,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130631.1195688,
+              "BTTTriggerParentUUID" : "0A447F7D-70BF-4F72-B901-ADCA7751F614",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "397D7B6E-6885-4816-8F19-01A3221F8CE7",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "t",
+              "BTTShortcutToSend" : "56,55,17",
+              "BTTOrder" : 5
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787318219.054719,
+          "BTTTriggerType" : 624,
+          "BTTTriggerTypeDescriptionReadOnly" : "Please Select a Trigger ",
+          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+          "BTTUUID" : "177B7A50-2F0B-401A-9D46-A8FD3A77404A",
+          "BTTOrder" : 0
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130653.251642,
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "2FCA3F35-5FCD-420C-BBB5-53C01C42D7FE",
+          "BTTOrder" : 1,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130566.837368,
+              "BTTTriggerParentUUID" : "2FCA3F35-5FCD-420C-BBB5-53C01C42D7FE",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "2CAC76ED-69E0-46BD-BFE5-C792BB794994",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "TAB",
+              "BTTShortcutToSend" : "62,56,48",
+              "BTTOrder" : 2
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130653.25161,
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "7F848795-58D2-4D47-8DCA-5EA7B6469349",
+          "BTTOrder" : 2,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130590.1457648,
+              "BTTTriggerParentUUID" : "7F848795-58D2-4D47-8DCA-5EA7B6469349",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "81DD5CE8-FF61-4DB5-BE9E-E7D42B587597",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "TAB",
+              "BTTShortcutToSend" : "62,48",
+              "BTTOrder" : 3
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130653.2516298,
+          "BTTTriggerType" : 115,
+          "BTTTriggerTypeDescriptionReadOnly" : "Pinch In",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "A9EA8558-BA11-4E2A-9DA7-B0092920A03E",
+          "BTTOrder" : 3,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130618.6331801,
+              "BTTTriggerParentUUID" : "A9EA8558-BA11-4E2A-9DA7-B0092920A03E",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "58AC1271-038B-427E-BF53-80CD267EFEE2",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "w",
+              "BTTShortcutToSend" : "55,13",
+              "BTTOrder" : 4
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130658.9168029,
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "874E5995-1963-47F1-B67E-48EC16CC02D5",
+          "BTTOrder" : 6,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130666.6081409,
+              "BTTTriggerParentUUID" : "874E5995-1963-47F1-B67E-48EC16CC02D5",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "16C94AF1-87DF-4DD9-A8C2-4FA7C28C44A2",
+              "BTTPredefinedActionType" : 62,
+              "BTTPredefinedActionName" : "Home (Beginning of the Page)",
+              "BTTOrder" : 7
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130653.2516201,
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "286119FE-3A16-4174-AD22-87E7001FCEB3",
+          "BTTOrder" : 5,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130651.478394,
+              "BTTTriggerParentUUID" : "286119FE-3A16-4174-AD22-87E7001FCEB3",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "17F9D15C-A736-47F2-8CDC-E6594D241102",
+              "BTTPredefinedActionType" : 63,
+              "BTTPredefinedActionName" : "End (End of the Page)",
+              "BTTOrder" : 6
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130482.5274119,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+          "BTTUUID" : "9FAC589E-EBD2-4189-ABB9-34D9205584DB",
+          "BTTOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0
+        },
+        {
+          "BTTLastUpdatedAt" : 1774130653.251626,
+          "BTTTriggerType" : 104,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "50F596C8-DBF4-42E0-9261-2BB168F5D9A9",
+          "BTTOrder" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1774130511.1427541,
+              "BTTTriggerParentUUID" : "50F596C8-DBF4-42E0-9261-2BB168F5D9A9",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "75460552-A70B-4691-9C7C-8CCC62505A2F",
+              "BTTPredefinedActionType" : 2,
+              "BTTPredefinedActionName" : "CMD(⌘)+Click",
+              "BTTOrder" : 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.openai.codex",
+      "BTTAppName" : "ChatGPT",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppProcessMatchMode" : 2,
+      "BTTAppProcessName" : "ChatGPT",
+      "BTTTriggers" : [
+        {
+          "BTTLastUpdatedAt" : 1787319403.1427841,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "379641B9-BBC0-48C9-84B1-F22946D40C01",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "n",
+          "BTTShortcutKeyCode" : 45,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 2,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787318352.053407,
+              "BTTTriggerParentUUID" : "379641B9-BBC0-48C9-84B1-F22946D40C01",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "D891A2EC-CF8B-40E3-A2E5-BEA4F8853355",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "k",
+              "BTTShortcutToSend" : "62,40",
+              "BTTOrder" : 13
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319403.1427751,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "DAB89DA7-1D49-45D8-A9B6-458D2052DA46",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "d",
+          "BTTShortcutKeyCode" : 2,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 5,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787319401.9226332,
+              "BTTTriggerParentUUID" : "DAB89DA7-1D49-45D8-A9B6-458D2052DA46",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "FBBF460F-906A-4B23-87D1-0911B0752FC0",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "RIGHT",
+              "BTTShortcutToSend" : "124",
+              "BTTOrder" : 16
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319403.1427889,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "380F73A5-8675-46A5-85D7-ED8720D19645",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "l",
+          "BTTShortcutKeyCode" : 37,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 1,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787318336.095094,
+              "BTTTriggerParentUUID" : "380F73A5-8675-46A5-85D7-ED8720D19645",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "C47A1C7B-CC09-4C48-83DB-2A24CA6D0F44",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "LEFT",
+              "BTTShortcutToSend" : "58,123",
+              "BTTOrder" : 12
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319403.1427951,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "0B5E44A9-099B-437A-8F41-4052ADF66F8C",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "j",
+          "BTTShortcutKeyCode" : 38,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 4,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787319392.0168819,
+              "BTTTriggerParentUUID" : "0B5E44A9-099B-437A-8F41-4052ADF66F8C",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "EEA822BB-2F75-49B4-98A3-6ECBF13237D8",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "DOWN",
+              "BTTShortcutToSend" : "125",
+              "BTTOrder" : 15
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319403.1427999,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "13AB3032-15E0-48A0-B812-7AA627348E50",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "k",
+          "BTTShortcutKeyCode" : 40,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 3,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787319382.9976799,
+              "BTTTriggerParentUUID" : "13AB3032-15E0-48A0-B812-7AA627348E50",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "E9B157C6-DAE1-4B55-BB74-3A2396D7F894",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "UP",
+              "BTTShortcutToSend" : "126",
+              "BTTOrder" : 14
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319411.5253839,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "77C477EE-759A-4C58-B2AF-E3220945C1B5",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : ";",
+          "BTTShortcutKeyCode" : 41,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 6,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787319415.5758619,
+              "BTTTriggerParentUUID" : "77C477EE-759A-4C58-B2AF-E3220945C1B5",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "476C5BCE-471E-4ACF-B668-D26836E77F84",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "LEFT",
+              "BTTShortcutToSend" : "123",
+              "BTTOrder" : 17
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1787319403.142817,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "DE014457-459D-4866-8C41-5191612AC5F2",
+          "BTTAdditionalConfiguration" : "270336",
+          "BTTShortcutKeyboardType" : -2052004921,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "f",
+          "BTTShortcutKeyCode" : 3,
+          "BTTShortcutAdvancedModifierKeys" : "270336",
+          "BTTShortcutModifierKeys" : 262144,
+          "BTTOrder" : 0,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1787318303.411325,
+              "BTTTriggerParentUUID" : "DE014457-459D-4866-8C41-5191612AC5F2",
+              "BTTIsPureAction" : true,
+              "BTTUUID" : "5056EA74-724C-4989-A21C-8311059A6BCF",
+              "BTTPredefinedActionType" : 264,
+              "BTTPredefinedActionName" : "",
+              "BTTLayoutIndependentActionChar" : "RIGHT",
+              "BTTShortcutToSend" : "58,124",
+              "BTTOrder" : 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.L",
+      "BTTAppName" : "Recently Used",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    }
+  ],
+  "BTTPresetSnapAreas" : [
+
+  ]
+}
