@@ -1,6 +1,6 @@
 # BetterTouchTool configuration
 
-`Default.bttpreset` is the Git-tracked source for the BetterTouchTool `Default`
+`Default.bttpreset` is the Git-tracked source for the BetterTouchTool `Dotfiles`
 preset. It contains triggers only; licenses, general preferences, usage data,
 and BetterTouchTool's live databases are deliberately excluded.
 
@@ -17,6 +17,10 @@ and BetterTouchTool's live databases are deliberately excluded.
 
 BetterTouchTool may display a security confirmation for the initial import.
 Confirm it and select the option to allow future imports if offered.
+
+BetterTouchTool rewrites timestamps, ordering, and other non-behavioral export
+metadata during import. Synchronization compares a canonical form that ignores
+those fields while retaining triggers, actions, shortcuts, and app settings.
 
 The setup script imports the tracked preset, verifies the result, configures
 this repository to use `.githooks`, and enables BetterTouchTool synchronization

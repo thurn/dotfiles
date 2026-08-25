@@ -26,7 +26,7 @@ if [[ "$(git -C "${repo_root}" config --local --get btt.syncEnabled || true)" ==
 fi
 
 if [[ "${1:-}" != "--yes" ]]; then
-  print "This will replace BetterTouchTool's Default preset with:"
+  print "This will replace BetterTouchTool's Dotfiles preset with:"
   print "  ${script_dir}/Default.bttpreset"
   print -n "Continue on this new, empty BetterTouchTool install? [y/N] "
   read -r reply
