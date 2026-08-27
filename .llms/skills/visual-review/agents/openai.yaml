@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Review"
+  short_description: "Visual QA for beautiful, minimal interfaces"
+  default_prompt: "Use $visual-review to inspect this running UI and report visual bugs and high-impact design improvements for a beautiful, minimal interface."
