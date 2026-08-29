@@ -532,10 +532,9 @@ already-authorized work in order, moves this exact candidate and its active hard
 dependencies ahead of unrelated candidates that are still awaiting promotion
 authority, and automatically rebuilds only the speculative suffix whose prefix
 changed. A later candidate must therefore not remain blocked merely because an
-earlier independent review has not received a user decision. Do not run
-`tg reorder` merely to bypass unrelated unauthorized candidates; reserve manual
-reordering for an explicit user-requested order that differs from authorization
-order.
+earlier candidate has not received a user decision. Do not run `tg reorder`
+merely to bypass unrelated unauthorized candidates; reserve manual reordering
+for an explicit user-requested order that differs from authorization order.
 
 Tollgate owns queue serialization, speculative-prefix reconstruction, evidence
 reuse, exact-parent verification, local `release` compare-and-swap, and any

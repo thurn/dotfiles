@@ -1,13 +1,13 @@
 ---
 name: independent-review
-description: Get one second opinion on a nontrivial code change by running Claude Code as an independent reviewer, then verify each finding against the real code and fix only what is confirmed. Run at most one review per session unless the user explicitly requests additional reviews. Use after finishing an implementation and before declaring it done, or when explicitly asked for an independent review. Triggers on independent review, second opinion, review my change, review this branch, have Claude review, /independent-review.
+description: Get one second opinion on a nontrivial code change from a fresh gpt-5.6-sol subagent, then verify each finding against the real code and fix only what is confirmed. Run at most one review per session unless the user explicitly requests additional reviews. Use after finishing an implementation and before declaring it done, or when explicitly asked for an independent review. Triggers on independent review, second opinion, review my change, review this branch, Sol review, /independent-review.
 ---
 
-# Independent Review
+# Independent Sol Review
 
 After a nontrivial code change, a fresh reviewer that has not been inside your
-own reasoning catches things you cannot. This skill runs Claude Code
-non-interactively over the change, then puts *you* in charge of deciding which
+own reasoning catches things you cannot. This skill delegates a read-only pass
+to a fresh `gpt-5.6-sol` subagent, then puts *you* in charge of deciding which
 of its findings are real.
 
 The reviewer is deliberately narrow: **bugs and architectural problems only** —
@@ -43,62 +43,44 @@ Run the project's own tests, formatter, linter, and typechecker, and make them
 pass. Follow whatever the repository's instructions say; if it defines a single
 aggregate check, run that. Fix what they report before continuing.
 
-### 2. Run the review script
+### 2. Run one independent Sol subagent
 
-```bash
-~/.llms/skills/independent-review/scripts/independent-review.sh --prompt "<the original task prompt>"
+Spawn a fresh subagent with the `gpt-5.6-sol` model. Use `fork_turns: "none"`
+so it does not inherit your reasoning, suspected problems, proposed fixes, or
+prior conclusions. Give it only the evidence needed to review the change:
+
+- the original user request, verbatim where practical;
+- the absolute repository or worktree path;
+- the base ref and exact review scope; and
+- relevant repository instruction-file paths.
+
+Tell the subagent to inspect the requested diff and surrounding code, remain
+strictly read-only, and return only actionable bugs, architectural problems,
+brittle tests, missing coverage for changed behavior, or duplication likely to
+diverge. It must cite exact file locations and explain a concrete failure mode.
+It must not edit files, run destructive commands, or report style, naming,
+aesthetic, or security observations.
+
+Use a prompt shaped like this:
+
+```text
+Independently review the completed change for the original request below.
+Work read-only: do not edit files or mutate repository state. Inspect the diff
+against <base-ref> in <absolute-worktree-path> and read enough surrounding code
+to validate each claim. Report only actionable correctness or architecture
+issues, brittle tests, missing coverage for changed behavior, or duplication
+likely to diverge. For every finding, cite the exact file and line, explain the
+concrete failure mode, and state why it belongs to this change. If there are no
+findings, say so plainly.
+
+Original request:
+<original user request>
 ```
 
-The script prints one line on stdout: the path to the review file under
-`/tmp/reviews/`. Read that file.
-
-The review takes between 10 and 20 minutes and intentionally emits no partial
-findings. Treat it as one blocking operation. When the command runner yields a
-process or session handle, use the longest supported waits and, when available,
-keep those waits inside one tool-orchestration call so unchanged polls do not
-reinvoke the model. Use tool-level progress notifications if needed. Do not
-narrate unchanged status, poll through repeated model turns, or restart a quiet
-review.
-
-**Pass the original prompt.** Supply the text of the request that created this
-work — the actual task the change was supposed to accomplish, verbatim where
-possible, not a summary of what you built. It is what lets the reviewer notice
-that part of the task was silently dropped or that the implementation answers a
-different question than the one asked. For a long prompt, write it to a file
-and use `--prompt-file`.
-
-With no `--target`, the script reviews all committed and uncommitted changes on
-the current branch relative to its base branch, including untracked files. That
-is the right default; pass `--target` only when you specifically want something
-else:
-
-| `--target` | Reviews |
-|---|---|
-| *(omitted)* | committed + uncommitted changes on the current branch |
-| `src/foo.ts` | that file or directory (its diff, or the whole file if unchanged) |
-| `feature-branch` | that branch against the base branch |
-| `abc123..def456` | that git ref range |
-| `123` or `#123` | that GitHub pull request (needs `gh`) |
-
-Use `--since REF` to scope the one review to an incremental delta, or when the
-user explicitly requests an additional incremental pass. It reviews committed,
-staged, and unstaged changes since that ref, plus every current untracked file
-in full. Git cannot determine when an untracked file was created, so commit the
-previously reviewed state before relying on this as a strict delta. `--since`
-and `--target` are mutually exclusive. The existence of `--since` does not
-authorize another review.
-
-Other options: `--base BRANCH` when the base branch is not `origin/HEAD`/
-`main`/`master`, `--repo DIR` to review a different checkout (a worktree, for
-example), `--model` / `--effort` to change the review model, `--out FILE` to
-choose the output path, `--print-prompt` to see what would be reviewed without
-spending a review. `--help` documents everything.
-
-Exit codes: `64` usage error, `65` nothing to review, `69` Claude Code missing
-or unauthenticated, `70` the review run failed, `130` interrupted, and `143`
-terminated. On `69`, tell the user what the stderr message says — you cannot
-fix their auth for them. Do not fall back to reviewing the change yourself and
-presenting it as an independent review.
+Wait for that exact subagent to finish. Do not send it follow-up hints that
+would compromise independence. If it cannot access the change or complete the
+review, report the failure plainly; do not substitute your own review and call
+it independent.
 
 ### 3. Verify every finding against the real code
 
@@ -149,13 +131,14 @@ Tell the user, per finding, one of:
 - **Unresolved** — real, but not fixed here, with the reason (out of scope,
   needs a product decision, needs the user's input) and what it would take.
 
-Also state plainly if the reviewer returned nothing. Include the review file
-path so the user can read the raw output themselves.
+Also state plainly if the reviewer returned nothing.
 
 ## Rules
 
-- Never ask the reviewer to fix anything. It is read-only by construction and
-  by prompt; keep it that way.
+- Always use a fresh `gpt-5.6-sol` subagent with `fork_turns: "none"` for the
+  review. Do not substitute a different model or inherit the parent context.
+- Never ask the reviewer to fix anything. Keep it read-only by prompt and task
+  scope.
 - Never present the reviewer's findings to the user as established facts before
   you have verified them.
 - Never suppress a confirmed finding because it is inconvenient or because the
