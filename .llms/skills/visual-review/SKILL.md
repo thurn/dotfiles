@@ -40,10 +40,14 @@ Navigate the principal flow and inspect enough representative screens to learn
 the product's visual language. Capture a representative screenshot early and
 inspect it visually before expanding the review.
 
-For responsive interfaces, review at least one wide and one narrow viewport.
-Add an intermediate viewport when a breakpoint, dense layout, or aspect ratio
-creates a distinct risk. Prefer viewports relevant to the product over an
-arbitrary exhaustive matrix.
+For responsive interfaces, inspect the browser's natural viewport before
+applying any override; it is a required test surface because it represents the
+environment in which the user is actually viewing the product. Also review at
+least one representative wide and one narrow viewport. Add an intermediate or
+tall viewport when density, fixed-height content, orientation, or aspect ratio
+creates a distinct risk. When source styles or rendered behavior reveal a
+relevant breakpoint, inspect one viewport on each side of it. Prefer viewports
+relevant to the product over an arbitrary exhaustive matrix.
 
 Exercise reachable component states, especially:
 
@@ -117,6 +121,122 @@ Capture only the evidence needed to support the report. Prefer full-viewport
 captures for layout context and native-resolution focused crops for component
 fit, clipping, internal alignment, or transient states. Record the viewport and
 state for every screenshot referenced in the report.
+
+## Mandatory Acceptance Gate
+
+Do not declare the review complete or satisfied until every applicable check
+below has been performed. Record enough measurements to distinguish a verified
+pass from a visual impression.
+
+### Layout geometry
+
+At every reviewed viewport, collect rendered bounding boxes for major content
+regions, repeated rows or cards, primary actions, destructive actions, and any
+floating, overlapping, sticky, transformed, absolutely positioned, or
+negative-margin elements. Also record relevant container and document scroll
+dimensions.
+
+Check those bounds for lost containment and unintended intersections. Any
+action intersecting unrelated text, controls, or content is a bug unless a
+supplied reference or established pattern clearly supports that exact overlap.
+When overlap is intentional, verify that it intersects only the intended
+decorative boundary rather than adjacent content. Do not infer intent merely
+because the overlap is small or the obscured content remains understandable.
+
+For dense, viewport-filling, fixed-height, or game-like interfaces, a wide
+landscape viewport and a narrow phone viewport are not sufficient. Include the
+natural viewport and an intermediate or tall aspect ratio, then repeat the
+geometry check at each size.
+
+### Component interiors and families
+
+For every distinct control family, inspect at least one representative member
+at native resolution or in a tight crop. For controls containing a glyph,
+icon, checkmark, label, badge, or multiple internal items, measure the outer
+control and the tight rendered bounds of each internal item. Do not substitute
+the parent label, hit target, nominal CSS box, or untransformed pseudo-element
+rectangle for the visible glyph bounds. Account for transforms, borders,
+shadows, masks, and generated pseudo-elements by transforming their corners or
+measuring a native-resolution crop.
+
+For each representative control, record:
+
+- outer control width and height;
+- tight rendered internal-item width and height;
+- horizontal and vertical center offsets;
+- top, right, bottom, and left clearances; and
+- the method used to measure generated or transformed content.
+
+Compare horizontal and vertical alignment separately. A center offset greater
+than 1 CSS pixel or 3% of the relevant control dimension, whichever is larger,
+requires an explicit finding or reference-backed justification. Asymmetric
+glyphs such as checkmarks, arrows, and asymmetric icons are not automatically
+optically centered: inspect their visible pixel bounds and surrounding
+whitespace. Do not call asymmetry intentional merely because the glyph remains
+inside its control or because its shape is conventionally asymmetric. Flag
+unexplained center offsets, collapsed insets, or optical imbalance.
+Functionality alone is not evidence that a control's visual fit passes.
+
+Identify visually related controls across the full journey, including controls
+on different screens. Compare their total visible border and outline thickness,
+number and weight of border layers, internal padding, label placement, corner
+treatment, visual mass, and interaction states. A special-purpose variant may
+differ, but the difference must be supported by the inferred design system or
+reference rather than assumed intentional.
+
+The required border-stack table must include every distinct button-like family
+encountered across every reviewed screen, not merely one convenient comparison.
+Include a representative standard or navigation action, selected action or tab,
+field-like control, toggle, destructive action, primary action, and return or
+back action whenever those families exist. Compare each special-purpose variant
+with its nearest baseline sibling, including cross-screen siblings such as a
+main-menu action and a Return action. Omitting an encountered button-like family
+from this table fails the acceptance gate.
+
+For every table row, measure visible edge thickness on representative horizontal
+and vertical sides, count distinct border or outline layers, and normalize edge
+thickness by control height. A variant with more than one additional visible
+layer or more than 50% greater normalized edge thickness must appear explicitly
+in **Bugs** or **Design Feedback**, with the measurements and rationale.
+Reference evidence may change the classification or recommendation, but it does
+not permit omitting the departure from the report. A reference justifies a
+cross-family difference only when it visibly includes both compared variants or
+documents their relationship; a unique treatment shown in isolation cannot
+establish that its departure from sibling controls is intentional. Do not treat
+a primary, destructive, navigation, or return variant as exempt from family
+comparison.
+
+### Reference landmarks
+
+When reference art is supplied, identify its major geometric landmarks before
+judging fidelity. These may include frame and panel edges, repeated column
+boundaries, title and row baselines, button centerlines, and decorative borders
+that pass through or behind controls. Compare rendered landmarks with the
+reference using normalized positions, aligned crops, or measured offsets. A
+general resemblance in color and style is not sufficient evidence of geometric
+fidelity.
+
+### Completion evidence
+
+Before reporting no bugs or declaring satisfaction, include a compact evidence
+matrix in **Scope Reviewed** that records, for each viewport and state:
+
+- exact CSS width and height, and whether it is the natural viewport;
+- overflow, containment, and collision results;
+- focused component families inspected;
+- reference landmarks compared; and
+- important states or measurements that could not be examined.
+
+Also include a focused-control evidence table containing the required internal
+bounds, center offsets, and four-sided clearances for each inspected component
+family, plus the numeric border-stack comparison for related controls. A prose
+statement that controls are centered, contained, or visually consistent is not
+sufficient completion evidence.
+
+After fixes, rerun the complete acceptance gate once before issuing a final
+satisfied verdict. A focused recheck of only the previously reported findings
+is not sufficient because it can preserve unrelated misses or introduce
+regressions.
 
 ## Derive the Design System
 
