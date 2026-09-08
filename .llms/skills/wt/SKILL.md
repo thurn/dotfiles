@@ -1,6 +1,6 @@
 ---
 name: wt
-description: Implement and commit a task in an isolated, Tollgate-created git worktree based on the local release branch, immediately submit it as a non-promotable candidate, then obtain one explicit promotion mandate and drive in-scope CI repairs, certified promotion, and remote synchronization to completion without repeated approval prompts.
+description: Implement and commit a task in an isolated, Tollgate-created git worktree based on the local release branch, immediately submit it as a non-promotable candidate, then obtain one explicit promotion mandate and drive bounded in-scope CI repair, certified promotion, and remote synchronization without repeated approval prompts.
 ---
 
 # Worktree Task
@@ -8,9 +8,9 @@ description: Implement and commit a task in an isolated, Tollgate-created git wo
 Implement and commit the requested task inside a standalone Tollgate-created git worktree,
 immediately submit the immutable commit to Tollgate for speculative validation,
 then offer one scope-bound promotion mandate. After approval, authorize exact
-Tollgate candidates and keep repairing and resubmitting in-scope CI failures
-until certified promotion onto local `release` and, when configured, remote
-`master` succeeds. The user's local
+Tollgate candidates and repair in-scope CI failures within the bounded policy
+below. Drive successful candidates through certified promotion onto local
+`release` and, when configured, remote `master`. The user's local
 `master` branch remains an ordinary user-owned checkout and is never Tollgate's
 promotion target.
 
@@ -122,6 +122,22 @@ Anything added to this ledger must have an explicit cleanup step before the task
 is considered finished, unless the user has deliberately asked to keep it
 running.
 
+### Preserve work promptly when the user asks to wrap up
+
+A wrap-up or stop request ends new implementation scope immediately. Within five
+minutes, report one inventory of owned dirty paths, local commits, Tollgate
+candidates, and live jobs. Target ten minutes to preserve every intended change
+in local Git without waiting for a build, review, or candidate.
+
+When validation cannot finish inside that bound, stage only the intended paths
+and create an explicitly unvalidated checkpoint commit in the task worktree.
+Do not submit, authorize, or push that checkpoint. Record the failed or running
+validation handle and dispose of every owned live job as the user requested.
+This is a narrow exception to the usual verify-before-commit sequence; it is not
+evidence and cannot be promoted. If work resumes, amend or consolidate the
+checkpoint into the final clean task commit, complete local evidence, and only
+then submit the exact candidate.
+
 ### Finish local review evidence before freezing the candidate
 
 Complete all proportionate local verification, browser QA, screenshots, and
@@ -225,9 +241,10 @@ explicit options:
 
 - "Yes" — grant a promotion mandate for the reviewed task. Authorize the
   displayed exact candidate, and if CI exposes failures within the approved
-  scope, repair them in the same worktree, submit and authorize exact replacement
-  candidates, and continue until Tollgate certifies, promotes, and pushes the
-  result. Do not ask again merely because CI required another repair iteration.
+  scope, repair them in the same worktree within the bounded repair policy,
+  submit and authorize exact replacement candidates, and drive a successful
+  result through certification, promotion, and push. Do not ask again merely
+  because CI required another repair iteration.
 - "No" — cancel and dequeue the non-promotable candidate while leaving its
   local commit and worktree intact.
 
@@ -239,20 +256,31 @@ Tollgate will promote only an exact candidate after it earns valid evidence.
 Also state the worktree name in bold in this handoff. This is the required
 worktree-name disclosure; it does not need to be repeated in other turns.
 
-If you were working on a visual change, provide the complete file paths to one
-or more screenshots showing your work. Use the smallest evidence set that
-demonstrates the distinct visual risks: normally one representative desktop,
-one representative mobile, and one changed interaction state when each is
-relevant. Add a viewport or state only when it exercises a different layout,
-safe-area, or rendering risk. Before running an expensive final matrix, inspect
-one representative capture early enough to correct the visual direction.
+Choose review evidence for the product and risk being changed:
 
-### Leave a running demo server so the user can interact with the work
+- For native visual behavior, use retained native screenshots, recordings, or
+  an appropriate reviewed native player. Do not build or serve a browser version
+  solely to create a handoff artifact.
+- For browser behavior, use focused browser screenshots and interaction
+  evidence. Provide a live demo only when browser interaction is part of the
+  changed risk, the repository requires one, or the user asks for one.
+- For nonvisual changes, use the worktree review link plus concise verification
+  evidence. Do not invent a visual demo.
 
-In addition to the screenshots, before you prompt for promotion, start the
-project's dev/demo server **from inside `$WORKTREE`** and leave it running so the
-user can click through the change themselves. The screenshots show a frozen
-moment; the live server lets the user exercise the actual behaviour.
+Use the smallest evidence set that demonstrates distinct visual risks: normally
+one representative desktop, one representative mobile, and one changed
+interaction state when each is relevant. Add a viewport or state only when it
+exercises a different layout, safe-area, or rendering risk. Before running an
+expensive final matrix, inspect one representative assembled-product capture or
+interaction early enough to correct the direction.
+
+### When a live browser demo is appropriate
+
+When the selection above requires a live browser demo, start the project's
+dev/demo server **from inside `$WORKTREE`** and leave it running so the user can
+exercise the changed behavior. The remaining instructions in this section apply
+only to that selected demo; they are not requirements for native or nonvisual
+tasks.
 
 Do not use a long-lived `exec_command` PTY, its returned session id, a trailing
 `&`, or `nohup` alone as the server's lifetime boundary. Those processes can
@@ -391,7 +419,7 @@ viewport at the intended device scale and that the image is crisp and readable.
 If it is low-detail or the wrong viewport size, recapture before presenting the
 screenshot to the user.
 
-### Codex app review artifacts: inline images and real demo URLs
+### Codex app browser-demo artifacts
 
 When running in the Codex desktop app, local screenshots must be displayed
 inline as part of the promotion request turn itself. Do not send the demo URL
@@ -418,7 +446,8 @@ Rules for Codex app screenshot delivery:
 - Keep the local image files in a stable worktree path, preferably
   `$WORKTREE/screenshots/`, until promotion/cleanup is complete.
 
-The Codex app review/promotion handoff should include, in this order:
+When a live browser demo is selected, the Codex app review/promotion handoff
+should include, in this order:
 
 1. The **Open worktree review** Markdown link generated from the absolute
    worktree path.
@@ -516,7 +545,7 @@ waits for Tollgate to finish validation and promotion. If validation already
 finished, Tollgate reuses its sealed evidence when the generation is still
 exact.
 
-Stop the task's demo server and any other worktree-rooted runtime processes
+Stop any selected demo server and all other worktree-rooted runtime processes
 before authorizing. Tollgate may automatically remove the clean source worktree
 and branch immediately after successful promotion and push; no process should
 still depend on that directory.
@@ -563,8 +592,8 @@ If CI requires editing the source commit, use the repair loop below.
 
 ### Continue through in-scope CI repair iterations
 
-Approval means keep going until CI passes and Tollgate completes promotion; it
-is not a prompt to request approval after every failed candidate. When CI fails:
+Approval authorizes in-scope repair without repeated approval prompts. It does
+not authorize an unlimited certification loop. When CI fails:
 
 Run `tg --no-launch diagnose <candidate-id>` first to replay exact evidence and attribute the failure, adding `--verify-repair` when Tollgate reports one unambiguous structured repair worth validating.
 
@@ -577,9 +606,13 @@ Run `tg --no-launch diagnose <candidate-id>` first to replay exact evidence and 
    candidate's retained source OID exactly equals the clean worktree `HEAD`.
 4. Under the still-active user mandate, authorize that exact replacement and
    wait for validation and promotion. Do not ask the user to approve it again.
-5. Repeat for further in-scope CI failures until a candidate passes and is
-   promoted, or until an external blocker or a scope boundary genuinely requires
-   user input.
+5. Isolate the exact phase before another aggregate run. Permit at most one
+   unchanged retry for a stated hypothesis or changed resource condition. A
+   second failure at the same boundary ends speculative aggregate retries.
+6. Spend at most fifteen further minutes on focused diagnosis at that boundary,
+   then make a concrete repair or rollback. If neither is available, preserve an
+   unvalidated checkpoint and retained failure handle, stop owned work, and
+   report the exact blocker instead of extending the loop.
 
 An amended source always requires a new exact Tollgate candidate. It requires
 renewed user approval only when the amendment materially changes the approved
@@ -598,6 +631,11 @@ Finally confirm:
 - local `release` contains the promoted tested OID;
 - configured remote `master` equals local `release`; and
 - no unrelated commit was rewritten or reordered.
+
+Do not rebase or rebuild merely because an unrelated commit advanced local
+`release`; Tollgate owns integration reconstruction and decides which evidence
+remains valid. Rebase only for a real dependency, conflict, or explicit user
+instruction.
 
 Do not update the user's local `master` checkout as part of this workflow. It
 may remain behind after certified promotion and can later be synchronized by
@@ -628,15 +666,15 @@ longer matches the captured candidate.
 Do not delete the worktree or branch if promotion did not complete cleanly.
 If promotion is explicitly declined, cancel the unauthorized candidate with
 `tg cancel <candidate-id>` so it cannot block later queue promotion, leave the
-local commit and worktree intact, and ask whether the user wants to keep the
-demo server running. If they are done reviewing, or if they ask to stop, clean
-up the runtime ledger even though the committed branch remains. A future attempt
-may resubmit that same clean commit as a new candidate.
+local commit and worktree intact, and, when a demo exists, ask whether the user
+wants to keep it running. If they are done reviewing, or if they ask to stop,
+clean up the runtime ledger even though the committed branch remains. A future
+attempt may resubmit that same clean commit as a new candidate.
 
 Before ending the task, run a final resource check scoped to the recorded
-ledger: verify the demo port, browser session, and worktree-rooted server or
-emulator processes are either stopped or explicitly being left alive at the
-user's request. Also verify the candidate's terminal state and that the
+ledger: verify every selected demo port, browser session, and worktree-rooted
+server or emulator process is either stopped or explicitly being left alive at
+the user's request. Also verify the candidate's terminal state and that the
 worktree path and local branch are gone after successful promotion. Report any
 intentionally retained runtime resources or worktrees in the final message.
 
@@ -660,15 +698,15 @@ git -C "$WORKTREE" commit --amend
 tg --no-launch --json candidate HEAD
 ```
 
-Run the appropriate focused verification again, update the running demo from
-that worktree, recapture only affected screenshots, and record the replacement
-candidate ID and source OID. Before the user has granted a promotion mandate, a
-user-requested refinement changes the review artifact and the replacement needs
-explicit approval. After the user has granted the mandate, an in-scope CI repair
-inherits that mandate and its exact replacement candidate should be authorized
-without another prompt. A material change to approved scope, behavior, or
-user-visible intent still requires renewed review and approval. Do not push the
-worktree branch.
+Run the appropriate focused verification again, update any selected running
+demo from that worktree, recapture only affected screenshots, and record the
+replacement candidate ID and source OID. Before the user has granted a promotion
+mandate, a user-requested refinement changes the review artifact and the
+replacement needs explicit approval. After the user has granted the mandate, an
+in-scope CI repair inherits that mandate and its exact replacement candidate
+should be authorized without another prompt. A material change to approved
+scope, behavior, or user-visible intent still requires renewed review and
+approval. Do not push the worktree branch.
 
 An "active review worktree" exists only when you created it earlier in this
 same conversation and handed its artifacts to the user for review. A user naming

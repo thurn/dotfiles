@@ -39,9 +39,11 @@ resolved.
 
 ### 1. Get the change green first
 
-Run the project's own tests, formatter, linter, and typechecker, and make them
-pass. Follow whatever the repository's instructions say; if it defines a single
-aggregate check, run that. Fix what they report before continuing.
+Run the project's supported check for the current change and make it pass.
+Prefer its trusted affected-check selector when one exists; otherwise follow
+the repository's aggregate requirement. Also run the formatter, linter, or
+typechecker when they are not already part of that entry point. Fix what they
+report before continuing.
 
 ### 2. Run one independent Sol subagent
 
@@ -117,9 +119,10 @@ so in the report rather than half-fixing it.
 
 ### 5. Rerun the affected checks
 
-After fixing, rerun the tests, lint, and typechecks that your changes could
-affect — at minimum the ones covering the files you touched. If a fix was
-substantial, rerun the full check from step 1.
+After fixing, rerun the supported affected checks, lint, and typechecks that the
+fix could affect. Rerun a full aggregate only when repository policy requires it
+or the fix broadens the risk. A read-only review with no resulting source change
+does not justify repeating already valid aggregate evidence.
 
 ### 6. Report the disposition of every finding
 

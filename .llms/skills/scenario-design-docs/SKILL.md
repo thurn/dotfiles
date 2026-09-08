@@ -41,6 +41,9 @@ workflow below.
 - Resolve dependencies between decisions in order. Ask upstream questions
   before questions whose answer depends on them.
 - Use scenario testing throughout the interview, not only at the end.
+- For a large or cross-layer design, include one representative scenario at a
+  real assembled-product boundary before expanding into a broad scenario set.
+  A component fixture or gallery is supporting evidence, not a substitute.
 - Present scenarios one at a time. Do not batch many scenarios into one prompt.
 - Simulate expected behavior at the highest fidelity the project allows.
 - Preserve a running list of confirmed decisions, assumptions, rejected options,
@@ -114,6 +117,11 @@ Ask only one question. Wait for the user's answer before continuing.
 After enough upstream decisions are known, switch from abstract questions to
 scenario prompts. Each scenario should describe one realistic usage path and
 ask the user to confirm or adjust the expected behavior.
+
+For large or cross-layer work, begin with one representative assembled-product
+interaction that crosses the important ownership boundary. Put that concrete
+scenario in the appendix so implementation can exercise it early; do not turn
+the requirement into a universal compatibility matrix.
 
 For concrete tools, simulate exact behavior:
 

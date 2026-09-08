@@ -89,6 +89,10 @@ Follow these rules for all documents generated with this skill:
 - Do not include `Open Questions`, `Risks and Tradeoffs`, or `Non-Goals`
   sections.
 - Always include a `Manual QA` section as the final section of the document.
+- For a large or cross-layer design, identify one early assembled-product check
+  at a real integration boundary. A component fixture or gallery does not
+  replace this check. Keep the concrete interaction in the design's validation
+  guidance rather than prescribing a universal product matrix.
 - Leave incidental local choices to the implementation team, but do not omit a
   mechanism, algorithm, data structure, or internal boundary when it is
   important to the design or needed to remove ambiguity.
@@ -383,6 +387,8 @@ the completed work is correct.
 
 Include:
 
+- One representative assembled-product flow to exercise early, before broad
+  validation, when the design crosses component or runtime boundaries
 - The main end-to-end flows to exercise manually
 - Important edge cases, compatibility checks, or failure states to trigger
 - Expected visible behavior, system state changes, or observable signals
