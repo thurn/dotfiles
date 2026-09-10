@@ -58,10 +58,7 @@ ZSH_THEME="dthurn"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git,
-  zsh-autosuggestions
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,3 +95,68 @@ tput rmam
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.shell_config.sh
+
+# -----------------------------------------------------------------------------
+# Smart completion and history search
+# -----------------------------------------------------------------------------
+
+# Rich descriptions, forgiving matching, and grouped completion results.
+# Oh My Zsh has already initialized Zsh's completion system at this point.
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' matcher-list \
+  'm:{a-zA-Z}={A-Za-z}' \
+  'r:|[._-]=* r:|=*'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' menu no
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*:git-checkout:*' sort false
+
+# Carapace supplies detailed subcommand/flag/argument completions and can fall
+# back to native Zsh, Fish, and Bash completers when needed.
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+source <(carapace _carapace)
+
+# Turn normal Tab completion into a fuzzy, grouped picker.
+source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' continuous-trigger '/'
+zstyle ':fzf-tab:*' fzf-flags \
+  --height=55% \
+  --layout=reverse \
+  --border=rounded \
+  --info=inline-right \
+  --prompt='  ' \
+  --pointer='▶' \
+  --marker='✓' \
+  --color='border:#5f87af,prompt:#87d7ff,pointer:#ffaf5f,marker:#87d787,hl:#87d7ff,hl+:#ffffff'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview \
+  'eza --all --color=always --group-directories-first --icons=auto "$realpath" 2>/dev/null | head -200'
+zstyle ':fzf-tab:complete:(bat|cat|less|vim|nvim|code):*' fzf-preview \
+  'bat --color=always --style=numbers --line-range=:300 "$realpath" 2>/dev/null || eza --all --color=always "$realpath" 2>/dev/null'
+
+# Smarter directory jumping: `z project-name`, or `zi` for an interactive list.
+eval "$(zoxide init zsh)"
+
+# Atuin records rich history metadata. It owns no keys by default here; Ctrl-S
+# is the primary history search, while Ctrl-R remains a familiar fallback.
+export ATUIN_NOBIND=true
+eval "$(atuin init zsh)"
+if [[ -o interactive ]]; then
+  stty -ixon 2>/dev/null  # Allow terminals to deliver Ctrl-S to ZLE.
+  bindkey -M emacs '^S' atuin-search
+  bindkey -M emacs '^R' atuin-search
+  bindkey -M viins '^S' atuin-search-viins
+  bindkey -M viins '^R' atuin-search-viins
+fi
+
+# Ghost-text suggestions. Right arrow/End accepts the whole suggestion;
+# Ctrl-Right accepts one word at a time in most terminals.
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Must stay last: it colors valid commands, errors, paths, quotes, and options.
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

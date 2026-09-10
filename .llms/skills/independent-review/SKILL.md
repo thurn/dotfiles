@@ -27,8 +27,12 @@ comment edits, pure data/config tweaks, and mechanical renames.
 
 ## Workflow
 
-Do these in order. Do not skip step 1 — sending a change with failing tests to
-review wastes the review on problems your own tooling already knows about.
+Do these in order. The pre-review check is deliberately focused and cheap:
+catch obvious failures before spending reviewer attention, but do not spend the
+project's expensive final-validation budget on code the reviewer may change.
+For workflow sequencing, assume the independent review will require source
+changes. Historically it has done so on every use; a no-change review is not a
+reasonable basis for running final validation early.
 
 Run this workflow at most once per session, including follow-up tasks in the
 same session. Findings, fixes made in response to findings, later user
@@ -37,13 +41,22 @@ Run an additional review only when the user explicitly requests another pass.
 A run that fails before producing a review may be retried after its failure is
 resolved.
 
-### 1. Get the change green first
+### 1. Make the change review-ready with focused checks
 
-Run the project's supported check for the current change and make it pass.
-Prefer its trusted affected-check selector when one exists; otherwise follow
-the repository's aggregate requirement. Also run the formatter, linter, or
-typechecker when they are not already part of that entry point. Fix what they
-report before continuing.
+Run the cheapest focused checks that exercise the changed behavior and make
+them pass. Include a formatter, targeted linter or typecheck only when it is
+cheap or directly relevant. The goal is to catch syntax errors, broken focused
+tests, and other obvious defects before asking for review.
+
+Do **not** run a full, aggregate, repository-selected, release, or otherwise
+expensive final validation before the independent review merely to make the
+change "green." Even when repository policy ultimately requires that suite,
+defer it until reviewer findings are resolved so it normally runs once against
+the final source. Do not speculate that the reviewer might return no changes;
+sequence the work on the assumption that pre-review aggregate evidence will be
+invalidated. If no focused check exists, use a cheap smoke check or proceed
+to review and treat the missing focused coverage as explicit context; do not
+substitute the expensive aggregate suite.
 
 ### 2. Run one independent Sol subagent
 
@@ -117,12 +130,17 @@ confirm, and do not perform speculative hardening "since it was mentioned". If
 a finding is real but a proper fix is clearly outside this change's scope, say
 so in the report rather than half-fixing it.
 
-### 5. Rerun the affected checks
+### 5. Validate the final source
 
-After fixing, rerun the supported affected checks, lint, and typechecks that the
-fix could affect. Rerun a full aggregate only when repository policy requires it
-or the fix broadens the risk. A read-only review with no resulting source change
-does not justify repeating already valid aggregate evidence.
+After resolving the review, rerun the focused checks affected by accepted
+findings. Then run the project's required repository-selected or aggregate
+validation against the final source. This is the normal point for expensive
+validation, whether or not the reviewer requested changes.
+
+Avoid duplicate aggregate runs. Reuse genuinely valid aggregate evidence only
+when it already covers the exact unchanged final source; otherwise run the
+required suite once after review. If that final suite fails, diagnose and repair
+it normally, then rerun only what repository policy and the repair require.
 
 ### 6. Report the disposition of every finding
 
@@ -146,6 +164,9 @@ Also state plainly if the reviewer returned nothing.
   you have verified them.
 - Never suppress a confirmed finding because it is inconvenient or because the
   fix is annoying. Report it as unresolved instead.
+- Never make an expensive aggregate or final-validation run a prerequisite for
+  requesting the independent review. Focused green checks are the prerequisite;
+  final validation belongs after review findings are resolved.
 - Run at most one completed review per session unless the user explicitly
   requests more. Follow-up tasks in the same session, reviewer fixes, user
   corrections, substantial follow-up changes, and an empty finding list do not
