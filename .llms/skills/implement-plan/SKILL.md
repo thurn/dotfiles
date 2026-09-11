@@ -1,9 +1,13 @@
 ---
 name: implement-plan
-description: Implement one or more task-based plans through two persistent Codex tasks, with an orchestrator reviewing and authorizing an implementer using a fresh wt worktree per task. Use for executing multi-task plans with message-driven review, promotion, and CI/workflow follow-ups.
+description: Implement one or more task-based plans through two persistent Codex tasks, with an orchestrator reviewing and authorizing an implementer using a fresh wt worktree per task. Use only when the user explicitly invokes $implement-plan.
 ---
 
 # Implement Plan
+
+Use this skill only when the user explicitly invokes `$implement-plan` by name.
+Do not infer invocation from a request to implement a task, execute a plan, or
+work from a plan document.
 
 Run the supplied plans through exactly two persistent Codex tasks: the receiving
 task is the orchestrator; one separate task is the implementer. Execute one
